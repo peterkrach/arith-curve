@@ -7,6 +7,7 @@
 \newtheorem{theorem}[subsection]{Theorem}
 \theoremstyle{definition}
 \newtheorem{example}[subsection]{Example}
+\newtheorem{question}[subsection]{Question}
 
 \title{Arithmetic of curves}
 \author{David Zywina\thanks{notes written by Daniel Miller}}
@@ -15,6 +16,7 @@
 \begin{document}
 \maketitle
 
+% perhaps include illustrations (graphs) of curves?
 
 
 
@@ -24,14 +26,197 @@
 
 
 
-\section{??}
 
-??
+\section{Plane curves}
+
+Fir a non-constant polynomial $f(x,y)\in\mathbb{Q}[x,y]$. Assume $f$ is 
+geometrically irreducible (i.e. irreducible in $\overline{\mathbb{Q}}[x,y]$). 
+We can define the curve $C$ over $\mathbb{Q}$ determined by the equation 
+$f(x,y)=0$. For now, we will think of $C$ in terms of its functor of points. 
+To any $\mathbb{Q}$-algebra $A$, we have $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$. 
+For those of you who know about schemes, 
+$C=\spec\left(\mathbb{Q}[x,y]/f\right)$. Some big questions are:
+\begin{enumerate}
+  \item Is $C(\mathbb{Q})=\varnothing$?
+  \item Is $C(\mathbb{Q})$ finite?
+  \item Can we compute $C(\mathbb{Q})$?
+\end{enumerate}
+None of these questions are known in full generality. 
+
+\begin{example}
+Let $f=x^2+y^2-1$, i.e. $C$ is the circle. It is well-known that 
+\[
+  C(\mathbb{Q})=\left\{\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right):t\in\mathbb{Q}\right\}\cup \{(-1,0)\}
+\]
+This can be proved in the usual manner by choosing the point 
+$(-1,0)$ in $C$, and then drawing lines with rational slopes through 
+$(-1,0)$. As a Riemann surface, $C(\mathbb{C})$ is a sphere minus 
+two points. 
+\end{example}
+
+\begin{example}
+Let $f=x^2+y^2+1$. Then $C(\mathbb{R})=\varnothing$, hence 
+$C(\mathbb{Q})=\varnothing$. But as a Riemann surface, $C(\mathbb{C})$ is 
+once again a sphere minus two points. Thus the geometry of $C$ does not 
+necessarily determine $C(\mathbb{Q})$. 
+\end{example}
+
+\begin{example}
+Let $f=x^4+y^4-1$. Then it is a theorem of Fermat that 
+$C(\mathbb{Q})=\{(\pm 1,0),(0,\pm 1)\}$.
+\end{example}
+
+\begin{example}[Stoll]
+Consider 
+\[
+  C : y^2=82342800 x^6 - 470135160 x^5 + 52485681 x^4 + 2396040466 x^3 + 567207969 x^2 - 985905640 x + 247747600
+\]
+This is a curve of genus 2, i.e. $C(\mathbb{C})$ is a punctured two-hole 
+torus. It turns out that $\# C(\mathbb{Q})\geqslant 642$. However, by a 
+theorem of Faltins, $\# C(\mathbb{Q})$ is finite. It is currently the 
+largest known number of rational points of a genus two curve over 
+$\mathbb{Q}$. If we take $C:y^2=f(x0$ with $f\in\mathbb{Q}[x]$ a ``random'' 
+sextic polynomial, then the expectation is that $C(\mathbb{Q})=\varnothing$. 
+\end{example}
+
+\begin{question}
+Does there exist a number $B_g$ such that if a curve $C/\mathbb{Q}$ has 
+genus $g\geqslant 2$, then $\# C(\mathbb{Q})\leqslant B_g$?
+\end{question}
+
+This is not even known for genus $g=2$. (?)
+
+\begin{example}
+Let $C:y^2=x^3+875 x$. Note that $C(\mathbb{Q})$ has the obvious point 
+$(0,0)$, and one can do a bit of work to show that this is the only point. 
+\end{example}
+
+\begin{example}
+Let $C:y^2=x^3+877 x$. Then $C(\mathbb{Q})$ once again contains $(0,0)$. A 
+computer search showed that $(0,0)$ is the only point on $C$ of height 
+$\leqslant 1000000$. For now, the \emph{height} of a solution is just the 
+largest absolute value of the numerator / denominator of a solution written 
+in reduced fractions. But there should be more solutions! Let $E$ be the 
+projective curve over $\mathbb{Q}$ obtained by adjoining a point $O$ to $C$. 
+As a Riemann surface, $E(\mathbb{C})$ is just a torus. 
+
+We can give $E/\mathbb{Q}$ the structure of an abelian variety. That is, 
+we can give $E$ the structure of a commutative algebraic group, i.e. the 
+operation is given by rational functions, with $O$ being the identity. 
+
+Later, we will think of $E\hookrightarrow \operatorname{Jac}(E)$, where 
+$\operatorname{Jac}(E)$ is the Jacobian of $E$. This embedding is determined 
+by a single point $O\in E$. 
+
+In particular, $E(\mathbb{Q})$ is an abelian group with identity $O$. It is 
+a theorem of Mordell that $E(\mathbb{Q})$ is in fact finitely generated. We 
+know the structure of such groups: $A\simeq A\times \mathbb{Z}^r$, where 
+$A$ is finite, and $r=\operatorname{rk} E$ is the \emph{rank} of $E$. 
+
+In general, $A$ is computable. In our case, $A=\mathbb{Z}/2$. The hard 
+computational problem is: ``what is $r$''? The Birch and Swinnerton-Dyer 
+conjecture says that $r$ agrees with the order of vanishing $r'$ of a certain 
+holomorphic function $L(E,s)$ at $s=1$. Fortunately, $r'$ is (usually) 
+computable. In our example, a computation shows that $r'=1$, so we expect 
+$E(\mathbb{Q})\simeq \mathbb{Z}/2\times\mathbb{Z}$. In particular, 
+$E(\mathbb{Q})$ should be infinite. One can show (using other methods) that 
+$E(\mathbb{Q})=\langle (0,0),(x_0,y_0)\rangle$, where 
+\[
+  x_0 = \frac{37 5494 5281 2716 2193 1055 0406 9942 0927 9234 6201}{6215 9877 7687 1505 4254 6322 0780 6972 3804 4100}
+\]
+For details, see \cite{br84} -- they use Heegner points. Though his proof wasn't 
+accepted at the time, Heegner solved the class number one problem, i.e. 
+determined which imaginary quadratic fields have class number one. 
+\end{example}
+
+In general, we will take a curve $E/\mathbb{Q}$, consider its jacobian $J$, 
+and look at $J(\mathbb{Q}$. This will be a group, and we will see how its 
+structure influences $E(\mathbb{Q})$. The ``average rank of an elliptic 
+curve'' is not known. David Zywina expects that the rank is $0$ or $1$, both 
+with probability $\frac 1 2$. It is known (ask Christine?) that 
+\[
+  \limsup_{B\to\infty} \frac{1}{4 B^2} \sum_{|a|,|b|\leqslant B} \operatorname{rk}(E) < 1
+\]
+
+\begin{question}
+Is $\operatorname{rk} E(\mathbb{Q})$ bounded for all elliptic curves 
+$E/\mathbb{Q}$?
+\end{question}
+
+The current record is 18. It is known that there are curves with rank at least 
+$28$, but their exact ranks are not known (cite Wiki). David guesses that 
+the answer to the question is no. 
+
+In general, the assumption that $f(x,y)$ is absolutely irreducible is not a 
+serious one. For example, if $f=y^2-x^2$, then we can factor $f$ as 
+$(x+y)(x-y)$, and then treat the solutions to $x+y=0$ and $x-y=0$ separately. 
+Another example is $f=x^2+y^2$, which only factors over $\mathbb{Q}(i)$ as 
+$(y+i x)(y-i x)$, and we can treat these components separately. Also, the 
+assumption that $f\in \mathbb{Q}[x,y]$ is not serious. One can prove that 
+every curve $C/\mathbb{Q}$ embeds into $\mathbb{P}^2_\mathbb{Q}$, hence is 
+birational to a plane curve. 
+
+Let $C/\mathbb{Q}$ be a curve. Then 
+$C(\mathbb{C})\setminus \{\text{singular points}\}$ is a compact Riemann 
+surface with points remove, i.e. it is a torus with $g$ handles with finitely 
+many points removed. Call this $g$ the \emph{genus} of $C$. 
+
+\begin{theorem}[Faltings, conjectured by Mordell]
+If $C$ is a curve over $\mathbb{Q}$ with $g\geqslant 2$, then $C(\mathbb{Q})$ 
+is finite. 
+\end{theorem}
+
+For curves of genus $1$, very little is known in general. In Faltings' 
+theorem, $\mathbb{Q}$ can be replace by any field finitely generated over 
+$\mathbb{Q}$. 
+
+Now let $C$ be a smooth projective curve of genus $g$ over $\mathbb{F}_p$. 
+We are interested in $|C(\mathbb{F}_{p^n})|$, which is obviously computable 
+for each $n$. Let 
+\[
+  Z(C,t) = \exp\left( \sum_{n>0} \frac{|C(\mathbb{F}_{p^n})|}{n} t^n \right) \in \mathbb{Q}\llbracket t\rrbracket 
+\]
+
+\begin{theorem}[Weil]
+If $C/\mathbb{F}_p$ is a smooth projective curve of genus $g$, then 
+\[
+  Z(C,t) = \frac{P(C,t)}{(1-T)(1-p T)}
+\]
+where $P(C,t)\in \mathbb{Z}[t]$ has degree $2 g$. Moreover, if 
+$P(C,t) = \prod_{i=1}^{2 g} (1-\alpha_i t)$, then for each $i$, one has 
+$|\alpha_i|=p^{1/2}$. 
+\end{theorem}
+
+The second statement in the theorem is called the ``Riemann hypothesis'' for 
+$C$. 
+
+As an aside, note that 
+\begin{align*}
+  \sum_{n>0} |C(\mathbb{F}_{p^n})| &= 
+  \log Z(C) \\
+    &= -\log(1-t) - \log(1-p t) + \sum_i \log(1-\alpha_t t) \\
+    &= \sum_{n>0} \left(p^n+1-\sum_{i=1}^{2 g} \alpha_i^n\right) t^n
+\end{align*}
+It follows that 
+$\left||C(\mathbb{F}_{p^n})|-(p^n+1)\right| \leqslant 2 g p^{n/2}$. In 
+particular, if $g=1$, then 
+$\left| |C(\mathbb{F}_p)|-(p+1)\right| \leqslant 2 p^{1/2}$. Thus 
+$|C(\mathbb{F}_p)| \geqslant p-2 p^{1/2}+1 = (p^{1/2}-1)^2>0$, so 
+$C$ has a $\mathbb{F}_p$-rational point. 
 
 
 
 
 
+
+
+
+
+
+
+\begin{thebibliography}{9}
+  \bibitem{br84} A. Bremner, J. Cassels, \emph{On the equation $Y^2=X(X^2+p)$}, Math. Comp. 42 (1984), no.165, 257-264. 
+\end{thebibliography}
 
 
 
