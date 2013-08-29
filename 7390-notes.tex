@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{amsmath,amssymb,amsthm,fullpage,mathrsfs,stmaryrd}
+\usepackage{amsmath,amssymb,amsthm,fullpage,hyperref,mathrsfs,stmaryrd}
 \usepackage[all]{xy}
 \DeclareMathOperator{\spec}{Spec}
 
@@ -98,7 +98,7 @@ Does there exist a number $B_g$ such that if a curve $C/\mathbb{Q}$ has
 genus $g\geqslant 2$, then $\# C(\mathbb{Q})\leqslant B_g$?
 \end{question}
 
-This is not even known for genus $g=2$. (?)
+This is not even known for genus $g=2$. See for example \href{http://mathoverflow.net/questions/103327/what-is-the-maximum-number-of-rational-points-of-a-curve-of-genus-2-over-the-rat}{this mathoverflow answer}. 
 
 \begin{example}
 Let $C:y^2=x^3+875 x$. Note that $C(\mathbb{Q})$ has the obvious point 
@@ -144,12 +144,12 @@ determined which imaginary quadratic fields have class number one.
 \end{example}
 
 In general, we will take a curve $E/\mathbb{Q}$, consider its jacobian $J$, 
-and look at $J(\mathbb{Q}$. This will be a group, and we will see how its 
+and look at $J(\mathbb{Q})$. This will be a group, and we will see how its 
 structure influences $E(\mathbb{Q})$. The ``average rank of an elliptic 
 curve'' is not known. David Zywina expects that the rank is $0$ or $1$, both 
-with probability $\frac 1 2$. It is known (ask Christine?) that 
+with probability $\frac 1 2$. It is known (see \cite{bh10}) that 
 \[
-  \limsup_{B\to\infty} \frac{1}{4 B^2} \sum_{|a|,|b|\leqslant B} \operatorname{rk}(E) < 1
+  \limsup_{B\to\infty} \frac{1}{4 B^2} \sum_{|a|,|b|\leqslant B} \operatorname{rk}(E) \leqslant 1.5
 \]
 
 \begin{question}
@@ -157,8 +157,8 @@ Is $\operatorname{rk} E(\mathbb{Q})$ bounded for all elliptic curves
 $E/\mathbb{Q}$?
 \end{question}
 
-The current record is 18. It is known that there are curves with rank at least 
-$28$, but their exact ranks are not known (cite Wiki). David guesses that 
+The current record is 19. It is known that there are curves with rank at least 
+$28$, but their exact ranks are not known \cite{du}. David guesses that 
 the answer to the question is no. 
 
 In general, the assumption that $f(x,y)$ is absolutely irreducible is not a 
@@ -229,7 +229,9 @@ $C$ has a $\mathbb{F}_p$-rational point.
 
 
 \begin{thebibliography}{9}
+  \bibitem{bh10} M. Barghava, A. Shankar, \emph{Binary quadratic forms having bounded invariants, and the boundedness of the average rank of elliptic curves}, preprint, \texttt{arXiv:1006.1002}.
   \bibitem{br84} A. Bremner, J. Cassels, \emph{On the equation $Y^2=X(X^2+p)$}, Math. Comp. 42 (1984), no.165, 257-264. 
+  \bibitem{du} A. Dujella, \emph{History of elliptic curves rank records}, \url{http://web.math.pmf.unizg.hr/~duje/tors/rankhist.html}. 
 \end{thebibliography}
 
 
