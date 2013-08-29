@@ -10,27 +10,13 @@
 \newtheorem{question}[subsection]{Question}
 
 \title{Arithmetic of curves}
-\author{David Zywina\thanks{notes written by Daniel Miller}}
+\author{Daniel Miller\thanks{notes to a course taught by David Zywina at Cornell}}
 \date{fall 2013}
 
 \begin{document}
 \maketitle
 
 % perhaps include illustrations (graphs) of curves?
-
-
-
-
-
-
-
-
-
-
-\section*{Disclaimer}
-
-This course was taught by David Zywina, but the notes were written and 
-edited solely by Daniel Miller. 
 
 
 
@@ -82,15 +68,17 @@ $C(\mathbb{Q})=\{(\pm 1,0),(0,\pm 1)\}$.
 
 \begin{example}[Stoll]
 Consider 
-\[
-  C : y^2=82342800 x^6 - 470135160 x^5 + 52485681 x^4 + 2396040466 x^3 + 567207969 x^2 - 985905640 x + 247747600
-\]
+\begin{align*}
+  C : y^2 = 82342800 x^6 &- 470135160 x^5 + 52485681 x^4 + 2396040466 x^3 \\
+    &+ 567207969 x^2 - 985905640 x + 247747600
+\end{align*}
 This is a curve of genus 2, i.e. $C(\mathbb{C})$ is a punctured two-hole 
-torus. It turns out that $\# C(\mathbb{Q})\geqslant 642$. However, by a 
-theorem of Faltins, $\# C(\mathbb{Q})$ is finite. It is currently the 
-largest known number of rational points of a genus two curve over 
-$\mathbb{Q}$. If we take $C:y^2=f(x0$ with $f\in\mathbb{Q}[x]$ a ``random'' 
-sextic polynomial, then the expectation is that $C(\mathbb{Q})=\varnothing$. 
+torus. It turns out that $\# C(\mathbb{Q})\geqslant 642$ \cite[\S 6]{st09}. 
+However, by a theorem of Faltins, $\# C(\mathbb{Q})$ is finite. It is 
+currently the largest known number of rational points of a genus two curve 
+over $\mathbb{Q}$. If we take $C:y^2=f(x)$ with $f\in\mathbb{Q}[x]$ a 
+``random'' sextic polynomial, then the expectation is that 
+$C(\mathbb{Q})=\varnothing$. 
 \end{example}
 
 \begin{question}
@@ -146,11 +134,15 @@ determined which imaginary quadratic fields have class number one.
 In general, we will take a curve $E/\mathbb{Q}$, consider its jacobian $J$, 
 and look at $J(\mathbb{Q})$. This will be a group, and we will see how its 
 structure influences $E(\mathbb{Q})$. The ``average rank of an elliptic 
-curve'' is not known. David Zywina expects that the rank is $0$ or $1$, both 
-with probability $\frac 1 2$. It is known (see \cite{bh10}) that 
+curve'' is not known, nor is there a general consensus on what is should be. 
+Some expect it the rank of a random curve to be $0$ or $1$, both with 
+probability $\frac 1 2$. Others claim that elliptic curves over $\mathbb{Q}$ 
+have rank $2$ with nonzero probability as well. It was proven recently (see 
+\cite[\S 1]{bh10}) that 
 \[
-  \limsup_{B\to\infty} \frac{1}{4 B^2} \sum_{|a|,|b|\leqslant B} \operatorname{rk}(E) \leqslant 1.5
+  \limsup_{B\to\infty} \frac{1}{4 B^2} \sum_{|a|,|b|\leqslant B} \operatorname{rk}(E_{a,b}) \leqslant 1.5
 \]
+where $E_{a,b}$ is the elliptic curve defined by $y^2=x^3 +a x+b$.
 
 \begin{question}
 Is $\operatorname{rk} E(\mathbb{Q})$ bounded for all elliptic curves 
@@ -158,8 +150,9 @@ $E/\mathbb{Q}$?
 \end{question}
 
 The current record is 19. It is known that there are curves with rank at least 
-$28$, but their exact ranks are not known \cite{du}. David guesses that 
-the answer to the question is no. 
+$28$, but their exact ranks are not known \cite{du}. It is generally thought 
+that the answer is no, and that the NSA has examples of curves with much 
+larger ranks than publicly known. 
 
 In general, the assumption that $f(x,y)$ is absolutely irreducible is not a 
 serious one. For example, if $f=y^2-x^2$, then we can factor $f$ as 
@@ -188,35 +181,37 @@ Now let $C$ be a smooth projective curve of genus $g$ over $\mathbb{F}_p$.
 We are interested in $|C(\mathbb{F}_{p^n})|$, which is obviously computable 
 for each $n$. Let 
 \[
-  Z(C,t) = \exp\left( \sum_{n>0} \frac{|C(\mathbb{F}_{p^n})|}{n} t^n \right) \in \mathbb{Q}\llbracket t\rrbracket 
+  Z(C,t) = \exp\left( \sum_{n>0} \# C(\mathbb{F}_{p^n}) \frac{t^n}{n} \right) \in \mathbb{Q}\llbracket t\rrbracket 
 \]
 
 \begin{theorem}[Weil]
 If $C/\mathbb{F}_p$ is a smooth projective curve of genus $g$, then 
 \[
-  Z(C,t) = \frac{P(C,t)}{(1-T)(1-p T)}
+  Z(C,t) = \frac{P(C,t)}{(1-t)(1-p t)}
 \]
 where $P(C,t)\in \mathbb{Z}[t]$ has degree $2 g$. Moreover, if 
 $P(C,t) = \prod_{i=1}^{2 g} (1-\alpha_i t)$, then for each $i$, one has 
 $|\alpha_i|=p^{1/2}$. 
 \end{theorem}
 
-The second statement in the theorem is called the ``Riemann hypothesis'' for 
-$C$. 
-
-As an aside, note that 
+The second statement in the theorem is called the \emph{Riemann hypothesis} 
+for $C$. It can be used to obtain explicit bounds on the size of 
+$C(\mathbb{F}_{p^n})$ as $n\to\infty$. For example, we can compute 
 \begin{align*}
-  \sum_{n>0} |C(\mathbb{F}_{p^n})| \frac{t^n}{t} 
+  \sum_{n>0} \# C(\mathbb{F}_{p^n}) \frac{t^n}{n} 
     &= \log Z(C,t) \\
     &= -\log(1-t) - \log(1-p t) + \sum_i \log(1-\alpha_t t) \\
-    &= \sum_{n>0} \left(p^n+1-\sum_{i=1}^{2 g} \alpha_i^n\right) t^n
+    &= \sum_{n>0} \left(p^n+1-\sum_{i=1}^{2 g} \alpha_i^n\right) \frac{t^n}{n}
 \end{align*}
-It follows that 
-$\left||C(\mathbb{F}_{p^n})|-(p^n+1)\right| \leqslant 2 g p^{n/2}$. In 
-particular, if $g=1$, then 
-$\left| |C(\mathbb{F}_p)|-(p+1)\right| \leqslant 2 p^{1/2}$. Thus 
-$|C(\mathbb{F}_p)| \geqslant p-2 p^{1/2}+1 = (p^{1/2}-1)^2>0$, so 
-$C$ has a $\mathbb{F}_p$-rational point. 
+It follows easily that 
+$|\# C(\mathbb{F}_{p^n})-(p^n+1)| \leqslant 2 g p^{n/2}$. This is equivalent 
+to saying 
+\[
+  p^n-2 g p^{n/2}+1 \leqslant \# C(\mathbb{F}_{p^n}) \leqslant p^n + 2 g p^{n/2} + 1
+\]
+In particular, setting $n = g = 1$, we obtain 
+$\# C(\mathbb{F}_p) \geqslant (p^{1/2}-1)^2>0$, i.e. 
+$C(\mathbb{F}_p)\ne\varnothing$. 
 
 
 
@@ -232,6 +227,7 @@ $C$ has a $\mathbb{F}_p$-rational point.
   \bibitem{bh10} M. Barghava, A. Shankar, \emph{Binary quadratic forms having bounded invariants, and the boundedness of the average rank of elliptic curves}, preprint, \texttt{arXiv:1006.1002}.
   \bibitem{br84} A. Bremner, J. Cassels, \emph{On the equation $Y^2=X(X^2+p)$}, Math. Comp. 42 (1984), no.165, 257-264. 
   \bibitem{du} A. Dujella, \emph{History of elliptic curves rank records}, \url{http://web.math.pmf.unizg.hr/~duje/tors/rankhist.html}. 
+  \bibitem{st09} M. Stoll, \emph{On the average number of rational points on curves of genus 2}, preprint, \texttt{arXiv:0902.4165}. 
 \end{thebibliography}
 
 
