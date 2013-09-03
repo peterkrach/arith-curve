@@ -2,12 +2,19 @@
 
 \usepackage{amsmath,amssymb,amsthm,fullpage,hyperref,mathrsfs,stmaryrd}
 \usepackage[all]{xy}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\h}{H}
+\DeclareMathOperator{\jac}{Jac}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\pic}{Pic}
 \DeclareMathOperator{\spec}{Spec}
 
 \newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{definition}[subsection]{Definition}
 \theoremstyle{definition}
 \newtheorem{example}[subsection]{Example}
 \newtheorem{question}[subsection]{Question}
+\newtheorem{remark}[subsection]{Remark}
 
 \title{Arithmetic of curves}
 \author{Daniel Miller\thanks{notes to a course taught by David Zywina at Cornell}}
@@ -222,11 +229,176 @@ $C(\mathbb{F}_p)\ne\varnothing$.
 
 
 
+% notes taken on 09-03-2013
+
+\section{Some geometry: jacobians over $\mathbb{C}$}
+
+For now, we'll work a lot over $\mathbb{C}$. First, some definitions:
+
+\begin{definition}
+A \emph{variety} over a field $k$ is a separated scheme of finite type over 
+$\spec(k)$. We call a variety $X/k$ \emph{nice} if it is smooth, projective, 
+and geometrically integral.
+\end{definition}
+
+Recall that $X/k$ is \emph{geometrically integral} if 
+$X_{\bar k}=X\times_k \spec(\bar k)$ is dimension $1$. A \emph{curve} is a 
+variety of dimension one. If we are interested in $C(k)$ for general curves, 
+it is sufficient to consider nice curves. If $V$ is a variety, we can consider 
+its functor of points $h_V:\mathsf{Alg}_k\to \mathsf{Set}$ which assigns to a 
+$k$-algebra $A$ the set $V(A)$ of ``$A$-valued points.'' We can also consider 
+$h_V:\mathsf{Sch}_k^\circ\to\mathsf{Set}$ which is defined by 
+$h_V(X)=\hom_k(X,V)$. 
+
+Earlier, for $f\in \mathbb{Q}[x,y]$ a nonconstant polynomial and $A$ a 
+$\mathbb{Q}$-algebra, if $C:f=0$, we have 
+\begin{align*}
+  C(A) &= \{(a,b)\in A^2:f(a,b) = 0\} \\
+    &= \hom_{\mathsf{Alg}_\mathbb{Q}}(\mathbb{Q}[x,y]/f,A) \\
+    &= \hom_{\mathsf{Sch}_k}\left(\spec A,\spec(\mathbb{Q}[x,y]/f)\right) \\
+    &= C(\spec A)
+\end{align*}
+
+\begin{remark}
+The functor $h_V$ determines $V$, up to isomorphism. (This is just the Yoneda 
+lemma).
+\end{remark}
+
+For the rest of this section, let $C$ be a nice curve over $\mathbb{C}$. Set 
+$X=C(\mathbb{C})$; this is a smooth compact, connected, irreducible Riemann 
+surface. So topologically, $X$ is a many-handled torus. Let 
+$\Lambda=\h_1(X,\mathbb{Z})$, the first homology group of $X$, which can be 
+identified with $\pi_1(X)^\text{ab}$. So elements of $\Lambda$ are 
+equivalence classes $[\gamma]$ for $\gamma\in \pi_1(X)$. 
+
+\begin{remark}
+The notation $\h_\bullet$, $\pi_1$\ldots will always denote the 
+\emph{topological} homology, fundamental group\ldots. Etale cohomology 
+will be given the subscript $(-)_\text{et}$, e.g. $\h_\text{et}^\bullet(C)$.
+\end{remark}
+
+It is a theorem of algebraic topology that $\Lambda\simeq\mathbb{Z}^{2 g}$; we 
+will call $g$ the \emph{genus} of $X$ (and also of $C$). Let $K$ be the field 
+of meromorphic functions on $X$. 
+
+\begin{remark}
+We can identify $K$ with the function field of $C$. \textbf{details!}
+
+Moreover, $C$ can be recovered from $X$. 
+\end{remark}
+
+\begin{question}
+Does the homology group $\h_1(X,\mathbb{Z})$ have an algebraic definition?
+\end{question}
+
+Essentially, the answer is no. If we want to define $\h_1(X,\mathbb{Z}_\ell)$ 
+algebraically, then the answer is a resounding yes!
+
+With $C$ as before, let $V=\Omega^1(X)=\h^0(X,\Omega^1)=\h^1_\text{dR}(X)$. 
+This is a complex vector space of dimension $g$. (Here, we mean analytic de 
+Rham cohomology -- the algebraic de Rham cohomology would be denoted 
+$\h_\text{dR}^1(C/\mathbb{C})$.) This gives us an algebraic definition of $g$. 
+We can consider $\Omega^1$ as the sheaf of (algebraic) differentials, and 
+$g=\dim_\mathbb{C}\h^0(X,\Omega^1)$. There is a pairing 
+$\h_1(X,\mathbb{Z})\otimes\h_\text{dR}^1(X)\to\mathbb{C}$, defined by 
+\[
+  [\gamma]\otimes \omega \mapsto \int_\gamma \omega
+\]
+This pairing is $\mathbb{C}$-linear in the second component, and is in fact 
+non-degenerate. It gives us a map $\Phi:\Lambda\to V^*$. 
+
+\begin{definition}[analytic]
+The \emph{Jacobian} of $X$ is 
+$\jac X=V^*/\Phi(X) = \h_\textnormal{dR}^1(X)^*/\h_1(X,\mathbb{Z})$. 
+\end{definition}
+
+Is is known that $\Phi(\Lambda)$ is a lattice in $V^*$, i.e. it is discrete 
+and $V^*/\Phi(\Lambda)$ is compact. There is the \emph{Abel-Jacobi map} from 
+$X$ to $\jac X$ defined as follows. Fix $x_0\in X$; we send $x\in X$ to 
+$\omega\mapsto \int_{[x_0,x]} \omega$, where $[x_0,x]$ denotes some path from 
+$x_0$ to $x$. A different choice of $[x_0,x]$ will differ by a closed loop, 
+i.e. an element of $\h_1(X,\mathbb{Z}$. So $X\to\jac X$ is well-defined. Note 
+that $\jac X$ is a complex Lie group. 
+
+\begin{remark}
+After choosing a basis for $V^*$, we have $\jac X\simeq \mathbb{C}^g/L$, where 
+$L\simeq \mathbb{Z}^{2 g}$. As a real Lie group, $\jac X$ is diffeomorphic to 
+$(S^1)^{2 g}$. 
+\end{remark}
+
+We care about $\jac X$ because, despite its analytic definition, it is in fact 
+a projective variety.
+
+\begin{theorem}
+For $X$ a compact Riemann surface, $\jac X$ is algebraic, i.e. there exists a 
+variety $J$ defined over $\mathbb{C}$ such that $J(\mathbb{C})\simeq\jac X$ as 
+complex manifolds. Moreover, the group operation on $\jac X$ is algebraic, 
+i.e. there is a morphism $m:J\times_\mathbb{C} J\to J$ such that 
+$J(\mathbb{C})\times J(\mathbb{C})\to J(\mathbb{C})$ corresponds to the 
+addition law on $\jac X$. 
+\end{theorem}
+\begin{proof}
+look up in \cite{mu08}
+\end{proof}
+
+Let $\Div X$ be the free abelian group generated by the points of $X$. There 
+is a map $\deg:\Div X\to \mathbb{Z}$, defined by 
+$\sum n_P\cdot P\mapsto \sum n_P$. We define $\Div^\circ X$ by the short exact 
+sequence 
+\[
+  0 \to \Div^\circ X \to \Div X \to \mathbb{Z} \to 0
+\]
+There is also a map $\operatorname{div}:K^\times\to \Div X$, where 
+$\operatorname{div}(f) = \sum_P \ord_P(f)\cdot P$. It is a basic fact that 
+$\deg(\operatorname{div}(f)) = 0$, so we can define the \emph{Picard group} 
+of $X$ to be $\pic X = \Div X/\operatorname{div}(K^\times)$ and 
+$\pic^\circ X = \Div^\circ (X)/\operatorname{div}(K^\times)$. 
+
+\begin{remark}
+Let $\mathscr{M}$ be the sheaf of meromorphic functions on $X$. One can 
+prove that $\Div(X)=\h^0(X,\mathscr{M}^\times/\mathscr{O}^\times)$ and 
+$\pic(X)=\h^1(X,\mathscr{O}^\times)$. 
+\end{remark}
+
+\begin{example}
+One can prove that $\pic^\circ(\mathbb{P}^1(\mathbb{C})) = 0$.
+\end{example}
+
+The Abel-Jacobi map $\mu:X\to \jac X$ extends to a map 
+$\mu:\Div^\circ X\to \jac X$. 
+
+\begin{theorem}[Jacobi]
+The map $\mu:\Div^\circ X\to\jac X$ is surjective.
+\end{theorem}
+
+\begin{theorem}[Abel]
+The kernel of $\mu:\Div^\circ X\to \jac X$ is $\operatorname{div}(K^\times)$. 
+\end{theorem}
+
+It follows that $\mu$ induces an isomorphism $\mu:\pic^\circ X\to \jac X$. 
+Note that $\pic^\circ X$ parameterizes invertible sheaves (line bundles) on 
+$X$ of degree zero. 
+
+Note that in general, $\mathbb{C}^g/L$ for some lattice $L$ need not be 
+algebraic if $g>1$. In the future, we'll try to define $\jac C$ for a curve 
+$C$ over an any field. The variety $\jac C$ will be a nice variety, i.e. 
+smooth, projective and geometrically integral. We will use this to give an 
+algebraic definition of $\h_1(X,\mathbb{Z}/n)$. 
+
+
+
+
+
+
+
+
+
 
 \begin{thebibliography}{9}
   \bibitem{bh10} M. Barghava, A. Shankar, \emph{Binary quadratic forms having bounded invariants, and the boundedness of the average rank of elliptic curves}, preprint, \texttt{arXiv:1006.1002}.
   \bibitem{br84} A. Bremner, J. Cassels, \emph{On the equation $Y^2=X(X^2+p)$}, Math. Comp. 42 (1984), no.165, 257-264. 
   \bibitem{du} A. Dujella, \emph{History of elliptic curves rank records}, \url{http://web.math.pmf.unizg.hr/~duje/tors/rankhist.html}. 
+  \bibitem{mu08} D. Mumford, \emph{Abelian varieties}, Tata inst. fund. res., 2008. 
   \bibitem{st09} M. Stoll, \emph{On the average number of rational points on curves of genus 2}, preprint, \texttt{arXiv:0902.4165}. 
 \end{thebibliography}
 
