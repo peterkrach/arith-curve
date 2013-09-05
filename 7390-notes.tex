@@ -1,9 +1,11 @@
 \documentclass{article}
 
-\usepackage{amsmath,amssymb,amsthm,fullpage,hyperref,mathrsfs,stmaryrd}
+\usepackage{amsmath,amssymb,amsthm,fullpage,mathrsfs,stmaryrd}
+\usepackage[pdfpagelabels,backref=page]{hyperref}
 %\usepackage{cleveref}
 \usepackage[all]{xy}
 \DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\gal}{Gal}
 \DeclareMathOperator{\h}{H}
 \DeclareMathOperator{\jac}{Jac}
 \DeclareMathOperator{\ord}{ord}
@@ -413,28 +415,132 @@ algebraic definition of $\h_1(X,\mathbb{Z}/n)$.
 
 
 
+% lecture on 09-05-2013
+\section{Jacobians in algebraic geometry}
+
+Recall that a variety $X/k$ is \emph{nice} if it is smooth, projective, and 
+geometrically connected. 
+
+\begin{definition}
+Let $k$ be a field. An \emph{abelian variety} over $k$ is a nice group variety 
+over $k$.
+\end{definition}
+
+In other words, there are morphisms $m:A\times A\to A$, $i:A\to A$, 
+$e:\spec(k)\to A$ such that the induced maps $m_*:h_A\times h_A\to h_A$ etc. 
+turn $h_A$ into a group-valued functor. In particular, $A(X)$ is a ``actual 
+group'' for each $k$-scheme $X$. 
+
+\begin{example}
+The group variety $\operatorname{GL}_n$ is a group variety, but not nice (in 
+the technical sense) because it is not projective.
+\end{example}
+
+Note that abelian varieties are not required to be commutative, but this is in 
+fact the case. This is easy to see over $\mathbb{C}$. If $A/\mathbb{C}$ is an 
+abelian variety, then $G=A(\mathbb{C})$ is a compact, complex Lie group. Let 
+$\mathfrak{g}$ be its Lie algebra. Consider the exponential 
+$\exp:\mathfrak{g}\to G$\ldots \textbf{look up the rest of this proof}.
+
+The general case in characteristic zero follows from the Lefschetz principle, 
+or one can just prove it directly \cite[I.1.4]{mi}. 
+
+We'd like to describe the jacobian $J$ of a nice curve $C/k$ with 
+$C(k)\ne\varnothing$. It will be an abelian variety over $k$ of dimension 
+$g$, the genus of $C$. (Note we've only defined the genus for curves 
+$C/k$ with $k\subset\mathbb{C}$. For general curves, we have 
+$g(C)=h^0(C_{\bar k},\Omega^1) = h^1(\mathscr{O}_C)$, where 
+$h^i(X,\mathscr{F})$ for some sheaf $\mathscr{F}$ denotes 
+$\dim_k\h^i(X,\mathscr{F})$. 
+
+\begin{definition}[Albanese]
+Let $C/k$ be a curve with fixed $x_0\in C(k)$. The \emph{jacobian} of $C$ is 
+an abelian variety $J$ with a morphism $\mu:C\to J$ taking $x_0$ to $0$, such 
+that for any morphism $f:C\to A$ to an abelian variety $A$ with $f(x_0)=0$, 
+thre is a unique $\tilde f:J\to A$ making the following diagram commute:
+\[\xymatrix{
+  C \ar[r]^-\mu \ar[dr]_-f 
+    & J \ar@{.>}[d]^-{\tilde f} \\
+  & A
+}\]
+\end{definition}
+
+Standard abstract nonsense shows that the pair $(J,\mu)$ is unique up to 
+unique isomorphism. There is a more concise way of defining $J=J_C$. The 
+assignment $C\mapsto J_C$ is the left-adjoint to the functor 
+$\mathsf{AbVar}_k\to \mathsf{Var}_{k,*}$ from abelian varieties over $k$ to 
+nice pointed varieties over $k$ that forgets the group structure. In fact, the 
+functor $\mathsf{AbVar}_k\to\mathsf{Var}_{k,*}$ has a left-adjoint defined 
+on all of $\mathsf{Var}_{k,*}$. For any nice pointed variety $X$, there is an 
+abelian variety $A=\operatorname{Alb} X$, the \emph{Albanese variety} of $X$, 
+such that pointed maps $X\to B$ correspond to homomorphisms of abelian 
+varieties $A\to B$. 
+
+If $C(k)=\varnothing$, we can still define $J=\jac C$. We consider the 
+morphism $\alpha:C\times C\to J$ given by $(x,y)\mapsto \mu(x)-\mu(y)$, 
+and require maps $f:C\times C\to A$ with $f(\Delta)=0$ to lift uniquely 
+to $\tilde f:J\to A$. 
+
+(\textbf{look up references + include details for general picard scheme, 
+albanese scheme})
+
+Another approach to defining $J=\jac C$ involves the Picard group. Recall 
+that over $\mathbb{C}$, we proved that $J(\mathbb{C}\simeq\pic^\circ(C)$. 
+One might hope that $J$ satisfies $J(L)=\pic^\circ(C_L)$ for all field 
+extensions $L/k$. This works if $C(k)\ne\varnothing$, but otherwise. For, 
+if $J(k^s)=\pic^\circ(C_{k^s})$, then we would have 
+$\pic^\circ(C) = J(k) = J(k^s)^{G_k} = \pic^\circ(C_{k^s})^{G_k}$. But this 
+does not always hold. 
+
+(\textbf{define ``divisor over $L$'' and Picard group more carefully -- work 
+this out.})
+
+\begin{remark}
+Consider the functor $P_C^\circ:\mathsf{Sch}_k\to\mathsf{Ab}$ that sends 
+$T$ to $\pic^\circ(C\times_k T)/\pic(T)$. If $C(k)\ne \varnothing$, then 
+$P_C^\circ$ is represented by the jacobian $J$. 
+\end{remark}
+
+\begin{definition}[Picard]
+``$J=\pic^\circ C$''
+\end{definition}
+
+\begin{remark}
+In general, the map $X\to \operatorname{Alb} X$ need not be an embedding. 
+For example, if $C$ is a curve of genus $0$, then $\operatorname{Alb} X=0$. 
+(\textbf{prove this}). On the other hand, if the genus $g\geqslant 1$, then 
+$C\to J$ is an embedding. The map $C(\bar k)\to \pic^\circ(C_{\bar k})$ sends 
+a point $x$ to the divisor $[x]-[x_0]$, and one can check that this is 
+injective. For, principal divisors correspond to morphisms 
+$f:C\to\mathbb{P}^1$. These cannot have zeros and poles of multiplicity one, 
+otherwise $f$ would have degree one, hence it would be an isomorphism. This 
+cannot be the case. 
+\end{remark}
+
+In general, we might have $C(k)=\varnothing$. We will have 
+$J(L)=\pic^\circ(C_{L'})^{\gal(L'/L)}$ where $L'/L$ is any separable extension 
+with $C(L')\ne\varnothing$. 
+
+The idea behind Weil's original construction is the following. We already 
+know that $J=\jac C$ exists, and has a canonical map $\mu:C\to J$. Consider 
+$C^g=C\times\cdots\times C$ ($g$-fold product), and consider the map 
+$f:C^g\to J$, $f(x_1,\dotsc,x_g)=\mu(x_1)+\cdots+\mu(x_g)$. The symmetric 
+group $S_g$ acts on $C^g$, and $f$ is $S_g$-equivariant. The quotient 
+$\operatorname{Sym}^g C = C^g/S_g$ exists, and has a map 
+$\operatorname{Sym}^g C\to J$. This is birational. Weil defined a ``rational 
+group law'' on $\operatorname{Sym}^g C$ using the Riemann-Roch theorem. For 
+more details on Weil's construction (and proofs), see \cite[III.7]{mi}. 
 
 
 
 
 
-%\begin{thebibliography}{9}
-%  \bibitem{bh10} M. Barghava, A. Shankar, \emph{Ternary cubic forms having bounded invariants, and the existence
-%  of a positive proportion of elliptic curves having rank $0$}, preprint, \texttt{arXiv:1007.0052}.
-  %\bibitem{br84} A. Bremner, J. Cassels, \emph{On the equation $Y^2=X(X^2+p)$}, Math. Comp. 42 (1984), no.165, 257-264. 
-  %\bibitem{de77} P. Deligne, \emph{Cohomologie Etale (SGA 4$\frac 1 2$)}, Springer Lecture notes 569, 1977. 
-  %\bibitem{du} A. Dujella, \emph{History of elliptic curves rank records}, \url{http://web.math.pmf.unizg.hr/~duje/tors/rankhist.html}. 
-  %\bibitem{gr66}. A. Grothendieck, \emph{On the de Rham cohomologie of algebraic varieties}, Pub. Math. I.H.E.S. \textbf{29} (1966), 95-103. 
- % \bibitem{ma} ``what is the maximum number of rational points of a curve of genus 2 over the rationals?'', question on mathoverflow, \url{http://mathoverflow.net/questions/103327}. 
- % \bibitem{mi} J.\ S. Milne, \emph{Abelian varieties}, available online at \url{http://www.jmilne.org/math/CourseNotes/AV.pdf}.
- % \bibitem{mu08} D. Mumford, \emph{Abelian varieties}, Tata inst. fund. res., 2008. 
- % \bibitem{st09} M. Stoll, \emph{On the average number of rational points on curves of genus 2}, preprint, \texttt{arXiv:0902.4165}. 
-%\end{thebibliography}
+
+
+
+
 
 \bibliographystyle{amsplain}
 \bibliography{7390-sources}
-
-
-
 
 \end{document}
