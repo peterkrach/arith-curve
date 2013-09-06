@@ -438,17 +438,25 @@ the technical sense) because it is not projective.
 
 Note that abelian varieties are not required to be commutative, but this is in 
 fact the case. This is easy to see over $\mathbb{C}$. If $A/\mathbb{C}$ is an 
-abelian variety, then $G=A(\mathbb{C})$ is a compact, complex Lie group. Let 
-$\mathfrak{g}$ be its Lie algebra. Consider the exponential 
-$\exp:\mathfrak{g}\to G$\ldots \textbf{look up the rest of this proof}.
-
-The general case in characteristic zero follows from the Lefschetz principle, 
-or one can just prove it directly \cite[I.1.4]{mi}. 
+abelian variety, then $G=A(\mathbb{C})$ is a compact connected complex Lie 
+group. Let $\mathfrak{g}$ be its Lie algebra. Consider the composite map 
+$f:G\xrightarrow{\text{ad}}\operatorname{GL}(\mathfrak{g}) \hookrightarrow 
+\operatorname{End}(\mathfrak{g})$, where 
+$\operatorname{ad}:G\to\operatorname{GL}(\mathfrak{g})$ is the adjoint 
+representation. After picking a basis for $\operatorname{End}(\mathfrak{g})$, 
+the components of $f$ are entire holomorphic functions on a compact complex 
+manifold, hence locally constant. Since $G$ is connected, $f$ is constant, i.e. 
+$\operatorname{ad}$ is the trivial representation. But 
+$\ker(\operatorname{ad}) = Z(G)$, so $G$ is commutative. For more details, see 
+\cite[I.1]{mu08}. The case $A/k$ for arbitrary $k$ of characteristic zero 
+follows from the Lefschetz principle, or one can just prove commutativity 
+directly using a ``rigidity principle'' for maps on projective varieties
+\cite[I.1.4]{mi}. 
 
 We'd like to describe the jacobian $J$ of a nice curve $C/k$ with 
 $C(k)\ne\varnothing$. It will be an abelian variety over $k$ of dimension 
 $g$, the genus of $C$. (Note we've only defined the genus for curves 
-$C/k$ with $k\subset\mathbb{C}$. For general curves, we have 
+$C/k$ with $k\subset\mathbb{C}$. For general curves, we set  
 $g(C)=h^0(C_{\bar k},\Omega^1) = h^1(\mathscr{O}_C)$, where 
 $h^i(X,\mathscr{F})$ for some sheaf $\mathscr{F}$ denotes 
 $\dim_k\h^i(X,\mathscr{F})$. 
@@ -474,15 +482,13 @@ functor $\mathsf{AbVar}_k\to\mathsf{Var}_{k,*}$ has a left-adjoint defined
 on all of $\mathsf{Var}_{k,*}$. For any nice pointed variety $X$, there is an 
 abelian variety $A=\operatorname{Alb} X$, the \emph{Albanese variety} of $X$, 
 such that pointed maps $X\to B$ correspond to homomorphisms of abelian 
-varieties $A\to B$. 
+varieties $A\to B$. For a proof that $\operatorname{Alb} X$ exists, see 
+\cite[A.11]{mo12}
 
 If $C(k)=\varnothing$, we can still define $J=\jac C$. We consider the 
 morphism $\alpha:C\times C\to J$ given by $(x,y)\mapsto \mu(x)-\mu(y)$, 
 and require maps $f:C\times C\to A$ with $f(\Delta)=0$ to lift uniquely 
 to $\tilde f:J\to A$. 
-
-(\textbf{look up references + include details for general picard scheme, 
-albanese scheme})
 
 Another approach to defining $J=\jac C$ involves the Picard group. Recall 
 that over $\mathbb{C}$, we proved that $J(\mathbb{C}\simeq\pic^\circ(C)$. 
@@ -492,23 +498,43 @@ if $J(k^s)=\pic^\circ(C_{k^s})$, then we would have
 $\pic^\circ(C) = J(k) = J(k^s)^{G_k} = \pic^\circ(C_{k^s})^{G_k}$. But this 
 does not always hold. 
 
-(\textbf{define ``divisor over $L$'' and Picard group more carefully -- work 
-this out.})
+First, it might be helpful to define Picard groups for general schemes. If 
+$X$ is a scheme, the \emph{Picard group} of $X$ is 
+$\pic(X)=\h^1(X,\mathscr{O}_X^\times)$. It is straightforward to show that 
+$\pic(X)$ is isomorphic to the group of isomorphism classes of invertible 
+sheaves on $X$, with group operation induced by tensor product, i.e. 
+$[\mathscr{L}] + [\mathscr{L'}] = [\mathscr{L}\otimes \mathscr{L}']$. 
 
-\begin{remark}
-Consider the functor $P_C^\circ:\mathsf{Sch}_k\to\mathsf{Ab}$ that sends 
-$T$ to $\pic^\circ(C\times_k T)/\pic(T)$. If $C(k)\ne \varnothing$, then 
-$P_C^\circ$ is represented by the jacobian $J$. 
-\end{remark}
+If $D = \sum n_x\cdot x$ is a divisor on a curve $C/k$, we define the 
+\emph{degree} of $D$ to be $\deg D=\sum n_x \in \mathbb{Z}$. There is a more 
+intrinsic definition of $\deg D$, which runs as follows. First, we can replace 
+$D$ by $\mathscr{L}=\mathscr{O}(D)$, the invertible sheaf induced by $D$. For 
+a general sheaf $\mathscr{F}$ on $C$, let 
+$\chi(C)=\sum (-1)^i h^i(\mathscr{F})$. Then for $n\gg 0$, the Riemann-Roch 
+theorem implies that $\chi(\mathscr{L}^n)$ is linear $n$. The coefficient of 
+$n$ is called the \emph{degree} of $\mathscr{L}$. Now, for $T$ an arbitrary 
+scheme, define $\pic^\circ(C\times T)$ to be the subset of $\pic(C\times T)$ 
+consisting of invertible sheaves $\mathscr{L}$ with $\deg\mathscr{L}_t=0$ for 
+all $t\in T$, i.e. the following sequence is exact
+\[\xymatrix{
+  0 \ar[r] 
+    & \pic^\circ(C\times T) \ar[r]^-{(i_t^*)}
+    & \displaystyle\prod_{t\in T} \pic^\circ (C) 
+}\]
+where $i_t:t\hookrightarrow T$ are the canonical injections. Now we define the 
+functor $P_C^\circ:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ that sends $T$ to 
+$\pic^\circ(C\times_k T)/\pi_T^*\pic(T)$. 
 
-\begin{definition}[Picard]
-``$J=\pic^\circ C$''
-\end{definition}
+\begin{theorem}
+If $C(k)\ne \varnothing$, then $P_C^\circ$ is represented by $J=\jac C$.
+\end{theorem}
+
+For a proof, see \cite[III.1.2]{mi}. 
 
 \begin{remark}
 In general, the map $X\to \operatorname{Alb} X$ need not be an embedding. 
-For example, if $C$ is a curve of genus $0$, then $\operatorname{Alb} X=0$. 
-(\textbf{prove this}). On the other hand, if the genus $g\geqslant 1$, then 
+For example, if $C$ is a curve of genus $0$, then $\operatorname{Alb} X=0$ by 
+\cite[I.3.9]{mi}. On the other hand, if the genus $g\geqslant 1$, then 
 $C\to J$ is an embedding. The map $C(\bar k)\to \pic^\circ(C_{\bar k})$ sends 
 a point $x$ to the divisor $[x]-[x_0]$, and one can check that this is 
 injective. For, principal divisors correspond to morphisms 
