@@ -507,17 +507,28 @@ $\pic(X)$ is isomorphic to the group of isomorphism classes of invertible
 sheaves on $X$, with group operation induced by tensor product, i.e. 
 $[\mathscr{L}] + [\mathscr{L'}] = [\mathscr{L}\otimes \mathscr{L}']$. 
 
-If $D = \sum n_x\cdot x$ is a divisor on a curve $C/k$, we define the 
-\emph{degree} of $D$ to be $\deg D=\sum n_x \in \mathbb{Z}$. There is a more 
-intrinsic definition of $\deg D$, which runs as follows. First, we can replace 
-$D$ by $\mathscr{L}=\sO(D)$, the invertible sheaf induced by $D$. For 
-a general coherent sheaf $\mathscr{F}$ on $C$, let 
-$\chi(\mathscr{F})=\sum (-1)^i h^i(\mathscr{F})$. Then for $n\gg 0$, the 
-Riemann-Roch theorem implies that $\chi(\mathscr{L}^{\otimes n})$ is linear in 
-$n$. The coefficient of $n$ is called the \emph{degree} of $\mathscr{L}$. Now, 
-for $T$ an arbitrary scheme, define $\pic^\circ(C\times T)$ to be the subset of 
-$\pic(C\times T)$ consisting of invertible sheaves $\mathscr{L}$ with 
-$\deg\mathscr{L}_t=0$ for all $t\in T$, i.e. the following sequence is exact 
+If $D = \sum D_x\cdot x$ is a divisor on a curve $C/k$, we define the 
+\emph{degree} of $D$ to be $\deg D=\sum D_x \in \mathbb{Z}$. We would like to 
+have a definition that works on arbitrary varieties. First, we replace $D$ by 
+the invertible sheaf $\mathscr{L}=\sO(D)$, where $\mathscr{L}(U)$ is the ring 
+of rational functions $f$ on $U$ such that $\ord_x(f)\geqslant - D_x$. One 
+can check that $\sO(D)$ is indeed an invertible sheaf. We will define the 
+degree of any invertible sheaf $\mathscr{L}$ on a projective variety $X/k$. 
+Recall that the Euler characteristic of $\mathscr{L}$ is 
+$\chi(\mathscr{L}) = \sum (-1)^i h^i(\mathscr{L})$. It is proven in 
+\cite[4.1]{dj93} that there exists a (unique) polynomial 
+$\phi\in\mathbb{Q}[t]$ such that 
+$\chi(\mathscr{L}^{\otimes n}) = \phi(n)$ for $n\gg 0$. If $X$ is a curve, we 
+can see this easily; since $\mathscr{L}=\sO(D)$ is effective, the Riemann-Roch 
+forces $\chi(\mathscr{L}^{\otimes n}) = n\cdot \deg D + 1 - g$ for $n\gg 0$. 
+We define the \emph{degree} of $\mathscr{L}$ to be the coefficient of the 
+highest-degree term of $\phi$. As we have just shown, this agrees with the 
+classical definition. 
+
+Back to the case where $C$ is a nice curve. For $T$ an arbitrary scheme, define 
+$\pic^\circ(C\times T)$ to be the subset of $\pic(C\times T)$ consisting of 
+invertible sheaves $\mathscr{L}$ with $\deg\mathscr{L}_t=0$ for all $t\in T$, 
+i.e. the following sequence is exact 
 \[\xymatrix{
   0 \ar[r] 
     & \pic^\circ(C\times T) \ar[r]^-{(i_t^*)}
@@ -579,48 +590,63 @@ under the assumption that $C(k)\ne \varnothing$.
 Now suppose $X$ is an arbitrary scheme. Recall that 
 $\pic(X)=\h^1(X,\sO_X^\times)$; this classifies invertible sheaves on 
 $X$, where the group operation on sheaves is $\otimes$. If $X$ is integral, 
-$\pic(X)$ is isomorphic to the class group $\Div(X)$ of Cartier divisors (Weil 
-divisors if $X$ is a nice curve). Recall that if $\mathscr{M}$ is the sheaf of 
-rational functions on $X$, then the group of Cartier divisors is 
-$\h^0(X,\mathscr{M}^\times/\sO^\times)$. The short exact sequence 
+$\pic(X)$ is isomorphic to the class group $\operatorname{Cl}(X)$ of Cartier 
+divisors (Weil divisors if $X$ is a nice curve). This is easy to prove. Recall 
+that if $\mathscr{M}$ is the sheaf of rational functions on $X$, then the 
+group of Cartier divisors is $\Div(X) = \h^0(X,\mathscr{M}^\times/\sO^\times)$. 
+The short exact sequence 
 \[
   1 \to \sO^\times \to \mathscr{M}^\times\to \mathscr{M}^\times/\sO^\times \to 1
 \]
 induces a long exact sequence in sheaf cohomology:
 \[
-  0 \to \h^0(\sO^\times) \to \h^0(\mathscr{M}^\times) \to \h^0(\mathscr{M}^\times / \sO^\times) \to \pic(X) \to \h^1(\mathscr{M}^\times) \to \cdots
+  0 \to \h^0(\sO^\times) \to \h^0(\mathscr{M}^\times) \to \Div(X) \to \pic(X) \to \h^1(\mathscr{M}^\times) \to \cdots
 \]
-When $X$ is integral, $\mathscr{M}^\times$ is flasque, so its $\h^1$ is 
-trivial, whence $\pic(X)=\Div(X)/\h^0(\sO^\times)$. 
+When $X$ is integral, $\mathscr{M}^\times$ is flasque, so 
+$\h^1(\mathscr{M}) = 0$, whence 
+$\pic(X)=\Div(X)/\h^0(\sO^\times) = \operatorname{Cl}(X)$. 
 
-Grothendieck showed that the functor $T\mapsto \pic(X\times T)$ is (after 
-fppf-sheafification) representable. The representing scheme is denoted 
-$\pic_X$ and called the \emph{Picard scheme} of $X$. We denote by 
-$\pic_X^\circ$ the connected component of the identity of $\pic_X$. This is a 
-connected group scheme, and if $X$ is a nice variety over a field of 
-characteristic zero, then $\pic_X^\circ$ is an abelian variety. Regardless of 
-the base characteristic, $\pic_X^\circ$ is abelian variety. For details, see 
-\cite{kl05}.
+For $X/k$ an arbitrary scheme, consider the functor 
+$\pic_X:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ given by 
+$\pic_X(T) = \pic(X\times_k T)/\pic(T)$. This is not in general 
+representable. However, if $X$ is a nice $k$-variety, then the 
+fppf-sheafification of $\pic_X$ is representable \cite[4.1.38]{kl05}. Even 
+better, if $X(k)\ne\varnothing$, then $\pic_X$ is representable 
+\cite[2.5]{kl05}. We will also denote the representing scheme by $\pic_X$, and 
+we call $\pic_X$ the \emph{Picard scheme} of $X$. It is not a variety, but it 
+is a disjoint union of ind-varieties \cite[4.8]{kl05}. More precisely, for 
+$\phi\in \mathbb{Q}[t]$, let $\pic_X^\phi(T)$ be the set of all 
+$\mathscr{L}\in \pic_X(T)$ such that 
+$\chi(\mathscr{L}^{\otimes n}) = \phi(n)$ for $n\gg 0$. In other words, 
+$\pic_X^\phi$ classifies invertible sheaves with Hilbert polynomial $\phi$. 
+It turns out \cite[6.20]{kl05} that for each $\phi$, $\pic_X^\phi$ represents 
+a clopen subscheme of $\pic_X$, and $\pic_X$ is covered by the 
+$\pic_X^\phi$. Moreover \cite[6.21]{kl05}, $\pic_X^\circ$ is the connected 
+component of the identity in $\pic_X$. Just as the genus of a curve is the 
+dimension of its jacobian, there is a natural isomorphism 
+$\h^1(\mathscr{O}_X) \simeq \operatorname{Lie}(\pic_X)$, from which we deduce 
+$\dim(\pic_X) = h^1(\mathscr{O}_X)$ when $X$ is nice \cite[5.11]{kl05}.
 
-If $X=A$ is already an abelian variety over $k$, then 
-$\pic_A^\circ(\bar k) = \pic^\circ(A_{\bar k})$, which turns out to be the 
-set $\{c\in \pic(A_{\bar k}) : t_a^* c = c\forall a\in A\}$, where 
-$t_a:A\to A$ is translation by $a$. 
+Suppose $X=A$ is already an abelian variety over $k$. Then one has 
+\[
+  \pic_A^\circ(\bar k) = \left\{c\in \pic(A_{\bar k}) : t_a^* c = c\text{ for all }a\in A(\bar k)\right\} 
+\]
+where $t_a:A_{\bar k}\to A_{\bar k}$ is translation by $a$. See 
+\cite[I.8.4]{mi} for a partial proof. 
 
-(\textbf{Degree for arbitrary sheaves? Is $\pic^\circ$ ``sheaves of degree 
-zero'' in general?} It sounds like 
-$\pic(A_{\bar k})/\pic^\circ(A_{\bar k})=:NS(A_{\bar k})$, where 
-$\operatorname{NS}(A)$ is the Neron-Severi group of $A$.)
+One could define $\pic_X^d$ to be the scheme classifying invertible sheaves of 
+degree $d$. This works, except that in general $d\in \mathbb{Q}$ rather than 
+$d\in \mathbb{N}$. Thus the group 
+$\operatorname{NS}(X) = \pic_X(\bar k) / \pic_X^\circ(\bar k)$ -- the 
+\emph{N\'eron-Severi group} of $X$, is not necessarily isomorphic to 
+$\mathbb{Z}$. On the other hand, if $X=E$ is an elliptic curve, then invertible 
+sheaves are classified by their degree, so $\operatorname{NS}(E) = \mathbb{Z}$. 
 
-(\textbf{Exercise:} make sure this works if $A$ is an elliptic curve!)
-
-In any case, the \emph{dual} of $A$ is defined to be $A^\vee = \pic_A^\circ$.
-Choose $\in \pic(A)$; this gives a map $\varphi_c:A\to A^\vee$. At the level of 
-sheaves, this is given by $a\mapsto t_a^* c - c$, or equivalently 
-$\mathscr{L}\mapsto t_a^*\mathscr{L}\otimes \mathscr{L}^{-1}$. 
-
-(\textbf{Todo:} cite the construction of the map $A\to A^\vee $ given in 
-Milne or Mumford). 
+In any case, the \emph{dual} of $A$ is defined to be $A^\vee = \pic_A^\circ$. 
+Each $c\in \pic(A)$ gives a map $\varphi_c:A\to A^\vee$. At the level of 
+points, it is defined as $a\mapsto t_a^* c - c$, where if $c=[\mathscr{L}]$, 
+the class $t_a^*c - c\in A^\vee(\bar k) = \pic^\circ(A)$ is represented by 
+$[t_a^*\mathscr{L}\otimes\mathscr{L}^{-1}]$. 
 
 It turns out that $A^{\vee\vee} \simeq A$, so calling $A^\vee$ the dual of $A$ 
 is rather natural. The map $\varphi_c:A\to A^\vee$ is a homomorphism of abelian 
@@ -684,15 +710,21 @@ What pairs $(A,c)$, with $c$ inducing a principal polarization, come from
 jacobians? 
 \end{question}
 
-For $g\geqslant 2$, consider $\mathcal{M}_g$, the moduli space of curves, 
-and $\mathcal{A}_g$, the moduli space of principally polarized abelian 
-varieties. It turns out that $\dim \mathcal{M}_g = 3 g-3$ and 
-$\dim \mathcal{A}_g = \frac{g(g+1)}{2}$. If $g>3$ then 
-$g(g+1)/2 > 3 g-3$, so there are abelian varieties that are not principally 
-polarized. For $g\leqslant 3$, then all principally polarized abelian varieties 
-are jacobians (possibly after a change of the polarization). 
+This question has an easy partial answer if we are willing to use heavy 
+machinery. The moduli stack $\mathcal{M}_g$ which classifies nice curves of 
+genus $g$ has dimension $3 g - 3$, while the moduli stack $\mathcal{A}_g$ 
+classifying principally polarized abelian varieties of dimension $g$ has 
+dimension $\frac{g(g+1)}{2}$. For $g>3$, $\mathcal{A}_g$ has greater 
+dimension that $\mathcal{M}_g$, so there are ``more principally polarized 
+abelian varieties than jacobians.'' For $g\leqslant 3$, all principally 
+polarized abelian varieties are jacobians (possibly after a change of the 
+polarization). 
 
-However, all abelian varieties are isogenous to jacobians. (\textbf{source?})
+One might hope that all abelian varieties are at least isogenous to jacobians. 
+While this is true for dimension $d\leqslant 3$, it is not true in general. 
+In fact, for all $d>3$, there exists an abelian variety of dimension $d$ over 
+$\overline{\mathbb{Q}}$ which is not isogenous to a jacobian. This was proven 
+recently in \cite{ts12}
 
 \begin{example}
 Let $C/k$ be a nice curve of genus one and $C(k)\ne\varnothing$. Choose 
