@@ -12,6 +12,8 @@
 \DeclareMathOperator{\pic}{Pic}
 \DeclareMathOperator{\spec}{Spec}
 
+\newcommand{\sO}{\mathscr{O}}
+
 \newtheorem{theorem}[subsection]{Theorem}
 \newtheorem{definition}[subsection]{Definition}
 \theoremstyle{definition}
@@ -382,8 +384,8 @@ $\pic^\circ X = \Div^\circ (X)/\operatorname{div}(K^\times)$.
 
 \begin{remark}
 Let $\mathscr{M}$ be the sheaf of meromorphic functions on $X$. One can 
-prove that $\Div(X)=\h^0(X,\mathscr{M}^\times/\mathscr{O}^\times)$ and 
-$\pic(X)=\h^1(X,\mathscr{O}^\times)$. 
+prove that $\Div(X)=\h^0(X,\mathscr{M}^\times/\sO^\times)$ and 
+$\pic(X)=\h^1(X,\sO^\times)$. 
 \end{remark}
 
 \begin{example}
@@ -457,7 +459,7 @@ We'd like to describe the jacobian $J$ of a nice curve $C/k$ with
 $C(k)\ne\varnothing$. It will be an abelian variety over $k$ of dimension 
 $g$, the genus of $C$. (Note we've only defined the genus for curves 
 $C/k$ with $k\subset\mathbb{C}$. For general curves, we set  
-$g(C)=h^0(C_{\bar k},\Omega^1) = h^1(\mathscr{O}_C)$, where 
+$g(C)=h^0(C_{\bar k},\Omega^1) = h^1(\sO_C)$, where 
 $h^i(X,\mathscr{F})$ for some sheaf $\mathscr{F}$ denotes 
 $\dim_k\h^i(X,\mathscr{F})$. 
 
@@ -500,7 +502,7 @@ does not always hold.
 
 First, it might be helpful to define Picard groups for general schemes. If 
 $X$ is a scheme, the \emph{Picard group} of $X$ is 
-$\pic(X)=\h^1(X,\mathscr{O}_X^\times)$. It is straightforward to show that 
+$\pic(X)=\h^1(X,\sO_X^\times)$. It is straightforward to show that 
 $\pic(X)$ is isomorphic to the group of isomorphism classes of invertible 
 sheaves on $X$, with group operation induced by tensor product, i.e. 
 $[\mathscr{L}] + [\mathscr{L'}] = [\mathscr{L}\otimes \mathscr{L}']$. 
@@ -508,7 +510,7 @@ $[\mathscr{L}] + [\mathscr{L'}] = [\mathscr{L}\otimes \mathscr{L}']$.
 If $D = \sum n_x\cdot x$ is a divisor on a curve $C/k$, we define the 
 \emph{degree} of $D$ to be $\deg D=\sum n_x \in \mathbb{Z}$. There is a more 
 intrinsic definition of $\deg D$, which runs as follows. First, we can replace 
-$D$ by $\mathscr{L}=\mathscr{O}(D)$, the invertible sheaf induced by $D$. For 
+$D$ by $\mathscr{L}=\sO(D)$, the invertible sheaf induced by $D$. For 
 a general coherent sheaf $\mathscr{F}$ on $C$, let 
 $\chi(\mathscr{F})=\sum (-1)^i h^i(\mathscr{F})$. Then for $n\gg 0$, the 
 Riemann-Roch theorem implies that $\chi(\mathscr{L}^{\otimes n})$ is linear in 
@@ -556,6 +558,167 @@ $\operatorname{Sym}^g C = C^g/S_g$ exists, and has a map
 $\operatorname{Sym}^g C\to J$. This is birational. Weil defined a ``rational 
 group law'' on $\operatorname{Sym}^g C$ using the Riemann-Roch theorem. For 
 more details on Weil's construction (and proofs), see \cite[III.7]{mi}. 
+
+
+
+
+
+
+
+
+
+
+% lecture on 09-10-2013
+\section{More abelian varieties}
+
+Let $k$ be a field, $C/k$ a nice curve, and $J=\jac_C = J_C = \jac C$ be its 
+jacobian. Recall that $J$ is a nice variety that is also a commutative group 
+scheme. We had $J(T) = \pic^\circ(C\times T)/\pic(T)$ for all $k$-schemes $T$, 
+under the assumption that $C(k)\ne \varnothing$. 
+
+Now suppose $X$ is an arbitrary scheme. Recall that 
+$\pic(X)=\h^1(X,\sO_X^\times)$; this classifies invertible sheaves on 
+$X$, where the group operation on sheaves is $\otimes$. If $X$ is integral, 
+$\pic(X)$ is isomorphic to the class group $\Div(X)$ of Cartier divisors (Weil 
+divisors if $X$ is a nice curve). Recall that if $\mathscr{M}$ is the sheaf of 
+rational functions on $X$, then the group of Cartier divisors is 
+$\h^0(X,\mathscr{M}^\times/\sO^\times)$. The short exact sequence 
+\[
+  1 \to \sO^\times \to \mathscr{M}^\times\to \mathscr{M}^\times/\sO^\times \to 1
+\]
+induces a long exact sequence in sheaf cohomology:
+\[
+  0 \to \h^0(\sO^\times) \to \h^0(\mathscr{M}^\times) \to \h^0(\mathscr{M}^\times / \sO^\times) \to \pic(X) \to \h^1(\mathscr{M}^\times) \to \cdots
+\]
+When $X$ is integral, $\mathscr{M}^\times$ is flasque, so its $\h^1$ is 
+trivial, whence $\pic(X)=\Div(X)/\h^0(\sO^\times)$. 
+
+Grothendieck showed that the functor $T\mapsto \pic(X\times T)$ is (after 
+fppf-sheafification) representable. The representing scheme is denoted 
+$\pic_X$ and called the \emph{Picard scheme} of $X$. We denote by 
+$\pic_X^\circ$ the connected component of the identity of $\pic_X$. This is a 
+connected group scheme, and if $X$ is a nice variety over a field of 
+characteristic zero, then $\pic_X^\circ$ is an abelian variety. Regardless of 
+the base characteristic, $\pic_X^\circ$ is abelian variety. For details, see 
+\cite{kl05}.
+
+If $X=A$ is already an abelian variety over $k$, then 
+$\pic_A^\circ(\bar k) = \pic^\circ(A_{\bar k})$, which turns out to be the 
+set $\{c\in \pic(A_{\bar k}) : t_a^* c = c\forall a\in A\}$, where 
+$t_a:A\to A$ is translation by $a$. 
+
+(\textbf{Degree for arbitrary sheaves? Is $\pic^\circ$ ``sheaves of degree 
+zero'' in general?} It sounds like 
+$\pic(A_{\bar k})/\pic^\circ(A_{\bar k})=:NS(A_{\bar k})$, where 
+$\operatorname{NS}(A)$ is the Neron-Severi group of $A$.)
+
+(\textbf{Exercise:} make sure this works if $A$ is an elliptic curve!)
+
+In any case, the \emph{dual} of $A$ is defined to be $A^\vee = \pic_A^\circ$.
+Choose $\in \pic(A)$; this gives a map $\varphi_c:A\to A^\vee$. At the level of 
+sheaves, this is given by $a\mapsto t_a^* c - c$, or equivalently 
+$\mathscr{L}\mapsto t_a^*\mathscr{L}\otimes \mathscr{L}^{-1}$. 
+
+(\textbf{Todo:} cite the construction of the map $A\to A^\vee $ given in 
+Milne or Mumford). 
+
+It turns out that $A^{\vee\vee} \simeq A$, so calling $A^\vee$ the dual of $A$ 
+is rather natural. The map $\varphi_c:A\to A^\vee$ is a homomorphism of abelian 
+varieties. If $c$ is ample (i.e. the map from $A$ to some projective space 
+induced by $n\cdot c$ for $n\gg 0$ is an embedding) then $\varphi_c$ is an 
+\emph{isogeny}, where 
+
+\begin{definition}
+A homomorphism $\varphi:A\to B$ is an \emph{isogeny} if it is surjective with 
+finite kernel.
+\end{definition}
+
+It is not at all obvious, but ``$A$ is isogenous to $B$'' is an equivalence 
+relation on abelian varieties. The relation is clearly reflexive and 
+transitive. To see that it is symmetric, suppose we have an 
+isogeny $\varphi:A\to B$. For any ample $c\in \pic(A^\vee)$, $d\in \pic(B)$, 
+the composite 
+\[\xymatrix{
+  B \ar[r]^-{\varphi_d} 
+    & B^\vee \ar[r]^-{\varphi^\vee} 
+    & A^\vee \ar[r]^-{\varphi_c}
+    & A^{\vee\vee} \ar[r]^-\sim 
+    & A
+}\]
+is an isogeny. 
+
+\begin{definition}
+Let $A$ be an abelian variety. A \emph{polarization} of $A$ is an isogeny 
+of the form $\varphi_c:A\to A^\vee$ for some ample $c\in \pic(A)$.
+\end{definition}
+
+
+
+
+
+\section{Jacobians revisited}
+
+Let $k$ be a field, $C/k$ a nice curve, and $J=\jac C$ its jacobian. What does 
+(the arithmetic of) $J$ tell us about (the arithmetic of) $C$? In particular, 
+can we recover $C$ from $J$? In general, $J$ does not determine $C$. For 
+example, if $g=g(C)=0$, then $A=0$, and there are many non-isomorphic nice 
+curves of genus zero (over a non-algebraically closed field). There are more 
+difficult examples with genus $g>0$. 
+
+Suppose we add some data. Assume $g\geqslant 2$ and $C(k)\ne\varnothing$. This 
+gives us a map $\mu:C\to J$ determined by $x\mapsto 0$ for some distinguished 
+$x\in C(k)$. Consider $\theta = \mu(C)+\cdots + \mu(C)$, where there are $g-1$ 
+terms in the sum. It turns out that $\theta$ is an irreducible ample divisor of 
+$J$. Thus $\theta$ induces a polarization $\varphi_\theta:J\to J^\vee$. 
+
+\begin{theorem}[Torelli]
+If $C,C'$ are nice curves over a field $k$ with $(J,\theta)\simeq (J',\theta')$, 
+then $C\simeq C'$ over $k$. 
+\end{theorem}
+
+It is known that $\varphi_\theta:J\to J^\vee$ is actually an isomorphism. We 
+call a polarization $A\to A^\vee$ \emph{principal} if it is an isomorphism. 
+
+\begin{question}[Schottky]
+What pairs $(A,c)$, with $c$ inducing a principal polarization, come from 
+jacobians? 
+\end{question}
+
+For $g\geqslant 2$, consider $\mathcal{M}_g$, the moduli space of curves, 
+and $\mathcal{A}_g$, the moduli space of principally polarized abelian 
+varieties. It turns out that $\dim \mathcal{M}_g = 3 g-3$ and 
+$\dim \mathcal{A}_g = \frac{g(g+1)}{2}$. If $g>3$ then 
+$g(g+1)/2 > 3 g-3$, so there are abelian varieties that are not principally 
+polarized. For $g\leqslant 3$, then all principally polarized abelian varieties 
+are jacobians (possibly after a change of the polarization). 
+
+However, all abelian varieties are isogenous to jacobians. (\textbf{source?})
+
+\begin{example}
+Let $C/k$ be a nice curve of genus one and $C(k)\ne\varnothing$. Choose 
+$O\in C(k)$; this gives us an embedding $C\hookrightarrow J$, which is in fact 
+an isomorphism. Thus $C$ obtains a group law with $O$ as the identity. 
+
+Suppose we begin with the equation $y^2=x^3 + a x+b$ where $a,b\in k$, 
+$4 a^3+27 b^2\ne 0$ and $\operatorname{char}(k)\nmid 6$. Let 
+$C\subset \mathbb{P}_k^2$ be the projective closure of the plane curve defined 
+by $y^2-x^3-a x-b$. This is a nice curve of genus $1$. Take distinct points 
+$P,Q\in C(L)$ for some field $L/k$. We would like to determine $P+Q$. Take the 
+line in $\mathbb{P}_L^2$ through $P$ and $Q$, given by $\alpha x+\beta y = c$ 
+for some $\alpha,\beta$. This line and $C$ intersect in three points $P,Q,R$ 
+(counting multiplicities). The divisor 
+$\operatorname{div}(\alpha x+\beta y - c) = P+Q+R - 3 O$, where $O$ is the 
+point at infinity. Rewrite this divisor as $(P-O)+(Q-O)+(R-O)$. In 
+$\pic^\circ(C_L)$, $[P-O] + [Q-O] + [R-O] = \mu(P)+\mu(Q)+\mu(R) = 0$. Note 
+that in general, three points $P,Q,R$ are colinear if and only if 
+$\mu(P)+\mu(Q)+\mu(R) = 0$ in $\pic^\circ(C)$. So, we have shown that 
+$-\mu(R) = \mu(P)+\mu(Q)$. If $P=Q$, we need to take the tangent line to $C$ at 
+$P$. To compute $-R$, take a vertical line through $R$. This will intersect 
+$C$ at $O$ and some $R'$. Thus $\mu(R)+\mu(R')+\mu(O)$, from which we see that 
+$\mu(P)+\mu(Q) = \mu(R')$. 
+\end{example}
+
+
 
 
 
