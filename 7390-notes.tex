@@ -1,27 +1,6 @@
 \documentclass{article}
 
 \usepackage{7390-style}
-%
-%\usepackage{amsmath,amssymb,amsthm,fullpage,mathrsfs,stmaryrd}
-%\usepackage[pdfpagelabels,backref=page]{hyperref}
-%%\usepackage{cleveref}
-%\usepackage[all]{xy}
-%\DeclareMathOperator{\Div}{Div}
-%\DeclareMathOperator{\gal}{Gal}
-%\DeclareMathOperator{\h}{H}
-%\DeclareMathOperator{\jac}{Jac}
-%\DeclareMathOperator{\ord}{ord}
-%\DeclareMathOperator{\pic}{Pic}
-%\DeclareMathOperator{\spec}{Spec}
-%
-%\newcommand{\sO}{\mathscr{O}}
-%
-%\newtheorem{theorem}[subsection]{Theorem}
-%\newtheorem{definition}[subsection]{Definition}
-%\theoremstyle{definition}
-%\newtheorem{example}[subsection]{Example}
-%\newtheorem{question}[subsection]{Question}
-%\newtheorem{remark}[subsection]{Remark}
 
 \title{Arithmetic of curves}
 \author{Daniel Miller\thanks{notes to a course taught by David Zywina at Cornell}}
@@ -43,41 +22,41 @@
 
 \section{Plane curves}
 
-Fir a non-constant polynomial $f(x,y)\in\mathbb{Q}[x,y]$. Assume $f$ is 
-geometrically irreducible (i.e. irreducible in $\overline{\mathbb{Q}}[x,y]$). 
-We can define the curve $C$ over $\mathbb{Q}$ determined by the equation 
+Fir a non-constant polynomial $f(x,y)\in\dQ[x,y]$. Assume $f$ is 
+geometrically irreducible (i.e. irreducible in $\overline{\dQ}[x,y]$). 
+We can define the curve $C$ over $\dQ$ determined by the equation 
 $f(x,y)=0$. For now, we will think of $C$ in terms of its functor of points. 
-To any $\mathbb{Q}$-algebra $A$, we have $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$. 
+To any $\dQ$-algebra $A$, we have $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$. 
 For those of you who know about schemes, 
-$C=\spec\left(\mathbb{Q}[x,y]/f\right)$. Some big questions are:
+$C=\spec\left(\dQ[x,y]/f\right)$. Some big questions are:
 \begin{enumerate}
-  \item Is $C(\mathbb{Q})=\varnothing$?
-  \item Is $C(\mathbb{Q})$ finite?
-  \item Can we compute $C(\mathbb{Q})$?
+  \item Is $C(\dQ)=\varnothing$?
+  \item Is $C(\dQ)$ finite?
+  \item Can we compute $C(\dQ)$?
 \end{enumerate}
 None of these questions are known in full generality. 
 
 \begin{example}
 Let $f=x^2+y^2-1$, i.e. $C$ is the circle. It is well-known that 
 \[
-  C(\mathbb{Q})=\left\{\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right):t\in\mathbb{Q}\right\}\cup \{(-1,0)\}
+  C(\dQ)=\left\{\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right):t\in\dQ\right\}\cup \{(-1,0)\}
 \]
 This can be proved in the usual manner by choosing the point 
 $(-1,0)$ in $C$, and then drawing lines with rational slopes through 
-$(-1,0)$. As a Riemann surface, $C(\mathbb{C})$ is a sphere minus 
+$(-1,0)$. As a Riemann surface, $C(\dC)$ is a sphere minus 
 two points. 
 \end{example}
 
 \begin{example}
 Let $f=x^2+y^2+1$. Then $C(\mathbb{R})=\varnothing$, hence 
-$C(\mathbb{Q})=\varnothing$. But as a Riemann surface, $C(\mathbb{C})$ is 
+$C(\dQ)=\varnothing$. But as a Riemann surface, $C(\dC)$ is 
 the same sphere minus two points. Thus the geometry of $C$ does not 
-necessarily determine $C(\mathbb{Q})$. 
+necessarily determine $C(\dQ)$. 
 \end{example}
 
 \begin{example}
 Let $f=x^4+y^4-1$. Then it is a theorem of Fermat that 
-$C(\mathbb{Q})=\{(\pm 1,0),(0,\pm 1)\}$.
+$C(\dQ)=\{(\pm 1,0),(0,\pm 1)\}$.
 \end{example}
 
 \begin{example}[Stoll]
@@ -86,37 +65,37 @@ Consider
   C : y^2 = 82342800 x^6 &- 470135160 x^5 + 52485681 x^4 + 2396040466 x^3 \\
     &+ 567207969 x^2 - 985905640 x + 247747600
 \end{align*}
-This is a curve of genus 2, i.e. $C(\mathbb{C})$ is a punctured two-hole 
-torus. It turns out that $\# C(\mathbb{Q})\geqslant 642$ \cite[\S 6]{st09}. 
-However, by a theorem of Faltings, $\# C(\mathbb{Q})$ is finite. It is 
+This is a curve of genus 2, i.e. $C(\dC)$ is a punctured two-hole 
+torus. It turns out that $\# C(\dQ)\geqslant 642$ \cite[\S 6]{st09}. 
+However, by a theorem of Faltings, $\# C(\dQ)$ is finite. It is 
 currently the largest known number of rational points of a genus two curve 
-over $\mathbb{Q}$. If we take $C:y^2=f(x)$ with $f\in\mathbb{Q}[x]$ a 
+over $\dQ$. If we take $C:y^2=f(x)$ with $f\in\dQ[x]$ a 
 ``random'' sextic polynomial, then the expectation is that 
-$C(\mathbb{Q})=\varnothing$. 
+$C(\dQ)=\varnothing$. 
 \end{example}
 
 \begin{question}
-Does there exist a number $B_g$ such that if a curve $C/\mathbb{Q}$ has 
-genus $g\geqslant 2$, then $\# C(\mathbb{Q})\leqslant B_g$?
+Does there exist a number $B_g$ such that if a curve $C/\dQ$ has 
+genus $g\geqslant 2$, then $\# C(\dQ)\leqslant B_g$?
 \end{question}
 
 This is not even known for genus $g=2$. 
 
 \begin{example}
-Let $C:y^2=x^3+875 x$. Note that $C(\mathbb{Q})$ has the obvious point 
+Let $C:y^2=x^3+875 x$. Note that $C(\dQ)$ has the obvious point 
 $(0,0)$, and one can do a bit of work to show that this is the only point. 
 \end{example}
 
 \begin{example}
-Let $C:y^2=x^3+877 x$. Then $C(\mathbb{Q})$ once again contains $(0,0)$. A 
+Let $C:y^2=x^3+877 x$. Then $C(\dQ)$ once again contains $(0,0)$. A 
 computer search showed that $(0,0)$ is the only point on $C$ of height 
 $\leqslant 1000000$. For now, the \emph{height} of a solution is just the 
 largest absolute value of the numerator / denominator of a solution written 
 in reduced fractions. But there should be more solutions! Let $E$ be the 
-projective curve over $\mathbb{Q}$ obtained by adjoining a point $O$ to $C$. 
-As a Riemann surface, $E(\mathbb{C})$ is just a torus. 
+projective curve over $\dQ$ obtained by adjoining a point $O$ to $C$. 
+As a Riemann surface, $E(\dC)$ is just a torus. 
 
-We can give $E/\mathbb{Q}$ the structure of an abelian variety. That is, 
+We can give $E/\dQ$ the structure of an abelian variety. That is, 
 we can give $E$ the structure of a commutative algebraic group, i.e. the 
 operation is given by rational functions, with $O$ being the identity. 
 
@@ -124,9 +103,9 @@ Later, we will think of $E\hookrightarrow \operatorname{Jac}(E)$, where
 $\operatorname{Jac}(E)$ is the Jacobian of $E$. This embedding is determined 
 by a single point $O\in E$. 
 
-In particular, $E(\mathbb{Q})$ is an abelian group with identity $O$. It is 
-a theorem of Mordell that $E(\mathbb{Q})$ is in fact finitely generated. We 
-know the structure of such groups: $E(\mathbb{Q})\simeq A\times \mathbb{Z}^r$, 
+In particular, $E(\dQ)$ is an abelian group with identity $O$. It is 
+a theorem of Mordell that $E(\dQ)$ is in fact finitely generated. We 
+know the structure of such groups: $E(\dQ)\simeq A\times \mathbb{Z}^r$, 
 where $A$ is finite, and $r=\operatorname{rk} E$ is the \emph{rank} of $E$. 
 
 In general, $A$ is computable. In our case, $A=\mathbb{Z}/2$. The hard 
@@ -134,9 +113,9 @@ computational problem is: ``what is $r$''? The Birch and Swinnerton-Dyer
 conjecture says that $r$ agrees with the order of vanishing $r'$ of a certain 
 holomorphic function $L(E,s)$ at $s=1$. Sometimes, $r'$ can be computed.  
 In our example, a computation shows that $r'=1$, so we expect 
-$E(\mathbb{Q})\simeq \mathbb{Z}/2\times\mathbb{Z}$. In particular, 
-$E(\mathbb{Q})$ should be infinite. One can show (using other methods) that 
-$E(\mathbb{Q})=\langle (0,0),(x_0,y_0)\rangle$, where 
+$E(\dQ)\simeq \mathbb{Z}/2\times\mathbb{Z}$. In particular, 
+$E(\dQ)$ should be infinite. One can show (using other methods) that 
+$E(\dQ)=\langle (0,0),(x_0,y_0)\rangle$, where 
 \[
   x_0 = \frac{37 5494 5281 2716 2193 1055 0406 9942 0927 9234 6201}{6215 9877 7687 1505 4254 6322 0780 6972 3804 4100}
 \]
@@ -144,12 +123,12 @@ For details, see \cite{br84}. One method to construct such large solutions for
 a rank one elliptic curve uses Heegner points. 
 \end{example}
 
-In general, we will take a curve $C/\mathbb{Q}$, consider its jacobian $J$, 
-and study $J(\mathbb{Q})$. This will be a group, and its structure heavily 
-influences $C(\mathbb{Q})$. The ``average rank of an elliptic curve'' is not 
+In general, we will take a curve $C/\dQ$, consider its jacobian $J$, 
+and study $J(\dQ)$. This will be a group, and its structure heavily 
+influences $C(\dQ)$. The ``average rank of an elliptic curve'' is not 
 known, nor is there a general consensus on what is should be. Some expect it 
 the rank of a random curve to be $0$ or $1$, both with probability 
-$\frac 1 2$. Others suppose that elliptic curves over $\mathbb{Q}$ have rank 
+$\frac 1 2$. Others suppose that elliptic curves over $\dQ$ have rank 
 $2$ with nonzero probability as well. It was proven recently (see 
 \cite[\S 1]{bh10}) that 
 \[
@@ -158,8 +137,8 @@ $2$ with nonzero probability as well. It was proven recently (see
 where $E_{a,b}$ is the elliptic curve defined by $y^2=x^3 +a x+b$.
 
 \begin{question}
-Is $\operatorname{rk} E(\mathbb{Q})$ bounded for all elliptic curves 
-$E/\mathbb{Q}$?
+Is $\operatorname{rk} E(\dQ)$ bounded for all elliptic curves 
+$E/\dQ$?
 \end{question}
 
 It is known that there are curves with rank at least $28$, but their exact 
@@ -170,32 +149,32 @@ ranks are not known \cite{du}. The largest known rank is $19$.
 In general, the assumption that $f(x,y)$ is absolutely irreducible is not a 
 serious one. For example, if $f=y^2-x^2$, then we can factor $f$ as 
 $(x+y)(x-y)$, and then treat the solutions to $x+y=0$ and $x-y=0$ separately. 
-Another example is $f=x^2+y^2$, which only factors over $\mathbb{Q}(i)$ as 
+Another example is $f=x^2+y^2$, which only factors over $\dQ(i)$ as 
 $(y+i x)(y-i x)$, and we the rational points lie in the intersection of the 
-two components over $\mathbb{Q}(i)$. Also, the assumption that 
-$f\in \mathbb{Q}[x,y]$ is not serious. One can prove that every curve 
-$C/\mathbb{Q}$ embeds into $\mathbb{P}^2_\mathbb{Q}$, hence is birational to 
+two components over $\dQ(i)$. Also, the assumption that 
+$f\in \dQ[x,y]$ is not serious. One can prove that every curve 
+$C/\dQ$ embeds into $\mathbb{P}^2_\dQ$, hence is birational to 
 a plane curve. 
 
-Let $C/\mathbb{Q}$ be a curve. Then 
-$C(\mathbb{C})\setminus \{\text{singular points}\}$ is a compact Riemann 
+Let $C/\dQ$ be a curve. Then 
+$C(\dC)\setminus \{\text{singular points}\}$ is a compact Riemann 
 surface with points removed, i.e. it is a torus with $g$ handles with finitely 
 many points removed. Call this $g$ the \emph{genus} of $C$. 
 
 \begin{theorem}[Faltings, conjectured by Mordell]
-If $C$ is a curve over $\mathbb{Q}$ with $g\geqslant 2$, then $C(\mathbb{Q})$ 
+If $C$ is a curve over $\dQ$ with $g\geqslant 2$, then $C(\dQ)$ 
 is finite. 
 \end{theorem}
 
-For curves of genus $g<2$, $\# C(\mathbb{Q})$ can be infinite. In Faltings' 
-theorem, $\mathbb{Q}$ can be replace by any field finitely generated over 
-$\mathbb{Q}$. 
+For curves of genus $g<2$, $\# C(\dQ)$ can be infinite. In Faltings' 
+theorem, $\dQ$ can be replace by any field finitely generated over 
+$\dQ$. 
 
 Now let $C$ be a smooth projective curve of genus $g$ over $\mathbb{F}_p$. 
 We are interested in $|C(\mathbb{F}_{p^n})|$, which is obviously computable 
 for each $n$. Let 
 \[
-  Z(C,t) = \exp\left( \sum_{n>0} \# C(\mathbb{F}_{p^n}) \frac{t^n}{n} \right) \in \mathbb{Q}\llbracket t\rrbracket 
+  Z(C,t) = \exp\left( \sum_{n>0} \# C(\mathbb{F}_{p^n}) \frac{t^n}{n} \right) \in \dQ\llbracket t\rrbracket 
 \]
 
 \begin{theorem}[Weil]
@@ -238,9 +217,9 @@ $C(\mathbb{F}_p)\ne\varnothing$.
 
 % notes taken on 09-03-2013
 
-\section{Some analysis: jacobians over \texorpdfstring{$\mathbb{C}$}{C}}
+\section{Some analysis: jacobians over \texorpdfstring{$\dC$}{C}}
 
-In this section, we will mostly work over $\mathbb{C}$ and treat curves as 
+In this section, we will mostly work over $\dC$ and treat curves as 
 Riemann surfaces. First, some more general definitions:
 
 \begin{definition}
@@ -258,13 +237,13 @@ $k$-algebra $A$ the set $X(A)$ of ``$A$-valued points.'' This determines a
 functor $h_X:\mathsf{Sch}_k^\circ\to\mathsf{Set}$ which is defined by 
 $h_X(Y)=\hom_k(Y,X)$. 
 
-Earlier, for $f\in \mathbb{Q}[x,y]$ and $C$ defined by the equation $f=0$, we 
-defined $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$ for any $\mathbb{Q}$-algebra $A$. 
+Earlier, for $f\in \dQ[x,y]$ and $C$ defined by the equation $f=0$, we 
+defined $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$ for any $\dQ$-algebra $A$. 
 Note that 
 \begin{align*}
   C(A) &= \{(a,b)\in A^2:f(a,b) = 0\} \\
-    &= \hom_{\mathsf{Alg}_\mathbb{Q}}(\mathbb{Q}[x,y]/f,A) \\
-    &= \hom_{\mathsf{Sch}_k}\left(\spec A,\spec(\mathbb{Q}[x,y]/f)\right) \\
+    &= \hom_{\mathsf{Alg}_\dQ}(\dQ[x,y]/f,A) \\
+    &= \hom_{\mathsf{Sch}_k}\left(\spec A,\spec(\dQ[x,y]/f)\right) \\
 \end{align*}
 so this agrees with our general definition. 
 
@@ -273,8 +252,8 @@ The functor $h_X$ determines $X$, up to isomorphism. (This is just the Yoneda
 lemma).
 \end{remark}
 
-For the rest of this section, let $C$ be a nice curve over $\mathbb{C}$. Set 
-$X=C(\mathbb{C})$; this is a compact connected Riemann surface. So 
+For the rest of this section, let $C$ be a nice curve over $\dC$. Set 
+$X=C(\dC)$; this is a compact connected Riemann surface. So 
 topologically, $X$ is a many-handled torus. Let $\Lambda=\h_1(X,\mathbb{Z})$, 
 the first singular homology group of $X$, which can be identified with 
 $\pi_1(X)^\text{ab}$. So elements of $\Lambda$ are equivalence classes 
@@ -283,7 +262,7 @@ $[\gamma]$ for $\gamma\in \pi_1(X)$.
 \begin{remark}
 The notation $\h_\bullet$, $\pi_1$\ldots will always denote the 
 \emph{topological} homology, fundamental group\ldots. For, e.g. 
-etale cohomology, we will write $\h_\text{et}^\bullet(C,\mathbb{Q}_\ell)$, or 
+etale cohomology, we will write $\h_\text{et}^\bullet(C,\dQ_\ell)$, or 
 $\h_\text{crys}^\bullet(X/\mathbb{Z}_p)$ for crystalline cohomology.
 \end{remark}
 
@@ -301,8 +280,8 @@ We can identify $K$ with the function field of $C$, i.e. the set of rational
 maps $C\to\mathbb{A}^1$. Certainly rational maps yield meromorphic functions, 
 and it is a basic theorem of Riemann surface theory that meromorphic functions 
 are in fact algebraic. Moreover, if $C$ is nice, then $C$ can be recovered 
-from $K$. To do this, pick some $x\in K\setminus \mathbb{C}$. If we let $A$ be 
-the integral closure of $\mathbb{C}[x]$ in $K$, then $\spec(A)$ will be a 
+from $K$. To do this, pick some $x\in K\setminus \dC$. If we let $A$ be 
+the integral closure of $\dC[x]$ in $K$, then $\spec(A)$ will be a 
 smooth affine curve. Pick some embedding of $\spec(A)$ into projective space; 
 the closure of its image will be a projective curve $C'$ (possibly with 
 singularities) with function field $K$. We can resolve the singularities of 
@@ -316,9 +295,9 @@ isomorphism of varieties.
 One might ask whether the singular homology $\h_1(X,\mathbb{Z})$ can be 
 defined ``algebraically.'' Essentially, the answer is no -- that is, there is 
 no known algebraic definition for $\h_1(X,\mathbb{Z})$ that gives the 
-``right'' answers. On the other hand, $\h_1(X,\mathbb{Q})$ is naturally 
+``right'' answers. On the other hand, $\h_1(X,\dQ)$ is naturally 
 isomorphic to the dual of the algebraic de Rham cohomology 
-$\h_\text{dR}^1(X/\mathbb{Q})$, and $\h_1(X,\mathbb{Z}_\ell)$ is naturally 
+$\h_\text{dR}^1(X/\dQ)$, and $\h_1(X,\mathbb{Z}_\ell)$ is naturally 
 isomorphic to the dual of the $\ell$-adic cohomology 
 $\h_\text{et}^1(X,\mathbb{Z}_\ell)$. Both of these isomorphisms are hard 
 theorems -- the first follows from work of Grothendieck \cite{gr66}, the 
@@ -327,14 +306,14 @@ second from \cite[I 4.6.3]{de77}.
 With $C$ as before, let $V=\Omega^1(X)=\h^0(X,\Omega^1)=\h^1_\text{dR}(X)$. 
 This is a complex vector space of dimension $g$. (Here, we mean analytic de 
 Rham cohomology -- the algebraic de Rham cohomology would be denoted 
-$\h_\text{dR}^1(C/\mathbb{C})$.) This gives us an algebraic definition of $g$. 
+$\h_\text{dR}^1(C/\dC)$.) This gives us an algebraic definition of $g$. 
 We can consider $\Omega^1$ as the sheaf of (algebraic) differentials, and 
-$g=\dim_\mathbb{C}\h^0(X,\Omega^1)$. There is a pairing 
-$\h_1(X,\mathbb{Z})\otimes\h_\text{dR}^1(X)\to\mathbb{C}$, defined by 
+$g=\dim_\dC\h^0(X,\Omega^1)$. There is a pairing 
+$\h_1(X,\mathbb{Z})\otimes\h_\text{dR}^1(X)\to\dC$, defined by 
 \[
   [\gamma]\otimes \omega \mapsto \int_\gamma \omega
 \]
-This pairing is $\mathbb{C}$-linear in the second component, and is in fact 
+This pairing is $\dC$-linear in the second component, and is in fact 
 non-degenerate. It gives us a map $\Phi:\Lambda\to V^*$. 
 
 \begin{definition}[analytic]
@@ -351,7 +330,7 @@ i.e. an element of $\h_1(X,\mathbb{Z})$. So $X\to\jac X$ is well-defined. Note
 that $\jac X$ is a complex Lie group. 
 
 \begin{remark}
-After choosing a basis for $V^*$, we have $\jac X\simeq \mathbb{C}^g/L$, where 
+After choosing a basis for $V^*$, we have $\jac X\simeq \dC^g/L$, where 
 $L\simeq \mathbb{Z}^{2 g}$. As a real Lie group, $\jac X$ is diffeomorphic to 
 $(S^1)^{2 g}$. 
 \end{remark}
@@ -361,10 +340,10 @@ a projective variety.
 
 \begin{theorem}
 For $X$ a compact Riemann surface, $\jac X$ is algebraic, i.e. there exists a 
-variety $J$ defined over $\mathbb{C}$ such that $J(\mathbb{C})\simeq\jac X$ as 
+variety $J$ defined over $\dC$ such that $J(\dC)\simeq\jac X$ as 
 complex manifolds. Moreover, the group operation on $\jac X$ is algebraic, 
-i.e. there is a morphism $m:J\times_\mathbb{C} J\to J$ such that 
-$J(\mathbb{C})\times J(\mathbb{C})\to J(\mathbb{C})$ corresponds to the 
+i.e. there is a morphism $m:J\times_\dC J\to J$ such that 
+$J(\dC)\times J(\dC)\to J(\dC)$ corresponds to the 
 addition law on $\jac X$. 
 \end{theorem}
 \begin{proof}
@@ -409,7 +388,7 @@ It follows that $\mu$ induces an isomorphism $\mu:\pic^\circ X\to \jac X$.
 Note that $\pic^\circ X$ parameterizes invertible sheaves (line bundles) on 
 $X$ of degree zero. 
 
-Note that in general, $\mathbb{C}^g/L$ for some lattice $L$ need not be 
+Note that in general, $\dC^g/L$ for some lattice $L$ need not be 
 algebraic if $g>1$. In the future, we'll try to define $\jac C$ for a curve 
 $C$ over an any field. The variety $\jac C$ will be a nice variety, i.e. 
 smooth, projective and geometrically integral. We will use this to give an 
@@ -441,8 +420,8 @@ the technical sense) because it is not projective.
 \end{example}
 
 Note that abelian varieties are not required to be commutative, but this is in 
-fact the case. This is easy to see over $\mathbb{C}$. If $A/\mathbb{C}$ is an 
-abelian variety, then $G=A(\mathbb{C})$ is a compact connected complex Lie 
+fact the case. This is easy to see over $\dC$. If $A/\dC$ is an 
+abelian variety, then $G=A(\dC)$ is a compact connected complex Lie 
 group. Let $\mathfrak{g}$ be its Lie algebra. Consider the composite map 
 $f:G\xrightarrow{\text{ad}}\operatorname{GL}(\mathfrak{g}) \hookrightarrow 
 \operatorname{End}(\mathfrak{g})$, where 
@@ -460,10 +439,10 @@ directly using a ``rigidity principle'' for maps on projective varieties
 We'd like to describe the jacobian $J$ of a nice curve $C/k$ with 
 $C(k)\ne\varnothing$. It will be an abelian variety over $k$ of dimension 
 $g$, the genus of $C$. (Note we've only defined the genus for curves 
-$C/k$ with $k\subset\mathbb{C}$. For general curves, we set  
+$C/k$ with $k\subset\dC$. For general curves, we set  
 $g(C)=h^0(C_{\bar k},\Omega^1) = h^1(\sO_C)$, where 
-$h^i(X,\mathscr{F})$ for some sheaf $\mathscr{F}$ denotes 
-$\dim_k\h^i(X,\mathscr{F})$. 
+$h^i(X,\sF)$ for some sheaf $\sF$ denotes 
+$\dim_k\h^i(X,\sF)$. 
 
 \begin{definition}[Albanese]
 Let $C/k$ be a curve with fixed $x_0\in C(k)$. The \emph{jacobian} of $C$ is 
@@ -495,7 +474,7 @@ and require maps $f:C\times C\to A$ with $f(\Delta)=0$ to lift uniquely
 to $\tilde f:J\to A$. 
 
 Another approach to defining $J=\jac C$ involves the Picard group. Recall 
-that over $\mathbb{C}$, we proved that $J(\mathbb{C}\simeq\pic^\circ(C)$. 
+that over $\dC$, we proved that $J(\dC)\simeq\pic^\circ(C)$. 
 One might hope that $J$ satisfies $J(L)=\pic^\circ(C_L)$ for all field 
 extensions $L/k$. This works if $C(k)\ne\varnothing$, but otherwise. For, 
 if $J(k^s)=\pic^\circ(C_{k^s})$, then we would have 
@@ -507,30 +486,30 @@ $X$ is a scheme, the \emph{Picard group} of $X$ is
 $\pic(X)=\h^1(X,\sO_X^\times)$. It is straightforward to show that 
 $\pic(X)$ is isomorphic to the group of isomorphism classes of invertible 
 sheaves on $X$, with group operation induced by tensor product, i.e. 
-$[\mathscr{L}] + [\mathscr{L'}] = [\mathscr{L}\otimes \mathscr{L}']$. 
+$[\sL] + [\mathscr{L'}] = [\sL\otimes \sL']$. 
 
 If $D = \sum D_x\cdot x$ is a divisor on a curve $C/k$, we define the 
 \emph{degree} of $D$ to be $\deg D=\sum D_x \in \mathbb{Z}$. 
 %We would like to 
 %have a definition that works on arbitrary varieties. First, we replace $D$ by 
-%the invertible sheaf $\mathscr{L}=\sO(D)$, where $\mathscr{L}(U)$ is the ring 
+%the invertible sheaf $\sL=\sO(D)$, where $\sL(U)$ is the ring 
 %of rational functions $f$ on $U$ such that $\ord_x(f)\geqslant - D_x$. One 
 %can check that $\sO(D)$ is indeed an invertible sheaf. We will define the 
-%degree of any invertible sheaf $\mathscr{L}$ on a projective variety $X/k$. 
-%Recall that the Euler characteristic of $\mathscr{L}$ is 
-%$\chi(\mathscr{L}) = \sum (-1)^i h^i(\mathscr{L})$. It is proven in 
+%degree of any invertible sheaf $\sL$ on a projective variety $X/k$. 
+%Recall that the Euler characteristic of $\sL$ is 
+%$\chi(\sL) = \sum (-1)^i h^i(\sL)$. It is proven in 
 %\cite[4.1]{dj93} that there exists a (unique) polynomial 
-%$\phi\in\mathbb{Q}[t]$ such that 
-%$\chi(\mathscr{L}^{\otimes n}) = \phi(n)$ for $n\gg 0$. If $X$ is a curve, we 
-%can see this easily; since $\mathscr{L}=\sO(D)$ is effective, the Riemann-Roch 
-%forces $\chi(\mathscr{L}^{\otimes n}) = n\cdot \deg D + 1 - g$ for $n\gg 0$. 
-%We define the \emph{degree} of $\mathscr{L}$ to be the coefficient of the 
+%$\phi\in\dQ[t]$ such that 
+%$\chi(\sL^{\otimes n}) = \phi(n)$ for $n\gg 0$. If $X$ is a curve, we 
+%can see this easily; since $\sL=\sO(D)$ is effective, the Riemann-Roch 
+%forces $\chi(\sL^{\otimes n}) = n\cdot \deg D + 1 - g$ for $n\gg 0$. 
+%We define the \emph{degree} of $\sL$ to be the coefficient of the 
 %highest-degree term of $\phi$. As we have just shown, this agrees with the 
 %classical definition. 
 
 Back to the case where $C$ is a nice curve. For $T$ an arbitrary scheme, define 
 $\pic^\circ(C\times T)$ to be the subset of $\pic(C\times T)$ consisting of 
-invertible sheaves $\mathscr{L}$ with $\deg(\mathscr{L}_t)=0$ for all $t\in T$, 
+invertible sheaves $\sL$ with $\deg(\sL_t)=0$ for all $t\in T$, 
 i.e. the following sequence is exact 
 \[\xymatrix{
   0 \ar[r] 
@@ -618,26 +597,26 @@ better, if $X(k)\ne\varnothing$, then $\pic_X$ is representable
 \cite[2.5]{kl05}. We will also denote the representing scheme by $\pic_X$, and 
 we call $\pic_X$ the \emph{Picard scheme} of $X$. It is not a variety, but it 
 is a disjoint union of ind-varieties \cite[4.8]{kl05}. More precisely, choose 
-a very ample line bundle $\mathscr{L}$ on $X$. If $\mathscr{F}$ is any coherent 
+a very ample line bundle $\sL$ on $X$. If $\sF$ is any coherent 
 sheaf on $X$, write 
-$\mathscr{F}(n) = \mathscr{F}\otimes\mathscr{L}^{\otimes n}$. Recall that the 
-\emph{Euler characteristic} of $\mathscr{F}$ is 
-$\chi(\mathscr{F}) = \sum (-1)^i h^i(\mathscr{F})$. By \cite[2.5.3]{gr61}, 
-there is a (unique) polynomial $\phi\in \mathbb{Q}[t]$ such that 
-$\chi\left(\mathscr{F}(n)\right) = \phi(n)$ for all 
-$n\in\mathbb{Z}$; set $h_\mathscr{L}(\mathscr{F}) = \phi$. We call $\phi$ the 
-\emph{Hilbert polynomial} of $\mathscr{F}$. The Hilbert polynomial 
-$h_\mathscr{L}(\mathscr{F})$ does depend on $\mathscr{L}$.
+$\sF(n) = \sF\otimes\sL^{\otimes n}$. Recall that the 
+\emph{Euler characteristic} of $\sF$ is 
+$\chi(\sF) = \sum (-1)^i h^i(\sF)$. By \cite[2.5.3]{gr61}, 
+there is a (unique) polynomial $\phi\in \dQ[t]$ such that 
+$\chi\left(\sF(n)\right) = \phi(n)$ for all 
+$n\in\mathbb{Z}$; set $h_\sL(\sF) = \phi$. We call $\phi$ the 
+\emph{Hilbert polynomial} of $\sF$. The Hilbert polynomial 
+$h_\sL(\sF)$ does depend on $\sL$.
 
 Denote by 
 $\pic_X^\phi$ the functor which assigns to a scheme $T$ the subset of 
-$\pic_X(T)$ consisting of invertible sheaves $\mathscr{F}$ on $X\times T$ with 
-$h_\mathscr{L}(\mathscr{F}_t) = \phi$ for all $t\in T$. By \cite[6.20]{kl05}, 
+$\pic_X(T)$ consisting of invertible sheaves $\sF$ on $X\times T$ with 
+$h_\sL(\sF_t) = \phi$ for all $t\in T$. By \cite[6.20]{kl05}, 
 $\pic_X^\phi$ represents a clopen subscheme of $\pic_X$, and $\pic_X$ is 
 covered by the $\pic_X^\phi$. Moreover, the $\pic_X^\phi$ are varieties. We can 
 do even better. If we let $\pic_X^d$ send $T$ to the subset of $\pic_X(T)$ 
-consisting of invertible sheaves $\mathscr{F}$ with 
-$\deg h_\mathscr{L}(\mathscr{F}_t) = d$ for all $t\in T$, then the 
+consisting of invertible sheaves $\sF$ with 
+$\deg h_\sL(\sF_t) = d$ for all $t\in T$, then the 
 $\pic_X^d$ form a cover of $\pic_X$ by clopen subvarieties. Just as the genus 
 of a curve is the dimension of its jacobian, there is a natural isomorphism 
 $\h^1(\mathscr{O}_X) \simeq \operatorname{Lie}(\pic_X)$, from which we deduce 
@@ -657,9 +636,9 @@ $\operatorname{NS}(X)$ the \emph{N\'eron-Severi group} of $X$.
 
 In any case, the \emph{dual} of $A$ is defined to be $A^\vee = \pic_A^\circ$. 
 Each $c\in \pic(A)$ gives a map $\varphi_c:A\to A^\vee$. At the level of 
-points, it is defined as $a\mapsto t_a^* c - c$, where if $c=[\mathscr{L}]$, 
+points, it is defined as $a\mapsto t_a^* c - c$, where if $c=[\sL]$, 
 the class $t_a^*c - c\in A^\vee(\bar k) = \pic^\circ(A)$ is represented by 
-$[t_a^*\mathscr{L}\otimes\mathscr{L}^{-1}]$. 
+$[t_a^*\sL\otimes\sL^{-1}]$. 
 
 It turns out that $A^{\vee\vee} \simeq A$, so calling $A^\vee$ the dual of $A$ 
 is rather natural. The map $\varphi_c:A\to A^\vee$ is a homomorphism of abelian 
@@ -751,7 +730,7 @@ polarization).
 One might hope that all abelian varieties are at least isogenous to jacobians. 
 While this is true for dimension $d\leqslant 3$, it is not true in general. 
 In fact, for all $d>3$, there exists an abelian variety of dimension $d$ over 
-$\overline{\mathbb{Q}}$ which is not isogenous to a jacobian. This was proven 
+$\overline{\dQ}$ which is not isogenous to a jacobian. This was proven 
 recently in \cite{ts12}
 
 \begin{example}
