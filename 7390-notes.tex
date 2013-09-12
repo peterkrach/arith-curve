@@ -121,15 +121,15 @@ by a single point $O\in E$.
 
 In particular, $E(\dQ)$ is an abelian group with identity $O$. It is 
 a theorem of Mordell that $E(\dQ)$ is in fact finitely generated. We 
-know the structure of such groups: $E(\dQ)\simeq A\times \mathbb{Z}^r$, 
+know the structure of such groups: $E(\dQ)\simeq A\times \dZ^r$, 
 where $A$ is finite, and $r=\operatorname{rk} E$ is the \emph{rank} of $E$. 
 
-In general, $A$ is computable. In our case, $A=\mathbb{Z}/2$. The hard 
+In general, $A$ is computable. In our case, $A=\dZ/2$. The hard 
 computational problem is: ``what is $r$''? The Birch and Swinnerton-Dyer 
 conjecture says that $r$ agrees with the order of vanishing $r'$ of a certain 
 holomorphic function $L(E,s)$ at $s=1$. Sometimes, $r'$ can be computed.  
 In our example, a computation shows that $r'=1$, so we expect 
-$E(\dQ)\simeq \mathbb{Z}/2\times\mathbb{Z}$. In particular, 
+$E(\dQ)\simeq \dZ/2\times\dZ$. In particular, 
 $E(\dQ)$ should be infinite. One can show (using other methods) that 
 $E(\dQ)=\langle (0,0),(x_0,y_0)\rangle$, where 
 \[
@@ -198,7 +198,7 @@ If $C/\mathbb{F}_p$ is a smooth projective curve of genus $g$, then
 \[
   Z(C,t) = \frac{P(C,t)}{(1-t)(1-p t)}
 \]
-where $P(C,t)\in \mathbb{Z}[t]$ has degree $2 g$. Moreover, if 
+where $P(C,t)\in \dZ[t]$ has degree $2 g$. Moreover, if 
 $P(C,t) = \prod_{i=1}^{2 g} (1-\alpha_i t)$, then for each $i$, one has 
 $|\alpha_i|=p^{1/2}$. 
 \end{theorem}
@@ -270,7 +270,7 @@ lemma).
 
 For the rest of this section, let $C$ be a nice curve over $\dC$. Set 
 $X=C(\dC)$; this is a compact connected Riemann surface. So 
-topologically, $X$ is a many-handled torus. Let $\Lambda=\h_1(X,\mathbb{Z})$, 
+topologically, $X$ is a many-handled torus. Let $\Lambda=\h_1(X,\dZ)$, 
 the first singular homology group of $X$, which can be identified with 
 $\pi_1(X)^\text{ab}$. So elements of $\Lambda$ are equivalence classes 
 $[\gamma]$ for $\gamma\in \pi_1(X)$. 
@@ -279,16 +279,16 @@ $[\gamma]$ for $\gamma\in \pi_1(X)$.
 The notation $\h_\bullet$, $\pi_1$\ldots will always denote the 
 \emph{topological} homology, fundamental group\ldots. For, e.g. 
 etale cohomology, we will write $\h_\text{et}^\bullet(C,\dQ_\ell)$, or 
-$\h_\text{crys}^\bullet(X/\mathbb{Z}_p)$ for crystalline cohomology.
+$\h_\text{crys}^\bullet(X/\dZ_p)$ for crystalline cohomology.
 \end{remark}
 
-It is a theorem of algebraic topology that $\Lambda\simeq\mathbb{Z}^{2 g}$; we 
+It is a theorem of algebraic topology that $\Lambda\simeq\dZ^{2 g}$; we 
 will call $g$ the \emph{genus} of $X$ (and also of $C$). Let $K$ be the field 
 of meromorphic functions on $X$. In other words, elements of $K$ are of the 
 form $f=g/h$ where $g$ and $h$ are holomorphic functions on $X$ and $g\ne 0$. 
 (This forces $g\ne 0$ except on a finite subset of $X$.) At any point 
 $x\in X$, we can write $f$ in local coordinates as $z^n(a_0+a_1 z+\cdots)$ 
-where $a_0\ne 0$ and $n\in\mathbb{Z}$. We call $n=\ord_x(f)$ the \emph{order 
+where $a_0\ne 0$ and $n\in\dZ$. We call $n=\ord_x(f)$ the \emph{order 
 of vanishing} of $f$ at $x$. 
  
 \begin{remark}
@@ -308,14 +308,14 @@ isomorphic. Indeed, let $f:C''\to C$ be a birational map. By
 isomorphism of varieties. 
 \end{remark}
 
-One might ask whether the singular homology $\h_1(X,\mathbb{Z})$ can be 
+One might ask whether the singular homology $\h_1(X,\dZ)$ can be 
 defined ``algebraically.'' Essentially, the answer is no -- that is, there is 
-no known algebraic definition for $\h_1(X,\mathbb{Z})$ that gives the 
+no known algebraic definition for $\h_1(X,\dZ)$ that gives the 
 ``right'' answers. On the other hand, $\h_1(X,\dQ)$ is naturally 
 isomorphic to the dual of the algebraic de Rham cohomology 
-$\h_\text{dR}^1(X/\dQ)$, and $\h_1(X,\mathbb{Z}_\ell)$ is naturally 
+$\h_\text{dR}^1(X/\dQ)$, and $\h_1(X,\dZ_\ell)$ is naturally 
 isomorphic to the dual of the $\ell$-adic cohomology 
-$\h_\text{et}^1(X,\mathbb{Z}_\ell)$. Both of these isomorphisms are hard 
+$\h_\text{et}^1(X,\dZ_\ell)$. Both of these isomorphisms are hard 
 theorems -- the first follows from work of Grothendieck \cite{gr66}, the 
 second from \cite[I 4.6.3]{de77}. 
 
@@ -325,7 +325,7 @@ Rham cohomology -- the algebraic de Rham cohomology would be denoted
 $\h_\text{dR}^1(C/\dC)$.) This gives us an algebraic definition of $g$. 
 We can consider $\Omega^1$ as the sheaf of (algebraic) differentials, and 
 $g=\dim_\dC\h^0(X,\Omega^1)$. There is a pairing 
-$\h_1(X,\mathbb{Z})\otimes\h_\text{dR}^1(X)\to\dC$, defined by 
+$\h_1(X,\dZ)\otimes\h_\text{dR}^1(X)\to\dC$, defined by 
 \[
   [\gamma]\otimes \omega \mapsto \int_\gamma \omega
 \]
@@ -334,7 +334,7 @@ non-degenerate. It gives us a map $\Phi:\Lambda\to V^*$.
 
 \begin{definition}[analytic]
 The \emph{Jacobian} of $X$ is 
-$\jac X=V^*/\Phi(X) = \h_\textnormal{dR}^1(X)^*/\h_1(X,\mathbb{Z})$. 
+$\jac X=V^*/\Phi(X) = \h_\textnormal{dR}^1(X)^*/\h_1(X,\dZ)$. 
 \end{definition}
 
 Is is known that $\Phi(\Lambda)$ is a lattice in $V^*$, i.e. it is discrete 
@@ -342,12 +342,12 @@ and $V^*/\Phi(\Lambda)$ is compact. There is the \emph{Abel-Jacobi map} from
 $X$ to $\jac X$ defined as follows. Fix $x_0\in X$; we send $x\in X$ to 
 $\omega\mapsto \int_{[x_0,x]} \omega$, where $[x_0,x]$ denotes some path from 
 $x_0$ to $x$. A different choice of $[x_0,x]$ will differ by a closed loop, 
-i.e. an element of $\h_1(X,\mathbb{Z})$. So $X\to\jac X$ is well-defined. Note 
+i.e. an element of $\h_1(X,\dZ)$. So $X\to\jac X$ is well-defined. Note 
 that $\jac X$ is a complex Lie group. 
 
 \begin{remark}
 After choosing a basis for $V^*$, we have $\jac X\simeq \dC^g/L$, where 
-$L\simeq \mathbb{Z}^{2 g}$. As a real Lie group, $\jac X$ is diffeomorphic to 
+$L\simeq \dZ^{2 g}$. As a real Lie group, $\jac X$ is diffeomorphic to 
 $(S^1)^{2 g}$. 
 \end{remark}
 
@@ -367,11 +367,11 @@ look up in \cite{mu08}
 \end{proof}
 
 Let $\Div X$ be the free abelian group generated by the points of $X$. There 
-is a map $\deg:\Div X\to \mathbb{Z}$, defined by 
+is a map $\deg:\Div X\to \dZ$, defined by 
 $\sum n_x\cdot x\mapsto \sum n_x$. We define $\Div^\circ X$ by the short exact 
 sequence 
 \[
-  0 \to \Div^\circ X \to \Div X \to \mathbb{Z} \to 0
+  0 \to \Div^\circ X \to \Div X \to \dZ \to 0
 \]
 There is also a map $\operatorname{div}:K^\times\to \Div X$, where 
 $\operatorname{div}(f) = \sum_x \ord_x(f)\cdot x$. It is a basic fact that 
@@ -408,7 +408,7 @@ Note that in general, $\dC^g/L$ for some lattice $L$ need not be
 algebraic if $g>1$. In the future, we'll try to define $\jac C$ for a curve 
 $C$ over an any field. The variety $\jac C$ will be a nice variety, i.e. 
 smooth, projective and geometrically integral. We will use this to give an 
-algebraic definition of $\h_1(X,\mathbb{Z}/n)$. 
+algebraic definition of $\h_1(X,\dZ/n)$. 
 
 
 
@@ -505,7 +505,7 @@ sheaves on $X$, with group operation induced by tensor product, i.e.
 $[\sL] + [\mathscr{L'}] = [\sL\otimes \sL']$. 
 
 If $D = \sum D_x\cdot x$ is a divisor on a curve $C/k$, we define the 
-\emph{degree} of $D$ to be $\deg D=\sum D_x \in \mathbb{Z}$. 
+\emph{degree} of $D$ to be $\deg D=\sum D_x \in \dZ$. 
 %We would like to 
 %have a definition that works on arbitrary varieties. First, we replace $D$ by 
 %the invertible sheaf $\sL=\sO(D)$, where $\sL(U)$ is the ring 
@@ -620,7 +620,7 @@ $\sF(n) = \sF\otimes\sL^{\otimes n}$. Recall that the
 $\chi(\sF) = \sum (-1)^i h^i(\sF)$. By \cite[2.5.3]{gr61}, 
 there is a (unique) polynomial $\phi\in \dQ[t]$ such that 
 $\chi\left(\sF(n)\right) = \phi(n)$ for all 
-$n\in\mathbb{Z}$; set $h_\sL(\sF) = \phi$. We call $\phi$ the 
+$n\in\dZ$; set $h_\sL(\sF) = \phi$. We call $\phi$ the 
 \emph{Hilbert polynomial} of $\sF$. The Hilbert polynomial 
 $h_\sL(\sF)$ does depend on $\sL$.
 
@@ -646,7 +646,7 @@ where $t_a:A_{\bar k}\to A_{\bar k}$ is translation by $a$. See
 \cite[I.8.4]{mi} for a partial proof. 
 
 Unlike the case when $X$ is a curve, it is not always true that 
-$\pic_X(\bar k)/\pic^\circ(\bar k) = \mathbb{Z}$. In general, we set 
+$\pic_X(\bar k)/\pic^\circ(\bar k) = \dZ$. In general, we set 
 $\operatorname{NS}(X) = \pic_X(\bar k) / \pic_X^\circ(\bar k)$, and call 
 $\operatorname{NS}(X)$ the \emph{N\'eron-Severi group} of $X$. 
 
@@ -737,11 +737,11 @@ The operation ``take Jacobian'' induces a natural transformation
 $j:\mathcal{M}_g\to\mathcal{A}_g$, and Torelli's theorem can be rephrased as 
 saying that $j$ is injective. Shottky's question asks what the image of $j$ is. 
 To see that it cannot be all of $\mathcal{A}_g$, simply note that 
-$\dim(M_g) = 3 g - 3$, while $\dim(A_g) = \frac{g(g+1)}{2}$. Thus, for 
-$g>3$, $A_g$ has greater dimension than $M_g$, so $j:M_g(L)\to A_g(L)$ cannot 
-possibly be surjective. On the other hand, for $g\leqslant 3$, all principally 
-polarized abelian varieties are jacobians (possibly after a change of the 
-polarization). 
+$\dim(M_g) = 3 g - 3$, while $\dim(A_g) = \frac{g(g+1)}{2}$. For 
+$g>3$, $A_g$ has greater dimension than $M_g$, so 
+$j:M_g(\bar\dQ)\to A_g(\bar\dQ)$ cannot possibly be surjective. On the other 
+hand, for $g\leqslant 3$, all principally polarized abelian varieties are 
+jacobians (possibly after a change of the polarization). 
 
 One might hope that all abelian varieties are at least isogenous to jacobians. 
 While this is true for dimension $d\leqslant 3$, it is not true in general. 
@@ -774,6 +774,159 @@ $\mu(P)+\mu(Q) = \mu(R')$.
 \end{example}
 
 
+
+
+
+
+
+
+
+
+% notes on 09-12-2013
+\section{The Mordell-Weil theorem}
+
+Let $k$ be a number field, i.e. $k$ is a finite extension of $\dQ$. Important 
+examples are $k=\dQ(\sqrt d)$ and $\dQ(\zeta_{p^n})$. 
+
+\begin{theorem}[Mordell-Weil]
+Let $A$ be an abelian variety over a number field $k$. Then the abelian group 
+$A(k)$ is finitely generated.
+\end{theorem}
+
+Note that is clearly false if $k=\dC$, for then $A(\dC)$ is a complex Lie 
+group, hence uncountable. In fact, whenever $k$ is a local field, $A(k)$ is a 
+Lie group over $k$, hence uncountable. The Mordell-Weil theorem actually holds 
+whenever $k$ is finitely generated over its prime field. Basic algebra shows 
+that $A(k) = A(k)_\text{tors}\oplus \dZ x_1\oplus \cdots \oplus \dZ x_r$, where 
+the $x_i$ are linearly independent over $\dZ$. We call $r=\operatorname{rk} A$ 
+the \emph{rank} of $A$. Mordell proved the theorem for $A=E/\dQ$ an elliptic 
+curve, demonstrating an assertion of Poincar\'e.
+%Mordell 1922, Poincare 1901
+
+\begin{example}
+Let $E\subset \mathbb{P}_\dQ^2$ be the projective closure of the affine curve 
+defined by $y=x^3+2 x+3$, with $O=(0:0:1)$ the point at infinity. The curve 
+has a group law where $a+b+c=0$ if and only if $a,b,c$ are colinear. 
+Alternatively, there is a unique map $E\hookrightarrow J_E$ with $O\mapsto 0$; 
+this is an isomorphism, and we can use it to transfer the group structure of 
+$J_E$ to $E$. The curve $E$ has an obvious rational point $(-1,0)$ of order 
+two. Another rational points is $(3,6)$. Their sum is 
+$\left(\frac 1 4,-\frac{15}{16}\right)$. One can show that 
+$E(\dQ) = \langle (-1,0)\rangle \oplus \langle (3,6)\rangle$, where 
+$(-1,0)$ has order two and $(3,6)$ has infinite order. So 
+$E(\dQ) = \dZ/2\oplus \dZ$. 
+\end{example}
+
+\begin{example}
+Let $E/\dQ$ be the projective closure of $y^2+y = x^3+x^2 - 2 x$. We claim 
+that $E(\dQ) = \langle (0,0),(1,0)\rangle$. As an exercise, try to find ten 
+more points in $E(\dQ)$. 
+\end{example}
+
+One thing that motivated Weil is the following conjecture of Mordell (now a 
+theorem of Faltings). 
+
+\begin{theorem}[Faltings]
+If $C$ is a nice curve over a number field $K$ with genus $g\geqslant 2$, then 
+$C(k)$ is finite.
+\end{theorem}
+
+Note that Mordell's conjecture definitely fails if $g\leqslant 1$. For $g=0$, 
+$\mathbb{P}^1$ has lots of rational points, and we have seen examples of 
+elliptic curves with infinitely many rational points. Here is a heuristic. 
+Assume $C(k)\ne\varnothing$ and consider the canonical embedding 
+$C\hookrightarrow J$. We have $C(k)=C\cap J(k)$. The set $C$ has positive 
+codimension, and $J(k)$ is a finitely generated abelian group. So 
+$C(k)$ is the intersection of two ``sparse'' subsets of $J$. One would expect 
+this forces $C(k)$ to be small. This heuristic is validated by the following 
+theorem, which was conjectured by Mordell and Lang.
+
+\begin{theorem}[Faltings]
+Let $A$ be an abelian variety over $\dC$, let $C$ be a nice curve in $A$ of 
+genus $g\geqslant 2$. Let $\Gamma$ be a finitely generated subgroup of 
+$A(\dC)$. Then $C(\dC)\cap \Gamma$ is finite. 
+\end{theorem}
+
+While this is a geometric theorem, it does not have a geometric proof. It 
+implies the Mordell conjecture for $k\subset \dC$. Note that this is actually 
+a special case of the Mordell-Lang conjecture. The general conjecture is 
+much more complicated. 
+\todo{Look up KK-trace version, Lang-N\'eron -- Conrad's notes}
+
+
+
+
+
+
+
+
+
+
+\section{Overview of proof of Mordell-Weil}
+
+The proof has two main ingredients. The first (the weak Mordell-Weil theorem) 
+says that for any integer $n\geqslant 2$, $A(k)/n A(k)$ is a finite group. 
+
+There is a ``height function'' $h:A(k)\to \mathbb{R}_{\geqslant 0}$, such that 
+\begin{enumerate}
+  \item for any $c>0$, the set $\{h\leqslant c\}=\{x\in A(k):h(x)\leqslant c\}$ 
+    is finite
+  \item for $x,y\in A(k)$, we have $h(x+y)-h(x-y)=2h(x)+2h(y)$, which implies 
+    $h(n\cdot x) = n^2 h(x)$ for all $n\geqslant 1$
+\end{enumerate}
+One can think of $h$ as a kind of quadratic form: 
+``$h(x)=\langle x,x\rangle$.'' There actually is a pairing (\textbf{look this up})
+
+We will show that the weak Mordell-Weil theorem and the existence of a height 
+function imply the full Mordell-Weil theorem. By the weak Mordell-Weill 
+theorem, there exist $y_1,\dotsc,y_s\in A(k)$ whose images are all of  
+$A(k)/n A(k)$. Take any point $x_1\in A(k)$. Then $x_0 = y_{i_1} + n x_2$ for 
+some $x_2\in A(k)$. Thus 
+\begin{align*}
+  h(x_1) &= h(y_{i_1} + n x_2) \\
+    &\leqslant 2 h(y_{i_1}) + 2 h(n x_2) \\
+    &= 2 h(y_{i_1}) + 2 n^2 h(x_2) 
+\end{align*}
+We had $h(n x_2) = h(x_1-y_{i_1})$, and 
+$n^2 h(x_2) \leqslant 2 h(x_1) + 2 h(-y_{i_1})$, so 
+$h(x_2) \leqslant \frac{2}{n^2} h(x_1) + \frac{2}{n^2} h(-y_{i_1})$. Let 
+$C=2 \sup\{h(y_i)\}$. Then 
+$h(x_1) \leqslant \frac{2}{n^2} h(x_1) + \frac{C}{n^2}$. If 
+$h(x_1)\geqslant C$, then 
+$h(x_2)\leqslant \frac{2}{n^2} h(x_1) + \frac{1}{n^2} h(x_1) = \frac{3}{n^2} h(x_1)$. 
+Since we have $n\geqslant 2$, this yields $h(x_2) < h(x_1)$. We can continue 
+this process to obtain $x_1\equiv x\mod \langle y_1,\dotsc,y_s\rangle$ for some 
+$x=x_t$ with $h(x)\leqslant C$. Since $h(y_i)\leqslant C$ for each $i$, we see 
+that $A(k)$ is generated by the finite set $\{h\leqslant C\}$.
+
+\todo{Check details + clean up notation}
+
+Proofs of this form are called proofs \emph{by descent}. Our proof is (very 
+nearly) effective; given a set of generators for $A(k)/n A(k)$, it gives an 
+algorithm for finding a set of generators for $A(k)$. Moreover, one can choose 
+any $n$ -- most people use $n = 2$ when doing computations. In the next 
+section, we will give a proof of the weak Mordell-Weil theorem using Galois 
+cohomology. Let $\bar k$ be the algebraic closure of $k$, and let  
+$G_k = \gal(\bar k/k)$ be the absolute Galois group of $k$. The abelian group 
+$A(\bar k)$ has a continuous $G_k$-action. One way to see this is to embed 
+$A$ into some $\mathbb{P}^N$, and let $G_k$ act on coordinates. A fancier 
+way to see this is to note that $A(\bar k) = \hom(\spec(\bar k),A)$, so if 
+$\sigma\in G_k$, $x\in A(\bar k)$, the point $^\sigma x$ is the composite 
+$\spec(\bar k)\xrightarrow{\sigma^*} \spec(\bar k) \xrightarrow{x} A$. 
+
+Let $A[n]$ be the kernel of $\cdot n : A(\bar k)\to A(\bar k)$. We can take 
+$G_k$-invariants of $A[n]$. We get an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A[n]^{G_k} \ar[r] 
+    & A(k) \ar[r]^-n 
+    & A(k)
+}\]
+We are interested in continuing this exact sequence to the right -- we'll 
+get a long exact sequence 
+\[
+  0 \to A[n]^{G_k} \to A(k) \to A(k) \to \h^1(G_k,A[n]) \to \h^1(G_k,A(\bar k))\to \h^1(G_k, A(\bar k)) \to \h^2(G_k, A[n]) \to \cdots
+\]
 
 
 
