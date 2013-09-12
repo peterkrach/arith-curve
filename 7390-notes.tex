@@ -722,12 +722,27 @@ jacobians?
 \end{question}
 
 This question has an easy partial answer if we are willing to use heavy 
-machinery. The moduli stack $\mathcal{M}_g$ which classifies nice curves of 
-genus $g$ has dimension $3 g - 3$, while the moduli stack $\mathcal{A}_g$ 
-classifying principally polarized abelian varieties of dimension $g$ has 
-dimension $\frac{g(g+1)}{2}$. For $g>3$, $\mathcal{A}_g$ has greater 
-dimension that $\mathcal{M}_g$, so there are ``more principally polarized 
-abelian varieties than jacobians.'' For $g\leqslant 3$, all principally 
+machinery. Consider the functor $\mathcal{M}_g$ which sends a scheme $S$ to the 
+set of isomorphism classes of curves of genus $g$ over $S$. The functor 
+$\mathcal{M}_g$ is unfortunately not representable (there is n 
+\emph{fine} moduli spaces for curves), but it is nearly so (there is a 
+\emph{coarse} moduli space). That is, there is a scheme (a variety, 
+actually) $M_g$ together with a natural transformation 
+$\mathcal{M}_g\to h_{M_g}$ such that $\mathcal{M}_g(L)\to h_{M_g}(L)$ is a 
+bijection whenever $L$ is an algebraically closed field, and such that 
+$\mathcal{M}_g\to h_{M_g}$ is initial among all morphisms from $\mathcal{M}_g$ 
+to representable functors. For a proof, see \cite[5]{mu94}. Along the same lines, 
+we can let $\mathcal{A}_g$ be the functor which assigns to a scheme $S$ the set 
+of isomorphism classes of principally polarized abelian schemes of dimension 
+$g$ over $S$. The functor $\mathcal{A}_g$ has a coarse moduli space $A_g$. 
+
+The operation ``take Jacobian'' induces a natural transformation 
+$j:\mathcal{M}_g\to\mathcal{A}_g$, and Torelli's theorem can be rephrased as 
+saying that $j$ is injective. Shottky's question asks what the image of $j$ is. 
+To see that it cannot be all of $\mathcal{A}_g$, simply note that 
+$\dim(M_g) = 3 g - 3$, while $\dim(A_g) = \frac{g(g+1)}{2}$. Thus, for 
+$g>3$, $A_g$ has greater dimension than $M_g$, so $j:M_g(L)\to A_g(L)$ cannot 
+possibly be surjective. On the other hand, for $g\leqslant 3$, all principally 
 polarized abelian varieties are jacobians (possibly after a change of the 
 polarization). 
 
