@@ -508,26 +508,27 @@ sheaves on $X$, with group operation induced by tensor product, i.e.
 $[\mathscr{L}] + [\mathscr{L'}] = [\mathscr{L}\otimes \mathscr{L}']$. 
 
 If $D = \sum D_x\cdot x$ is a divisor on a curve $C/k$, we define the 
-\emph{degree} of $D$ to be $\deg D=\sum D_x \in \mathbb{Z}$. We would like to 
-have a definition that works on arbitrary varieties. First, we replace $D$ by 
-the invertible sheaf $\mathscr{L}=\sO(D)$, where $\mathscr{L}(U)$ is the ring 
-of rational functions $f$ on $U$ such that $\ord_x(f)\geqslant - D_x$. One 
-can check that $\sO(D)$ is indeed an invertible sheaf. We will define the 
-degree of any invertible sheaf $\mathscr{L}$ on a projective variety $X/k$. 
-Recall that the Euler characteristic of $\mathscr{L}$ is 
-$\chi(\mathscr{L}) = \sum (-1)^i h^i(\mathscr{L})$. It is proven in 
-\cite[4.1]{dj93} that there exists a (unique) polynomial 
-$\phi\in\mathbb{Q}[t]$ such that 
-$\chi(\mathscr{L}^{\otimes n}) = \phi(n)$ for $n\gg 0$. If $X$ is a curve, we 
-can see this easily; since $\mathscr{L}=\sO(D)$ is effective, the Riemann-Roch 
-forces $\chi(\mathscr{L}^{\otimes n}) = n\cdot \deg D + 1 - g$ for $n\gg 0$. 
-We define the \emph{degree} of $\mathscr{L}$ to be the coefficient of the 
-highest-degree term of $\phi$. As we have just shown, this agrees with the 
-classical definition. 
+\emph{degree} of $D$ to be $\deg D=\sum D_x \in \mathbb{Z}$. 
+%We would like to 
+%have a definition that works on arbitrary varieties. First, we replace $D$ by 
+%the invertible sheaf $\mathscr{L}=\sO(D)$, where $\mathscr{L}(U)$ is the ring 
+%of rational functions $f$ on $U$ such that $\ord_x(f)\geqslant - D_x$. One 
+%can check that $\sO(D)$ is indeed an invertible sheaf. We will define the 
+%degree of any invertible sheaf $\mathscr{L}$ on a projective variety $X/k$. 
+%Recall that the Euler characteristic of $\mathscr{L}$ is 
+%$\chi(\mathscr{L}) = \sum (-1)^i h^i(\mathscr{L})$. It is proven in 
+%\cite[4.1]{dj93} that there exists a (unique) polynomial 
+%$\phi\in\mathbb{Q}[t]$ such that 
+%$\chi(\mathscr{L}^{\otimes n}) = \phi(n)$ for $n\gg 0$. If $X$ is a curve, we 
+%can see this easily; since $\mathscr{L}=\sO(D)$ is effective, the Riemann-Roch 
+%forces $\chi(\mathscr{L}^{\otimes n}) = n\cdot \deg D + 1 - g$ for $n\gg 0$. 
+%We define the \emph{degree} of $\mathscr{L}$ to be the coefficient of the 
+%highest-degree term of $\phi$. As we have just shown, this agrees with the 
+%classical definition. 
 
 Back to the case where $C$ is a nice curve. For $T$ an arbitrary scheme, define 
 $\pic^\circ(C\times T)$ to be the subset of $\pic(C\times T)$ consisting of 
-invertible sheaves $\mathscr{L}$ with $\deg\mathscr{L}_t=0$ for all $t\in T$, 
+invertible sheaves $\mathscr{L}$ with $\deg(\mathscr{L}_t)=0$ for all $t\in T$, 
 i.e. the following sequence is exact 
 \[\xymatrix{
   0 \ar[r] 
@@ -614,16 +615,29 @@ fppf-sheafification of $\pic_X$ is representable \cite[4.1.38]{kl05}. Even
 better, if $X(k)\ne\varnothing$, then $\pic_X$ is representable 
 \cite[2.5]{kl05}. We will also denote the representing scheme by $\pic_X$, and 
 we call $\pic_X$ the \emph{Picard scheme} of $X$. It is not a variety, but it 
-is a disjoint union of ind-varieties \cite[4.8]{kl05}. More precisely, for 
-$\phi\in \mathbb{Q}[t]$, let $\pic_X^\phi(T)$ be the set of all 
-$\mathscr{L}\in \pic_X(T)$ such that 
-$\chi(\mathscr{L}^{\otimes n}) = \phi(n)$ for $n\gg 0$. In other words, 
-$\pic_X^\phi$ classifies invertible sheaves with Hilbert polynomial $\phi$. 
-It turns out \cite[6.20]{kl05} that for each $\phi$, $\pic_X^\phi$ represents 
-a clopen subscheme of $\pic_X$, and $\pic_X$ is covered by the 
-$\pic_X^\phi$. Moreover \cite[6.21]{kl05}, $\pic_X^\circ$ is the connected 
-component of the identity in $\pic_X$. Just as the genus of a curve is the 
-dimension of its jacobian, there is a natural isomorphism 
+is a disjoint union of ind-varieties \cite[4.8]{kl05}. More precisely, choose 
+a very ample line bundle $\mathscr{L}$ on $X$. If $\mathscr{F}$ is any coherent 
+sheaf on $X$, write 
+$\mathscr{F}(n) = \mathscr{F}\otimes\mathscr{L}^{\otimes n}$. Recall that the 
+\emph{Euler characteristic} of $\mathscr{F}$ is 
+$\chi(\mathscr{F}) = \sum (-1)^i h^i(\mathscr{F})$. By \cite[2.5.3]{gr61}, 
+there is a (unique) polynomial $\phi\in \mathbb{Q}[t]$ such that 
+$\chi\left(\mathscr{F}(n)\right) = \phi(n)$ for all 
+$n\in\mathbb{Z}$; set $h_\mathscr{L}(\mathscr{F}) = \phi$. We call $\phi$ the 
+\emph{Hilbert polynomial} of $\mathscr{F}$. The Hilbert polynomial 
+$h_\mathscr{L}(\mathscr{F})$ does depend on $\mathscr{L}$.
+
+Denote by 
+$\pic_X^\phi$ the functor which assigns to a scheme $T$ the subset of 
+$\pic_X(T)$ consisting of invertible sheaves $\mathscr{F}$ on $X\times T$ with 
+$h_\mathscr{L}(\mathscr{F}_t) = \phi$ for all $t\in T$. By \cite[6.20]{kl05}, 
+$\pic_X^\phi$ represents a clopen subscheme of $\pic_X$, and $\pic_X$ is 
+covered by the $\pic_X^\phi$. Moreover, the $\pic_X^\phi$ are varieties. We can 
+do even better. If we let $\pic_X^d$ send $T$ to the subset of $\pic_X(T)$ 
+consisting of invertible sheaves $\mathscr{F}$ with 
+$\deg h_\mathscr{L}(\mathscr{F}_t) = d$ for all $t\in T$, then the 
+$\pic_X^d$ form a cover of $\pic_X$ by clopen subvarieties. Just as the genus 
+of a curve is the dimension of its jacobian, there is a natural isomorphism 
 $\h^1(\mathscr{O}_X) \simeq \operatorname{Lie}(\pic_X)$, from which we deduce 
 $\dim(\pic_X) = h^1(\mathscr{O}_X)$ when $X$ is nice \cite[5.11]{kl05}.
 
@@ -634,13 +648,10 @@ Suppose $X=A$ is already an abelian variety over $k$. Then one has
 where $t_a:A_{\bar k}\to A_{\bar k}$ is translation by $a$. See 
 \cite[I.8.4]{mi} for a partial proof. 
 
-One could define $\pic_X^d$ to be the scheme classifying invertible sheaves of 
-degree $d$. This works, except that in general $d\in \mathbb{Q}$ rather than 
-$d\in \mathbb{N}$. Thus the group 
-$\operatorname{NS}(X) = \pic_X(\bar k) / \pic_X^\circ(\bar k)$ -- the 
-\emph{N\'eron-Severi group} of $X$, is not necessarily isomorphic to 
-$\mathbb{Z}$. On the other hand, if $X=E$ is an elliptic curve, then invertible 
-sheaves are classified by their degree, so $\operatorname{NS}(E) = \mathbb{Z}$. 
+Unlike the case when $X$ is a curve, it is not always true that 
+$\pic_X(\bar k)/\pic^\circ(\bar k) = \mathbb{Z}$. In general, we set 
+$\operatorname{NS}(X) = \pic_X(\bar k) / \pic_X^\circ(\bar k)$, and call 
+$\operatorname{NS}(X)$ the \emph{N\'eron-Severi group} of $X$. 
 
 In any case, the \emph{dual} of $A$ is defined to be $A^\vee = \pic_A^\circ$. 
 Each $c\in \pic(A)$ gives a map $\varphi_c:A\to A^\vee$. At the level of 
