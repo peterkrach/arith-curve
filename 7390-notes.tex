@@ -24,8 +24,8 @@
 
 These notes originated in a course on the arithmetic of curves taught by David 
 Zywina at Cornell. However, their content is \emph{not} an exact reflection of 
-what he covered in class, and some material is due to me. In particular, any 
-errors in these notes are my fault alone. 
+what he covered in class, and some material was not presented in class. In 
+particular, any errors in these notes are my fault alone. 
 
 
 
@@ -1001,6 +1001,170 @@ constructing a long exact sequence
 This fits into a general framework of derived functors, but we will mostly 
 just use the concrete definition of $\h^\bullet(G_k,-)$ using cocycles and 
 coboundaries. 
+
+
+
+
+
+
+
+
+
+
+% lecture 09-17-2013
+\section{Group cohomology}
+
+Eventually we'll get to Selmer groups and the weak Mordell-Weil theorem, but 
+first we need to discuss group cohomology. Let $k$ be a number field, $\bar k$ 
+an algebraic closure of $k$, and $G_k=\gal(\bar k/k)$ the \emph{absolute Galois 
+group} of $k$. This is a \emph{profinite group} (compact, totally connected 
+Hausdorff group) with a basis of neighborhoods of $1$ being the groups 
+$G_L=\gal(\bar k/L)$ where $L$ ranges over the finite extensions of $k$. Let 
+$A$ be an abelian variety over $k$ of dimension $d\geqslant 1$. There is no 
+harm in thinking of $k=\dQ$ and $A$ as an elliptic curve. 
+
+The homomorphism $A\xrightarrow n A$ that sends $x$ to $n\cdot x$ is an 
+isogeny. Let $A[n]$ be the $n$-torsion subgroup of $A(\bar k)$, i.e. 
+\[
+  A[n] = \{x\in A(\bar k) : n\cdot x = 0\}
+\]
+If $k$ were a field of positive characteristic $p$ and $p\mid n$, it would be 
+better to think of $A[n]$ as the scheme $A\times_A 0$ via $n:A\to A$. In any 
+case, there is an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A[n] \ar[r] 
+    & A(\bar k) \ar[r]^-n 
+    & A(\bar k) \ar[r] 
+    & 0
+}\]
+Recall that if $G$ is an arbitrary group acting on some abelian group $M$, we 
+define $M^G=\{m\in M:\sigma m = m\forall \sigma\in G\}$, the module of 
+\emph{$G$-invariants} of $M$. Taking $G_k$-invariants of the above short exact 
+sequence, we get an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A[n]^{G_k} \ar[r] 
+    & A(k) \ar[r]^-n 
+    & A(k)
+}\]
+We don't have exactness on the right because $(-)^{G_k}$ is only left exact in 
+general. More concretely, if $A(k)\xrightarrow n A(k)$ were always surjective, 
+then $A(k)$ would be a divisible abelian group, which contradicts the fact that 
+if $k$ is a number field, then $A(k)$ is finitely generated. 
+
+We can define $\h^\bullet(G_k,A[n])$ using derived functors. Consider the 
+category $G_k\text{-}\mathsf{Mod}$ of (discrete) abelian groups with continuous 
+$G_k$-action. This is an abelian category with enough injectives. The functor 
+$\Gamma=(-)^{G_k}:G_k\text{-}\mathsf{Mod}\to \mathsf{Ab}$ is left-exact, we we 
+define the group cohomology as the derived functors of $\Gamma$, i.e. 
+$\h^\bullet(G_k,-) = \mathsf{R}^\bullet \Gamma$. In particular, 
+$\h^0(G_k,M) = M^{G_k}$ for any discrete $G_k$-module $M$. 
+
+Choose $x\in A(k)$. Then $x=n\cdot y$ for some $y\in A(\bar k)$. Take 
+$\sigma\in G_k$. Then $x=\sigma x$, so $\sigma(n\cdot y) = n\cdot \sigma(y)$. 
+Then $n\cdot (\sigma y - y) = n\cdot \sigma y - n\cdot y = 0$, so 
+$\sigma y-y\in A[n]$. Thus we have a map (\emph{not} a usually a homomorphism) 
+$\varphi:G_k\to A[n]$, $\sigma\mapsto \sigma y - y$. Take $\sigma,\tau\in G_k$. 
+Then one computes 
+\begin{align*}
+  \varphi(\sigma\tau) &= \sigma\tau(y) - y \\
+    &= \sigma(\tau y - y) + \sigma y -y \\
+    &= \sigma\varphi(\tau) + \varphi(\sigma)
+\end{align*}
+So $\varphi$ is a homomorphism exactly when the action of $G_k$ on 
+$A[n]$ is trivial. Moreover, there is a number field $L/k$ such that 
+$G_L\subset G_k$ fixes $y$. In particular, $\varphi(G_L)=0$, i.e. the map 
+$\varphi:G_k\to A[n]$ is continuous. Suppose we choose some $y'$ distinct from 
+$y$ with $x=n\cdot y'$. We could define $\varphi':G_k\to A[n]$ by 
+$\sigma\mapsto \sigma y'-y'$. Since $n(y-y')=0$, we have $y'-y\in A[n]$, hence 
+$y'=y+\alpha$ for some $\alpha\in A[n]$. We now have 
+\begin{align*}
+  \varphi'(\sigma) &= \sigma y'-y' \\
+    &= \sigma(y+\alpha) - (y+\alpha) \\
+    &= \sigma y - y + \sigma\alpha-\alpha \\
+    &= \varphi(\sigma) + \sigma \alpha-\alpha
+\end{align*}
+Maps $G_k\to A[n]$ of the form $\sigma\mapsto \sigma \alpha-\alpha$ will be 
+called \emph{coboundaries}. 
+
+Suppose we have another point $x'\in A(k)$. Choose a $y'$ with $x'=n y'$. Then 
+$x+x'=n(y+y')$, and the point $x+x'$ gives rise to a map $G_k\to A[n]$, 
+$\sigma\mapsto \sigma(y+y')-(y+y')$; this map is just $\varphi+\varphi'$, where 
+$\varphi':\sigma\mapsto \sigma y'-y$. 
+
+\begin{definition}
+Let $G$ be a profinite group, $M$ a discrete $G$-module. The group $Z^1(G,M)$ 
+of \emph{$1$-cocycles} consists of continuous maps $\varphi:G\to M$ such that 
+$\varphi(\sigma\tau)=\sigma\varphi(\tau)+\varphi(\sigma)$. The group $B^1(G,M)$ 
+of \emph{$1$-coboundaries} consists of continuous maps $\varphi:G\to M$ of the 
+form $\sigma\mapsto \sigma\alpha-\alpha$ for some $\alpha\in M$. The 
+\emph{first cohomology of $G$ with coefficients in $M$} is 
+\[
+  \h^1(G,M) = Z^1(G,M) / B^1(G,M)
+\]
+\end{definition}
+One can prove using a canonical projective resolution of $M$ that this agrees 
+with the derived functor definition.One can check directly that if 
+$0\to M'\xrightarrow f M\xrightarrow g M''$ is an exact sequence of 
+$G_k$-modules, then there is a natural exact sequence:
+\[\xymatrix{
+  0 \ar[r] 
+    & {M'}^G \ar[r]^-f
+    & M^G \ar[r]^-g
+    & {M''}^G \ar[r]^-\delta
+    & \h^1(G,M') \ar[r]^-{f_*}
+    & \h^1(G,M) \ar[r]^-{g_*}
+    & \h^1(G,M'')
+}\]
+where $\delta(x)$ is defined as follows. Choose a lift $\tilde x$ in 
+$M$, and let $\delta(x)(\sigma) = $
+
+In our case, the exact sequence 
+$0\to A[n]\to A(\bar k) \xrightarrow n A(\bar k) \to 0$ gives rise to a long 
+exact sequence 
+\[\xymatrix@=0.5cm{
+  0 \ar[r] 
+    & A[n]^{G_k} \ar[r] 
+    & A(k) \ar[r]^-n 
+    & A(k) \ar[r]^-\delta 
+    & \h^1\left(G_k,A[n]\right) \ar[r] 
+    & \h^1\left(G_k,A(\bar k)\right) \ar[r] 
+    & \h^1\left(G_k, A(\bar k)\right) \ar[r] 
+    & \cdots
+}\]
+It follows that we have an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A(k) / n \ar[r]^\delta
+    & \h^1\left(G_k,A[n]\right) \ar[r] 
+    & \h^1\left(G_k,A(\bar k)\right)[n] \ar[r]
+    & 0
+}\]
+We will try to prove that $A(k)/ n$ is finite by embedding it into a group 
+we know is finite. Unfortunately $\h^1(G_k, A[n])$ is infinite, so we will have 
+to work a bit harder. 
+
+(\textbf{what if $k=\mathbb{R}$? What can we say about connected components?
+Also, interlude on Kummer exact sequence for $\mathbb{G}_m$, link with 
+\'etale cohomology, \'etale fundamental groups})
+
+There is an alternate description of $\h^1\left(G_k,A(\bar k)\right)$. A 
+\emph{principal homogeneous space} for $A$ over $k$ is a nice variety 
+$X/k$ and a morphism $A\times X\to X$ which satisfies the (categorification of) 
+the axioms defining a simply transitive group action. In other words, on 
+$\bar k$-valued points, $a+(b+x)=(a+b)+x$, $0+x=x$, and for all 
+$x\in X(\bar k)$, the map $A\to X$ given by $a\mapsto a+x$ is an isomorphism 
+(over $\bar k$). (\textbf{look up general definition}) Two principal 
+homogeneous spaces $X,X'$ are equivalent if there is an isomorphism 
+$X\xrightarrow\sim X'$ that is compatible with the $A$-action. 
+
+In the next section, we'll see that $\h^1(G_k,A(\bar k))$ is in natural 
+bijection with the set of equivalence classes of principal homogeneous spaces 
+of $A$ over $k$. 
+\[
+  0 \to \operatorname{Sel}_S(M) \to \h^1(G,M) \to \prod_{v\in S} \h^1(G_v,M)
+\]
 
 
 
