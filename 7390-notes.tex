@@ -1118,7 +1118,48 @@ $G_k$-modules, then there is a natural exact sequence:
     & \h^1(G,M'')
 }\]
 where $\delta(x)$ is defined as follows. Choose a lift $\tilde x$ in 
-$M$, and let $\delta(x)(\sigma) = $
+$M$, and let $\delta(x)(\sigma) = f^{-1}(\sigma \tilde x - \tilde x)$. One can 
+check that this is a cocycle, and that choosing a different $\tilde x$ changes 
+$\delta(x)(\sigma)$ by a coboundary. 
+
+If $G$ is a discrete group, then the cohomology $\h^\bullet(G,M)$ can be 
+interpreted as an $\operatorname{Ext}$-group. It is easy to see that the 
+category of $G$-module is equivalent to the category of $\dZ[G]$-modules, and 
+that $M^G\simeq \hom_{\dZ[G]}(\dZ,G)$. It follows that 
+$\h^\bullet(G,M)\simeq \operatorname{Ext}_{\dZ[G]}^\bullet(\dZ,M)$. If $G$ is a 
+profinite group, then $\dZ[G]$ is the wrong ring to use. Instead, one considers 
+the \emph{completed group ring} 
+\[
+  \dZ\llbracket G\rrbracket = \varprojlim_{\substack{N\triangleleft G \\ N\text{ open}}} \dZ[G/N]
+\]
+where we give each $\dZ[G/n]$ the discrete topology and 
+$\dZ\llbracket G\rrbracket$ the inverse limit topology. The category of 
+discrete $G$-modules with continuous action is equivalent to the category of 
+discrete $\dZ\llbracket G\rrbracket$-modules with continuous action, 
+$M^G\simeq \hom_{\dZ\llbracket G\rrbracket}(\dZ,M)$, whence 
+$\h^\bullet(G,M) \simeq \operatorname{Ext}_{\dZ\llbracket G\rrbracket}(\dZ,M)$. 
+
+In the case that $G=G_k$, one can interpret the groups $\h^\bullet(G,M)$ as a 
+special case of \'etale cohomology. Recall that a morphism $f:X\to S$ of 
+schemes is \emph{\'etale} if it is flat, unramified, and locally of finite 
+presentation. The \emph{\'etale site} of $S$, denoted $\et S$, is the full 
+subcategory of $\mathsf{Sch}_S$ consisting of $X\to S$ that are \'etale. A 
+collection $\{f_i:U_i\to X\}$ in $\et S$ is a \emph{cover} if the images of the 
+$f_i$ cover $X$. With this notion of a cover, $\et S$ is a (subcanonical) site, 
+so we can talk about sheaves and cohomology on $\et S$. There are two key 
+examples. If $k$ is a field, write $\et k$ for $\et{\spec(k)}$. Then the 
+objects of $\et k$ are all of the form 
+$\spec(L_1)\sqcup \cdots \sqcup \spec(L_n)\to \spec(k)$ for a finite family 
+of separable field extensions $L_1,\dots,L_n$ of $k$. One can check that the 
+category $\sh(\et k)$ of abelian sheaves on $\et k$ is equivalent to the 
+category of discrete $G_k$-modules, via the functor 
+$\sF\mapsto \sF_{\bar k} = \varinjlim_{L/k} \sF(\spec L)$, where $L$ ranves 
+over all finite Galois extensions of $k$. If $M$ is a $G_k$-module, then there 
+is a corresponding \'etale sheaf $\widetilde M$, determined by 
+$\widetilde M(\spec L) = M^{G_L}$. Since 
+$M^G\simeq \h^0(\et k,\widetilde M)$, we obtain that 
+$\h^\bullet(G_k,M) \simeq \h^\bullet(\et k, \widetilde M)$. For more details, 
+see \cite[I 2.4]{de77}. 
 
 In our case, the exact sequence 
 $0\to A[n]\to A(\bar k) \xrightarrow n A(\bar k) \to 0$ gives rise to a long 
@@ -1136,20 +1177,39 @@ exact sequence
 It follows that we have an exact sequence 
 \[\xymatrix{
   0 \ar[r] 
-    & A(k) / n \ar[r]^\delta
+    & A(k) / n \ar[r]^-\delta
     & \h^1\left(G_k,A[n]\right) \ar[r] 
     & \h^1\left(G_k,A(\bar k)\right)[n] \ar[r]
     & 0
 }\]
 We will try to prove that $A(k)/ n$ is finite by embedding it into a group 
-we know is finite. Unfortunately $\h^1(G_k, A[n])$ is infinite, so we will have 
-to work a bit harder. 
+we know is finite. Unfortunately $\h^1(G_k, A[n])$ is infinite, so we cannot 
+just use the above exact sequence show that $A(k)/n$ is finite. 
 
-(\textbf{what if $k=\mathbb{R}$? What can we say about connected components?
-Also, interlude on Kummer exact sequence for $\mathbb{G}_m$, link with 
-\'etale cohomology, \'etale fundamental groups})
+In general, suppose $G$ is a (commutative) group scheme over $k$. For example, 
+$G$ could be the multiplicative group $\dG_m$, and abelian variety $A$. If 
+$G$ is any commutative group scheme over $k$, we will use $G[n]$ to denote the 
+fiber product $G\times_G 0$, where the map $G\to G$ is ``multiply by $n$.'' 
+This conflicts with our earlier convention that $A[n]=A(\bar k)[n]$, but 
+no confusion should arise from this. The group $G(\bar k)$ is 
+a $G_k$-module, so we can consider the cohomology groups 
+$\h^\bullet\left(G_k, G(\bar k)\right)$. We know that these are isomorphic to 
+the \'etale cohomology groups 
+$\h^\bullet\left(\et k, \widetilde{G(\bar k)}\right)$, and one can check quite 
+easily that $\widetilde{G(\bar k)}$ is just $G$, regarded as a sheaf on $\et k$ 
+via its functor of points. It follows that 
+$\h^\bullet\left(G_k, G(\bar k)\right) = \h^\bullet(\et k, G)$, and we will 
+pass between the two without comment in the future. 
 
-There is an alternate description of $\h^1\left(G_k,A(\bar k)\right)$. A 
+To simplify the notation, we will often write $k$ for $\et k$, i.e. 
+$\h^\bullet(k,G) = \h^\bullet(\et k,G)$. In this context, Hilbert's 
+\emph{theorem 90} says that for $k$ a field, $\h^1(k,\dG_m) = 0$. If we write 
+$\mu_n = \dG_m[n]$, then \emph{Kummer theory} starts with the short exact 
+sequence $1\to \mu_n\to \dG_m\xrightarrow n \dG_m \to 1$ and uses Hilbert's 
+theorem 90 together with the long exact sequence in sheaf cohomology to derive 
+$\h^1(k,\mu_n) = k^\times / (k^\times)^n$. 
+
+There is an alternate description of $\h^1(k,A)$. A 
 \emph{principal homogeneous space} for $A$ over $k$ is a nice variety 
 $X/k$ and a morphism $A\times X\to X$ which satisfies the (categorification of) 
 the axioms defining a simply transitive group action. In other words, on 
@@ -1162,9 +1222,6 @@ $X\xrightarrow\sim X'$ that is compatible with the $A$-action.
 In the next section, we'll see that $\h^1(G_k,A(\bar k))$ is in natural 
 bijection with the set of equivalence classes of principal homogeneous spaces 
 of $A$ over $k$. 
-\[
-  0 \to \operatorname{Sel}_S(M) \to \h^1(G,M) \to \prod_{v\in S} \h^1(G_v,M)
-\]
 
 
 
