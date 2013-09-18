@@ -1141,18 +1141,17 @@ $\h^\bullet(G,M) \simeq \operatorname{Ext}_{\dZ\llbracket G\rrbracket}^\bullet(\
 
 In the case that $G=G_k$, one can interpret the groups $\h^\bullet(G,M)$ as a 
 special case of \'etale cohomology. Recall that a morphism $f:X\to S$ of 
-schemes is \emph{\'etale} if it is flat, unramified, and locally of finite 
-presentation. The \emph{\'etale site} of $S$, denoted $\et S$, is the full 
-subcategory of $\mathsf{Sch}_S$ consisting of $X\to S$ that are \'etale. A 
-collection $\{f_i:U_i\to X\}$ in $\et S$ is a \emph{cover} if the images of the 
-$f_i$ cover $X$. With this notion of a cover, $\et S$ is a (subcanonical) site, 
-so we can talk about sheaves and cohomology on $\et S$. There are two key 
-examples. If $k$ is a field, write $\et k$ for $\et{\spec(k)}$. Then the 
-objects of $\et k$ are all of the form 
-$\spec(L_1)\sqcup \cdots \sqcup \spec(L_n)\to \spec(k)$ for a finite family 
-of separable field extensions $L_1,\dots,L_n$ of $k$. One can check that the 
-category $\sh(\et k)$ of abelian sheaves on $\et k$ is equivalent to the 
-category of discrete $G_k$-modules, via the functor 
+schemes is \emph{\'etale} if it is flat and unramified. The \emph{\'etale 
+site} of $S$, denoted $\et S$, is the full subcategory of $\mathsf{Sch}_S$ 
+consisting of $X\to S$ that are \'etale. A collection $\{f_i:U_i\to X\}$ in 
+$\et S$ is a \emph{cover} if the images of the $f_i$ cover $X$. With this 
+notion of a cover, $\et S$ is a (subcanonical) site, so we can talk about 
+sheaves and cohomology on $\et S$. There are two key examples. If $k$ is a 
+field, write $\et k$ for $\et{\spec(k)}$. Then the objects of $\et k$ are all 
+of the form $\spec(L_1)\sqcup \cdots \sqcup \spec(L_n)\to \spec(k)$ for a 
+finite family of separable field extensions $L_1,\dots,L_n$ of $k$. One can 
+check that the category $\sh(\et k)$ of abelian sheaves on $\et k$ is 
+equivalent to the category of discrete $G_k$-modules, via the functor 
 $\sF\mapsto \sF_{\bar k} = \varinjlim_{L/k} \sF(\spec L)$, where $L$ ranves 
 over all finite Galois extensions of $k$. If $M$ is a $G_k$-module, then there 
 is a corresponding \'etale sheaf $\widetilde M$, determined by 
@@ -1209,19 +1208,35 @@ sequence $1\to \mu_n\to \dG_m\xrightarrow n \dG_m \to 1$ and uses Hilbert's
 theorem 90 together with the long exact sequence in sheaf cohomology to derive 
 $\h^1(k,\mu_n) = k^\times / (k^\times)^n$. 
 
-There is an alternate description of $\h^1(k,A)$. A 
-\emph{principal homogeneous space} for $A$ over $k$ is a nice variety 
-$X/k$ and a morphism $A\times X\to X$ which satisfies the (categorification of) 
-the axioms defining a simply transitive group action. In other words, on 
-$\bar k$-valued points, $a+(b+x)=(a+b)+x$, $0+x=x$, and for all 
-$x\in X(\bar k)$, the map $A\to X$ given by $a\mapsto a+x$ is an isomorphism 
-(over $\bar k$). (\textbf{look up general definition}) Two principal 
-homogeneous spaces $X,X'$ are equivalent if there is an isomorphism 
-$X\xrightarrow\sim X'$ that is compatible with the $A$-action. 
+There is an alternate description of $\h^1(k,A)$. If $G$ is an arbitrary 
+commutative algebraic group over $k$, a \emph{principal homogeneous space} 
+(also called a \emph{torsor}) for $G$ over $k$ is a nonempty variety $X/k$ 
+together with a morphism $G\times X\to X$ which, on $\bar k$-valued points, is 
+a simply transitive group action. That is, if we write $g+x$ for the 
+image of $(g,x)$ in $X$, we require that 
+\begin{itemize}
+  \item $g+(h+x) = (g+h)+x$ 
+  \item $0+x = x$
+  \item for all $x,y\in X(\bar k)$, there is a unique $g\in G(\bar k)$ such 
+    that $g+x = y$
+\end{itemize}
+more generally, if $S$ is a scheme and $\sG$ is an abelian sheaf on $\et S$, a 
+\emph{torsor} for $\sG$ is a sheaf of sets $\sT$ with a group action 
+$\sG\times \sT\to\sT$ that, \'etale-locally on $S$, is isomorphic to $\sG$ as 
+a sheaf with left $\sG$-action. Two torsors $\sT,\sT'$ are isomorphic if there 
+is a sheaf isomorphism $\sT\to \sT'$ that commutes with the action of $\sG$. 
+One can show (see e.g. \cite[IV 1.1]{de77}) that $\h^1(\et S,\sG)$ is 
+naturally isomorphic as a pointed set to the set of isomorphism classes of 
+$\sG$-torsors. 
 
-In the next section, we'll see that $\h^1(k,A)$ is in natural 
-bijection with the set of equivalence classes of principal homogeneous spaces 
-of $A$ over $k$. 
+Thus if $G$ is a commutative algebraic group over $k$, there is a natural 
+bijection between the set of isomorphism classes of $G$-torsors and 
+$\h^1(k,G)$. There is a non-abelian version of this. If $\sG$ is an arbitrary 
+sheaf of groups over $\et S$, then one can still define the notion of a 
+$\sG$-torsor. An identical theorem holds, except that one must define the 
+``cohomology set'' $\h^1(\et S,\sG)$. For details, see \cite{sk01}. There is a 
+non-abelian version of Hilbert's theorem 90: it says that 
+$\h^1(k,\text{SL}_n) = \h^1(k,\text{GL}_n) = 0$ for all $n$ \cite[X 1]{se79}. 
 
 
 
