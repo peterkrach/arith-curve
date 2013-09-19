@@ -1289,8 +1289,8 @@ $E[2](\bar\dQ) = \{0,(a,0),(b,0),(c,0)\}$. Thus
 \end{align*}
 This is easily seen to be infinite (either using global class field theory, or 
 by noting that $\dQ$ has lots of Galois extensions of degree $2$.) In fact, 
-using Kummer theory, one notes that 
-$\h^1(\dQ,E[2]) = \left(\dQ^\times/(\dQ^\times)^2\right)^2$. 
+using Kummer theory, one can show that 
+$\h^1(\dQ,E[2]) = \bigoplus_{\aleph_0} \dZ/2$. 
 \end{example}
 
 Our goal is to find a finite subgroup of $\h^1(k,A[n])$ containing $A(k)/n$. 
@@ -1339,16 +1339,17 @@ sequence
     & \sha(A)[n] \ar[r] 
     & 0
 }\]
-We will soon prove that $\sel_n(A)$ is finite. Clearly this implies that 
-$A(k)/n$ and $\sha(A)[n]$ are finite. 
+We will soon prove that $\sel_n(A)$ is finite, hence $A(k)/n$ and 
+$\sha(A)[n]$ are finite. 
 
 \begin{question}[Tate-Shafarevich]
 If $A$ is an abelian variety over a number field $k$, is $\sha(A)$ finite?
 \end{question}
-This is currently open. A positive answer would show that for $n\gg 0$, 
-$A(k)/n \simeq \sel_n(A)$. In particular, this would imply that for $p$ large 
-enough, 
-$\operatorname{rk}(A) = \operatorname{rk}_\dZ A(k) = \dim_{\dF_p} \sel_p(A)$. 
+This is currently open. A positive answer would show that for $n$ sufficiently 
+large, $A(k)/n \simeq \sel_n(A)$. In particular, this would imply that for $p$ 
+large enough, $\operatorname{rk}(A) = \dim_{\dF_p} \sel_p(A)$, where as before 
+$\operatorname{rk}(A) = \operatorname{rk}_\dZ A(k)$ is the algebraic rank of 
+$A$. 
 
 \begin{remark}
 The Selmer groups $\sel_n(A)$ are effectively computable. If $\sha(A)$ were 
