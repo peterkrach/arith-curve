@@ -1247,6 +1247,164 @@ $\h^1(k,\text{SL}_n) = \h^1(k,\text{GL}_n) = 0$ for all $n$ \cite[X 1]{se79}.
 
 
 
+% class on 09-19-2013
+\section{Selmer groups and weak Mordell-Weil}
+
+Recall that if $G$ is a profinite group (e.g $G_k$ for some field $k$) and $M$ 
+is a discrete abelian group with continuous $G$-action, we directly defined the 
+first cohomology group $\h^1(G,M) = Z^1(G,M) / B^1(G,M)$, where 
+\[
+  Z^1(G,M) = \{\varphi:G\to M\text{ continuous}: \varphi(\sigma\tau) = \sigma \varphi(\tau)+\varphi(\sigma)\}
+\]
+and $B^1(G,M)$ consisted of all $\varphi:G\to M$ of the form 
+$\sigma\mapsto \sigma x-x$. Note that if $G$ acts trivially on $M$, then 
+$\h^1(G,M) = \hom_\text{cts}(G,M)$. If $f:M\to M'$ is $G$-equivariant, then 
+there is an obvious map $f_*L\h^1(G,M)\to \h^1(G,M')$ given by 
+$f_*[\varphi] = [f\circ \varphi]$. Moreover, if $f:G'\to G$ is a continuous 
+group homomorphism, then we have a map $f^*:\h^1(G,M) \to \h^1(G',M)$ given 
+by $f^*[\varphi] = \varphi\circ f$, where we regard $G'$ as acting on $M$ via 
+$f$. 
+
+Let $k$ be a number field, $A$ be an abelian variety over $k$, and 
+$n\geqslant 2$. The short exact sequence $0\to A[n]\to A\xrightarrow n A \to 0$ 
+of group schemes induces an exact sequence 
+\[\xymatrix{
+  0 \ar[r]  
+    & A(k)/n \ar[r] 
+    & \h^1\left(k,A[n]\right) \ar[r] 
+    & \h^1(k,A)[n] \ar[r] 
+    & 0
+}\]
+We are trying to prove that $A(k)/n$ is finite. Since $\h^1\left(k,A[n]\right)$ 
+can be infinite, we'll need to do some work to show this. 
+
+\begin{example}
+Let $K=\dQ$, and let $E$ be the elliptic curve defined by 
+$y^2=(x-a)(x-b)(x-c)$ for distinct $a,b,c\in \dQ$. Then 
+$E[2](\bar\dQ) = \{0,(a,0),(b,0),(c,0)\}$. Thus 
+\begin{align*}
+  \h^1(\dQ,E[2]) &= \hom(G_\dQ,E[2]) \\
+    &= \hom(G_\dQ,\dZ/2\times \dZ/2) \\
+    &= \hom(G_\dQ,\dZ/2) \times \hom(G_\dQ,\dZ/2)
+\end{align*}
+This is easily seen to be infinite (either using global class field theory, or 
+by noting that $\dQ$ has lots of Galois extensions of degree $2$.) In fact, 
+using Kummer theory, one notes that 
+$\h^1(\dQ,E[2]) = \left(\dQ^\times/(\dQ^\times)^2\right)^2$. 
+\end{example}
+
+Our goal is to find a finite subgroup of $\h^1(k,A[n])$ containing $A(k)/n$. 
+We haven't really used the fact that $k$ is a number field yet -- everything so 
+far works for any perfect field. That changes when we start looking at 
+completions of $k$. 
+
+As before, let $k$ be a number field, and let $k_v$ denote the completion of 
+$k$ at a place $v$. One can show that $k_v$ will either be $\dR$, $\dC$, or a 
+finite extension of some $\dQ_p$. Choose $\overline{k_v}\supset k$; this gives 
+a homomorphism $G_{k_v} \to G_k$, where $\sigma\mapsto \sigma|_{\bar k}$. It 
+turns out that this is injective, but we will prove this later. As an example, 
+if $k=\dQ$, $k_v=\dR$, then $G_{\dR}=\{1,c\}$ where $c:\dC\to \dC$ is complex 
+conjugation. The image of $c$ in $G_\dQ$ is some element of order two. 
+
+The functoriality of $\h^\bullet(-,-)$ applied to the map $G_{k_v} \to G_k$ 
+gives us a map $\h^1(k,A[n]) \to \h^1(k_v,A[n])$, where we regard $A[n]$ as a 
+group scheme over $k_v$ by base extension. We now have a commutative diagram: 
+\[\xymatrix{
+  0 \ar[r] 
+    & A(k)/n \ar[r] \ar[d] 
+    & \h^1(k,A[n]) \ar[r] \ar[d]^-\beta 
+    & \h^1(k,A)[n] \ar[r] \ar[d] 
+    & 0 \\
+  0 \ar[r] 
+    & \displaystyle\prod_v A(k_v)/n \ar[r]^-\alpha 
+    & \displaystyle\prod_v \h^1(k_v,A[n]) \ar[r] 
+    & \displaystyle\prod_v \h^1(k_v,A)[n] \ar[r] 
+    & 0
+}\]
+The \emph{$n$-Selmer group} of $A$ over $k$ is 
+\begin{align*}
+  \sel_n(A) = \{x\in \h^1(k,A[n]) : \beta(x) \in \im(\alpha)\} 
+    = \ker\left(\h^1(k,A[n]) \to \prod_v \h^1(k_v,A)[n]\right)
+\end{align*}
+Similarly, we define the \emph{Tate-Shafarevich group} of $A$ is 
+\[
+  \sha(A) = \ker\left( \h^1(k,A) \to \prod_v \h^1(k_v,A) \right)
+\]
+Putting these two definitions together, we obtain a short exact 
+sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A(k)/n \ar[r] 
+    & \sel_n(A) \ar[r] 
+    & \sha(A)[n] \ar[r] 
+    & 0
+}\]
+We will soon prove that $\sel_n(A)$ is finite. Clearly this implies that 
+$A(k)/n$ and $\sha(A)[n]$ are finite. 
+
+\begin{question}[Tate-Shafarevich]
+If $A$ is an abelian variety over a number field $k$, is $\sha(A)$ finite?
+\end{question}
+This is currently open. A positive answer would show that for $n\gg 0$, 
+$A(k)/n \simeq \sel_n(A)$. In particular, this would imply that for $p$ large 
+enough, 
+$\operatorname{rk}(A) = \operatorname{rk}_\dZ A(k) = \dim_{\dF_p} \sel_p(A)$. 
+
+\begin{remark}
+The Selmer groups $\sel_n(A)$ are effectively computable. If $\sha(A)$ were 
+always finite, then $A(k)$ would be computable. 
+\end{remark}
+
+
+
+
+
+\section{Places of global fields}
+
+Let $k$ be a field. An \emph{absolute value} on $k$ is a function 
+$|\cdot|:k\to \dR_{\geqslant 0}$ such that 
+\begin{enumerate}
+  \item $|x|=0$ if and only if $x=0$
+  \item $|x y| = |x|\cdot |y|$
+  \item $|x+y|\leqslant |x|+|y|$
+\end{enumerate}
+Given an absolute value $|\cdot |$ on $k$, we can give $k$ the induced 
+topology. We call the absolute value with $|x|=1$ for all $x\ne 0$ the 
+\emph{trivial absolute value}, and will often tacitly assume that absolute 
+values we consider are not trivial. A \emph{place} of $k$ is an equivalence 
+class of non-trivial absolute values on $k$, where two absolute values are 
+equivalent if they induce the same absolute value. (One can prove this implies 
+one is a power of the other.) For a place $v$, let $k_v$ be the completion of 
+$k$ at $v$. If $k=\dQ$, then one can classify places of $k$. Either 
+$|\cdot|$ is the usual absolute value, which induces the completion $\dR$. Let 
+$p$ be a prime. There is a unique homomorphism (the $p$-adic valuation) 
+$v_p:\dQ^\times\to \dZ$ with $v_p(p)=1$ and $v_p(\ell) = 0$ for all 
+primes $\ell\ne p$. We set $|x|_p = p^{-v_p(x)}$. It turns out that this is an 
+absolute value; the completion of $\dQ$ at $|\cdot|_p$ is denoted $\dQ_p$. 
+
+For $k$ an arbitrary number field and $v$ a place of $k$, the completion 
+$k_v$ will either be 
+\begin{itemize}
+  \item $\dR$, with the absolute value induced by an embedding 
+    $k\hookrightarrow \dR$
+  \item $\dC$, with the absolute value similarly induced. Conjugate embeddings 
+    $k\hookrightarrow \dC$ induce the same place.
+  \item if $\mathfrak{o}_k$ is the ring of integers of $k$ and 
+    $\mathfrak{p}\subset \mathfrak{o}_k$ is some maximal ideal\ldots
+\end{itemize}
+
+(\textbf{More stuff on local fields, global fields, Haar measures, the 
+``whole package'' in $G_k$\ldots})
+
+
+
+
+
+
+
+
+
+
 \bibliographystyle{amsplain}
 \bibliography{7390-sources}
 
