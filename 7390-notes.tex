@@ -1362,40 +1362,102 @@ always finite, then $A(k)$ would be computable.
 
 \section{Places of global fields}
 
-Let $k$ be a field. An \emph{absolute value} on $k$ is a function 
-$|\cdot|:k\to \dR_{\geqslant 0}$ such that 
+If $k$ is a number field, we already used (without defining) the notion of a 
+\emph{place} of $k$. In this section, we will see that $k$ comes with a lot of 
+extra structure which will be used later on. Let's start with places. 
+
+\begin{definition}
+A \emph{local field} is a topological field that is locally compact as a 
+topological space. 
+\end{definition}
+
+Let $k$ be a local field. Then the additive group of $k$ is a locally compact 
+group, so it has a nontrivial \emph{Haar measure}, i.e. a 
+translation-invariant Borel measure $\mu$. For $\alpha\in k$, the measure 
+$\alpha^*\mu$ defined by $\alpha^* \mu(S) = \mu(\alpha S)$ is easily seen to 
+be translation-invariant as well. It is known that $\mu$ is unique up to 
+scalar, so there is a real number, denoted $|\alpha|$, such that 
+$\alpha^*\mu = |\alpha|\mu$. One can prove that the function 
+$|\cdot|:k\to \dR_{\geqslant 0}$ is an \emph{absolute value}. That is, 
 \begin{enumerate}
   \item $|x|=0$ if and only if $x=0$
   \item $|x y| = |x|\cdot |y|$
   \item $|x+y|\leqslant |x|+|y|$
 \end{enumerate}
-Given an absolute value $|\cdot |$ on $k$, we can give $k$ the induced 
-topology. We call the absolute value with $|x|=1$ for all $x\ne 0$ the 
-\emph{trivial absolute value}, and will often tacitly assume that absolute 
-values we consider are not trivial. A \emph{place} of $k$ is an equivalence 
-class of non-trivial absolute values on $k$, where two absolute values are 
-equivalent if they induce the same absolute value. (One can prove this implies 
-one is a power of the other.) For a place $v$, let $k_v$ be the completion of 
-$k$ at $v$. If $k=\dQ$, then one can classify places of $k$. Either 
-$|\cdot|$ is the usual absolute value, which induces the completion $\dR$. Let 
-$p$ be a prime. There is a unique homomorphism (the $p$-adic valuation) 
-$v_p:\dQ^\times\to \dZ$ with $v_p(p)=1$ and $v_p(\ell) = 0$ for all 
-primes $\ell\ne p$. We set $|x|_p = p^{-v_p(x)}$. It turns out that this is an 
-absolute value; the completion of $\dQ$ at $|\cdot|_p$ is denoted $\dQ_p$. 
+It turns out that $|\cdot|$ induces the topology that $k$ already has, and 
+that $k$ is complete with respect to $|\cdot|$. 
 
-For $k$ an arbitrary number field and $v$ a place of $k$, the completion 
-$k_v$ will either be 
+Local fields can be completely classified. If the strict triangle inequality 
+holds, i.e. $|x+y|\leqslant \sup\{|x|,|y|\}$ for all $x,y\in k$, we say that 
+$k$ is \emph{non-archimedean}. If $k$ is not non-archimedean, we say it is 
+\emph{archimedean}. If $k$ is archimedean, one can prove that $k$ has 
+characteristic zero, so $\dQ\subset k$. The absolute value on $k$ induces one 
+on $\dQ$, and it is a theorem that the only archimedean absolute value on 
+$\dQ$ is the usual one. Thus $\dR\subset k$. It is a general theorem that $k$ 
+can only be locally compact if $[k:\dR]<\infty$, from which it follows that 
+either $k=\dR$ or $k=\dC$. 
+
+If $k$ is non-archimedean of characteristic $p$, then one can prove that 
+$k=\dF_q\lau t$ for some finite field $\dF_q$, where $q=p^r$. If $k$ is 
+non-archimedean of characteristic zero, then once again $\dQ\subset k$. It is 
+known (Otrowski's theorem) that the only non-archimedean absolute values on 
+$\dQ$ are of the form $|\cdot|_p$ for primes $p$, where $|x|_p=p^{-v_p(x)}$. 
+Here $v_p:\dQ^\times \to \dZ$ is the unique homomorphism with 
+$v_p(p)=1$, $v_p(n)=0$ for $p\nmid n$. If we write $\dQ_p$ for the completion 
+of $\dQ$ with respect to $|\cdot|_p$, then $k$ contains some $\dQ_p$. Once 
+again a general theorem shows that $[k:\dQ_p]<\infty$. To summarize, local 
+fields are one of the following:
 \begin{itemize}
-  \item $\dR$, with the absolute value induced by an embedding 
-    $k\hookrightarrow \dR$
-  \item $\dC$, with the absolute value similarly induced. Conjugate embeddings 
-    $k\hookrightarrow \dC$ induce the same place.
-  \item if $\mathfrak{o}_k$ is the ring of integers of $k$ and 
-    $\mathfrak{p}\subset \mathfrak{o}_k$ is some maximal ideal\ldots
+  \item $\dR$ or $\dC$
+  \item $\kappa\lau t$ for some finite field $\kappa$
+  \item a finite extension of $\dQ_p$
 \end{itemize}
 
-(\textbf{More stuff on local fields, global fields, Haar measures, the 
-``whole package'' in $G_k$\ldots})
+If $k$ is a non-archimedean local field, we write 
+$\fo_k=\{x\in k:|x|\leqslant 1\}$ and $\fp_k = \{x\in k:|x|<1\}$. It turns 
+out that $\fo_k$ is a complete discrete valuation ring with maximal ideal 
+$\fp_k$. We denote the residue field by $\kappa_k=\fo_k/\fp_k$. When $k$ is 
+understood, we write $\fo,\fp,\kappa$ instead of $\fo_k,\fp_k,\kappa_k$. 
+Choose a separable closure $k^s$ of $k$. Because the field $k$ is 
+\emph{henselian} ($|\cdot|$ has a unique extension to $k^s$), the integral 
+closure $\fo_{k^s}$ of $\fo_k$ in $k^s$ is a local ring (no longer noetherian) 
+and elements of $G_k$ preserve $|\cdot|$. The field 
+$\fo_{k^s}/\fp_{k^s}$ is separably closed, so we get a map 
+$G_k\to G_\kappa$, given by $\sigma\mapsto \bar\sigma$, where 
+$\bar\sigma(\bar x)=\overline{\sigma x}$. The kernel is called the 
+\emph{inertia group} of $k$, and denoted $I_k$. 
+
+\begin{definition}
+A \emph{global field} is either a finite extension of either $\dQ$ or 
+$\dF_p(t)$ for some prime $p$. 
+\end{definition}
+A \emph{place} of a global 
+field $k$ is an equivalence class of embeddings $k\hookrightarrow K$, where 
+$K$ is a local field such that the image of $k$ is dense. Two such 
+embeddings are equivalent if they are (topologically) isomorphic over $k$. 
+We will use the letter $v$ to denote places of $k$, and denote a choice of 
+representative by $k_v$. If $k_v$ is non-archimedean, we call $v$ 
+\emph{finite}, otherwise it is \emph{infinite}. For the remainder, let $v$ be 
+a finite place of $k$. 
+
+The absolute value on $k_v$ induces one on $k$, which we will denote by 
+$|\cdot|_v$. If $v$ is non-archimedean (i.e. $k_v$ is non-archimedean) then we 
+will also use $v$ to denote the valuation on $k$ induced by the canonical 
+valuation on $k_v$. We will write $\fo_v$, $\fp_v$, $\kappa_v$ instead of 
+$\fo_{k_v}$\ldots. We can choose $k_v^s\supset k^s$, in which case restriction 
+induces a continuous homomorphism $G_{k_v} \to G_k$. We will prove later that 
+this is injective. The image is often denoted $G_v$, and the image of 
+$I_{k_v}$ inside $G_v$ will be written $I_v$. Note that $G_v$, as a subset of 
+$G_k$, is only well defined up to conjugacy. 
+
+There is a lot more to be said about global fields, but we will conclude with 
+the \emph{product formula}. Given the canonical absolute value $|\cdot|_v$ 
+associated with a place, one can prove that 
+\[
+  \prod_v |x|_v = 1
+\]
+This property actually characterizes global fields -- see \cite{ar45}. For 
+more details on local and global fields, see \cite{we95}. 
 
 
 
