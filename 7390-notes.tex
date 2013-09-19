@@ -25,7 +25,7 @@
 These notes originated in a course on the arithmetic of curves taught by David 
 Zywina at Cornell. However, their content is \emph{not} an exact reflection of 
 what he covered in class, and some material was not presented in class. In 
-particular, any errors in these notes are my fault alone. 
+particular, any errors in these notes are entirely my fault. 
 
 
 
@@ -1326,10 +1326,14 @@ The \emph{$n$-Selmer group} of $A$ over $k$ is
   \sel_n(A) = \{x\in \h^1(k,A[n]) : \beta(x) \in \im(\alpha)\} 
     = \ker\left(\h^1(k,A[n]) \to \prod_v \h^1(k_v,A)[n]\right)
 \end{align*}
-Similarly, we define the \emph{Tate-Shafarevich group} of $A$ is 
-\[
-  \sha(A) = \ker\left( \h^1(k,A) \to \prod_v \h^1(k_v,A) \right)
-\]
+Similarly, we define the \emph{Tate-Shafarevich group} of $A$ by the exact 
+sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & \sha(A) \ar[r] 
+    & \h^1(k,A) \ar[r]
+    & \displaystyle\prod_v \h^1(k_v,A)
+}\]
 Putting these two definitions together, we obtain a short exact 
 sequence 
 \[\xymatrix{
