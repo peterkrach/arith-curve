@@ -1610,7 +1610,23 @@ reduction, then $A_\fp$ is independent of the choice of $\cA$, that $\cA$ gets
 the structure of an abelian scheme over $\fo_k$, and that $A_\fp/\kappa_\fp$ is 
 an abelian variety. 
 
-\textbf{(N\'eron models)}
+There is in fact a canonical model for $A$ over $\fo_p$, and it exists in great 
+generality. Let $S$ be a connected dedekind scheme with field of fractions $k$. 
+If $A$ is an abelian variety over $k$, one calls a \emph{N\'eron model} of $A$ 
+a smooth model $\cA$ for $A$ over $S$ for which any morphism $X_k\to A$, where 
+$X$ is a smooth scheme over $S$, has a unique extension to a morphism 
+$X\to \cA$. In other words, $\cA$ represents the functor 
+$X\mapsto \hom_k(X_k,A)$ from smooth schemes over $S$ to $k$-varieties. It is 
+clear that $\cA$ (if it exists) is unique up to unique isomorphism. 
+Fortunately, it is a theorem (see \cite[1.4.1]{blr90}) that in our setting 
+($S$ a connected dedekind scheme and $A$ an abelian variety over $k$) N\'eron 
+models always exist. Moreover, there is a unique structure of a group scheme 
+on $\cA$ extending that of $A$ \cite[1.2.6]{blr90}. 
+
+So if $S=\spec(\fo_k)$ for a number field $k$ and $\fp\subset \fo$ is a prime, 
+we could have said that an abelian variety $A/k$ has good reduction at $\fp$ 
+if the N\'eron model $\cA$ for $\fo_\fp$ (the localization of $\fo$ at 
+$\fp$) is proper. 
 
 \begin{example}
 Let $E:y^2=x^3+a x+b$, where $a,b\in \dZ$ and $\Delta=-16(4 a^3+27b^2)\ne 0$. 
@@ -1663,7 +1679,7 @@ $\varphi(I_\fp) = 0$ for all $\fp\subset \fo_k$ of good reduction for $A$.
 If we let $S$ be the finite set of primes for which $A$ has bad reduction, we 
 will show that the group
 \[
-  \h_S^1(k,A[n]) = \{[\varphi]\in \h^1(k,A[n]) : \varphi(I_\fp) = 0\forall \fp\in S\}
+  \h_S^1(k,A[n]) = \{[\varphi]\in \h^1(k,A[n]) : \varphi(I_\fp) = 0\text{ for all } \fp\in S\}
 \]
 is finite. 
 
