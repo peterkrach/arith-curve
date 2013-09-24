@@ -1472,6 +1472,210 @@ more details on local and global fields, see \cite{we95}.
 
 
 
+% class on 09-24-2013
+\section{Crash course in algebraic number theory}
+
+Let $k$ be a number field, i.e. a finite extension of $\dQ$. Let $\fo_k$ be the 
+\emph{ring of integers} of $k$, that is, $\fo_k$ is the integral closure of 
+$\dZ$ in $k$. The ring $\fo_k$ is a dedekind domain. Thus if $\fa\subset \fo_k$ 
+is a nonzero ideal, we have a factorization $\fa=\fp_1^{e_1}\dotsm \fp_r^{e_r}$ 
+where the $\fp_i\subset\fo_k$ are prime (hence maximal) ideals, and each 
+$e_i\geqslant 1$. This factorization is unique up to reordering if we require 
+that the $\fp_i$ be distinct. 
+
+For a prime $\fp\subset \fo_k$, we write (as before) $\kappa_\fp = \fo_k/\fp$ 
+for the \emph{residue field} of $\fp$. The field $\kappa_\fp$ is finite because 
+it is finitely generated (as a ring) over its prime field. There is a unique 
+homomorphism $v_\fp:k^\times \twoheadrightarrow \dZ$ such that for 
+$a\in \fo_k\setminus 0$, we have $(a)=\fp^{v_\fp(a)}\cdot \fb$ with 
+$(\fb,\fp)=1$. This gives us an absolute value 
+\[
+  |a|_\fp = \begin{cases}
+              0 & \text{if $a=0$} \\
+              (\# \kappa_\fp)^{-v_\fp(a)} & \text{otherwise}
+            \end{cases}
+\]
+Completing $k$ with respect to this absolute value, we get a local field 
+$k_\fp$. Our valuation (and absolute value) extend by continuity to a 
+valuation $v_\fp:k_\fp^\times\to\dZ$ and absolute value 
+$|\cdot|_\fp:k_\fp\to\dR_{\geqslant 0}$. 
+
+Let $L/k$ be a finite extension, $\fp\subset \fo_k$ a prime ideal. The ideal 
+$\fp\fo_L$ factors uniquely as 
+$\fq_1^{e(\fq_1/\fp)}\dotsm\fq_r^{e(\fq_r/\fp)}$, where the $\fq_i\subset\fp_L$ 
+are prime. For example, if $L=\dQ(i)$, then $2=-i(1+i)^2$ and $5=(1+2i)(1-2i)$. 
+One can show that 
+\begin{align*}
+  2\fo_L &= ((1+i)\fo_L)^2 \\
+  3\fo_L &= 3\fo_L \\
+  5\fo_L &= ((1+2i)\fo_L)\cdot ((1-2i)\fo_L)
+\end{align*}
+are prime factorizations in $\fo_L$. One says that $\fp$ is \emph{unramified} 
+in $L$ if $e(\fq_i/\fp)=1$ for all $i$. It is an easy theorem that only 
+finitely many primes can ramify. 
+
+Now assume $L/k$ is Galois. The action of the galois group $G=\gal(L/k)$ 
+preserves $\fo_L$, fixing $\fo_k$. This action does \emph{not} fix ideals in 
+$\fo_L$. In fact, if $\fq_1,\dots,\fq_r$ are the primes lying above 
+$\fp\subset \fo_k$, then $G$ acts transitively on $\{\fp_1,\dots,\fp_r\}$, 
+from which we see that each $e(\fq_i/\fp)$ is the same integer, denoted 
+$e_\fp$. Fix $\fq=\fq_1$. The \emph{decomposition group} of $\fq/\fp$ is 
+\[
+  D(\fq/\fp) = \{\sigma\in \gal(L/k) : \sigma(\fq) = \fq\}
+\]
+There is a canonical homomorphism 
+$D(\fq/\fp) \to \gal(\kappa_\fq/\kappa_\fp)$ given by ``reduce $\sigma$ modulo 
+$\fp$.'' This gives us an exact sequence 
+\[\xymatrix{
+  1 \ar[r] 
+    & I(\fq/\fp) \ar[r] 
+    & D(\fq/\fp) \ar[r] 
+    & \gal(\kappa_\fq/\kappa_\fp) \ar[r] 
+    & 1
+}\]
+(One can prove that the map on the right is surjective.) So the \emph{inertia 
+group} of $\fq/\fp$, denoted $I(\fq/\fp)$, is the subgroup of $D(\fq/\fp)$ 
+consisting of automorphisms whose action is trivial modulo $\fq$. Choosing 
+$\fq=\fq_i$ for some $i\ne 1$ gives a $D(\fq_i/\fp)$ that is conjugate to 
+$D(\fq/\fp)$. We will often write $D_\fp$ and $I_\fp$, keeping in mind that 
+they are only well-defined up to conjugacy. We will use the fact that 
+$\# I_\fp = e_\fp$. So $\fp$ is unramified in $L$ if and only if 
+$I_\fp = 1$. 
+
+Choosing $\fq$ lying over $\fp$, we can complete $L$ and $k$ to get an 
+extension $L_\fq/k_\fp$ of local fields. We have seen that restriction 
+gives a map $\gal(L_\fq/k_\fp) \to \gal(L/k)$. It turns out that this map is an 
+isomorphism onto the image $D(\fq/\fp)\subset \gal(L/k)$. We'll write 
+$I(L_\fq/k_\fp)$ for the inverse image of $I(\fq/\fp)$ in 
+$\gal(L_\fq/k_\fp)$. It can be defined directly in exactly the same manner as 
+$I(\fq/\fp)$. 
+
+Passing to the algebraic closure of $k_\fp$, we can consider the absolute 
+Galois group 
+\[
+  G_{k_\fp} = \varprojlim_{L_\fq\supset k_\fp} \gal(L_\fq/k_\fp)
+\]
+where $L_\fq$ ranges over all finite Galois extensions of $k_\fp$. The group 
+$G_{k_\fp}$ has a distinguished subgroup $I_\fp$, which is the inverse limit 
+\[
+  I_\fp = \varprojlim_{L_\fq/k_\fp} I(L_\fq/k_\fp)
+\]
+Our exact sequence 
+\[\xymatrix{
+  1 \ar[r] 
+    & I_\fp \ar[r] 
+    & G_{k_\fp} \ar[r] 
+    & \gal(\overline{\kappa_\fp}/\kappa_\fp) =\hat\dZ \ar[r] 
+    & 1
+}\]
+extends to a filtration of $G_{k_\fp}$ by normal closed subgroups whose 
+successive quotients are abelian. Once again, recall that there is a canonical 
+embedding $G_{k_\fp}\hookrightarrow G_k$ via an embedding 
+$\bar k\hookrightarrow \overline{k_\fp}$. 
+
+
+
+
+
+
+
+
+
+
+\section{Reduction of abelian varieties}
+
+Let $A$ be an abelian variety over a local field $k_\fp$. Let $\fo_\fp$ be the 
+ring of integers of $k_\fp$, i.e. $\fo_\fp=\{x\in k_\fp:|x|_\fp\leqslant 1\}$. 
+The ideal $\fp\fo_\fp$ is the unique maximal ideal of $\fo_\fp$, and it turns 
+out that $\fp\fo_\fp = \{x\in k_\fp:|x|_\fp<1\}$. In an abuse of notation, we 
+write $\fp$ for $\fp\fo_\fp$. 
+
+\begin{definition}
+We say that a variety $X/k_\fp$ has \emph{good reduction} if there is a smooth 
+proper model $\cX/\fo_\fp$ .
+\end{definition}
+That is, there is a smooth proper scheme $\cX$ over $\fo_\fp$ such that the 
+following diagram is cartesian:
+\[\xymatrix{
+  X \ar[r] \ar[d]  
+    & \cX \ar[d] \\
+  \spec(k_\fp) \ar[r] 
+    & \spec(\fo_k)
+}\]
+We write $X_\fp$ for $\cX\times_{\spec(\fo_k)}\spec(\kappa_\fp)$, and call 
+$X_\fp$ the \emph{reduction of $X$ modulo $\fp$}. 
+
+One can show that if $A$ is an abelian variety over $k_\fp$ with good 
+reduction, then $A_\fp$ is independent of the choice of $\cA$, that $\cA$ gets 
+the structure of an abelian scheme over $\fo_k$, and that $A_\fp/\kappa_\fp$ is 
+an abelian variety. 
+
+\textbf{(N\'eron models)}
+
+\begin{example}
+Let $E:y^2=x^3+a x+b$, where $a,b\in \dZ$ and $\Delta=-16(4 a^3+27b^2)\ne 0$. 
+If $p\nmid \Delta$, then $E/\dQ_p$ has good reduction, and $E_p/\dF_p$ is given 
+by the reduction of our original equation modulo $p$. 
+\end{example}
+
+There is a reduction map $A(k_\fp)\to A_\fp(\kappa_\fp)$ which is a group 
+homomorphism. This is the composite 
+\[
+  A(k_\fp)=\cA(\fo_\fp) \to \cA(\kappa_\fp) = A_\fp(\kappa_\fp)
+\]
+To see that $A(k_\fp)=\cA(\fo_\fp)$, think of $A$ as being a subset of some 
+projective space $\mathbb{P}^N$. For a point
+$x=(x_0:\cdots:x_N)\in \mathbb{P}^N(k_\fp)$, we can scale $x$ be the 
+denominators of the $x_i$ to get a model 
+$x=(x_0:\cdots:x_N)\in\mathbb{P}^N(\fo_\fp)$. We can even get a model with 
+some $x_i\not\equiv 0\mod\fp$, and the image of $x$ in 
+$\mathbb{P}^N(\kappa_\fp)$ is in $A_\fp(\kappa_\fp)$. By Hensel's lemma, the 
+map $A(k_\fp) \to A_\fp(\kappa_\fp)$ is a surjection. The kernel is a pro-$p$ 
+group, where $p$ is the characteristic of $\kappa_\fp$. In fact, the kernel is 
+a $p$-adic Lie group. 
+
+We can extend our reduction map to algebraic closures, getting a homomorphism 
+$A(\overline{k_\fp}) \to A_\fp(\overline{\kappa_\fp})$, that has a pro-$p$ 
+kernel. Choose an integer $n\geqslant 2$ with $p\nmid n$. The map 
+$A(\overline{k_\fp})[n] \to A_\fp(\overline{\kappa_\fp})[n]$ is an isomorphism 
+because both groups have the same cardinality ($n^2$) and the kernel is 
+pro-$p$. In that isomorphism both groups have a Galois action -- $G_{k_\fp}$ on 
+the left and $G_{\kappa_\fp}=\hat\dZ$ on the right. The map is compatible with 
+the Galois action, so in particular, the inertia group $I_\fp$ acts trivially 
+on $A(\overline{k_\fp})[n]$. 
+
+Let $A/k_\fp$ be an abelian variety with good reduction. Recall we had a map 
+$\delta:A(k_\fp)/n A(k_\fp) \hookrightarrow \h^1(k_\fp,A[n])$ defined as 
+follows. For $x\in A(k_\fp)$, choose $y\in A(\overline{k_\fp})$ such that 
+$n\cdot y=x$. We define the $1$-cocycle $\varphi=\delta(x)$ by 
+$\sigma\mapsto \sigma y - y$. For $\sigma\in I_\fp$, the elements 
+$\sigma y$ and $y$ have the same image in $A_\fp(\overline{\kappa_\fp})$, hence  
+$\sigma y - y\in A(\overline{k_\fp})[n]$ has trivial image modulo $\fp$. It 
+follows that $\sigma y-y=0$ since it is an $n$-torsion point that is $0$ 
+modulo $\fp$. This tells us that $\varphi(\sigma) = 0$ for all 
+$\sigma\in I_\fp$, i.e. $\varphi(I_\fp) = 0$. 
+
+\begin{lemma}
+Let $A$ be an abelian variety over a number field $k$. With the above notation, 
+$\varphi(I_\fp) = 0$ for all $\fp\subset \fo_k$ of good reduction for $A$. 
+\end{lemma}
+
+If we let $S$ be the finite set of primes for which $A$ has bad reduction, we 
+will show that the group
+\[
+  \h_S^1(k,A[n]) = \{[\varphi]\in \h^1(k,A[n]) : \varphi(I_\fp) = 0\forall \fp\in S\}
+\]
+is finite. 
+
+
+
+
+
+
+
+
+
+
 \bibliographystyle{amsplain}
 \bibliography{7390-sources}
 
