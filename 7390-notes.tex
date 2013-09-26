@@ -1692,6 +1692,206 @@ is finite.
 
 
 
+% lecture 09-26-2013
+\section{Torsion and weak Mordell-Weil}
+
+Let $A$ be an abelian variety over a number field $k$. Recall that we are 
+trying to show that $A(k)$ is finitely generated. We have shown that it is 
+sufficient to prove that the quotients $A(k)/n$ are finite for all 
+$n\geqslant 2$. Once we know that $A(k)$ is finitely generated, we can write 
+$A(k)=A(k)_\text{tors}\oplus \dZ\cdot x_1\oplus \cdots \oplus \dZ x_r$, where 
+each $x_i$ is of infinite order. The algebraic rank $r=\operatorname{rk} A$ is 
+very difficult to compute in general, but $A(k)_\text{tors}$ is computable. 
+
+Choose a prime $\fp\subset \fo_k$ at which $A$ has good reduction (this is true 
+for all but finitely many $\fp$). We have a reduction map 
+$A(k_\fp)\to A_\fp(\kappa_\fp)$, which has pro-$p$ kernel. The group 
+$A(k)_\text{tors}$ is contained in $A(k_\fp)$, so we can think about its image 
+in $A_\fp(\kappa_\fp)$. Since $A(k)_\text{tors}$ is finite, the kernel of 
+$A(k)_\text{tors}\to A_\fp(\kappa_\fp)$ is a $p$-group. Pick another prime 
+$\fp'$ of good reduction for $A$, with residue characteristic $\ell\ne p$. The 
+kernel of the map 
+$A(k)_\text{tors}\to A_\fp(\kappa_\fp)\times A_{\fp'}(\kappa_{\fp'})$ is a 
+$p$-group and a $\ell$-group, hence trivial, i.e. $A(k)_\text{tors}$ is a 
+subgroup of $A_\fp(\kappa_\fp)\times A_{\fp'}(\kappa_{\fp'})$. (This gives us a 
+way to compute $A(k)_\text{tors}$, because $A_\fp(\kappa_\fp)$ and 
+$A_{\fp'}(\kappa_{\fp'})$ are computable. ($X(\kappa)$ for $X$ any projective 
+variety over any finite field $\kappa$ is computable, for stupid reasons.)
+
+\begin{example}
+Let $E$ be the elliptic curve over $\dQ$ given by $y^2=x^3+3$. This has 
+descriminant $\Delta=-2^4\cdot 3^5$, so $E$ has good reduction away from $2$ 
+and $3$. We can compute 
+\begin{align*}
+  E_5(\dF_5) &= \{O,(1,\pm 2),(2,\pm 1),(3,0)\} \\
+  \left|E_7(\dF_7)\right| &= 13
+\end{align*}
+The kernel of $E(\dQ)_\text{tors}\to E_5(\dF_5)$ is a $5$-group, and the kernel 
+of $E(\dQ)_\text{tors}\to E_7(\dQ_7)$ is a $7$-group. From this, we know that 
+$E(\dQ)_\text{tors}$ has no points of order $5$ or $7$. Thus  
+$E(\dQ)_\text{tors}$ embeds into groups of oder $6$ and $13$, so it is the 
+trivial group. Since $(1,2)\in E(\dQ)$ and $E(\dQ)_\text{tors}=0$, we know that 
+$E(\dQ)$ is infinite. 
+\end{example}
+
+\begin{example}
+Let $E/\dQ$ be the curve defined by $y^2 + y = x^3-x^2-10 x-20$. One can check 
+that $E$ has good reduction away from $11$. Easy computations yield 
+\begin{center}
+  \begin{tabular}{c|c}
+    $p$ & $  \# E_p(\dF_p)$ \\ \hline
+    2   & 5  \\
+    3   & 5  \\
+    5   & 5  \\
+    7   & 10 \\
+    13  & 10
+  \end{tabular}
+\end{center}
+This shows us that $E(\dQ)_\text{tors}$ is either $0$ or $\dZ/5$. In fact, it 
+is the latter with $E(\dQ)_\text{tors}=\langle (5,5)\rangle$. 
+\end{example}
+
+Let's get back to the weak Mordell-Weil theorem. Let $A$ be an abelian variety 
+over a number field $k$, and let $S$ be the (finite) set of primes $\fp$ for 
+which $A$ has bad reduction at $\fp$. We have a map 
+$\delta:A(k_\fp)/n \to\h^1(k_\fp,A[n])$. If $[\varphi]=\delta(x)$ for 
+$x\in A(k_\fp)$, then $\varphi(I_\fp) = 0$, where as before, $I_\fp$ is the 
+inertia subgroup of $G_{k_\fp}$. Thus we have a commutative diagram with 
+exact rows:
+\[\xymatrix{
+  0 \ar[r] 
+    & A(k)/n \ar[r]^-\delta \ar[d]
+    & \h^1(k,A[n]) \ar[d] \\
+  0 \ar[r]
+    & A(k_\fp)/n \ar[r]^-\delta 
+    & \h^1(k_\fp,A[n])
+}\]
+We define 
+\[
+  \h^1(k,A[n]) = \{[\varphi]\in \h^1(k,A[n]) : \varphi(I_\fp) = 0\text{ for all }\fp\notin S\}
+\]
+Note that $A(k)/n\hookrightarrow \sel_n(A)\subset \h_S^1(k,A[n])$. The group 
+$\sel_n(A)$ is a ``better approximation'' of $A(k)/n$ than $\h_S^1(k,A[n])$, 
+but it is $\h_S^1(k,A[n])$ that we will actually show is finite. 
+
+\begin{theorem}
+Let $A$ be an abelian variety of dimension $d$ over a number field $k$, and let 
+$S$ be the set of places of $k$ at which $A$ has bad reduction. Then the group 
+$\h_S^1(k,A[n])$ is finite.
+\end{theorem}
+\begin{proof}
+We need one last bit of group cohomology. Let $G$ be a profinite group acting 
+continuously on a discrete abelian group $M$. Let $H\subset G$ be a closed 
+subgroup. The \emph{inflation-restriction exact sequence} comes from the 
+map $\h^1(G,M) \to \h^1(H,M)$ defined by $[\varphi]\mapsto [\varphi|_H]$: 
+\[\xymatrix{
+  0 \ar[r] 
+    & \h^1(G/H,M^H) \ar[r]^-{\text{inf}} 
+    & \h^1(G,M) \ar[r]^-{\text{res}}
+    & \h^1(H,M)
+}\]
+It's easy to see that the map 
+$\text{inf}:[\varphi]\mapsto [\varphi\circ (G\twoheadrightarrow G/H)]$ is 
+well-defined. 
+
+Let $L/k$ be a finite Galois extension such that $G_L$ acts trivially on the 
+finite group $A[n]$. We can apply the inflation-restriction exact sequence to 
+$(G_k,G_L,A[n])$ to get 
+\[\xymatrix{
+  0 \ar[r] 
+    & \h^1\left(\gal(L/k), A[n]^{G_L}\right) \ar[r] 
+    & \h^1(k,A[n]) \ar[r] 
+    & \h^1(L,A[n])
+}\]
+We could have done this locally at all places of good reduction, and if we let 
+$S'$ be the set of all places of $L$ laying over some place in $S$, we get 
+\[\xymatrix{
+  0 \ar[r] 
+    & \h_S^1(\gal(L/k),A[n]^{G_L}) \ar[r] 
+    & \h_S^1(k,A[n]) \ar[r]
+    & \h_{S'}^1(L,A[n])
+}\]
+The first group is finite because both $\gal(L/k)$ and $A[n]^{G_L}$ are finite. 
+If we can show that $\h_{S'}^1(L,A[n])$ is finite, we'll be done. In other 
+words, in trying to show that $\h_S^1(k,A[n])$ is finite, we may assume that 
+$A[n]\subset A(k)$. In this case, we have that 
+\[
+  \h^1(k,A[n]) = \h^1(G_k,A[n]) = \hom(G_k,A[n]) = \hom(G_k,\dZ/n)^{\oplus 2d}
+\]
+where ``$\hom$'' denotes the set of continuous group homomorphisms. The group 
+$\hom(G_k,\dZ/n)$ is always infinite, but we only need to prove that 
+\[
+  \h_S^1(k,A[n]) = \{\varphi:G_k\to A[n] : \varphi(I_\fp) = 0\text{ for all }\fp\notin S\}
+\]
+is finite. Take such a $\varphi$; it will factor through a finite quotient 
+$\gal(L/k)$ of $G_k$. Since $\varphi(I_\fp)=0$, the extension $L/k$ is 
+unramified at $k$. Moreover, $[L:k]\leqslant n^{2 d}$. By theorem 
+\ref{thm:hermite}, we know that $L\subset K$ for a fixed extension $K/k$. 
+Thus $\h_S^1(k,A[n])\hookrightarrow \hom(\gal(K/k),\dZ/n)^{\oplus 2d}$, a  
+finite group. 
+\end{proof}
+
+\begin{theorem}[Hermite]\label{thm:hermite}
+Let $k$ be a number field, $S$ a finite set of places of $\fo_k$. For a fixed 
+integer $N\geqslant 1$, there is a finite extension $K\subset \bar k$ such that 
+if $L\subset \bar k$ is an extension of $k$ unramified outside of $S$ with 
+$[L:k]\leqslant N$, then $L\subset K$. 
+\end{theorem}
+
+There is a geometric interpretation of the Tate-Shafarevich group $\sha(A)$. 
+Recall that $\sha(A)=\ker\left(\h^1(k,A) \to \prod_v \h^1(k_v,A)\right)$. 
+There is a short exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A(k)/n \ar[r] 
+    & \sel_n(A) \ar[r] 
+    & \sha(A)[n] \ar[r] 
+    & 0
+}\]
+Recall that a \emph{torsor} of $A$ over $k$ is a nice variety $X/k$ with a 
+simply transitive group action $A\times X\to X$ which is a morphism of 
+$k$-varieties. In other words, we require $A(L)\times X(L)\to X(L)$ to be 
+a simply transitive group action whenever $X(L)\ne\varnothing$. If 
+$x\in X(L)$, we get an isomorphism $A_L\to X_L$ which is \emph{not} generally 
+defined over $k$. Two torsors are equivalent if they have compatible group 
+actions (i.e. if they are $A$-equivariantly isomorphic over $k$). A torsor is 
+\emph{trivial} if it is equivalent to $A$ with the usual left action. It turns 
+out that a torsor $X$ is trivial if and only if $X(k)\ne\varnothing$. 
+
+There is a natural bijection 
+\[
+  \{\text{torsors over $A$}\}/\text{equivalence} \leftrightarrow \h^1(k,A)
+\]
+
+\begin{example}
+Let $C/k$ be a nice curve of genus $1$. (It could be that $C$ is not elliptic, 
+for instance if $C(k)=\varnothing$.) Let $E=\jac C$; this is an elliptic curve. 
+There is a bijection $C\to \pic_C^1$ given by $x\mapsto [x]$. This induces a 
+bijection $E=\pic_C^0$. There is an action 
+$\pic_C^0\times \pic_C^1\to \pic_C^1$, induced by $(D_1,D_2)\mapsto D_1+D_2$. 
+This makes $C$ a torsor over $E$. 
+\end{example}
+
+
+
+
+
+\section{Restricted ramification}
+
+Let $k$ be a number field. 
+
+
+(\textbf{discussion of restricted ramification, \'etale cohomology,\ldots})
+
+
+
+
+
+
+
+
+
+
 \bibliographystyle{amsplain}
 \bibliography{7390-sources}
 
