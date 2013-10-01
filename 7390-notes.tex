@@ -169,7 +169,7 @@ Another example is $f=x^2+y^2$, which only factors over $\dQ(i)$ as
 $(y+i x)(y-i x)$, and we the rational points lie in the intersection of the 
 two components over $\dQ(i)$. Also, the assumption that 
 $f\in \dQ[x,y]$ is not serious. One can prove that every curve 
-$C/\dQ$ embeds into $\mathbb{P}^2_\dQ$, hence is birational to 
+$C/\dQ$ embeds into $\dP^2_\dQ$, hence is birational to 
 a plane curve. 
 
 Let $C/\dQ$ be a curve. Then 
@@ -386,7 +386,7 @@ $\pic(X)=\h^1(X,\sO^\times)$.
 \end{remark}
 
 \begin{example}
-One can prove that $\pic^\circ(\mathbb{P}^1) = 0$.
+One can prove that $\pic^\circ(\dP^1) = 0$.
 \end{example}
 
 The Abel-Jacobi map $\mu:X\to \jac X$ extends to a map 
@@ -549,7 +549,7 @@ For example, if $C$ is a curve of genus $0$, then $\operatorname{Alb} X=0$ by
 $C\to J$ is an embedding. The map $C(\bar k)\to \pic^\circ(C_{\bar k})$ sends 
 a point $x$ to the divisor $[x]-[x_0]$, and one can check that this is 
 injective. For, principal divisors correspond to morphisms 
-$f:C\to\mathbb{P}^1$. These cannot have zeros and poles of multiplicity one, 
+$f:C\to\dP^1$. These cannot have zeros and poles of multiplicity one, 
 otherwise $f$ would have degree one, hence it would be an isomorphism. This 
 cannot be the case. 
 \end{remark}
@@ -756,10 +756,10 @@ an isomorphism. Thus $C$ obtains a group law with $O$ as the identity.
 
 Suppose we begin with the equation $y^2=x^3 + a x+b$ where $a,b\in k$, 
 $4 a^3+27 b^2\ne 0$ and $\operatorname{char}(k)\nmid 6$. Let 
-$C\subset \mathbb{P}_k^2$ be the projective closure of the plane curve defined 
+$C\subset \dP_k^2$ be the projective closure of the plane curve defined 
 by $y^2-x^3-a x-b$. This is a nice curve of genus $1$. Take distinct points 
 $P,Q\in C(L)$ for some field $L/k$. We would like to determine $P+Q$. Take the 
-line in $\mathbb{P}_L^2$ through $P$ and $Q$, given by $\alpha x+\beta y = c$ 
+line in $\dP_L^2$ through $P$ and $Q$, given by $\alpha x+\beta y = c$ 
 for some $\alpha,\beta$. This line and $C$ intersect in three points $P,Q,R$ 
 (counting multiplicities). The divisor 
 $\operatorname{div}(\alpha x+\beta y - c) = P+Q+R - 3 O$, where $O$ is the 
@@ -804,7 +804,7 @@ curve, demonstrating an assertion of Poincar\'e.
 %Mordell 1922, Poincare 1901
 
 \begin{example}
-Let $E\subset \mathbb{P}_\dQ^2$ be the projective closure of the affine curve 
+Let $E\subset \dP_\dQ^2$ be the projective closure of the affine curve 
 defined by $y=x^3+2 x+3$, with $O=(0:0:1)$ the point at infinity. The curve 
 has a group law where $a+b+c=0$ if and only if $a,b,c$ are colinear. 
 Alternatively, there is a unique map $E\hookrightarrow J_E$ with $O\mapsto 0$; 
@@ -832,7 +832,7 @@ $C(k)$ is finite.
 \end{theorem}
 
 Note that Mordell's conjecture definitely fails if $g\leqslant 1$. For $g=0$, 
-$\mathbb{P}^1$ has lots of rational points, and we have seen examples of 
+$\dP^1$ has lots of rational points, and we have seen examples of 
 elliptic curves with infinitely many rational points. Here is a heuristic. 
 Assume $C(k)\ne\varnothing$ and consider the canonical embedding 
 $C\hookrightarrow J$. We have $C(k)=C\cap J(k)$. The set $C$ has positive 
@@ -932,8 +932,8 @@ each $i$, we have $A=\left\langle B_c\right\rangle$.
 
 We will not prove the existence of a height function on $A(k)$ satisfying the 
 desired properties. Choose a very ample divisor $c\in \pic(A)$. This yields 
-an embedding $\varphi=\varphi_c:A\to \mathbb{P}_k^N$ for some $N$. There is a 
-canonical height function on $\mathbb{P}^N(\bar k)$ defined by 
+an embedding $\varphi=\varphi_c:A\to \dP_k^N$ for some $N$. There is a 
+canonical height function on $\dP^N(\bar k)$ defined by 
 \[
   h(x_0:\dotsm : x_n) = \sum_v \log \sup\{|x_i|_v\}
 \]
@@ -979,7 +979,7 @@ computations. In the next section, we will give a proof of the weak
 Mordell-Weil theorem using Galois cohomology. Let $\bar k$ be the algebraic 
 closure of $k$, and let  $G_k = \gal(\bar k/k)$ be the absolute Galois group of 
 $k$. The abelian group $A(\bar k)$ has a continuous $G_k$-action. One way to 
-see this is to embed $A$ into some $\mathbb{P}^N$, and let $G_k$ act on 
+see this is to embed $A$ into some $\dP^N$, and let $G_k$ act on 
 coordinates. A fancier way to see this is to note that 
 $A(\bar k) = \hom(\spec(\bar k),A)$, so if $\sigma\in G_k$, $x\in A(\bar k)$, 
 the point $^\sigma x$ is the composite 
@@ -1640,12 +1640,12 @@ homomorphism. This is the composite
   A(k_\fp)=\cA(\fo_\fp) \to \cA(\kappa_\fp) = A_\fp(\kappa_\fp)
 \]
 To see that $A(k_\fp)=\cA(\fo_\fp)$, think of $A$ as being a subset of some 
-projective space $\mathbb{P}^N$. For a point
-$x=(x_0:\cdots:x_N)\in \mathbb{P}^N(k_\fp)$, we can scale $x$ be the 
+projective space $\dP^N$. For a point
+$x=(x_0:\cdots:x_N)\in \dP^N(k_\fp)$, we can scale $x$ be the 
 denominators of the $x_i$ to get a model 
-$x=(x_0:\cdots:x_N)\in\mathbb{P}^N(\fo_\fp)$. We can even get a model with 
+$x=(x_0:\cdots:x_N)\in\dP^N(\fo_\fp)$. We can even get a model with 
 some $x_i\not\equiv 0\mod\fp$, and the image of $x$ in 
-$\mathbb{P}^N(\kappa_\fp)$ is in $A_\fp(\kappa_\fp)$. By Hensel's lemma, the 
+$\dP^N(\kappa_\fp)$ is in $A_\fp(\kappa_\fp)$. By Hensel's lemma, the 
 map $A(k_\fp) \to A_\fp(\kappa_\fp)$ is a surjection. The kernel is a pro-$p$ 
 group, where $p$ is the characteristic of $\kappa_\fp$. In fact, the kernel is 
 a $p$-adic Lie group. 
@@ -1945,6 +1945,163 @@ that $\sel_n(A)\subset \h_S^1(k,A[n])$ would now be written
 $\sel_n(A)\subset \h^1(\fo_{k,S},A[n])$. 
 
 
+
+
+
+
+
+
+
+
+% lecture on 10-01-2013
+\section{Tate-Shafarevich groups}
+
+Let $k$ be a number field, $A$ an abelian variety over $k$. Recall the 
+Tate-Shafarevich group of $A$ is 
+\[
+  \sha(A) = \ker\left(\h^1(k,A) \to \prod_v \h^1(k_v,A)\right) \text{.}
+\]
+The \emph{Weil-Ch\^atelet group} of $A$, written $\operatorname{WC}(A)$, is 
+the group of torsors over $A$ modulo equivalence. As we have seen, there is a 
+bijection $\operatorname{WC}(A) = \h^1(k,A)$. If $k$ is a number field, then 
+$\operatorname{WC}(A)$ is infinite, but if $k$ is finite then 
+$\operatorname{WC}(A)=0$. We'll define the map 
+$\operatorname{WC}(A)\to \h^1(k,A)$. Fix an $A$-torsor $X$. There exists some 
+$L/k$ with $X(L)\ne\varnothing$. Choose $x\in X(L)$, and define a cocycle 
+$\varphi:G_k\to A(\bar k)$ by $\sigma\mapsto \sigma x - x$, where 
+$\sigma x- x$ is the unique point $a\in A(\bar k)$ such that $a+x=\sigma(x)$. 
+The image of $X$ in $\h^1(k,A)$ is the cocycle $\varphi$. It isn't too hard to 
+check that this map is well-defined. 
+
+This tells us that there is a natural bijection between $\sha(A)$ and the set 
+of torsors $X$ of $A/k$, such that $X(k_v)\ne\varnothing$ for all places $v$ of 
+$k$. This can be generalized. Let $X/k$ be a nice variety. We say that $X$ 
+satisfies the \emph{Hasse principle} if $X(k_v)\ne\varnothing$ for all $v$ 
+implies $X(k)\ne\varnothing$. So $\sha(A)$ classifies torsors over $A$ that 
+do not satisfy the Hasse principle. Clearly, if $X(k)\ne\varnothing$, then 
+$X$ satisfies the Hasse principle. Similarly, if $X(k_v)=\varnothing$ for some 
+$v$, then $X$ satisfies the Hasse principle. 
+
+\begin{example}[Selmer]
+The plane curve $C\subset \dP_\dQ^2$ given by $3 x^3+4 y^3+5 z^3=0$ fails the 
+Hasse principle. In other words, $C(\dQ_p)\ne \varnothing$ for all $p$, 
+$C(\dR)\ne\varnothing$, but $C(\dQ)=\varnothing$. If we let $E=\jac C$, then 
+we know that $\sha(E)\ne 0$. 
+\end{example}
+
+It turns out that the Hasse principle can be checked. Working over $\dQ$, for 
+most $p$ a variety $X$ will have good reduction at $p$, from which we get 
+$X(\dF_p)\ne\varnothing$. Hensel's lemma lifts these points to show that 
+$X(\dQ_p)\ne\varnothing$. So we only have to check $X(\dQ_p)$ for finitely 
+many primes $p$. This can be done by looking at $X(\dZ/p^n)$ for $n\gg 0$. 
+Checking $X(\dR)$ is easy analysis. 
+
+If $C$ is a nice curve of genus zero over a number field, then $C$ satisfies 
+the Hasse principle. (\textbf{source?})
+
+\begin{example}[descent]
+Let $E/\dQ$ be the elliptic curve defined by $y^2=(x-e_1)(x-e_2)(x-e_3)$ where 
+the $e_i\in \dZ$ are distinct. It's easy to see that 
+$E[2]=\{0,(e_1,0),(e_2,0),(e_3,0)\}\simeq (\dZ/2)^{\oplus 2}$. We use 
+$\{(e_1,0),(e_2,0)\}$ as a $\dF_2$-basis for $E[2]$. We have 
+\begin{align*}
+  \h^1(\dQ,E[2]) &= \hom(G_\dQ,E[2]) \\
+    &= \hom(G_\dQ,\dF_2)^{\oplus 2} \\
+    &= \left(\dQ^\times/2\right)^{\oplus 2}
+\end{align*}
+Here as always $\hom$ means ``continuous homomorphisms.'' Since 
+$\dQ^\times$ is a multiplicative group, 
+$\dQ^\times/2 = \dQ^\times/(\dQ^\times)^2$. The isomorphism 
+$\h^1(\dQ,E[2])\simeq (\dQ^\times/2)^{\oplus 2}$ comes from Kummer theory. 
+Given a homomorphism $\varphi:G_\dQ\to \dF_2$, the group $\ker(\varphi)$ 
+fixes a field $k=\dQ(\sqrt d)$ with $d\in \dQ^\times$. The equivalence class of 
+$d$ in $\dQ^\times/2$ is dependent only on $\varphi$. 
+
+The boundary morphism in group cohomology gives us a map 
+$\delta:E(\dQ)/2 \hookrightarrow \h^1(\dQ,E[2])=(\dQ^\times/2)^{\oplus 2}$. The 
+composite is quite explicit -- we have for $x=(x_0:x_1:1)$:
+\[
+  \delta(x) 
+    = \begin{cases}
+        (1,1)             & \text{if $x=0$} \\
+        (x_0-e_1,x_1-e_2) & \text{if $x_0\notin \{e_2,e_3\}$} \\
+        \left(\frac{e_1-e_3}{e_1-e_2},e_1-e_2\right) & \text{if $x_0=e_1$} \\
+        \left(e_2-e_1,\frac{e_2-e_3}{e_2-e_1}\right) & \text{if $x_0=e_2$}
+      \end{cases}
+\]
+Let $S$ be the set of primes that divide $2(e_1-e_3)(e_2-e_3)(e_2-e_1)$; this 
+contains the set of primes at which $E$ has bad reduction. We know that the 
+group $\h^1(\dZ_S,E[2]) = \h^1(G_{\dQ,S},E[2])$ is finite. Even better, one can 
+show that it is $\mathcal H^{\oplus 2}$, where 
+\[
+  \mathcal H = \left\{b\in \dQ^\times/2 : \text{$v_p(b)\equiv 0\pmod 2$ for $p\notin S$}\right\}
+\]
+This is generated by $S\cup\{-1\}$. This allows us to bound the rank of $E$. 
+We know that $\dim_{\dF_2}(\mathcal H)\leqslant \# S+1$, so the fact that 
+$E(\dQ)/2\hookrightarrow \mathcal H^{\oplus 2}$ implies 
+$\operatorname{rk}(E) \leqslant 2(\# S+1)$. 
+
+We know that $E(\dQ)/2\hookrightarrow \sel_2(E)\subset \mathcal H^{\oplus 2}$, 
+so we could get a better bound on $\operatorname{rk}(E)$ if we could compute 
+the image of $\sel_2(E)$ inside of $\mathcal H^{\oplus 2}$. Recall that there 
+is a commutative diagram:
+\[\xymatrix{
+  & \h^1(\dZ_S,E[2]) \ar[r] 
+    & \h^1(\dQ,E) \\
+  0 \ar[r] 
+    & E(\dQ)/2 \ar[r] \ar@{^{(}->}[u] 
+    & \sel_2(E) \ar[r] \ar@{^{(}->}[u] 
+    & \sha(E)[2] \ar[r]
+    & 0
+}\]
+For a pair $b=(b_1,b_2)\in \mathcal H^{\oplus 2}$, we get an element of 
+$\h^1(\dQ,E)$. This gives us a torsor $X_b$ of $E/\dQ$. Observe that 
+$b\in \sel_2(E)$ if and only if $X_b(\dQ_p)\ne \varnothing$ for all $p$ and 
+$X_b(\dR)\ne\varnothing$. 
+
+The curve $X_b$ can be computed. We have $X_b\subset \dP_\dQ^3$, a nice curve 
+of genus one defined by 
+\begin{align*}
+  b_1 z_1^2 - b_2 z_2^2 &= (e_2-e_1)z_0^2 \\
+  b_1 z_1^2 - b_1 b_2 z_3^2 &= (e_3 -e_1) z_0^2
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $E/\dQ$ be the elliptic curve $y=x^3-x=x(x-1)(x+1)$. We'll pick 
+$e_1=0$, $e_2=1$, $e_3=-1$. For our curve we have $S=\{2\}$, so $\mathcal H$ is 
+the subgroup of $\dQ^\times/2$ generated by $\{-1,2\}$. The group 
+$\mathcal H^{\oplus 2}$ has representatives 
+$\{(\pm 1,\pm 1),(\pm 2,\pm 1),(\pm 1,\pm 2),(\pm 2,\pm 2)\}$. We know that for 
+$b=(b_1,b_2)\in (\dQ^\times)^2$, the curve $X_b$ is 
+\begin{align*}
+  b_1 z_2^2 - b_2 z_2^2 &= z_0^2 \\
+  b_1 z_1^2 - b_1 b_2 z_3^2&=-z_0^2 \\
+\end{align*}
+Thus $X_b(\dR)=\varnothing$ if $b_1<0$ and $b_2>0$, or if 
+$b>0$ and $b_2<0$. That tells us that 
+$\sel_2(E)\subset \{(b_1,b_2)\in \mathcal H^{\oplus 2}:b_1 b_2>0\}$, a group of 
+order eight with representatives $\{\pm (1,1),\pm (2,1),\pm (1,2),\pm (2,2)\}$. 
+
+We have 
+\[\xymatrix{
+  0 \ar[r] 
+    & E(\dQ)/2 \ar[r]^-\delta 
+    & \sel_2(E) \ar@{^{(}->}[r] 
+    & \langle-(1,1),-(2,1),-(1,2),-(2,2)\rangle
+}\]
+Since $E[2]\subset E(\dQ)$, this tells us that $E(\dQ)/2$ has order at least 
+four. We have $\delta(E[2])=\{(1,1),(-1,-2),(-1,-1),(1,2)\}$. Consider 
+$b=(2,1)$. Then $X_b$ is 
+\begin{align*}
+  2 z_1^2 - z_2^2 &= z_0^2 \\
+  2 z_1^2 - 2 z_3^2 &= -z_0^2
+\end{align*}
+This curve has real points, so we only need to check $X_b(\dQ_2)$. As an 
+exercise, show that $X_b(\dZ/4)=\varnothing$, which implies 
+$X_b(\dQ_2)=\varnothing$, which shows that $b\notin \sel_2(E)$, and thus 
+$\# E(\dQ)/2=4$. Since $4=\# E[2]$, we know that $\operatorname{rk}(E)=0$. 
+\end{example}
 
 
 
