@@ -2122,6 +2122,163 @@ $\# E(\dQ)/2=4$. Since $4=\# E[2]$, we know that $\operatorname{rk}(E)=0$.
 
 
 
+% notes on 10-03-2013
+\section{Heights}
+
+Recall that to prove the Mordell-Weil theorem, we needed the weak Mordell-Weil 
+theorem and a good height function. We gave an extremely terse introduction to 
+heights earlier -- here we will do things more carefully. 
+
+The idea is as follows. Let $X$ be a nice variety over a number field $k$. We 
+want a function $H:X(k)\to \dR$ that measures the ``arithmetic complexity'' of 
+a point. For example, $\frac 1 2$ and $\frac{100001}{200001}$ are very close in 
+$\dR$, but we should think of the latter as being much more ``arithmetically 
+complex.'' We would want $H$ to have properties arising from the geometry of 
+$X$, and (this is very important), be such that the sets 
+$\{x\in X(k):|H(x)|\leqslant c\}$ are finite for all $c$. 
+
+Let's start with heights on projective space over $\dQ$. Consider a point 
+$x=(x_0:\cdots:x_n)\in \dP^n(\dQ)$. After scaling by a rational number, we can 
+assume that the $x_i\in \dZ$ and $\gcd(x_0,\dots,x_n)=1$. We set 
+\[
+  H_\dQ(x) = \sup\{|x_0|,\dots,|a_n|\}
+\]
+It is easy to see that this is well defined, but it doesn't work very well over 
+a general number field. Returning to our example, we have 
+$H_\dQ(\frac 1 2:1)=2$, while $H_\dQ(\frac{100001}{200001}:1)=200001$, which is 
+much larger. 
+
+Now let $k$ be a number field. Each finite place $v$ of $k$ is associated with 
+a prime $\fp_v\subset \fo=\fo_k$. We set 
+\[
+  \|a\|_v = |a|_{\fp_v} 
+        = \begin{cases}
+            \#(\fo/\fp_v)^{-v_\fp(a)} & \text{if $a\ne 0$} \\
+            0                         & \text{if $a=0$}
+          \end{cases}
+\]
+We call $\|\cdot\|_v$ the canonical absolute value associated with $v$. If $v$ 
+is a real place of $k$, i.e. $v$ corresponds with $i:k\hookrightarrow \dR$, we 
+set $\|a\|_v = |i(a)|$. Similarly, if $v$ is a place corresponding to an 
+embedding $i:k\hookrightarrow \dC$ with dense image, we set 
+$\|a\|_v=|i(a)|^2$. Note that $\|\cdot\|_v$ is \emph{not} an absolute value 
+because it doesn't satisfy the triangle inequality. Recall the following 
+
+\begin{theorem}[product formula]
+Let $k$ be a global field. For $a\in k^\times$, we have 
+\[
+  \prod_v \|a\|_v = 1
+\]
+\end{theorem}
+\begin{proof}
+We'll only look at $k=\dQ$. Take $a=\pm \prod_p p^{v_p(a)}\in \dQ^\times$. We 
+have $\|a\|_p=p^{-v_p(a)}$ for each $p$, while $\|a\|_\infty = |a|$. Thus
+\[
+  \prod_v \|a\|_v = \|a\|_\infty\cdot \prod_p p^{-v_p(a)}  = \prod_p p^{v_p(a)}\cdot \prod_p p^{-v_p(a)} = 1
+\]
+For general $k/\dQ$, one uses the norm map $N:k\to \dQ$ to prove the product 
+formula for $k$.
+\end{proof}
+
+For $k$ a general number field, we define $H_k:\dP^n(k)\to [1,\infty)$ by 
+\[
+  H_k(a_0:\cdots:a_n) = \prod_v \sup\{ \|a_0\|_v,\dots,\|a_n\|_v\}
+\]
+If $k=\dQ$ and the $a_i\in \dZ$ with $\gcd(a_0,\dots,a_n)=1$, then 
+$\max\{|a_0|_p,\dots,|a_n|_p\}=1$. Thus 
+$H_\dQ(a_0:\cdots:a_n)=\sup\{|a_0|,\dots,|a_n|\}$. The height $H_k$ is 
+well-defined because of the product formula. For $c\in k^\times$, we have 
+\[
+  \prod_v \sup\{\|ca_0\|_v,\dots,\|ca_n\|_v\} = \prod_v \|c\|_v \prod_v \sup\{\|a_0\|_v,\dots,\|a_n\|_v\} = 1\cdot \prod_v \sup\{\|a_0\|_v,\dots,\|a_n\|_v\}
+\]
+which implies $H_k(c a_0:\cdots:c a_n)=H_k(a_0:\cdots:a_n)$. It turns out that 
+for each $c\in \dR$, we have  
+\[
+  \#\{a\in \dP^n(k) : H_k(a)\leqslant c\} = O\left(c^{(N+1)[k:\dQ]}\right)
+\]
+In particular, the set on the left is finite. 
+
+The \emph{absolute height} is a map $H:\dP^n(\bar\dQ)\to [1,\infty)$ is defined 
+by $H(a) = H_k(a)^{[k:\dQ]^{-1}}$ for any $k\subset \bar\dQ$ with $a\in k$. 
+The sets $\{x\in \dP^n(\bar\dQ):H(a)\leqslant c\}$ can be infinite, but the 
+sets 
+\[
+  \{x\in \dP^n(\bar\dQ):H(a)\leqslant c\text{ and } [\dQ(x):\dQ]\leqslant d\}
+\]
+are finite. The \emph{logarithmic absolute height} is the map 
+$h=\log H:\dP^n(\bar\dQ)\to [0,\infty)$. 
+
+Let $X$ be a nice variety over $k$. We would like to define a reasonable height 
+function on $X$. One way to do this is to take an embedding $\phi:X\to \dP^n$ 
+(probably for some very large $n$) and let $h_\phi:X(\bar k)\to [0,\infty)$ be 
+the composite $X(k) \xrightarrow\phi \dP^n(\bar k) \xrightarrow{h} [0,\infty)$. 
+We can rephrase this. Let $D\in \Div(X)$ be a very ample divisor. A choice of a 
+generating set for the global sections of $\sL(D)$ gives an embedding 
+$\phi_D:X\hookrightarrow \dP^n$. We write $h_D(\bar k)\to [0,\infty)$ for the 
+composite 
+$X(\bar k) \xrightarrow{\phi_D} \dP^n(\bar k)\xrightarrow{h} [0,\infty)$. Note 
+that the notation $h_D$ is a little bit misleading, because $h_D$ actually 
+depends on a choice of a generating set for $\sL(D)$. If we chose another 
+generating set, getting an embedding $\phi_D'$ of $X$ into some projective 
+space, then we have $h \phi_D - h \phi_D'=O(1)$, i.e. the two heights differ by 
+a (globally) bounded function $X(\bar k)\to \dR$. So if we consider 
+$h_D$ as an equivalence class in $\dR^{X(\bar k)}$, then $h_D$ is well-defined. 
+If $E\sim D$ is another very ample divisor, then $h_D-h_E=O(1)$, so the 
+equivalence class of $h_D$ only depends on the class of $D$ in the class group 
+of $X$. Finally, if $E,D\in \Div(X)$ are very ample, then 
+$h_{D+E}=h_D+h_E+O(1)$. 
+
+\begin{theorem}[Weil's ``height machine'']\label{thm:weil-height}
+Let $X$ be a nice variety over a number field $k$. Then there exists a unique 
+homomorphism $h:\pic(X)\to \dR^{X(\bar k)}/O(1)$ such that 
+\begin{enumerate}
+  \item If $D$ is very ample, then $h_D=h\circ \phi_D+O(1)$. (normalization)
+  \item For a morphism $\phi:X\to Y$ of nice $k$-varieties, we have 
+    $h_{X,\phi^\ast D} = h_{Y,D}\circ\phi + O(1)$ for all $D\in \Div(Y)$. 
+    (functoriality)
+  \item For all $D$, $h_D\geqslant O(1)$ on the complement of the base locus 
+    of $D$. (positivity)
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+The existence and uniqueness of $h$ follows easily from the above remarks. For 
+a proof of 2 and 3, see \cite[\S2.4]{bg06}. 
+\end{proof}
+
+The case we are interested in is when $X=A$ is an abelian variety over $k$. For 
+$D\in \Div(A)$, one can show (see \cite[I.5.4]{mi}) that 
+$[n]^\ast D\sim \frac{n(n+1)}{2} D + \frac{n(n-1)}{2}[-1]^\ast D$. In 
+particular, if $D$ is symmetric (that is, $[-1]^\ast D=D$) then 
+$[n]^\ast D\sim n^2D$. (There are plenty of symmetric divisors: if $D$ is 
+arbitrary, $D+[-1]^\ast D$ is symmetric). By theorem \ref{thm:weil-height}, 
+if $D$ is symmetric, we have 
+\begin{align*}
+  h_{A,D}\circ[n]+O(1)
+    &= h_{A,[n]^\ast D} + O(1) \\
+    &= h_{A,n^2 D}+O(1) \\
+    &= n^2 h_{A,D}+O(1)
+\end{align*}
+So for all $x\in A(\bar k)$, we have 
+$h_{A,D}(n\cdot x) = n^2 h_{A,D}(x)+O(1)$. In other words, repeated addition 
+gives a quadratic growth in the ``complexity'' of a point $x\in A(\bar k)$. 
+
+Fix a symmetric divisor $D\in \Div(A)$. Define the \emph{canonical (or 
+N\'eron-Tate) height} associated to $D$, as a function 
+$\widehat h_D:A(\bar k)\to \dR$, by 
+\[
+  \widehat h_D(a) = \lim_{n\to \infty} \frac{1}{4^n} h_D(2^n\cdot a)
+\]
+(next time: show this limit exists,\ldots)
+
+
+
+
+
+
+
+
+
+
 \bibliographystyle{amsplain}
 \bibliography{7390-sources}
 
