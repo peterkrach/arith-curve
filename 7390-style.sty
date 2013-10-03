@@ -41,8 +41,12 @@
   
   \newcommand{\et}[1]{{#1}_\textnormal{\'et}}
   \newcommand{\lau}[1]{(\!({#1})\!)}
-  \DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
-  \DeclareMathSymbol{\sha}{\mathalpha}{cyrletters}{"58}
+  \DeclareFontFamily{U}{wncy}{}
+  \DeclareFontShape{U}{wncy}{m}{n}{<->wncyr10}{}
+  \DeclareSymbolFont{mcy}{U}{wncy}{m}{n}
+  \DeclareMathSymbol{\sha}{\mathord}{mcy}{"58}  
+ % \DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+ % \DeclareMathSymbol{\sha}{\mathalpha}{cyrletters}{"58}
 
 % theorems, definitions, ...
   \newtheorem{corollary}[subsection]{Corollary}
