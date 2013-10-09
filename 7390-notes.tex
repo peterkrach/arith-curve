@@ -2249,7 +2249,7 @@ The case we are interested in is when $X=A$ is an abelian variety over $k$. For
 $D\in \Div(A)$, one can show (see \cite[I.5.4]{mi}) that 
 $[n]^\ast D\sim \frac{n(n+1)}{2} D + \frac{n(n-1)}{2}[-1]^\ast D$. In 
 particular, if $D$ is symmetric (that is, $[-1]^\ast D=D$) then 
-$[n]^\ast D\sim n^2D$. (There are plenty of symmetric divisors: if $D$ is 
+$[n]^\ast D\sim n^2 D$. (There are plenty of symmetric divisors: if $D$ is 
 arbitrary, $D+[-1]^\ast D$ is symmetric). By theorem \ref{thm:weil-height}, 
 if $D$ is symmetric, we have 
 \begin{align*}
@@ -2266,9 +2266,188 @@ Fix a symmetric divisor $D\in \Div(A)$. Define the \emph{canonical (or
 N\'eron-Tate) height} associated to $D$, as a function 
 $\widehat h_D:A(\bar k)\to \dR$, by 
 \[
-  \widehat h_D(a) = \lim_{n\to \infty} \frac{1}{4^n} h_D(2^n\cdot a)
+  \widehat h_D(a) = \lim_{n\to \infty} \frac{1}{4^n} h_D(2^n\cdot a) \text{.}
 \]
-(next time: show this limit exists,\ldots)
+
+
+
+
+
+
+
+
+
+
+% class on 10-08-2013
+Let's show that the limit defining $\widehat h_D$ exists. Our previous 
+discussion shows that $|h_D(2\cdot x)-h_D(x)|\leqslant C$ for some constant $C$ 
+depending only on $A$. We write this as $h_D(2\cdot x)=h_D(X)+O(1)$, keeping in 
+mind that this $O(1)$ only depends on $A$. Note that 
+\[
+  \frac{h_D(2^i\cdot x)}{4^i} = \frac{h_D(2\cdot (2^{i-1}\cdot x))}{4^i} = \frac{4 h_D(2^{i-1}\cdot x)+O(1)}{4^i} = \frac{h_D(2^{i-1}\cdot x)}{4^{i-1}} + \frac{O(1)}{4^i} \text{.}
+\]
+Thus, for any $n>m$, we have 
+\begin{align*}
+  \left| \frac{h_D(2^n \cdot x)}{4^n} - \frac{h_D(2^m\cdot x)}{4^m}\right|
+    &\leqslant \sum_{i=m+1}^n \left|\frac{h_D(2^i\cdot x)}{4^i} - \frac{h_D(2^{i-1}\cdot x)}{4^{i-1}}\right| \\
+    &= \sum_{i=m+1}^n \left|\frac{h_D(2^{i-1}\cdot x)}{2^{i-1}} +\frac{O(1)}{4^i} - \frac{h_D(2^{i-1}\cdot x)}{2^{i-1}}\right| \\
+    &\leqslant \sum_{i=m+1}^n \frac{C}{4^i} \text{,}
+\end{align*}
+which shows that $\left\{4^{-n} h_D(2^n\cdot x)\right\}_{n=1}^\infty$ is a Cauchy 
+sequence. So the limit defining $\widehat h_D(x)$ exists. If we set $m=0$ and 
+let $n\to \infty$, we see that $h_D=\widehat h_D+O(1)$. 
+
+If $D$ is antisymmetric, we define 
+$\widehat h_D(x)=\lim_{n\to\infty} \frac{1}{2^n} h_D(2^n\cdot x)$
+The same proof shows that $\widehat h_D$ is well-defined. We can extend 
+$\widehat h$ to a function $\widehat h:\Div(A)\to \dR^{A(\bar k)}$ by setting 
+\[
+  \widehat h_D=\frac 1 2 \left(\widehat h_{D+[-1]^\ast D} +  h_{D-[-1]^\ast D}\right) \text{.}
+\]
+It turns out that $\widehat h_D$ depends only on the class of $\sL(D)$ in 
+$\pic(A)$, so we will think of $\widehat h$ as a function 
+$\widehat h:\pic(A) \to \dR^{A(\bar k)}$. 
+
+For $c\in \pic(A)$, the N\'eron-Tate height $\widehat h_c$ has many nice 
+properties, for example 
+\begin{align*}
+  \widehat h_c(n\cdot x) &= n^2 \widehat h_c(x) \\
+  \widehat h_c(x+y)+\widehat h_c(x-y) &= 2\left(\widehat h_c(x)+\widehat h_c(y)\right)
+\end{align*}
+These are easy corollaries of the following lemma.
+
+\begin{lemma}\label{lem:height-quadratic}
+Let $A$ be an abelian variety over a number field $k$, and let $c\in \pic(A)$. 
+Then the function 
+$\langle \cdot,\cdot\rangle:A(\bar k)\times A(\bar k)\to \dR$ defined by 
+\[
+  \langle x,y\rangle = \widehat h_c(x+y)-\widehat h_c(x)-\widehat h_c(y)
+\]
+is bilinear. 
+\end{lemma}
+\begin{proof}
+We are trying to prove that for $x,y,z\in A(\bar k)$, we have 
+\[
+  \widehat h_c(x+y+z)-\widehat h_c(x+y)-\widehat h_c(z) = \left(\widehat h_c(x+z)-\widehat h_c(x)-\widehat h_c(z)\right) + \left(\widehat h_c(y+z)-\widehat h_c(y)-\widehat h_c(z)\right) \text{.}
+\]
+This is equivalent to 
+\begin{equation}\label{eq:height-quadratic}
+  -\widehat h_c(x+y+z)+\widehat h_c(x+y)+\widehat h_c(x+z)+\widehat h_c(y+z)-\widehat h_c(x)-\widehat h_c(y)-\widehat h_c(z) = 0 \text{.}
+\end{equation}
+Now we use the fact that for a morphism $f:A\to B$ of abelian varieties, one has 
+$\widehat h_{f^\ast c}=\widehat h_c\circ f$. For a finite set $S$ and 
+$\sigma\subset S$, write $\pi_\sigma:A^S=\prod_S A\to A$ for the map 
+$(x_s)_{s\in S}\mapsto \sum_{s\in\sigma} x_s$. With this, we can rewrite 
+equation \eqref{eq:height-quadratic} as 
+\[
+  \sum_{\sigma\subset \{1,2,3\}} (-1)^{|\sigma|}\widehat h_c\circ \pi_\sigma = 0 \text{.}
+\]
+By the functoriality of $\widehat h$, it is enough to show that one has 
+\[
+  \sum_{\sigma\subset \{1,2,3\}} (-1)^{|\sigma|} \pi_\sigma^\ast = 0 \text{.}
+\]
+This is just the ``theorem of the cube'' (theorem \ref{thm:cube}). 
+\end{proof}
+
+The basic idea in this proof comes from the proofs of theorems 8.6.11 and 
+9.2.8 in \cite{bg06}. 
+
+\begin{theorem}\label{thm:cube}
+Let $A$ be an abelian variety over a field $k$. For any finite set $S$ with 
+$\# S\geqslant 3$, one has 
+\[
+  \sum_{\sigma\subset S} (-1)^{|\sigma|} \pi_\sigma^\ast = 0 : \pic(A)\to \pic(A^S) \text{.}
+\]
+\end{theorem}
+\begin{proof}
+For $\# S=3$ this is just \cite[III.10]{mu08}. The general case follows easily 
+by induction. 
+\end{proof}
+
+
+
+If $c$ is the class of a very ample line bundle, then 
+$\widehat h_c\geqslant 0$ and for all $x\in A(\bar k)$, 
+$\widehat h_c(x)=0$ if and only if $x$ is torsion. 
+Indeed, if $x$ is torsion, then for some $n>1$, we have 
+$n^2 \widehat h_c(x)=\widehat h_c(n x)=\widehat h_c(x)$, which implies 
+$\widehat h_c(x)=0$. On the other hand, if $\widehat h_c(x)=0$, then 
+$\widehat h_c(n\cdot x)=0$ for all $n$. The set 
+$\{x,2\cdot x,3\cdot x,\dots\}$ is contained inside $A(L)$, where $L=k(x)$ is 
+the finite extension of $k$ generated by (the coordinates of) $x$. Thus 
+$\mathbb{N}\cdot x\subset \{a\in A(L):\widehat h_c(a)\leqslant 0\}$, which we 
+know is a finite set. It follows that $x$ is torsion. 
+
+\begin{example}
+Let $E/\dQ$ be an elliptic curve. Then a divisor on $E$ is just a formal sum 
+$\sum_{x\in E} n_x\cdot x$. Of course, $E$ has a canonical point -- the origin 
+$O$, so for each $n\in \dZ$, we can consider the N\'eron-Tate height associated 
+with $n O$. Since $\widehat h_{n O}=n \widehat h_O$, we don't lose any 
+information by restricting ourselves to $n=1$, but since $O$ isn't very ample, 
+we can only directly compute $h_{n O}$ starting with $n=2$. 
+
+For $n=2$, the Riemann-Roch theorem tells us that $\ell(2 O)=2$, i.e. 
+$\h^0(\sL(2 O)) = k\oplus k x$, where $x$ is a rational function on $E$. For 
+$E$ with chosen model $y^2=x^3+a x+b$, $x$ the rational function corresponds to 
+the map $E\to \dP^1$ given by $(x:y:1)\mapsto (x:1)$. Thus 
+$h_{2 O}(x:y:1)=h_\dQ(x)$. 
+
+For $n=3$, the divisor $3 O$ is actually very ample. By the Riemann-Roch 
+theorem, $\ell(3 O)=3$, so $\h^0(\sL(3 O))=k\oplus k x\oplus k y$, where 
+$(x:y:1):E\to \dP^2$ gives a Weierstrass embedding. That is, there exist 
+$a,b$ such that $y^2=x^3+a x+b$, and $\phi_{3 O}:E\to \dP^2$ induces an 
+isomorphism between $E$ and the zero set of $y^2=x^3+a x+b$ in $\dP^2$. 
+One has $\widehat h_{3 O}(e)=h_\dQ(x(e):y(e):1)+O(1)$. 
+\end{example}
+
+Once again, let $c$ be the class of a symmetric, very ample line bundle on an 
+abelian variety $A/k$. The function  
+\[
+  \langle x,y\rangle_c = \frac 1 2 \left(\widehat h_c(x+y) - \widehat h_c(x)-\widehat h_c(y)\right)
+\]
+is bilinear, and descends to $A(\bar k)/A(\bar k)_\text{tors}$. 
+We can even tensor with $\dR$ to get a bilinear form on 
+$A(k)_\dR = A(k)\otimes \dR$. The form $\langle \cdot,\cdot\rangle_c$ 
+is positive-definite on $A(k)_\dR$. Thus $A(k)_\dR$ with the pairing 
+$\langle\cdot\rangle_c$ is isomorphic to $\dR^n$ with the standard inner 
+product, where $n=\operatorname{rk} A$. The group $A(k)/A(k)_\text{tors}$ is a 
+lattice in $A(k)_\dR$, and we can define the \emph{regulator} of $A$ with 
+respect to $c$ to be the volume of the fundamental domain of 
+$A(k)/A(k)_\text{tors}$ in $A(k)_\dR$. That is, 
+\[
+  \operatorname{Reg}_c(A) = \left|\det\left(\langle x_i,x_j\rangle_c\right)_{i,j}\right|
+\]
+where $\{x_i\}$ is a $\dZ$-basis for $A(k)/A(k)_\text{tors}$. 
+
+If $A$ is an arbitrary abelian variety, there is no natural ``good choice'' for 
+a canonical divisor on $A$. On the other hand, if $A=J=\jac C$ for some nice 
+curve $C$ of genus $g$ with $C(k)\ne\varnothing$, then we can use the induced 
+embedding $j:C\to J$ to define a canonical divisor on $J$. Let 
+$\Theta=j(C)+\cdots + j(C)$ be the $(g-1)$-fold sum of $C$ in $J$, and consider 
+$\Theta$ as a divisor on $J$. We call $\Theta$, and the induced class $\theta$ 
+in $\pic(J)$, the \emph{theta-divisor of $J$}. If we set 
+$\Theta^-=[-1]^\ast \Theta$ and $\theta^-=[-1]^\ast \theta$, then 
+$\langle \cdot,\cdot\rangle_{\theta+\theta^-}$ is positive-semidefinite (see 
+\cite[9.4.1]{bg06}) but we will not need this. In general, for a class 
+$c\in \pic(A)$ for which $\langle\cdot,\cdot\rangle_c$ is 
+positive-semidefinite, set $|\cdot|_c=\widehat h_c^{1/2}$. The following 
+theorem is very deep (it implies Faltings' theorem).
+
+\begin{theorem}[Vojta's inequality]
+Let $C$ be a nice curve of genus $g\geqslant 2$ over a number field $k$. Let 
+$J=\jac C$, and let $\theta$ be the theta-divisor on $J$. Then there are 
+constants $\lambda,\lambda'$ depending only on $C$ and a chosen 
+$x_0\in C(\bar k)$ such that for $x,y\in C\subset J$, if 
+$|x|_\theta\geqslant \lambda$ and 
+$|y|_\theta\geqslant \lambda'|x|_\theta$, then 
+
+\[
+  \langle x,y\rangle_\theta \leqslant \frac 3 4 |x|_\theta\cdot |y|_\theta\text{.}
+\]
+\end{theorem}
+\begin{proof}
+This is very difficult -- see \cite[11.9.1]{bg06}.
+\end{proof}
 
 
 
