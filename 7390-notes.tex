@@ -2576,28 +2576,31 @@ Since $\hat\dZ=\prod_p \dZ_p$, we will consider $\hat T A$ only one $p$-part at
 a time. This is important because if $A$ is an abelian variety over a field of 
 characteristic $p>0$, the groups $A[p^e]$ are not well behaved. 
 
-
-
-Now let $A$ be an abelian variety of dimension $d$ over an arbitrary field $k$. 
-Recall that $A[n]=\{a\in A(\bar k):n\cdot a=0\}$. As an abelian group, we have 
+Let $A$ be an abelian variety of dimension $d$ over an algebraically closed 
+field $k$. For the moment, we will think of $A[n]$ as a scheme -- namely 
+the fiber product 
+\[\xymatrix{
+  A[n] \ar[r] \ar[d] 
+    & 0 \ar[d] \\
+  A \ar[r]^-n 
+    & A 
+}\]
+If $n$ is invertible in $k$, then we will have 
+$A[n]\simeq (\dZ/n)^{\oplus 2 d}$. However, if $n=p$ and $k$ has 
+characteristic $p$, then for some $r\leqslant d$, 
+there will be an isomorphism of group schemes 
 \[
-  A[n]\simeq \begin{cases}
-               (\dZ/n)^{\oplus 2 d} & \text{if $n\in k^\times$} \\
-               (\dZ/p^e)^{\oplus r} & \text{if $n=p^e$ where $p=\operatorname{char}(k)>0$ and $0\leqslant r\leqslant g$} \\
-               (\dZ/p^e)^r\times (\dZ/n')^{\oplus 2d} & \text{if $p=\operatorname{char}(p)\mid n$ and $n=p^e n'$ where $(p,n')=1$}
-             \end{cases}
+   A[p]\simeq (\dZ/p)^r\times \alpha_p^{2(d-r)}\times \mu_p^r \text{.}
 \]
+Here $\alpha_p(R)=\{r\in R:r^p=0\}$ and $\mu_p(R)=\{r\in R:r^p=1\}$ for any 
+$\dF_p$-algebra $R$. One might hope that $A[p^e]$ can be described just as 
+easily for $e>1$, but this is false. The group schemes $A[p^e]$ can exhibit 
+very complicated behavior as $e\to \infty$. Indeed, their ``formal inductive 
+limit'' $A[p^\infty]$, called the Barsotti-Tate group of $A$, carries quite a 
+lot of information about $A$. 
 
-One ought to think of $A[p]$ as a group scheme, namely the fiber product 
-$A\times_A 0$ via $A\xrightarrow p A$. As a group scheme, one has 
-\[
-  A[p] \simeq (\dZ/p\times \mu_p)^r \times \alpha_p^{2(d-r)}
-\]
-where $\mu_p(R)=\{r\in R:r^p=1\}$ and $\alpha_p(R)=\{r\in R:r^p=0\}$. 
-
-(cite Mumford, add details)
-
-Fix a prime $\ell\ne \operatorname{char}(k)$. The groups $A[\ell^n]$ have 
+For the rest of this section, fix a prime 
+$\ell\ne \operatorname{char}(k)$. The groups $A[\ell^n]$ have 
 natural surjections $A[\ell^{n+1}]\to A[\ell^n]$ that just multiply by 
 $\ell$. 
 
