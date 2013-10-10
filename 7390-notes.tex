@@ -2420,25 +2420,27 @@ $A(k)/A(k)_\text{tors}$ in $A(k)_\dR$. That is,
 \]
 where $\{x_i\}$ is a $\dZ$-basis for $A(k)/A(k)_\text{tors}$. 
 
+
 If $A$ is an arbitrary abelian variety, there is no natural ``good choice'' for 
 a canonical divisor on $A$. On the other hand, if $A=J=\jac C$ for some nice 
 curve $C$ of genus $g$ with $C(k)\ne\varnothing$, then we can use the induced 
 embedding $j:C\to J$ to define a canonical divisor on $J$. Let 
 $\Theta=j(C)+\cdots + j(C)$ be the $(g-1)$-fold sum of $C$ in $J$, and consider 
 $\Theta$ as a divisor on $J$. We call $\Theta$, and the induced class $\theta$ 
-in $\pic(J)$, the \emph{theta-divisor of $J$}. If we set 
-$\Theta^-=[-1]^\ast \Theta$ and $\theta^-=[-1]^\ast \theta$, then 
-$\langle \cdot,\cdot\rangle_{\theta+\theta^-}$ is positive-semidefinite (see 
-\cite[9.4.1]{bg06}) but we will not need this. In general, for a class 
-$c\in \pic(A)$ for which $\langle\cdot,\cdot\rangle_c$ is 
-positive-semidefinite, set $|\cdot|_c=\widehat h_c^{1/2}$. The following 
-theorem is very deep (it implies Faltings' theorem).
+in $\pic(J)$, the \emph{theta-divisor of $J$}.Note that if $J=E$ is an elliptic 
+curve with origin $O$, the theta-divisor is just $O$.  It turns out that 
+$\theta$ is ample (see \cite[8.10.22]{bg06}), and thus 
+$\langle\cdot,\cdot\rangle_\theta$ is positive-semidefinite. For any 
+$c\in \pic(J)$ for which $\langle\cdot,\cdot\rangle_c$ is 
+positive-semidefinite, set 
+$|x|_c=\sqrt{\langle x,x\rangle_c} = \widehat h_c(x)^{1/2}$. The following 
+theorem is very deep.
 
 \begin{theorem}[Vojta's inequality]
 Let $C$ be a nice curve of genus $g\geqslant 2$ over a number field $k$. Let 
 $J=\jac C$, and let $\theta$ be the theta-divisor on $J$. Then there are 
-constants $\lambda,\lambda'$ depending only on $C$ and a chosen 
-$x_0\in C(\bar k)$ such that for $x,y\in C\subset J$, if 
+effectively computable constants $\lambda,\lambda'$ depending only on $C$ and 
+a chosen $x_0\in C(\bar k)$ such that for $x,y\in C\hookrightarrow J$, if 
 $|x|_\theta\geqslant \lambda$ and 
 $|y|_\theta\geqslant \lambda'|x|_\theta$, then 
 
@@ -2447,8 +2449,199 @@ $|y|_\theta\geqslant \lambda'|x|_\theta$, then
 \]
 \end{theorem}
 \begin{proof}
-This is very difficult -- see \cite[11.9.1]{bg06}.
+This is hard -- see \cite[11.9.1]{bg06}. The constant $\frac 3 4$ is not 
+important, as the theorem would hold for any constant in the interval 
+$(g^{-1/2},1]$. 
 \end{proof}
+
+
+
+
+
+
+
+
+
+
+% notes on 10-10-2013
+
+
+
+\begin{theorem}[Faltings]
+Let $C$ be a nice curve of genus $g\geqslant 2$ over a number field $k$. Then 
+$C(k)$ is finite.
+\end{theorem}
+\begin{proof}
+We can assume $C(k)\ne\varnothing$, so the choice of $x_0\in C(k)$ gives us an 
+embedding $j:C\hookrightarrow J=\jac C$ defined over $k$. Let 
+$V=J(k)\otimes_\dZ\dR$. By Mordell-Weil, this is a finite-dimensional 
+vector space, and its rank is just the (algebraic) rank of $J$. The induced 
+pairing $\langle\cdot,\cdot\rangle_\theta$ on $V$ is now a nondegenerate 
+positive-definite bilinear form, so $V$ is isomorphic as a Hilbert space to 
+$\dR^n$ with the standard dot product. Note that by basic properties of 
+heights, $S$ is a discrete subset of $V$. 
+
+For nonzero $u,v\in V$, the \emph{angle} between $u$ and $v$ is the unique 
+number in $[0,\pi]$ satisfying 
+\[
+  \cos\varphi(u,v) = \frac{\langle u,v\rangle_\theta}{|u|_\theta |v|_\theta} \text{.}
+\]
+For a nonzero $v$ and fixed $\varphi\in (0,\pi]$, define the cone 
+$\Gamma_{v,\varphi} = \{u\in V\setminus 0 : \varphi(u,v)<0\}$. This is an open 
+subset of $V$ that is stable under scaling by $\dR^+$. Let $S$ be the image of 
+$C(k)$ in $J(k)/J(k)_\text{tors}\hookrightarrow V$. Since $J(k)_\text{tors}$ is 
+finite, we only need to show that $S$ is finite. 
+
+Let $\psi\frac 1 2 \cos^{-1}(\frac 3 4)$, and for an arbitrary $v\in V$, let 
+$U_v=\Gamma_{v,\psi}$. We claim that $U_v\cap S$ is finite. If it is not, 
+then there exist $x,y\in S\cap U_v$  such that $|x|_\theta>\lambda$ and 
+$|y|_\theta>\lambda'|x|_\theta$. By Vojta's theorem, 
+$\cos\varphi(x,y)\leqslant \frac 3 4$, so 
+$\varphi(x,y)\geqslant \cos^{-1}(\frac 3 4)$. This forces 
+$\varphi(x,u)\geqslant \psi$, a contradiction. 
+
+The sets $\{U_v:v\in V\setminus 0\}$ form an open cover of $V$. Since the unit 
+sphere $\{v\in V:|v|=1\}$ is compact, there is a finite list 
+$v_1,\dots,v_n\in V$ such that $V=U_{v_1}\cup \cdots \cup U_{v_n}$. Since each 
+$U_{v_i}\cap S$ is finite, the set $S$ is finite. 
+\end{proof}
+
+This proof essentially gives an effectively computable upper bound for 
+$\# C(k)$. Indeed, since the dimension of $V$ can be bounded above (for 
+instance, by computing certain Selmer groups) it is possible to give an 
+effectively computable upper bound for $\# C(k)$. On the other hand, the set 
+$C(k)$ is not known to be effectively computable, because our proof does 
+\emph{not} give a bound for the heights of points in $C(k)$.
+
+
+
+
+
+
+
+
+
+
+\section{Tate modules}
+
+Let's start with some motivation. Let $A$ be an abelian variety of dimension 
+$d$ over $\dC$. We have seen that $G=A(\dC)$ is a compact connected complex Lie 
+group. Moreover, $G$ is a \emph{torus}, i.e. is of the form $V/\Lambda$ for 
+some complex vector space $V$ and lattice $\Lambda\subset V$. We can realize 
+$G$ as a torus quite explicitly. 
+
+Let $\fg=T_0 G$ be the Lie algebra of $G$. Since $G$ is commutative, the 
+exponential map $\exp:\fg\to G$ is a group homomorphism, and so its image is 
+open (since the map $T_0 \fg\to G$ is surjective). Since $G$ is connected, 
+the image of $\exp:\fg\to G$ is all of $G$, and so we have an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & \Lambda \ar[r] 
+    & \fg \ar[r]^-{\exp} 
+    & G \ar[r] 
+    & 0
+}\]
+There is a natural isomorphism $\Lambda\simeq \h_1(G,\dZ)$. One defines this 
+by interpreting $\fg^\vee\subset \Omega^1(G)$ as the module of invariant 
+differential forms. The pairing $\h_1(G,\dZ)\times \fg^\vee \to \dC$ given by 
+\[
+  \langle \sigma,\omega\rangle = \int_\sigma \omega
+\]
+is non-degenerate, so the induced map $\h_1(G,\dZ) \to \fg$ is an injection. To 
+see that its image is the kernel of the exponential map, note that $\exp(X)=0$ 
+if and only if the flow of $X$ is a loop, which will be in the image of 
+$\h_1(G,\dZ)\to \fg$. 
+
+For any $\phi\in \operatorname{End}(G)$, we have an induced map $\phi_\ast$ on 
+$\h_1(G,\dZ)$. Tensoring with $\dQ$, we this gives a representation 
+\[
+  \operatorname{End}(G) \to \operatorname{End}_\dQ{\h_1(G,\dQ)} \simeq M_{2 d}(\dQ)
+\]
+This let's us take the characteristic polynomial $P_\phi\in \dQ[x]$ for any 
+$\phi\in \operatorname{End}(G)$. In fact, the degree $2 d$ polynomial 
+$P_\phi$ is an element of $\dZ[x]$ because $\phi$ fixes the lattice 
+$\h_1(G,\dZ)$ inside $\h_1(G,\dQ)$. 
+
+Since $G=\fg/\Lambda$, we have $G[n]=\Lambda/n$, and thus there are natural 
+isomorphisms $A[n]\simeq \h_1(A(\dC),\dZ/n)$ for all integers $n\geqslant 2$. 
+We will think of $A[n]$ as a kind of algebraic avatar for $\h_1(A,\dZ/n)$. 
+Unfortunately, there is no algebraic analogue of $\h_1(A,\dZ)$, but there is a 
+good substitute. Let $\hat\dZ=\varprojlim \dZ/n$ be the profinite completion of 
+$\dZ$. The isomorphisms $A[n]\simeq \h_1(G,\dZ/n)$ are compatible, so we get an 
+isomorphism of $\hat\dZ$-modules 
+\[
+  \hat T A = \varprojlim A[n] \to \varprojlim \h_1(G,\dZ/n) = \h_1(G,\hat\dZ) \text{.}
+\]
+Since $\hat\dZ=\prod_p \dZ_p$, we will consider $\hat T A$ only one $p$-part at 
+a time. This is important because if $A$ is an abelian variety over a field of 
+characteristic $p>0$, the groups $A[p^e]$ are not well behaved. 
+
+
+
+Now let $A$ be an abelian variety of dimension $d$ over an arbitrary field $k$. 
+Recall that $A[n]=\{a\in A(\bar k):n\cdot a=0\}$. As an abelian group, we have 
+\[
+  A[n]\simeq \begin{cases}
+               (\dZ/n)^{\oplus 2 d} & \text{if $n\in k^\times$} \\
+               (\dZ/p^e)^{\oplus r} & \text{if $n=p^e$ where $p=\operatorname{char}(k)>0$ and $0\leqslant r\leqslant g$} \\
+               (\dZ/p^e)^r\times (\dZ/n')^{\oplus 2d} & \text{if $p=\operatorname{char}(p)\mid n$ and $n=p^e n'$ where $(p,n')=1$}
+             \end{cases}
+\]
+
+One ought to think of $A[p]$ as a group scheme, namely the fiber product 
+$A\times_A 0$ via $A\xrightarrow p A$. As a group scheme, one has 
+\[
+  A[p] \simeq (\dZ/p\times \mu_p)^r \times \alpha_p^{2(d-r)}
+\]
+where $\mu_p(R)=\{r\in R:r^p=1\}$ and $\alpha_p(R)=\{r\in R:r^p=0\}$. 
+
+(cite Mumford, add details)
+
+Fix a prime $\ell\ne \operatorname{char}(k)$. The groups $A[\ell^n]$ have 
+natural surjections $A[\ell^{n+1}]\to A[\ell^n]$ that just multiply by 
+$\ell$. 
+
+\begin{definition}
+Let $A$ be an abelian variety over a field $k$. The \emph{$\ell$-adic Tate 
+module of $A$} is 
+\[
+  T_\ell A = \varprojlim A[\ell^n] = \{(a_1,a_2,\dots) : a_n\in A[\ell^n],\ell x_{n+1}=x_n\}
+\]
+\end{definition}
+
+The Tate module $T_\ell A$ is a free $\dZ_\ell$-module of rank $2 d$. We write 
+$V_\ell$ for $T_\ell(A)\otimes_{\dZ_\ell} \dQ_\ell$; this is a 
+$\dQ_\ell$-vector space of dimension $2 d$. The main idea is that 
+$A[\ell^n]$, $T_\ell(A)$ and $V_\ell(A)$ are algebraic analogues of 
+$\h_1(A,\dZ/\ell^n)$, $\h_1(A,\dZ_\ell)$ and $\h_1(A,\dQ_\ell)$. 
+
+Two things act on $T_\ell A$. The ring $\operatorname{End}(A)$ of endomorphisms 
+of $A$ defined over $k$ (as an abelian variety) acts on each $A[\ell^n]$, and 
+hence on $T_\ell$ and $V_\ell$. Also, the group $G_k=\gal(\bar k/k)$ acts 
+compatibly on each $A[\ell^n]$, so we get a representation 
+\[
+  \rho_{A,\ell}:G_k\to \operatorname{GL}(T_\ell)\simeq \operatorname{GL}(2 d,\dZ_\ell)
+\]
+The action of $\operatorname{End}(A)$ and $G_k$ commute, so we actually have a 
+representation 
+\[
+  \rho_{A,\ell}:\operatorname{End}(A)\llbracket G_k\rrbracket \to M_{2 d}(\dZ_\ell)
+\]
+
+\begin{theorem}[Faltings]
+Let $A,B$ be abelian varieties over a finitely generated field $k$. Then 
+the natural map 
+\[
+  \hom(A,B)\otimes\dQ_\ell \to \hom_{\dQ_\ell\llbracket G_k\rrbracket}\left(V_\ell A,V_\ell B\right)
+\]
+is an isomorphism. 
+\end{theorem}
+
+\begin{corollary}
+Abelian varieties $A,B$ over a finitely generated field $k$ are isogeneous if 
+and only if $V_\ell A$ and $V_\ell B$ are isomorphic as 
+$\dQ_\ell\llbracket G_k\rrbracket$-modules.
+\end{corollary}
 
 
 
