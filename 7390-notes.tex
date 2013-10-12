@@ -3,13 +3,13 @@
 \usepackage{7390-style}
 
 \title{Arithmetic of curves}
-\author{Daniel Miller\thanks{notes to a course taught by David Zywina at Cornell}}
+\author{Daniel Miller
+  \thanks{notes to a course taught by David Zywina at Cornell}}
 \date{fall 2013}
 
 \begin{document}
 \maketitle
 \tableofcontents
-% perhaps include illustrations (graphs) of curves?
 
 
 
@@ -23,9 +23,10 @@
 \section*{Disclaimer}
 
 These notes originated in a course on the arithmetic of curves taught by David 
-Zywina at Cornell. However, their content is \emph{not} an exact reflection of 
-what he covered in class, and some material was not presented in class. In 
-particular, any errors in these notes are entirely my fault. 
+Zywina at Cornell. However, a significant amount of material (including, no 
+doubt, many errors) has been added since then and their content is \emph{not} 
+an exact reflection of what he covered in class. In particular, any errors in 
+these notes are entirely my fault. 
 
 
 
@@ -39,10 +40,10 @@ particular, any errors in these notes are entirely my fault.
 \section{Motivation: plane curves}
 
 Fir a non-constant polynomial $f(x,y)\in\dQ[x,y]$. Assume $f$ is 
-geometrically irreducible, that is, irreducible in $\overline{\dQ}[x,y]$. 
-We can define the curve $C$ over $\dQ$ determined by the equation 
-$f(x,y)=0$. For now, we will think of $C$ in terms of its functor of points. 
-To any $\dQ$-algebra $A$, we have $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$. 
+geometrically irreducible, that is, irreducible in the ring 
+$\overline{\dQ}[x,y]$. We can define the curve $C$ over $\dQ$ determined by the 
+equation $f(x,y)=0$. For now, we will think of $C$ in terms of its functor of 
+points. To any $\dQ$-algebra $A$, we have $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$. 
 As a scheme, $C=\spec\left(\dQ[x,y]/f\right)$. Some big questions are:
 \begin{enumerate}
   \item Is $C(\dQ)=\varnothing$?
@@ -56,22 +57,22 @@ Let $f=x^2+y^2-1$, i.e. $C$ is the circle. It is well-known that
 \[
   C(\dQ)=\left\{\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right):t\in\dQ\right\}\cup \{(-1,0)\}
 \]
-This can be proved in the usual manner by choosing the point 
-$(-1,0)$ in $C$, and then drawing lines with rational slopes through 
-$(-1,0)$. As a Riemann surface, $C(\dC)$ is a sphere minus 
-two points. 
+This can be proved in the usual manner by choosing the point $(-1,0)$ in $C$, 
+and then drawing lines with rational slopes through $(-1,0)$. As a Riemann 
+surface, $C(\dC)$ is a sphere with two points removed. 
 \end{example}
 
 \begin{example}
-Let $f=x^2+y^2+1$. Then $C(\dR)=\varnothing$, hence 
-$C(\dQ)=\varnothing$. But as a Riemann surface, $C(\dC)$ is 
-the same sphere minus two points. Thus the geometry of $C$ does not 
-necessarily determine $C(\dQ)$. 
+Let $f=x^2+y^2+1$. Then $C(\dR)=\varnothing$, hence $C(\dQ)=\varnothing$. But 
+as a Riemann surface, $C(\dC)$ is the same sphere with two points removed. Thus 
+the geometry of $C$ does not necessarily determine $C(\dQ)$. 
 \end{example}
 
 \begin{example}
 Let $f=x^4+y^4-1$. Then it is a theorem of Fermat that 
-$C(\dQ)=\{(\pm 1,0),(0,\pm 1)\}$.
+$C(\dQ)=\{(\pm 1,0),(0,\pm 1)\}$. It is a (much harder) theore of Wiles that if 
+$C_n$ is the curve given by $f=x^n+y^n-1$ for $n\geqslant 3$, then 
+$Cn(\dQ)=\{(\pm 1,0),(0,\pm 1)\}$. 
 \end{example}
 
 \begin{example}[Stoll]
@@ -80,7 +81,7 @@ Consider
   C : y^2 = 82342800 x^6 &- 470135160 x^5 + 52485681 x^4 + 2396040466 x^3 \\
     &+ 567207969 x^2 - 985905640 x + 247747600
 \end{align*}
-This is a curve of genus 2, i.e. $C(\dC)$ is a punctured two-hole 
+This is a curve of genus 2, i.e. $C(\dC)$ is a punctured two-holed 
 torus. It turns out that $\# C(\dQ)\geqslant 642$ \cite[\S 6]{st09}. 
 However, by a theorem of Faltings, $\# C(\dQ)$ is finite. It is 
 currently the largest known number of rational points of a genus two curve 
@@ -106,25 +107,24 @@ Let $C:y^2=x^3+877 x$. Then $C(\dQ)$ once again contains $(0,0)$. A
 computer search showed that $(0,0)$ is the only point on $C$ of height 
 $\leqslant 1000000$. For now, the \emph{height} of a solution is just the 
 largest absolute value of the numerator / denominator of a solution written 
-in reduced fractions. But there should be more solutions! Let $E$ be the 
-projective curve over $\dQ$ obtained by adjoining a point $O$ to $C$. 
-As a Riemann surface, $E(\dC)$ is just a torus. 
+in reduced fractions. But other methods lead us to expect many more solutions
+(infinitely many, in fact). Let $E$ be the projective curve over $\dQ$ obtained 
+by adjoining a point $O$ to $C$. As a Riemann surface, $E(\dC)$ is just a 
+torus. 
 
-We can give $E/\dQ$ the structure of an abelian variety. That is, 
-we can give $E$ the structure of a commutative algebraic group, i.e. the 
-operation is given by rational functions, with $O$ being the identity. 
+We can give $E/\dQ$ the 
+structure of an abelian variety. That is, we can give $E$ the structure of a 
+commutative algebraic group, i.e. the operation is given by regular  
+functions, with $O$ being the identity. Later, we will think of $E$ as 
+being identified with its jacobian $\jac E$ via the choice of a single point 
+$O\in E(\dQ)$. Since $E$ is a commutative algebraic group, $E(\dQ)$ is an 
+abelian group (with identity $O$). It is a theorem of Mordell that $E(\dQ)$ is 
+finitely generated. We know the structure of such groups: 
+$E(\dQ)\simeq A\times \dZ^r$, where $A$ is finite, and $r=\rk E$ 
+is the \emph{(algebraic) rank} of $E$. 
 
-Later, we will think of $E\hookrightarrow \operatorname{Jac}(E)$, where 
-$\operatorname{Jac}(E)$ is the Jacobian of $E$. This embedding is determined 
-by a single point $O\in E$. 
-
-In particular, $E(\dQ)$ is an abelian group with identity $O$. It is 
-a theorem of Mordell that $E(\dQ)$ is in fact finitely generated. We 
-know the structure of such groups: $E(\dQ)\simeq A\times \dZ^r$, 
-where $A$ is finite, and $r=\operatorname{rk} E$ is the \emph{rank} of $E$. 
-
-In general, $A$ is computable. In our case, $A=\dZ/2$. The hard 
-computational problem is: ``what is $r$''? The Birch and Swinnerton-Dyer 
+In general, the $A$ is computable. In our case, $A=\dZ/2$. It is much harder to 
+compute the algebraic rank of $E$. The Birch and Swinnerton-Dyer 
 conjecture says that $r$ agrees with the order of vanishing $r'$ of a certain 
 holomorphic function $L(E,s)$ at $s=1$. Sometimes, $r'$ can be computed.  
 In our example, a computation shows that $r'=1$, so we expect 
@@ -138,21 +138,23 @@ For details, see \cite{br84}. One method to construct such large solutions for
 a rank one elliptic curve uses Heegner points. 
 \end{example}
 
-In general, we will take a curve $C/\dQ$, consider its jacobian $J$, 
-and study $J(\dQ)$. This will be a group, and its structure heavily 
-influences $C(\dQ)$. The ``average rank of an elliptic curve'' is not 
-known, nor is there a general consensus on what is should be. Some expect it 
-the rank of a random curve to be $0$ or $1$, both with probability 
-$\frac 1 2$. Others suppose that elliptic curves over $\dQ$ have rank 
-$2$ with nonzero probability as well. It was proven recently (see 
+In general, we will take a curve $C/\dQ$, consider its jacobian $J$, and study 
+$J(\dQ)$. This will be a group, and its structure heavily influences $C(\dQ)$. 
+For example, we could study how the rank of $J(\dQ)$ affects $C(\dQ)$. In the 
+case that $C=E$ is an elliptic curve, $\jac E=E$, so studying the curve and 
+studying its jacobian is the same thing. The ``average rank of an elliptic 
+curve'' is not known, nor is there a general consensus on what is should be. 
+Some expect it the rank of a random curve to be $0$ or $1$, both with 
+probability $\frac 1 2$. Others suppose that elliptic curves over $\dQ$ have 
+rank $2$ with nonzero probability as well. It was proven recently (see 
 \cite[\S 1]{bh10}) that 
 \[
-  \limsup_{B\to\infty} \frac{1}{4 B^2} \sum_{\substack{|a|,|b|\leqslant B \\ 4 a^3+27 b^2\ne 0}} \operatorname{rk}(E_{a,b}) \leqslant\frac 7 6
+  \limsup_{x\to\infty} \frac{1}{4 x^2} \sum_{\substack{|a|,|b|\leqslant B \\ 4 a^3+27 b^2\ne 0}} \rk(E_{a,b}) \leqslant\frac 7 6 \text{,}
 \]
-where $E_{a,b}$ is the elliptic curve defined by $y^2=x^3 +a x+b$.
+where $E_{a,b}$ is the elliptic curve over $\dQ$ defined by $y^2=x^3 +a x+b$.
 
 \begin{question}
-Is $\operatorname{rk} E(\dQ)$ bounded for all elliptic curves 
+Is $\rk E(\dQ)$ bounded for all elliptic curves 
 $E/\dQ$?
 \end{question}
 
@@ -161,15 +163,15 @@ ranks are not known \cite{du}. The largest known rank is $19$.
 %It is generally thought that the answer is no, and that the NSA has examples of curves with 
 %much larger ranks than publicly known. 
 
-In general, the assumption that $f(x,y)$ is absolutely irreducible is not a 
-serious one. For example, if $f=y^2-x^2$, then we can factor $f$ as 
-$(x+y)(x-y)$, and then treat the solutions to $x+y=0$ and $x-y=0$ separately. 
-Another example is $f=x^2+y^2$, which only factors over $\dQ(i)$ as 
-$(y+i x)(y-i x)$, and we the rational points lie in the intersection of the 
-two components over $\dQ(i)$. Also, the assumption that 
-$f\in \dQ[x,y]$ is not serious. One can prove that every curve 
-$C/\dQ$ embeds into $\dP^2_\dQ$, hence is birational to 
-a plane curve. 
+Our assumption that $f(x,y)$ is irreducible is not a serious one. For example, 
+if $f=y^2-x^2$, then we can factor $f$ as $(x+y)(x-y)$, and then treat the 
+solutions to $x+y=0$ and $x-y=0$ separately. Another example is $f=x^2+y^2$, 
+which only factors over $\dQ(i)$ as $(y+i x)(y-i x)$, and we the rational 
+points lie in the intersection of the two components over $\dQ(i)$. In general, 
+a curve over $\dQ$ will be the union of finitely many geometrically irreducible 
+components, each of which is defined over some finite extension of $\dQ$. Also, 
+the assumption that $f\in \dQ[x,y]$ is not serious. One can prove that every 
+curve $C/\dQ$ embeds into $\dP^2_\dQ$, hence is birational to a plane curve. 
 
 Let $C/\dQ$ be a curve. Then 
 $C(\dC)\setminus \{\text{singular points}\}$ is a compact Riemann 
@@ -186,16 +188,17 @@ theorem, $\dQ$ can be replace by any field finitely generated over
 $\dQ$. 
 
 Now let $C$ be a smooth projective curve of genus $g$ over $\mathbb{F}_p$. 
-We are interested in $|C(\mathbb{F}_{p^n})|$, which is obviously computable 
-for each $n$. Let 
+We are interested in $\#C(\mathbb{F}_{p^n})$, which is obviously computable 
+for each $n$. Define the \emph{zeta function} of $C$ to be the formal power 
+series 
 \[
-  Z(C,t) = \exp\left( \sum_{n>0} \# C(\mathbb{F}_{p^n}) \frac{t^n}{n} \right) \in \dQ\llbracket t\rrbracket 
+  Z(C,t) = \exp\left( \int\sum_{n\geqslant 1} \# C(\mathbb{F}_{p^n}) t^n\, \frac{dt}{t}\right) \text{.}
 \]
 
 \begin{theorem}[Weil]
 If $C/\mathbb{F}_p$ is a smooth projective curve of genus $g$, then 
 \[
-  Z(C,t) = \frac{P(C,t)}{(1-t)(1-p t)}
+  Z(C,t) = \frac{P(C,t)}{(1-t)(1-p t)} \text{,}
 \]
 where $P(C,t)\in \dZ[t]$ has degree $2 g$. Moreover, if 
 $P(C,t) = \prod_{i=1}^{2 g} (1-\alpha_i t)$, then for each $i$, one has 
@@ -215,7 +218,9 @@ Therefore, $\# C(\mathbb{F}_{p^n}) = p^n+1-\sum_{i=1}^{2 g} \alpha_i^n$. It
 follows easily that $|\# C(\mathbb{F}_{p^n})-(p^n+1)| \leqslant 2 g p^{n/2}$. 
 This is equivalent to saying 
 \[
-  p^n-2 g p^{n/2}+1 \leqslant \# C(\mathbb{F}_{p^n}) \leqslant p^n + 2 g p^{n/2} + 1
+  p^n-2 g p^{n/2}+1 
+    \leqslant \# C(\mathbb{F}_{p^n}) 
+    \leqslant p^n + 2 g p^{n/2} + 1 \text{.}
 \]
 In particular, setting $n = g = 1$, we obtain 
 $\# C(\mathbb{F}_p) \geqslant (p^{1/2}-1)^2>0$, hence 
@@ -234,12 +239,12 @@ $C(\mathbb{F}_p)\ne\varnothing$.
 
 \section{Jacobians and abelian varieties}
 
-\subsection*{Abelian varieties over $\dC$}
+%\subsection*{Abelian varieties over $\dC$}
 
 At first, we will work over $\dC$ and treat curves as Riemann surfaces. Since 
 the category of smooth projective curves over $\dC$ is equivalent to the 
 category of compact connected Riemann surfaces, there is no loss of 
-information here. Lets start with some general definitions.
+information here. Let's start with some general definitions.
 
 \begin{definition}
 A \emph{variety} over a field $k$ is a separated scheme of finite type over 
@@ -248,7 +253,7 @@ and geometrically integral.
 \end{definition}
 
 Recall that $X/k$ is \emph{geometrically integral} if 
-$X_{\bar k}=X\times_k \spec(\bar k)$ is dimension $1$. A \emph{curve} is a 
+$X_{\bar k}=X\times_k \spec(\bar k)$ is integral. A \emph{curve} is a 
 variety of dimension one. If we are interested in $C(k)$ for general curves, 
 it is sufficient to consider nice curves. If $X$ is a variety, we can consider 
 its functor of points $h_X:\mathsf{Alg}_k\to \mathsf{Set}$ which assigns to a 
@@ -262,7 +267,7 @@ Note that
 \begin{align*}
   C(A) &= \{(a,b)\in A^2:f(a,b) = 0\} \\
     &= \hom_{\mathsf{Alg}_\dQ}(\dQ[x,y]/f,A) \\
-    &= \hom_{\mathsf{Sch}_k}\left(\spec A,\spec(\dQ[x,y]/f)\right) \\
+    &= \hom_{\mathsf{Sch}_k}\left(\spec A,\spec(\dQ[x,y]/f)\right) \text{,}
 \end{align*}
 so this agrees with our general definition. 
 
@@ -271,12 +276,18 @@ The functor $h_X$ determines $X$, up to isomorphism. (This is just the Yoneda
 lemma).
 \end{remark}
 
+
+
+
+
+\subsection*{Jacobians over $\dC$}
+
 For the rest of this section, let $C$ be a nice curve over $\dC$. Set 
 $X=C(\dC)$; this is a compact connected Riemann surface. So 
 topologically, $X$ is a many-handled torus. Let $\Lambda=\h_1(X,\dZ)$, 
 the first singular homology group of $X$, which can be identified with 
-$\pi_1(X)^\text{ab}$. So elements of $\Lambda$ are equivalence classes 
-$[\gamma]$ for $\gamma\in \pi_1(X)$. 
+$\pi_1(X)^\text{ab}$. We will regard elements of $\Lambda$ are equivalence 
+classes $[\gamma]$ for $\gamma\in \pi_1(X)$. 
 
 %\begin{remark}
 %The notation $\h_\bullet$, $\pi_1$\ldots will always denote the 
@@ -287,15 +298,17 @@ $[\gamma]$ for $\gamma\in \pi_1(X)$.
 
 It is a theorem of algebraic topology that $\Lambda\simeq\dZ^{2 g}$; we 
 will call $g$ the \emph{genus} of $X$ (and also of $C$). Let $K$ be the field 
-of meromorphic functions on $X$. In other words, elements of $K$ are of the 
+of meromorphic functions on $X$. That is, elements of $K$ are of the 
 form $f=g/h$ where $g$ and $h$ are holomorphic functions on $X$ and $g\ne 0$. 
 (This forces $g\ne 0$ except on a finite subset of $X$.) At any point 
 $x\in X$, we can write $f$ in local coordinates as $z^n(a_0+a_1 z+\cdots)$ 
 where $a_0\ne 0$ and $n\in\dZ$. We call $n=\ord_x(f)$ the \emph{order 
-of vanishing} of $f$ at $x$. 
+of vanishing} of $f$ at $x$. The \emph{degree} of $f$ is the sum 
+$\deg(f)=\sum_{x\in X}\ord_x(f)$. If $f$ is holomorphic instead of just 
+meromorphic, then $\deg(f)=0$.  
  
 \begin{remark}
-We can identify $K$ with the function field of $C$, i.e. the set of rational 
+We can identify $K$ with the function field of $C$, i.e.\ the set of rational 
 maps $C\to\mathbb{A}^1$. Certainly rational maps yield meromorphic functions, 
 and it is a basic theorem of Riemann surface theory that meromorphic functions 
 are in fact algebraic. Moreover, if $C$ is nice, then $C$ can be recovered 
@@ -307,7 +320,7 @@ singularities) with function field $K$. We can resolve the singularities of
 $C'$ to obtain a smooth projective curve $C''$ with function field $K$. 
 Clearly $C''$ and $C$ are birational -- in fact this forces them to be 
 isomorphic. Indeed, let $f:C''\to C$ be a birational map. By 
-\cite[thm 3.1]{mi}, $f$ and $f^{-1}$ are in fact regular, hence $f$ is an 
+\cite[thm 3.1]{mi}, $f$ and $f^{-1}$ are regular, hence $f$ is an 
 isomorphism of varieties. 
 \end{remark}
 
@@ -323,11 +336,11 @@ theorems -- the first follows from work of Grothendieck \cite{gr66}, the
 second from \cite[I 4.6.3]{de77}. 
 
 With $C$ as before, let $V=\Omega^1(X)=\h^0(X,\Omega^1)=\h^1_\text{dR}(X)$. 
-This is a complex vector space of dimension $g$. (Here, we mean analytic de 
-Rham cohomology -- the algebraic de Rham cohomology would be denoted 
-$\h_\text{dR}^1(C/\dC)$.) This gives us an algebraic definition of $g$. 
-We can consider $\Omega^1$ as the sheaf of (algebraic) differentials, and 
-$g=\dim_\dC\h^0(X,\Omega^1)$. There is a pairing 
+This is a complex vector space of dimension $g$. (Here, $\h_\text{dR}^1(X,\dC)$ 
+is the analytic de Rham cohomology of $C$ -- the algebraic de Rham cohomology 
+would be written $\h_\text{dR}^1(C/\dC)$.) This gives us an algebraic 
+definition of $g$. We can consider $\Omega^1$ as the sheaf of (algebraic) 
+differentials, and $g=\dim_\dC\h^0(X,\Omega^1)$. There is a pairing 
 $\h_1(X,\dZ)\otimes\h_\text{dR}^1(X)\to\dC$, defined by 
 \[
   [\gamma]\otimes \omega \mapsto \int_\gamma \omega
@@ -346,10 +359,10 @@ $X$ to $\jac X$ defined as follows. Fix $x_0\in X$; we send $x\in X$ to
 $\omega\mapsto \int_{[x_0,x]} \omega$, where $[x_0,x]$ denotes some path from 
 $x_0$ to $x$. A different choice of $[x_0,x]$ will differ by a closed loop, 
 i.e. an element of $\h_1(X,\dZ)$. So $X\to\jac X$ is well-defined. Note 
-that $\jac X$ is a complex Lie group. 
+that $\jac X$ is a compact complex Lie group. 
 
 \begin{remark}
-After choosing a basis for $V^*$, we have $\jac X\simeq \dC^g/L$, where 
+After choosing a basis for $V^\vee$, we have $\jac X\simeq \dC^g/L$, where 
 $L\simeq \dZ^{2 g}$. As a real Lie group, $\jac X$ is isomorphic to 
 $(S^1)^{2 g}$. 
 \end{remark}
@@ -375,9 +388,13 @@ Let $\Div X$ be the free abelian group generated by the points of $X$. There
 is a map $\deg:\Div X\to \dZ$, defined by 
 $\sum n_x\cdot x\mapsto \sum n_x$. We define $\Div^\circ X$ by the short exact 
 sequence 
-\[
-  0 \to \Div^\circ X \to \Div X \to \dZ \to 0
-\]
+\[\xymatrix{
+  0 \ar[r]
+    & \Div^\circ X \ar[r]
+    & \Div X \ar[r]
+    & \dZ \ar[r]
+    & 0
+}\]
 There is also a map $\operatorname{div}:K^\times\to \Div X$, where 
 $\operatorname{div}(f) = \sum_x \ord_x(f)\cdot x$. It is a basic fact that 
 $\deg(\operatorname{div}(f)) = 0$, so we can define the \emph{Picard group} 
@@ -385,8 +402,8 @@ of $X$ to be $\pic X = \Div X/\operatorname{div}(K^\times)$ and
 $\pic^\circ X = \Div^\circ (X)/\operatorname{div}(K^\times)$. 
 
 \begin{remark}
-Let $\mathscr{M}$ be the sheaf of meromorphic functions on $X$. One can 
-prove that $\Div(X)=\h^0(X,\mathscr{M}^\times/\sO^\times)$ and 
+Let $\mathscr{M}$ be the sheaf of meromorphic functions on $X$. It is a basic 
+fact that $\Div(X)=\h^0(X,\mathscr{M}^\times/\sO^\times)$ and 
 $\pic(X)=\h^1(X,\sO^\times)$. 
 \end{remark}
 
@@ -420,7 +437,7 @@ algebraic definition of $\h_1(X,\dZ/n)$.
 
 
 % lecture on 09-05-2013
-\subsection*{Jacobians and abelian varieties over arbitrary fields}
+\subsection*{Abelian varieties over arbitrary fields}
 
 Recall that a variety $X/k$ is \emph{nice} if it is smooth, projective, and 
 geometrically connected. 
@@ -432,12 +449,14 @@ over $k$.
 
 In other words, there are morphisms $m:A\times A\to A$, $i:A\to A$, 
 $e:\spec(k)\to A$ such that the induced maps $m_*:h_A\times h_A\to h_A$ etc. 
-turn $h_A$ into a group-valued functor. In particular, $A(X)$ is a ``actual 
+turn $h_A$ into a group-valued functor. In particular, $A(X)$ is an ``honest  
 group'' for each $k$-scheme $X$. 
 
 \begin{example}
-The group variety $\operatorname{GL}_n$ is a group variety, but not nice (in 
-the technical sense) because it is not projective.
+The general linear group $\operatorname{GL}(n)$ is a group variety, but not 
+nice (at least, not in the technical sense) because it is not projective. More 
+generally, no linear algebraic group is an abelian variety, for the same 
+reason. 
 \end{example}
 
 Note that abelian varieties are not required to be commutative, but this is in 
@@ -450,20 +469,26 @@ $\operatorname{ad}:G\to\operatorname{GL}(\mathfrak{g})$ is the adjoint
 representation. After picking a basis for $\operatorname{End}(\mathfrak{g})$, 
 the components of $f$ are entire holomorphic functions on a compact complex 
 manifold, hence locally constant. Since $G$ is connected, $f$ is constant, i.e. 
-$\operatorname{ad}$ is the trivial representation. But 
+the adjoint representation of $G$ is trivial. But 
 $\ker(\operatorname{ad}) = Z(G)$, so $G$ is commutative. For more details, see 
 \cite[I.1]{mu08}. The case $A/k$ for arbitrary $k$ of characteristic zero 
 follows from the Lefschetz principle, or one can just prove commutativity 
 directly using a ``rigidity principle'' for maps on projective varieties
 \cite[I.1.4]{mi}. 
 
+
+
+
+
+\subsection*{Albanese varieties}
+
 We'd like to describe the jacobian $J$ of a nice curve $C/k$ with 
 $C(k)\ne\varnothing$. It will be an abelian variety over $k$ of dimension 
-$g$, the genus of $C$. (Note we've only defined the genus for curves 
-$C/k$ with $k\subset\dC$. For general curves, we set  
-$g(C)=h^0(C_{\bar k},\Omega^1) = h^1(\sO_C)$, where 
-$h^i(X,\sF)$ for some sheaf $\sF$ denotes 
-$\dim_k\h^i(X,\sF)$. 
+$g$, the genus of $C$. We had only defined the genus of a curve $C/k$ with 
+$k\subset \dC$. For an arbitrary field $k$ and a curve $C/k$, set 
+$g(C)=h^0(C_{\bar k},\Omega^1) = h^1(\sO_C)$. In general, if $\sF$ is some 
+sheaf on a scheme $X$ over $k$, we write $h^i(X,\sF)$ or $h^i(\sF)$ for 
+$\dim_k \h^i(X,\sF)$.
 
 \begin{definition}[Albanese]
 Let $C/k$ be a curve with fixed $x_0\in C(k)$. The \emph{jacobian} of $C$ is 
@@ -477,77 +502,25 @@ thre is a unique $\tilde f:J\to A$ making the following diagram commute:
 }\]
 \end{definition}
 
-Standard abstract nonsense shows that the pair $(J,\mu)$ is unique up to 
-unique isomorphism. There is a more concise way of defining $J=J_C$. The 
-assignment $C\mapsto J_C$ is the left-adjoint to the functor 
-$\mathsf{AbVar}_k\to \mathsf{Var}_{k,*}$ from abelian varieties over $k$ to 
-nice pointed varieties over $k$ that forgets the group structure. In fact, the 
-functor $\mathsf{AbVar}_k\to\mathsf{Var}_{k,*}$ has a left-adjoint defined 
-on all of $\mathsf{Var}_{k,*}$. For any nice pointed variety $X$, there is an 
-abelian variety $A=\operatorname{Alb} X$, the \emph{Albanese variety} of $X$, 
-such that pointed maps $X\to B$ correspond to homomorphisms of abelian 
-varieties $A\to B$. For a proof that $\operatorname{Alb} X$ exists, see 
-\cite[A.11]{mo12}
+Since $(J,\mu)$ is the solution of a universal problem, it is unique up to 
+unique isomorphism. Our definition can be made much more concise. Let 
+$\mathsf{AbVar}_k$ be the category of abelian varieties over $k$, and let 
+$\mathsf{Var}_{k,\ast}$ be the category of ``nice pointed varieties'' over $k$, 
+i.e. nice varieties $X/k$ with chosen $x\in X(k)$. Forgetting the group 
+structure gives an inclusion functor 
+$\iota:\mathsf{AbVar}_k\to \mathsf{Var}_k$. Our definition of $\jac C$ can be 
+rephrased as saying that $\mu:C\to A$ induces a natural isomorphism 
+\[
+  \hom_{\mathsf{Var}_{k,\ast}}(C,\iota A) \simeq \hom_{\mathsf{AbVar}_k}(\jac C,A)\text{.}
+\]
+It turns out that for any nice pointed variety $X$, there is an abelian variety 
+$A=\operatorname{Alb} X$, the \emph{Albanese variety} of $X$, with a morphism 
+$\mu:X\to \operatorname{Alb} X$ that induces a same natural isomorphism (with 
+$\operatorname{Alb} X$ in place of $\jac C$). So the jacobian may be seen as 
+the left-adjoint to the forgetful functor from abelian varieties to pointed 
+varieties. For a proof that $\operatorname{Alb} X$ exists, see 
+\cite[A.11]{mo12}.
 
-If $C(k)=\varnothing$, we can still define $J=\jac C$. We consider the 
-morphism $\alpha:C\times C\to J$ given by $(x,y)\mapsto \mu(x)-\mu(y)$, 
-and require maps $f:C\times C\to A$ with $f(\Delta)=0$ to lift uniquely 
-to $\tilde f:J\to A$. 
-
-Another approach to defining $J=\jac C$ involves the Picard group. Recall 
-that over $\dC$, we proved that $J(\dC)\simeq\pic^\circ(C)$. 
-One might hope that $J$ satisfies $J(L)=\pic^\circ(C_L)$ for all field 
-extensions $L/k$. This works if $C(k)\ne\varnothing$, but otherwise. For, 
-if $J(k^s)=\pic^\circ(C_{k^s})$, then we would have 
-$\pic^\circ(C) = J(k) = J(k^s)^{G_k} = \pic^\circ(C_{k^s})^{G_k}$. But this 
-does not always hold. 
-
-First, it might be helpful to define Picard groups for general schemes. If 
-$X$ is a scheme, the \emph{Picard group} of $X$ is 
-$\pic(X)=\h^1(X,\sO_X^\times)$. It is straightforward to show that 
-$\pic(X)$ is isomorphic to the group of isomorphism classes of invertible 
-sheaves on $X$, with group operation induced by tensor product, i.e. 
-$[\sL] + [\mathscr{L'}] = [\sL\otimes \sL']$. 
-
-If $D = \sum D_x\cdot x$ is a divisor on a curve $C/k$, we define the 
-\emph{degree} of $D$ to be $\deg D=\sum D_x \in \dZ$. 
-%We would like to 
-%have a definition that works on arbitrary varieties. First, we replace $D$ by 
-%the invertible sheaf $\sL=\sO(D)$, where $\sL(U)$ is the ring 
-%of rational functions $f$ on $U$ such that $\ord_x(f)\geqslant - D_x$. One 
-%can check that $\sO(D)$ is indeed an invertible sheaf. We will define the 
-%degree of any invertible sheaf $\sL$ on a projective variety $X/k$. 
-%Recall that the Euler characteristic of $\sL$ is 
-%$\chi(\sL) = \sum (-1)^i h^i(\sL)$. It is proven in 
-%\cite[4.1]{dj93} that there exists a (unique) polynomial 
-%$\phi\in\dQ[t]$ such that 
-%$\chi(\sL^{\otimes n}) = \phi(n)$ for $n\gg 0$. If $X$ is a curve, we 
-%can see this easily; since $\sL=\sO(D)$ is effective, the Riemann-Roch 
-%forces $\chi(\sL^{\otimes n}) = n\cdot \deg D + 1 - g$ for $n\gg 0$. 
-%We define the \emph{degree} of $\sL$ to be the coefficient of the 
-%highest-degree term of $\phi$. As we have just shown, this agrees with the 
-%classical definition. 
-
-Back to the case where $C$ is a nice curve. For $T$ an arbitrary scheme, define 
-$\pic^\circ(C\times T)$ to be the subset of $\pic(C\times T)$ consisting of 
-invertible sheaves $\sL$ with $\deg(\sL_t)=0$ for all $t\in T$, 
-i.e. the following sequence is exact 
-\[\xymatrix{
-  0 \ar[r] 
-    & \pic^\circ(C\times T) \ar[r]^-{(i_t^*)}
-    & \displaystyle\prod_{t\in T} \pic^\circ (C) 
-}\]
-where $i_t:t\hookrightarrow T$ are the canonical injections. Now we define the 
-functor $P_C^\circ:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ that sends $T$ to 
-$\pic^\circ(C\times_k T)/\pi_T^*\pic(T)$. 
-
-\begin{theorem}
-If $C(k)\ne \varnothing$, then $P_C^\circ$ is represented by $J=\jac C$.
-\end{theorem}
-
-For a proof, see \cite[III.1.2]{mi}. 
-
-\begin{remark}
 In general, the map $X\to \operatorname{Alb} X$ need not be an embedding. 
 For example, if $C$ is a curve of genus $0$, then $\operatorname{Alb} X=0$ by 
 \cite[I.3.9]{mi}. On the other hand, if the genus $g\geqslant 1$, then 
@@ -557,7 +530,58 @@ injective. For, principal divisors correspond to morphisms
 $f:C\to\dP^1$. These cannot have zeros and poles of multiplicity one, 
 otherwise $f$ would have degree one, hence it would be an isomorphism. This 
 cannot be the case. 
-\end{remark}
+
+If $C(k)=\varnothing$, we can still define $J=\jac C$. It will be a $k$-variety 
+with a morphism $\eta:C\times C\to J$ such that $\mu(\Delta)=0$. We require 
+that for any abelian variety $A$ over $k$ with $f:C\times C\to A$ such that 
+$f(\Delta)=0$, there is a unique lift $\tilde f:J\to A$ of $f$. The map $\eta$ 
+should be thought of $(x,y)\mapsto \mu(x)-\mu(y)$, even though the embedding 
+$\mu:C\to J$ may not be defined over $k$. 
+
+
+
+
+
+\subsection*{Picard schemes}
+
+Another approach to defining $J=\jac C$ involves the Picard group. Recall 
+that over $\dC$, we proved that $J(\dC)\simeq\pic^\circ(C)$. 
+One might hope that $J$ satisfies $J(L)=\pic^\circ(C_L)$ for all field 
+extensions $L/k$. This works if $C(k)\ne\varnothing$, but not otherwise. For, 
+if $J(k^s)=\pic^\circ(C_{k^s})$, then we would have 
+$\pic^\circ(C) = J(k) = J(k^s)^{G_k} = \pic^\circ(C_{k^s})^{G_k}$. But this 
+does not always hold. 
+
+For a curve $C$ over $k$, we will define an abelian variety $\pic^\circ(C)$ in 
+terms of its functor of points. To do this, we need to define Picard groups for 
+arbitrary schemes. For any scheme $X$, the \emph{Picard group} of $X$ is 
+$\pic(X)=\h^1(X,\sO_X^\times)$. It is straightforward to show (using \v Cech 
+cohomology) that $\pic(X)$ is isomorphic to the group of isomorphism classes of 
+invertible sheaves on $X$, with group operation induced by tensor product, i.e. 
+$[\sL] + [\mathscr{L'}] = [\sL\otimes \sL']$. 
+
+Let $C$ be a nice curve. If $D=\sum D_x\cdot x$ is a divisor on $C$, the 
+\emph{degree} of $D$ is $\deg D=\sum D_x\in \dZ$. Since $C$ is smooth, Cartier 
+divisors are Weil divisors, so $\deg$ induces a well-defined map 
+$\pic(C)\to \dZ$. For $T$ an arbitrary scheme, define 
+$\pic^\circ(C\times T)$ to be the subset of $\pic(C\times T)$ consisting of 
+invertible sheaves $\sL$ with $\deg(\sL_t)=0$ for all $t\in T$. That is, the 
+following sequence is exact 
+\[\xymatrix{
+  0 \ar[r] 
+    & \pic^\circ(C\times T) \ar[r]^-{(i_t^*)}
+    & \displaystyle\prod_{t\in T} \pic^\circ (C)\text{,}
+}\]
+where $i_t:t\hookrightarrow T$ are the canonical injections. Now we define the 
+functor $\pic_C^\circ:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ that sends $T$ to 
+$\pic^\circ(C\times_k T)/\pic(T)$. 
+
+\begin{theorem}
+If $C(k)\ne \varnothing$, then $\pic_C^\circ$ is represented by $J=\jac C$.
+\end{theorem}
+\begin{proof}
+See \cite[III.1.2]{mi}.
+\end{proof}
 
 In general, we might have $C(k)=\varnothing$. We will have 
 $J(L)=\pic^\circ(C_{L'})^{\gal(L'/L)}$ where $L'/L$ is any separable extension 
@@ -584,12 +608,12 @@ more details on Weil's construction (and proofs), see \cite[III.7]{mi}.
 
 % lecture on 09-10-2013
 %\section{More abelian varieties}
-\subsection*{Picard schemes}
+%\subsection*{Picard schemes}
 
-Let $k$ be a field, $C/k$ a nice curve, and $J=\jac_C = J_C = \jac C$ be its 
-jacobian. Recall that $J$ is a nice variety that is also a commutative group 
-scheme. We had $J(T) = \pic^\circ(C\times T)/\pic(T)$ for all $k$-schemes $T$, 
-under the assumption that $C(k)\ne \varnothing$. 
+%Let $k$ be a field, $C/k$ a nice curve, and $J=\jac_C = J_C = \jac C$ be its 
+%jacobian. Recall that $J$ is a nice variety that is also a commutative group 
+%scheme. We had $J(T) = \pic^\circ(C\times T)/\pic(T)$ for all $k$-schemes $T$, 
+%under the assumption that $C(k)\ne \varnothing$. 
 
 Now suppose $X$ is an arbitrary scheme. Recall that 
 $\pic(X)=\h^1(X,\sO_X^\times)$; this classifies invertible sheaves on 
@@ -644,24 +668,23 @@ of a curve is the dimension of its jacobian, there is a natural isomorphism
 $\h^1(\mathscr{O}_X) \simeq \operatorname{Lie}(\pic_X)$, from which we deduce 
 $\dim(\pic_X) = h^1(\mathscr{O}_X)$ when $X$ is nice \cite[5.11]{kl05}.
 
-Suppose $X=A$ is already an abelian variety over $k$. Then one has 
+Unlike the case when $X$ is a curve, it is not always true that 
+$\pic_X(\bar k)/\pic_X^\circ(\bar k) = \dZ$. In general, we set 
+$\operatorname{NS}(X) = \pic_X(\bar k) / \pic_X^\circ(\bar k)$, and call 
+$\operatorname{NS}(X)$ the \emph{N\'eron-Severi group} of $X$. 
+Suppose $X=A$ is already an abelian variety over $k$. Then we have 
 \[
   \pic_A^\circ(\bar k) = \left\{c\in \pic(A_{\bar k}) : t_a^* c = c\text{ for all }a\in A(\bar k)\right\} 
 \]
 where $t_a:A_{\bar k}\to A_{\bar k}$ is translation by $a$. See 
 \cite[I.8.4]{mi} for a partial proof. 
 
-Unlike the case when $X$ is a curve, it is not always true that 
-$\pic_X(\bar k)/\pic^\circ(\bar k) = \dZ$. In general, we set 
-$\operatorname{NS}(X) = \pic_X(\bar k) / \pic_X^\circ(\bar k)$, and call 
-$\operatorname{NS}(X)$ the \emph{N\'eron-Severi group} of $X$. 
 
 In any case, the \emph{dual} of $A$ is defined to be $A^\vee = \pic_A^\circ$. 
 Each $c\in \pic(A)$ gives a map $\varphi_c:A\to A^\vee$. At the level of 
 points, it is defined as $a\mapsto t_a^* c - c$, where if $c=[\sL]$, 
 the class $t_a^*c - c\in A^\vee(\bar k) = \pic^\circ(A)$ is represented by 
 $[t_a^*\sL\otimes\sL^{-1}]$. 
-
 It turns out that $A^{\vee\vee} \simeq A$, so calling $A^\vee$ the dual of $A$ 
 is rather natural. The map $\varphi_c:A\to A^\vee$ is a homomorphism of abelian 
 varieties. If $c$ is ample (i.e. the map from $A$ to some projective space 
@@ -805,7 +828,7 @@ group, hence uncountable. In fact, whenever $k$ is a local field, $A(k)$ is a
 Lie group over $k$, hence uncountable. The Mordell-Weil theorem actually holds 
 whenever $k$ is finitely generated over its prime field. Basic algebra shows 
 that $A(k) = A(k)_\text{tors}\oplus \dZ x_1\oplus \cdots \oplus \dZ x_r$, where 
-the $x_i$ are linearly independent over $\dZ$. We call $r=\operatorname{rk} A$ 
+the $x_i$ are linearly independent over $\dZ$. We call $r=\rk A$ 
 the \emph{rank} of $A$. Mordell proved the theorem for $A=E/\dQ$ an elliptic 
 curve, demonstrating an assertion of Poincar\'e.
 %Mordell 1922, Poincare 1901
@@ -1358,8 +1381,8 @@ If $A$ is an abelian variety over a number field $k$, is $\sha(A)$ finite?
 \end{question}
 This is currently open. A positive answer would show that for $n$ sufficiently 
 large, $A(k)/n \simeq \sel_n(A)$. In particular, this would imply that for $p$ 
-large enough, $\operatorname{rk}(A) = \dim_{\dF_p} \sel_p(A)$, where as before 
-$\operatorname{rk}(A) = \operatorname{rk}_\dZ A(k)$ is the algebraic rank of 
+large enough, $\rk(A) = \dim_{\dF_p} \sel_p(A)$, where as before 
+$\rk(A) = \rk_\dZ A(k)$ is the algebraic rank of 
 $A$. 
 
 \begin{remark}
@@ -1707,7 +1730,7 @@ trying to show that $A(k)$ is finitely generated. We have shown that it is
 sufficient to prove that the quotients $A(k)/n$ are finite for all 
 $n\geqslant 2$. Once we know that $A(k)$ is finitely generated, we can write 
 $A(k)=A(k)_\text{tors}\oplus \dZ\cdot x_1\oplus \cdots \oplus \dZ x_r$, where 
-each $x_i$ is of infinite order. The algebraic rank $r=\operatorname{rk} A$ is 
+each $x_i$ is of infinite order. The algebraic rank $r=\rk A$ is 
 very difficult to compute in general, but $A(k)_\text{tors}$ is computable. 
 
 Choose a prime $\fp\subset \fo_k$ at which $A$ has good reduction (this is true 
@@ -2056,10 +2079,10 @@ show that it is $\mathcal H^{\oplus 2}$, where
 The group $\mathcal H$ is generated by $S\cup\{-1\}$. This allows us to bound 
 the rank of $E$. We know that $\dim_{\dF_2}(\mathcal H)\leqslant \# S+1$, so 
 the fact that $E(\dQ)/2\hookrightarrow \mathcal H^{\oplus 2}$ implies 
-$\operatorname{rk}(E) \leqslant 2(\# S+1)$. 
+$\rk(E) \leqslant 2(\# S+1)$. 
 
 We know that $E(\dQ)/2\hookrightarrow \sel_2(E)\subset \mathcal H^{\oplus 2}$, 
-so we could get a better bound on $\operatorname{rk}(E)$ if we could compute 
+so we could get a better bound on $\rk(E)$ if we could compute 
 the image of $\sel_2(E)$ inside of $\mathcal H^{\oplus 2}$. Recall that there 
 is a commutative diagram:
 \[\xymatrix{
@@ -2117,7 +2140,7 @@ $b=(2,1)$. Then $X_b$ is
 This curve has real points, so we only need to check $X_b(\dQ_2)$. As an 
 exercise, show that $X_b(\dZ/4)=\varnothing$, which implies 
 $X_b(\dQ_2)=\varnothing$, which shows that $b\notin \sel_2(E)$, and thus 
-$\# E(\dQ)/2=4$. Since $4=\# E[2]$, we know that $\operatorname{rk}(E)=0$. 
+$\# E(\dQ)/2=4$. Since $4=\# E[2]$, we know that $\rk(E)=0$. 
 \end{example}
 
 
@@ -2418,7 +2441,7 @@ We can even tensor with $\dR$ to get a bilinear form on
 $A(k)_\dR = A(k)\otimes \dR$. The form $\langle \cdot,\cdot\rangle_c$ 
 is positive-definite on $A(k)_\dR$. Thus $A(k)_\dR$ with the pairing 
 $\langle\cdot\rangle_c$ is isomorphic to $\dR^n$ with the standard inner 
-product, where $n=\operatorname{rk} A$. The group $A(k)/A(k)_\text{tors}$ is a 
+product, where $n=\rk A$. The group $A(k)/A(k)_\text{tors}$ is a 
 lattice in $A(k)_\dR$, and we can define the \emph{regulator} of $A$ with 
 respect to $c$ to be the volume of the fundamental domain of 
 $A(k)/A(k)_\text{tors}$ in $A(k)_\dR$. That is, 
