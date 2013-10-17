@@ -2714,6 +2714,141 @@ $(-)^{(\ell)}$ denotes taking pro-$\ell$ completion.
 
 
 
+% notes on 10-17-2013
+(review of Tate modules)
+
+Let $A$ be an abelian variety of dimension $d\geqslant 1$ over a field $k$, 
+and fix a polarization $\lambda:A\to A^\vee=\pic_A^\circ$. 
+
+\begin{definition}
+An abelian variety $A$ is \emph{simple} if the only abelian subvarieties of $A$ 
+defined over $k$ are $0$ and $A$.
+\end{definition}
+
+Note that this definition depends on $k$; it is possible for a simple variety 
+to become non-simple after base change. We say $A$ is \emph{geometrically 
+simple} if $A_L$ is simple for all fields $L\supset k$ (equivalently, if 
+$A_{\bar k}$ is simple). 
+
+\begin{theorem}[Poincar\'e]
+If $B\subset A$ is a nontrivial abelian subvariety, then there is another 
+abelian subvariety $C\subset A$ such that the morphism $B\times C\to A$, 
+$(b,c)\mapsto b+c$, is an isogeny. 
+\end{theorem}
+\begin{proof}
+Let $i:B\hookrightarrow A$ be the inclusion, and let 
+$i^\vee:A^\vee \to B^\vee$ be its dual map. Let $W=\ker(i^\vee\circ\lambda)$, 
+and let $C=W^\circ$ be the connected component of $W$. Dimension considerations 
+show that $C$ works (\textbf{add details}).
+\end{proof}
+
+There need not be a complement to $B$ ``one the nose.'' That is, there may not 
+exist $C$ such that $A\simeq B\times C$. So the category of all abelian 
+varieties is not semisimple, but the category of ``abelian varieties up to 
+isogeny'' is. The theorem of Poincar\'e implies that for any abelian variety 
+$A$, there exist simple abelian varieties $B_1,\dots,B_r$ such that $A$ is 
+isogenous to $B_1\times\cdots \times B_r$. Standard arguments show that this 
+decomposition is unique up to ordering and isogeny. 
+
+We denote by $\operatorname{End}(A)=\hom_{\mathsf{AbVar}_k}(A,A)$ the ring of 
+endomorphisms of $A$ as an abelian variety over $k$. Clearly 
+$\operatorname{End}(A)^\times=\operatorname{Aut}(A)$. We write 
+$\operatorname{End}^\circ(A)$ for the ring 
+$\operatorname{End}(A)\otimes\dQ$. The ring 
+$\operatorname{End}(A)$ is torsion-free because $A\xrightarrow n A$ is an 
+isogeny (hence surjective) for each $n\in \dZ\setminus 0$. If 
+$n\circ \phi=0$, then $\phi=0$ because $\ker(\phi)$ is discrete, but 
+$\im(\phi)$ is irreducible. (\textbf{clarify}) 
+
+As an abelian group, $\operatorname{End}(A)$ is free of rank at most 
+$(2g)^2$. Over $\dC$, this is obvious. We have an action of 
+$\operatorname{End}(A)$ on $\h_1(A(\dC),\dZ)\simeq \dZ^{2g}$. This action is 
+faithful, so we get an embedding 
+$\operatorname{End}(A)\hookrightarrow M_{2 g}(\dZ)$. 
+
+The group $\operatorname{End}^\circ(A)^\times$ certainly contains all 
+automorphisms of $A$, but it is larger than $\operatorname{Aut}(A)$. It turns 
+out that $f\in \operatorname{End}^\circ(A)$ if and only if 
+$n f$ is an isogeny for some $n$. An isogeny $f:A\to B$ induces an isomorphism 
+$\operatorname{End}^\circ(A) \to \operatorname{End}^\circ(B)$, via 
+$\phi\mapsto f\cdot \phi\cdot f^{-1}$. (\textbf{clarify})
+
+We know that $A$ is isogenous to $B_1^{e_1}\times \cdots \times B_r^{e_r}$, 
+where the $B_i$ are pairwise non-isogenous over $k$. Thus 
+\[
+  \operatorname{End}^\circ(A) 
+    \simeq \operatorname{End}^\circ(B_1^{e_1}\times \cdots \times B_r^{e_r}) 
+    \simeq \prod_{i=1}^r \operatorname{End}^\circ(B_i^{e_i})
+\]
+This follows easily from the fact that $\hom(B_i,B_j)=0$ if $i\ne j$. One can 
+show that $\operatorname{End}^\circ(B_i^{e_i}) \simeq M_{e_i}(D_i)$, where 
+$D_i=\operatorname{End}^\circ(B_i)$. Since each $B_i$ is simple, $D_i$ is a 
+division algebra over $\dQ$. For, if $f\in D_i$ is nonzero, then (after scaling 
+by $\dZ)$, $f$ is an endomorphism of $B_i$, and $\im(f)$, $\ker(f)^\circ$ are 
+abelian  subvarieties of $B_i$. Since $B_i$ is simple, $\ker(f)^\circ=0$ and 
+$\im(f)=B$, so $f$ is an isogeny. (\textbf{clarify})
+
+\begin{example}
+If $A$ is two-dimensional, then $A$ is either simple or a product of elliptic 
+curves. If $A$ is simple, then $\operatorname{End}^\circ(A)$ is a division 
+algebra. If $A$ is isogenous to $E\times E'$ where $E$ and $E'$ are not 
+isogenous, then 
+$\operatorname{End}^\circ(A)\simeq \operatorname{End}^\circ(E)\times \operatorname{End}^\circ(E')$. 
+On the other hand, if $A$ is isogenous to $E\times E$, then 
+$\operatorname{End}^\circ(A)\simeq M_2\left(\operatorname{End}^\circ(E)\right)$. 
+
+This shows that we can detect the decomposition of $A$ from the ring 
+$\operatorname{End}^\circ(A)$. 
+\end{example}
+
+Let $p$ be a prime, $q$ a power of $p$, and $\dF_q$ the field with $q$ 
+elements. Let $X$ be a nice variety over $\dF_q$. Choose an embedding 
+$X\hookrightarrow \dP_{\dF_q}^N$. This gives us a map 
+$\pi_X:X\to X$ that on projective coordinates is 
+$(a_0:\cdots:a_N)\mapsto (a_0^q:\cdots:a_N^q)$. If $X$ is defined by 
+homogeneous polynomials $f_i\in \dF_q[x_0,\dots,x_N]$, then 
+$(a_0:\cdots:a_N)\in X$ if and only if $f_i(a_0,\dots,a_N)=0$ for all $i$. 
+But $f_i(a_0^q,\dots,a_N^q)=f_i(a_0,\dots,a_N)^q$ because $f_i$ has 
+coefficients in $\dF_q$, so $a\in X$ clearly implies $\pi_X(a)\in X$. 
+
+(\textbf{scheme-theoretic definition of Frobenius})
+
+The $p$-th power map is not well-defined as an endomorphism of $X$. (more 
+clarifications). 
+
+There is a way of defining the Frobenius map on $X$ without choosing an 
+embedding into projective space. Let $X$ be a scheme over $\dF_q$. We define 
+a morphism $\pi_X:X\to X$ by letting $\pi_X$ be the identity on the underlying 
+topological space of $X$, and $\pi_X^\ast:\sO_X\to \sO_X$ be ``raise to $q$-th 
+power.'' (relate these two definitions if $X$ is affine.) 
+
+\begin{example}[Serre]
+Here we give a reason why ``$\h_1(X,\dZ)$'' doesn't exist for varieties over 
+arbitrary fields. Choose a prime $p\equiv 3\pmod 4$. Let $E/\dF_p$ be the 
+elliptic curve $y^2=x^3-x$. It is possible to give an explicit description of 
+the division ring $D=\operatorname{End}^\circ(E_{\overline\dF_p})$. Fix 
+$\alpha\in \dF_{p^2}$ such that $\alpha^2=-1$. Then 
+$\phi:E_{\overline\dF_{p^2}} \to E_{\overline\dF_{p^2}}$, defined by 
+$(x,y)\mapsto (-x,\alpha y)$ is a well-defined endomorphism of $E$ (over 
+$\overline\dF_p$). Thus $\dQ(\phi)\simeq \dQ(i)\subset D$. We also have 
+the Frobenius $\pi_E\in D$. One can check directly that $\pi_E$ and 
+$\phi$ do not commute (they anticommute). Thus $D$ is a four-dimensional 
+division ring over $x\dQ$. It turns out that $\pi_E^2=-p$. 
+
+So $D$ is a four-dimensional quaternion algebra over $\dQ$. In fact, it is 
+(\ldots with parameters $-1,-p$). Suppose ``$\h_1(E_{\overline\dF_p},\dQ)$'' 
+exists. We would want it to be a two-dimensional vector space over $\dQ$, with 
+an action of $D=\operatorname{End}(A)\otimes\dQ$. But there is no way that a 
+four-dimensional division algebra can act on a two-dimensional space. For then 
+we would have a homomorphism $D\to M_2(\dQ)$ which would have to be an 
+isomorphism, but $M_2(\dQ)$ is not a division algebra. Alternatively, 
+``$\h_1(E_{\overline\dF_p},\dQ)$'' would have $D$-dimension $1/2$, which is 
+nonsense. 
+\end{example}
+
+
+
+
 
 
 
