@@ -464,9 +464,9 @@ fact the case. This is easy to see over $\dC$. If $A/\dC$ is an
 abelian variety, then $G=A(\dC)$ is a compact connected complex Lie 
 group. Let $\mathfrak{g}$ be its Lie algebra. Consider the composite map 
 $f:G\xrightarrow{\text{ad}}\operatorname{GL}(\mathfrak{g}) \hookrightarrow 
-\operatorname{End}(\mathfrak{g})$, where 
+\End(\mathfrak{g})$, where 
 $\operatorname{ad}:G\to\operatorname{GL}(\mathfrak{g})$ is the adjoint 
-representation. After picking a basis for $\operatorname{End}(\mathfrak{g})$, 
+representation. After picking a basis for $\End(\mathfrak{g})$, 
 the components of $f$ are entire holomorphic functions on a compact complex 
 manifold, hence locally constant. Since $G$ is connected, $f$ is constant, i.e. 
 the adjoint representation of $G$ is trivial. But 
@@ -2582,13 +2582,13 @@ $\langle \sigma,\omega\rangle=\int_\sigma\omega$ to define
 $\h_1(G,\dZ)\to \fg$, and show that it is an injection with image the kernel 
 of the exponential map. 
 
-For any $\phi\in \operatorname{End}(G)$, we have an induced map $\phi_\ast$ on 
+For any $\phi\in \End(G)$, we have an induced map $\phi_\ast$ on 
 $\h_1(G,\dZ)$. Tensoring with $\dQ$, we this gives a representation 
 \[
-  \operatorname{End}(G) \to \operatorname{End}_\dQ{\h_1(G,\dQ)} \simeq M_{2 d}(\dQ)
+  \End(G) \to \End_\dQ{\h_1(G,\dQ)} \simeq M_{2 d}(\dQ)
 \]
 This let's us take the characteristic polynomial $P_\phi\in \dQ[x]$ for any 
-$\phi\in \operatorname{End}(G)$. In fact, the degree $2 d$ polynomial 
+$\phi\in \End(G)$. In fact, the degree $2 d$ polynomial 
 $P_\phi$ is an element of $\dZ[x]$ because $\phi$ fixes the lattice 
 $\h_1(G,\dZ)$ inside $\h_1(G,\dQ)$. 
 
@@ -2649,17 +2649,17 @@ $\dQ_\ell$-vector space of dimension $2 d$. The main idea is that
 $A[\ell^n]$, $T_\ell(A)$ and $V_\ell(A)$ are algebraic analogues of 
 $\h_1(A,\dZ/\ell^n)$, $\h_1(A,\dZ_\ell)$ and $\h_1(A,\dQ_\ell)$. 
 
-Two things act on $T_\ell A$. The ring $\operatorname{End}(A)$ of endomorphisms 
+Two things act on $T_\ell A$. The ring $\End(A)$ of endomorphisms 
 of $A$ defined over $k$ (as an abelian variety) acts on each $A[\ell^n]$, and 
 hence on $T_\ell$ and $V_\ell$. Also, the group $G_k=\gal(\bar k/k)$ acts 
 compatibly on each $A[\ell^n]$, so we get a representation 
 \[
   \rho_{A,\ell}:G_k\to \operatorname{GL}(T_\ell)\simeq \operatorname{GL}(2 d,\dZ_\ell)
 \]
-The action of $\operatorname{End}(A)$ and $G_k$ commute, so we actually have a 
+The action of $\End(A)$ and $G_k$ commute, so we actually have a 
 representation 
 \[
-  \rho_{A,\ell}:\operatorname{End}(A)\llbracket G_k\rrbracket \to M_{2 d}(\dZ_\ell)
+  \rho_{A,\ell}:\End(A)\llbracket G_k\rrbracket \to M_{2 d}(\dZ_\ell)
 \]
 
 \begin{theorem}[Faltings]
@@ -2700,7 +2700,7 @@ proof. The standard exact sequence for fundamental groups:
     & 1
 }\]
 induces a representation 
-$\rho:G_k\to \operatorname{Aut}\left(\pi_1(A_{k^s})\right)$. It turns out that 
+$\rho:G_k\to \aut\left(\pi_1(A_{k^s})\right)$. It turns out that 
 this is exactly the action of $G_k$ on $T A$, so that we get a canonical 
 isomorphism 
 \[
@@ -2715,7 +2715,7 @@ $(-)^{(\ell)}$ denotes taking pro-$\ell$ completion.
 
 
 % notes on 10-17-2013
-(review of Tate modules)
+\section{Endomorphisms of abelian varieties}
 
 Let $A$ be an abelian variety of dimension $d\geqslant 1$ over a field $k$, 
 and fix a polarization $\lambda:A\to A^\vee=\pic_A^\circ$. 
@@ -2736,10 +2736,14 @@ abelian subvariety $C\subset A$ such that the morphism $B\times C\to A$,
 $(b,c)\mapsto b+c$, is an isogeny. 
 \end{theorem}
 \begin{proof}
-Let $i:B\hookrightarrow A$ be the inclusion, and let 
-$i^\vee:A^\vee \to B^\vee$ be its dual map. Let $W=\ker(i^\vee\circ\lambda)$, 
-and let $C=W^\circ$ be the connected component of $W$. Dimension considerations 
-show that $C$ works (\textbf{add details}).
+This is taken from \cite[I.10.1]{mi}. Let $i:B\hookrightarrow A$ be the 
+inclusion, and let $i^\vee:A^\vee \to B^\vee$ be its dual map. Let 
+$C=\ker(i^\vee\circ\lambda)^\circ$ be the connected component of the identity 
+in the kernel of $A\xrightarrow\lambda A^\vee \xrightarrow{i^\vee} B^\vee$. 
+Since dimension is additive on exact sequences of abelian varieties, we see 
+that $\dim C\geqslant \dim A-\dim B^\vee=\dim A-\dim B$. It turns out that 
+$(\lambda\circ i^\vee)|_B$ is a polarization of $B$, so $B\cap C$ is finite, 
+hence dimension zero. It follows that $B\times C\to A$ is an isogeny. 
 \end{proof}
 
 There need not be a complement to $B$ ``one the nose.'' That is, there may not 
@@ -2750,101 +2754,136 @@ $A$, there exist simple abelian varieties $B_1,\dots,B_r$ such that $A$ is
 isogenous to $B_1\times\cdots \times B_r$. Standard arguments show that this 
 decomposition is unique up to ordering and isogeny. 
 
-We denote by $\operatorname{End}(A)=\hom_{\mathsf{AbVar}_k}(A,A)$ the ring of 
-endomorphisms of $A$ as an abelian variety over $k$. Clearly 
-$\operatorname{End}(A)^\times=\operatorname{Aut}(A)$. We write 
-$\operatorname{End}^\circ(A)$ for the ring 
-$\operatorname{End}(A)\otimes\dQ$. The ring 
-$\operatorname{End}(A)$ is torsion-free because $A\xrightarrow n A$ is an 
-isogeny (hence surjective) for each $n\in \dZ\setminus 0$. If 
-$n\circ \phi=0$, then $\phi=0$ because $\ker(\phi)$ is discrete, but 
-$\im(\phi)$ is irreducible. (\textbf{clarify}) 
-
-As an abelian group, $\operatorname{End}(A)$ is free of rank at most 
-$(2g)^2$. Over $\dC$, this is obvious. We have an action of 
-$\operatorname{End}(A)$ on $\h_1(A(\dC),\dZ)\simeq \dZ^{2g}$. This action is 
-faithful, so we get an embedding 
-$\operatorname{End}(A)\hookrightarrow M_{2 g}(\dZ)$. 
-
-The group $\operatorname{End}^\circ(A)^\times$ certainly contains all 
-automorphisms of $A$, but it is larger than $\operatorname{Aut}(A)$. It turns 
-out that $f\in \operatorname{End}^\circ(A)$ if and only if 
-$n f$ is an isogeny for some $n$. An isogeny $f:A\to B$ induces an isomorphism 
-$\operatorname{End}^\circ(A) \to \operatorname{End}^\circ(B)$, via 
-$\phi\mapsto f\cdot \phi\cdot f^{-1}$. (\textbf{clarify})
-
-We know that $A$ is isogenous to $B_1^{e_1}\times \cdots \times B_r^{e_r}$, 
-where the $B_i$ are pairwise non-isogenous over $k$. Thus 
+Denote by $\mathsf{AbVar}_k^\mathrm{iso}$ the localisation of the category of 
+abelian varieties over $k$ by the collection of all isogenies. Morphisms from 
+$A$ to $B$ in $\mathsf{AbVar}_k^\mathrm{iso}$ are (equivalence classes) of 
+formal factorizations 
+\[\xymatrix{
+  A 
+    & C \ar[l]_-\phi \ar[r]^-f 
+    & B
+}\]
+where $\phi$ is an isogeny. From \cite[V.18]{mu08}, there exists an integer $n$ 
+and an isogeny $\psi:A\to C$ such that $\phi\psi=n$. The commutative diagram:
+\[\xymatrix{
+  & C \ar[dl]_-\phi \ar[dr]^-f \\
+  A & A \ar[l]|-n \ar[u]|-\psi \ar[r]|-{f\psi} \ar@{=}[d] & B \\
+  & A \ar[ul]^-n \ar[ur]_-{f\psi}
+}\]
+shows that the factorization $f\circ \phi^{-1}$ is equivalent to 
+$(f\psi)\circ n^{-1}$. It follows that $\mathsf{AbVar}_k^\mathrm{iso}$ is 
+equivalent to the localisation of $\mathsf{AbVar}_k$ at all isogenies of the 
+form $A\xrightarrow n A$. Thus 
 \[
-  \operatorname{End}^\circ(A) 
-    \simeq \operatorname{End}^\circ(B_1^{e_1}\times \cdots \times B_r^{e_r}) 
-    \simeq \prod_{i=1}^r \operatorname{End}^\circ(B_i^{e_i})
+  \hom_{\mathsf{AbVar}_k^\mathrm{iso}}(A,B) = \hom_{\mathsf{AbVar}_k}(A,B)\otimes\dQ \text{.}
 \]
-This follows easily from the fact that $\hom(B_i,B_j)=0$ if $i\ne j$. One can 
-show that $\operatorname{End}^\circ(B_i^{e_i}) \simeq M_{e_i}(D_i)$, where 
-$D_i=\operatorname{End}^\circ(B_i)$. Since each $B_i$ is simple, $D_i$ is a 
-division algebra over $\dQ$. For, if $f\in D_i$ is nonzero, then (after scaling 
-by $\dZ)$, $f$ is an endomorphism of $B_i$, and $\im(f)$, $\ker(f)^\circ$ are 
-abelian  subvarieties of $B_i$. Since $B_i$ is simple, $\ker(f)^\circ=0$ and 
-$\im(f)=B$, so $f$ is an isogeny. (\textbf{clarify})
+
+Write $\End(A)=\hom_{\mathsf{AbVar}_k}(A,A)$ for ring of endomorphisms of $A$ 
+as an abelian variety over $k$. If $n\circ f=0$ for some $f:A\to A$, then the 
+image of $f$ is contained in the (discrete) subvariety $A[n]\subset A$. Since 
+$f(A)$ is irreducible, we have $f=0$. Thus $\End A$ is torsion-free, so it 
+embeds into the ring
+\[
+  \End^\circ A = \End_{\mathsf{AbVar}_k^\mathrm{iso}}(A) = \End(A)\otimes\dQ \text{.}
+\]
+Since $\End^\circ A$ can be defined in terms of the category 
+$\mathsf{AbVar}_{k}^\mathrm{iso}$, it only depends on the isogeny class of 
+$A$. In particular, an isogeny $f:A\to B$ induces an isomorphism 
+$\End^\circ A\xrightarrow\sim \End^\circ B$. 
+There is an obvious inclusion $\End^\circ(A)^\times\supset\aut(A)$, and  
+$f\in \End^\circ(A)^\times$ if and only if $n f$ is an isogeny for some $n$.
+
+The group $\End(A)$ has rank at most $(2 g)^2$. Over $\dC$, this is obvious, 
+given the faithful action of $\End(A)$ on $\h_1(A(\dC),\dZ)\simeq \dZ^{2g}$. 
+The general case in characteristic zero follows from the Lefschetz principle, 
+or one can prove it directly as in \cite[IV.18.3]{mu08}. 
+
+Poincar\'e's reducibility theorem shows that an abelian variety $A$ is 
+isogenous to a product $B_1^{e_1}\times \cdots \times B_r^{e_r}$, where the 
+$B_i$ are simple and pairwise non-isogenous over $k$. A standard argument 
+(which works in any semisimple abelian category) shows that the rings 
+$D_i=\End^\circ(B_i)$ are division algebras, and moreover 
+\[
+  \End^\circ(A) \simeq \prod_{i=1}^r M_{e_i}\left(D_i\right) \text{.}
+\]
+Thus the ring $\End^\circ(A)$ is semisimple, so we know that both the $e_i$ and 
+the $D_i$ are uniquely determined by $A$. It follows that the decomposition 
+type of $A$ can be inferred from the ring $\End^\circ(A)$. 
 
 \begin{example}
 If $A$ is two-dimensional, then $A$ is either simple or a product of elliptic 
-curves. If $A$ is simple, then $\operatorname{End}^\circ(A)$ is a division 
-algebra. If $A$ is isogenous to $E\times E'$ where $E$ and $E'$ are not 
-isogenous, then 
-$\operatorname{End}^\circ(A)\simeq \operatorname{End}^\circ(E)\times \operatorname{End}^\circ(E')$. 
+curves. If $A$ is simple, then $\End^\circ(A)$ is a division algebra. If $A$ is isogenous to $E\times E'$ where $E$ and $E'$ are not 
+isogenous, then $\End^\circ(A)\simeq \End^\circ(E)\times \End^\circ(E')$. 
 On the other hand, if $A$ is isogenous to $E\times E$, then 
-$\operatorname{End}^\circ(A)\simeq M_2\left(\operatorname{End}^\circ(E)\right)$. 
-
-This shows that we can detect the decomposition of $A$ from the ring 
-$\operatorname{End}^\circ(A)$. 
+$\End^\circ(A)\simeq M_2\left(\End^\circ(E)\right)$. 
 \end{example}
 
-Let $p$ be a prime, $q$ a power of $p$, and $\dF_q$ the field with $q$ 
-elements. Let $X$ be a nice variety over $\dF_q$. Choose an embedding 
-$X\hookrightarrow \dP_{\dF_q}^N$. This gives us a map 
-$\pi_X:X\to X$ that on projective coordinates is 
-$(a_0:\cdots:a_N)\mapsto (a_0^q:\cdots:a_N^q)$. If $X$ is defined by 
-homogeneous polynomials $f_i\in \dF_q[x_0,\dots,x_N]$, then 
-$(a_0:\cdots:a_N)\in X$ if and only if $f_i(a_0,\dots,a_N)=0$ for all $i$. 
-But $f_i(a_0^q,\dots,a_N^q)=f_i(a_0,\dots,a_N)^q$ because $f_i$ has 
-coefficients in $\dF_q$, so $a\in X$ clearly implies $\pi_X(a)\in X$. 
+We have remarked several times that there is no good ``algebraic definition'' 
+of $\h_1(X,\dQ)$ for varieties $X$ over a general field. Serre constructed an 
+example of a variety over $\overline\dF_p$ which shows not only that there 
+isn't a good definition, but that such an homology group cannot exist. 
 
-(\textbf{scheme-theoretic definition of Frobenius})
+First, we need to discuss Frobenius morphisms. Let $p$ be a prime, $q$ a power 
+of $p$, and $\dF_q$ the field with $q$ elements. Let $X$ be a nice variety over 
+$\dF_q$. Choose an embedding $X\hookrightarrow \dP_{\dF_q}^n$. Write 
+$\Phi_X:X\to X$ for the map that on projective coordinates is 
+\[
+  (a_0:\cdots:a_N) \mapsto (a_0^q:\cdots :a_N^q) \text{.}
+\]
+This is well-defined because $x\mapsto x^q$ is a ring homomorphism on 
+$\dF_q$-algebras. So if $X$ is the zero-set of homogeneous polynomials 
+$f_i\in \dF_q[x_0,\dots,x_n]$ and $a\in X$, then 
+\[
+  f_i(a_0^q:\cdots:a_n^q) = f_i(a_0:\cdots:a_n)^q = 0
+\]
+so $\Phi_X(a)\in X$. Note that we have to raise to the $q$-th power rather 
+than the $p$-th power because $x\mapsto x^p$ does not fix all elements of 
+$\dF_q$. 
 
-The $p$-th power map is not well-defined as an endomorphism of $X$. (more 
-clarifications). 
+There is a scheme-theoretic definition of $\Phi_X$ that allows us to talk about 
+the Frobenius on arbitrary schemes over $\dF_q$. For a scheme $X/\dF_q$, let 
+$\Phi_X:X\to X$ be the the identity on the underlying topological space of $X$, 
+with $\Phi_X^\ast:\sO_X\to \sO_X$ the map $x\mapsto x^q$. If 
+$X=V(f_1,\dots,f_r)\subset \mathbb{A}_{\dF_q}^n$, then it is easy to see that 
+these definitions are equivalent, for both correspond to the usual Frobenius 
+map on $\dF_q[x_1,\dots,x_n]/(f_1,\dots,f_r)$. 
 
-There is a way of defining the Frobenius map on $X$ without choosing an 
-embedding into projective space. Let $X$ be a scheme over $\dF_q$. We define 
-a morphism $\pi_X:X\to X$ by letting $\pi_X$ be the identity on the underlying 
-topological space of $X$, and $\pi_X^\ast:\sO_X\to \sO_X$ be ``raise to $q$-th 
-power.'' (relate these two definitions if $X$ is affine.) 
+It may seem confusing that the scheme-theoretic Frobenius is the identity on 
+points, while our coordinate-wise definition raises elements to the $q$-th 
+power. Actually, there is no contradiction. A point $x\in X$ with coordinates in 
+$\dF_{q^n}$ should be thought of as a map $x:\spec(\dF_{q^n})\to X$. Raising 
+those coordinates to the $q$-th power corresponds to composing $x$ with 
+$\Phi_X$, or, equivalently, precomposing $x$ with the automorphism 
+$x\mapsto x^q$ of $\dF_{q^n}$. 
+
+
 
 \begin{example}[Serre]
-Here we give a reason why ``$\h_1(X,\dZ)$'' doesn't exist for varieties over 
-arbitrary fields. Choose a prime $p\equiv 3\pmod 4$. Let $E/\dF_p$ be the 
-elliptic curve $y^2=x^3-x$. It is possible to give an explicit description of 
-the division ring $D=\operatorname{End}^\circ(E_{\overline\dF_p})$. Fix 
-$\alpha\in \dF_{p^2}$ such that $\alpha^2=-1$. Then 
-$\phi:E_{\overline\dF_{p^2}} \to E_{\overline\dF_{p^2}}$, defined by 
-$(x,y)\mapsto (-x,\alpha y)$ is a well-defined endomorphism of $E$ (over 
-$\overline\dF_p$). Thus $\dQ(\phi)\simeq \dQ(i)\subset D$. We also have 
-the Frobenius $\pi_E\in D$. One can check directly that $\pi_E$ and 
-$\phi$ do not commute (they anticommute). Thus $D$ is a four-dimensional 
-division ring over $x\dQ$. It turns out that $\pi_E^2=-p$. 
-
-So $D$ is a four-dimensional quaternion algebra over $\dQ$. In fact, it is 
-(\ldots with parameters $-1,-p$). Suppose ``$\h_1(E_{\overline\dF_p},\dQ)$'' 
-exists. We would want it to be a two-dimensional vector space over $\dQ$, with 
-an action of $D=\operatorname{End}(A)\otimes\dQ$. But there is no way that a 
-four-dimensional division algebra can act on a two-dimensional space. For then 
-we would have a homomorphism $D\to M_2(\dQ)$ which would have to be an 
-isomorphism, but $M_2(\dQ)$ is not a division algebra. Alternatively, 
-``$\h_1(E_{\overline\dF_p},\dQ)$'' would have $D$-dimension $1/2$, which is 
-nonsense. 
+Choose a prime $p\equiv 3\pmod 4$. Let $E/\overline\dF_p$ be the elliptic 
+curve $y^2=x^3-x$. It is possible to give an explicit description of the 
+division ring $D=\End^\circ(E)$. Fix $\alpha\in \dF_{p^2}$ such that 
+$\alpha^2=-1$. Then $\phi:E\to E$, defined by $(x,y)\mapsto (-x,\alpha y)$, is 
+a well-defined endomorphism. One has $\phi^2(x,y)=(x,-y)$, so $\phi^2=-1$ in 
+$D$. Moreover, 
+\[
+  \Phi_E\phi(x,y) = (-x^p, \alpha^p y^p) = -(-x^p, \alpha^p y^p) = -\phi \Phi_E(x,y) \text{,}
+\]
+so $\phi \Phi=-\Phi \phi$ in $D$. It turns out that $\Phi^2=-p$, so $D$ is the 
+standard quaternion algebra with parameters $(-1,-p)$, i.e.  
+\[
+  D = \dQ\left\langle i,j,k : i^2=-1,j^2=-p,i j=k, j i=-k\right\rangle \text{.}
+\]
 \end{example}
+
+Now can show that ``$V=\h_1(E,\dQ)$'' cannot exist. If it did, we would expect 
+it to be functorial in $E$, so there would be an action of $D$ on $V$. But we 
+would also want $V$ to be two-dimensional over $\dQ$. Since $D$ is 
+four-dimensional over $\dQ$, this would mean that $V$ has $D$-dimension $1/2$, 
+which is nonsense. Alternatively, we would have an (injective) ring 
+homomorphism $D\to \End(V)\simeq M_2(\dQ)$. Since both rings have the same 
+dimension, this would yield $D\simeq M_2(\dQ)$. But $M_2(\dQ)$ has 
+zero-divisors and $D$ does not, so this cannot be the case. 
+
 
 
 
