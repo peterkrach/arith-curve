@@ -1,56 +1,48 @@
 \usepackage{amsmath,amssymb,amsthm,fullpage,mathrsfs,stmaryrd}
-%\usepackage[OT2,T1]{fontenc}
 \usepackage[pdfpagelabels,backref=page]{hyperref}
-%\usepackage{cleveref}
 \usepackage[all]{xy}
 
 
 
 % operators and special functions
   \DeclareMathOperator{\aut}{Aut}
-  \DeclareMathOperator{\Div}{Div}
+  \DeclareMathOperator{\divisor}{Div}
   \DeclareMathOperator{\End}{End}
   \DeclareMathOperator{\gal}{Gal}
   \DeclareMathOperator{\h}{H}
   \DeclareMathOperator{\im}{im}
   \DeclareMathOperator{\jac}{Jac}
   \DeclareMathOperator{\ord}{ord}
-  \DeclareMathOperator{\pic}{Pic}
-  \DeclareMathOperator{\rk}{rk}
-  \DeclareMathOperator{\sel}{Sel}
+  \DeclareMathOperator{\picard}{Pic}
+  \DeclareMathOperator{\rank}{rk}
+  \DeclareMathOperator{\selmer}{Sel}
   \DeclareMathOperator{\spec}{Spec}
-  \DeclareMathOperator{\sh}{Sh}
+  \DeclareMathOperator{\sheaf}{Sh}
 
-% special symbols
-  \newcommand{\cA}{\mathcal{A}}
-  \newcommand{\cX}{\mathcal{X}}
-  \newcommand{\dC}{\mathbb{C}}
-  \newcommand{\dF}{\mathbb{F}}
-  \newcommand{\dG}{\mathbb{G}}
-  \newcommand{\dP}{\mathbb{P}}
-  \newcommand{\dQ}{\mathbb{Q}}
-  \newcommand{\dR}{\mathbb{R}}
-  \newcommand{\dZ}{\mathbb{Z}}
-  \newcommand{\fa}{\mathfrak{a}}
-  \newcommand{\fb}{\mathfrak{b}}
-  \newcommand{\fg}{\mathfrak{g}}
-  \newcommand{\fo}{\mathfrak{o}}
-  \newcommand{\fp}{\mathfrak{p}}
-  \newcommand{\fq}{\mathfrak{q}}
-  \newcommand{\sF}{\mathscr{F}}
-  \newcommand{\sG}{\mathscr{G}}
-  \newcommand{\sL}{\mathscr{L}}
-  \newcommand{\sT}{\mathscr{T}}
-  \newcommand{\sO}{\mathscr{O}}
+% special symbols: a new way of defining them!
+  \newcounter{char}
+  \setcounter{char}{1}
+  \loop\ifnum\value{char}<27
+    \edef\c{\Alph{char}}
+    \expandafter\edef\csname c\Alph{char}\endcsname{\noexpand\mathcal{\Alph{char}}}  % mathcal
+    \expandafter\edef\csname d\Alph{char}\endcsname{\noexpand\mathbb{\Alph{char}}}   % mathbb
+    \expandafter\edef\csname f\Alph{char}\endcsname{\noexpand\mathfrak{\Alph{char}}} % mathfrak
+    \expandafter\edef\csname s\Alph{char}\endcsname{\noexpand\mathscr{\Alph{char}}}  % mathscr
+    \addtocounter{char}{1}
+  \repeat
+% can't do the previous for lower-case mathfrak because \fi is already defined 
+% (otherwise, could do \alph instead of \Alph above)
+  \def\mydeff#1{\expandafter\def\csname f#1\endcsname{\mathfrak{#1}}}
+  \def\mydefallf#1{\ifx#1\mydefallf\else\mydeff#1\expandafter\mydefallf\fi}
+  \mydefallf abcdefghjklmnopqrstuvwxyz\mydefallf
   
   \newcommand{\et}[1]{{#1}_\textnormal{\'et}}
   \newcommand{\lau}[1]{(\!({#1})\!)}
+% Tate-Shafarevich groups
   \DeclareFontFamily{U}{wncy}{}
   \DeclareFontShape{U}{wncy}{m}{n}{<->wncyr10}{}
   \DeclareSymbolFont{mcy}{U}{wncy}{m}{n}
   \DeclareMathSymbol{\sha}{\mathord}{mcy}{"58}  
- % \DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
- % \DeclareMathSymbol{\sha}{\mathalpha}{cyrletters}{"58}
 
 % theorems, definitions, ...
   \newtheorem{corollary}[subsection]{Corollary}
