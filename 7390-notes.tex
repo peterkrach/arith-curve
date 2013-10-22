@@ -2587,22 +2587,22 @@ $\h_1(G,\dZ)$. Tensoring with $\dQ$, we this gives a representation
 \[
   \End(G) \to \End_\dQ{\h_1(G,\dQ)} \simeq M_{2 d}(\dQ)
 \]
-This let's us take the characteristic polynomial $P_\phi\in \dQ[x]$ for any 
-$\phi\in \End(G)$. In fact, the degree $2 d$ polynomial 
-$P_\phi$ is an element of $\dZ[x]$ because $\phi$ fixes the lattice 
+This lets us take the characteristic polynomial $P_\phi\in \dQ[t]$ of $\phi$ 
+for any $\phi\in \End(G)$. In fact, the degree $2 d$ polynomial 
+$P_\phi$ is an element of $\dZ[t]$ because $\phi$ fixes the lattice 
 $\h_1(G,\dZ)$ inside $\h_1(G,\dQ)$. 
 
 Since $G=\fg/\Lambda$, we have $G[n]=\Lambda/n$, and thus there are natural 
 isomorphisms $G[n]\simeq \h_1(G,\dZ/n)$ for all integers $n\geqslant 2$. 
 We will think of $G[n]$ as a kind of algebraic avatar for $\h_1(G,\dZ/n)$. 
 Unfortunately, there is no algebraic analogue of $\h_1(G,\dZ)$, but there is a 
-good substitute. Let $\hat\dZ=\varprojlim \dZ/n$ be the profinite completion of 
-$\dZ$. The isomorphisms $G[n]\simeq \h_1(G,\dZ/n)$ are compatible, so we get an 
-isomorphism of $\hat\dZ$-modules 
+good substitute. Let $\widehat\dZ=\varprojlim \dZ/n$ be the profinite 
+completion of $\dZ$. The isomorphisms $G[n]\simeq \h_1(G,\dZ/n)$ are 
+compatible, so we get an isomorphism of $\widehat\dZ$-modules 
 \[
-  T G = \varprojlim G[n] \to \varprojlim \h_1(G,\dZ/n) = \h_1(G,\hat\dZ) \text{.}
+  T G = \varprojlim G[n] \to \varprojlim \h_1(G,\dZ/n) = \h_1(G,\widehat\dZ) \text{.}
 \]
-Since $\hat\dZ=\prod_p \dZ_p$, we will consider $T G$ only one $p$-part at 
+Since $\widehat\dZ=\prod_p \dZ_p$, we will consider $T G$ only one $p$-part at 
 a time. This is important because if $A$ is an abelian variety over a field of 
 characteristic $p>0$, the groups $A[p^e]$ are not well behaved, so the 
 $p$-part of $T A=\varprojlim A[n]$ should be excluded. 
@@ -2630,10 +2630,9 @@ very complicated behavior as $e\to \infty$. Indeed, their ``formal inductive
 limit'' $A[p^\infty]$, called the Barsotti-Tate group of $A$, carries quite a 
 lot of information about $A$. 
 
-For the rest of this section, fix a prime 
-$\ell\ne \operatorname{char}(k)$. The groups $A[\ell^n]$ have 
-natural surjections $A[\ell^{n+1}]\to A[\ell^n]$ that just multiply by 
-$\ell$. 
+For the rest of this section, fix a prime $\ell$ that is invertible in $k$. 
+The groups $A[\ell^n]$ come with natural surjections 
+$A[\ell^{n+1}]\to A[\ell^n]$ given by $x\mapsto \ell \cdot x$. 
 
 \begin{definition}
 Let $A$ be an abelian variety over a field $k$. The \emph{$\ell$-adic Tate 
@@ -2654,12 +2653,12 @@ of $A$ defined over $k$ (as an abelian variety) acts on each $A[\ell^n]$, and
 hence on $T_\ell$ and $V_\ell$. Also, the group $G_k=\gal(\bar k/k)$ acts 
 compatibly on each $A[\ell^n]$, so we get a representation 
 \[
-  \rho_{A,\ell}:G_k\to \operatorname{GL}(T_\ell)\simeq \operatorname{GL}(2 d,\dZ_\ell)
+  \rho_{A,\ell}:G_k\to \operatorname{GL}(T_\ell)\simeq \operatorname{GL}(2 d,\dZ_\ell) \text{.}
 \]
 The action of $\End(A)$ and $G_k$ commute, so we actually have a 
 representation 
 \[
-  \rho_{A,\ell}:\End(A)\llbracket G_k\rrbracket \to M_{2 d}(\dZ_\ell)
+  \rho_{A,\ell}:\End(A)\llbracket G_k\rrbracket \to M_{2 d}(\dZ_\ell) \text{.}
 \]
 
 \begin{theorem}[Faltings]
@@ -2671,6 +2670,10 @@ the natural map
 is an isomorphism. 
 \end{theorem}
 
+It follows that the functor 
+$V_\ell:\mathsf{AbVar}_k\otimes\dQ_\ell\to \mathsf{Rep}_{\dQ_\ell}(G_k)$ is 
+fully faithful. 
+
 \begin{corollary}
 Abelian varieties $A,B$ over a finitely generated field $k$ are isogeneous if 
 and only if $V_\ell A$ and $V_\ell B$ are isomorphic as 
@@ -2680,10 +2683,10 @@ $\dQ_\ell\llbracket G_k\rrbracket$-modules.
 If $k$ has characteristic $p$, set $T_p A=0$. We define the ``global Tate 
 module'' of $A$ to be 
 \[
-  T A = \prod_p T_p A
+  T A = \prod_p T_p A \text{.}
 \]
-This is a $\hat\dZ$-module that is isomorphic (if $k$ has characteristic 
-zero) to $\hat\dZ^2$. It turns out that $T A$, as a $G_k$-module, has a 
+This is a $\widehat\dZ$-module that is isomorphic (if $k$ has characteristic 
+zero) to $\widehat\dZ^{2d}$. It turns out that $T A$, as a $G_k$-module, has a 
 natural interpretation in terms of \'etale fundamental groups. If 
 $U\to A_{k^s}$ is an \'etale cover of $A_{k^s}=A\otimes k^s$, then it turns out 
 that $U$ can be given the structure of an abelian variety in such a way that 
@@ -2704,15 +2707,24 @@ $\rho:G_k\to \aut\left(\pi_1(A_{k^s})\right)$. It turns out that
 this is exactly the action of $G_k$ on $T A$, so that we get a canonical 
 isomorphism 
 \[
-  \pi_1(A) \simeq G_k \ltimes_\rho T A
+  \pi_1(A) \simeq G_k \ltimes_\rho T A \text{.}
 \]
 In particular, for each prime $\ell$ invertible in $k$, we have an isomorphism 
 $\pi_1(A)^{(\ell)} \simeq T_\ell A\ltimes_{\rho_{A,\ell}} G_k$, where 
 $(-)^{(\ell)}$ denotes taking pro-$\ell$ completion. 
 
-(\textbf{add stuff about $A(\bar k)_\mathrm{tors}\simeq (\dQ/\dZ)^{2d}$ and 
-$\End(\dQ/\dZ)=\widehat\dZ$. The latter implies 
-$\aut(A(\bar k)_\mathrm{tors})\simeq GL(2 d,\widehat\dZ)$.})
+It is possible to define the $\ell$-adic representation 
+$\rho_A:G_k\to \operatorname{GL}(2d,\dZ_\ell)$ without introducing Tate 
+modules. Let $A[\ell^\infty] = \bigcup_{n\geqslant 1} A[\ell^n]$. As an 
+abelian group, $A[\ell^\infty]\simeq (\dQ/\dZ)[\ell^\infty]$, which we denote 
+by $\dZ(\ell^\infty)$ (such groups are called quasi-cyclic). It is easy to 
+show that $\End \dZ(\ell^\infty)\simeq \dZ_\ell$ as topological 
+rings, where $\End \dZ(\ell^\infty)$ is given the subset topology in 
+$\prod_{\dZ(\ell^\infty)} \dZ(\ell^\infty)$ and $\dZ(\ell^\infty)$ has the 
+discrete topology. Thus 
+$\aut A[\ell^\infty]\simeq \operatorname{GL}(2 d,\dZ_\ell)$. The induced 
+homomorphism $G_k \to \operatorname{GL}(2 d,\dZ_\ell)$ is continuous, and 
+(after a change of basis) is the same as $\rho_{A,\ell}$. 
 
 
 
