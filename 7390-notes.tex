@@ -24,9 +24,10 @@
 
 These notes originated in a course on the arithmetic of curves taught by David 
 Zywina at Cornell. However, a significant amount of material (including, no 
-doubt, many errors) has been added since then and their content is \emph{not} 
-an exact reflection of what he covered in class. In particular, any errors in 
-these notes are entirely my fault. 
+doubt, many errors) has been added since then so their content is \emph{not} 
+an exact reflection of what he covered in class. Moreover, the notation has 
+been changed in many places (sometimes significantly) as has the order in which 
+material is covered. Any errors in these notes are entirely my fault. 
 
 
 
@@ -195,7 +196,7 @@ series
   Z(C,t) = \exp\left( \int\sum_{n\geqslant 1} \# C(\mathbb{F}_{p^n}) t^n\, \frac{dt}{t}\right) \text{.}
 \]
 
-\begin{theorem}[Weil]
+\begin{theorem}[Weil]\label{thm:Weil-curve}
 If $C/\mathbb{F}_p$ is a smooth projective curve of genus $g$, then 
 \[
   Z(C,t) = \frac{P(C,t)}{(1-t)(1-p t)} \text{,}
@@ -3012,6 +3013,139 @@ of $A$) one should study the crystalline or rigid cohomology of $A$. If the
 base field $k$ is perfect, these yield $W(k)$-modules with the ``correct'' 
 rank. For a brief survey of crystalline cohomology, see \cite{il94}, and for an  
 introduction to rigid cohomology, see \cite{st07}. 
+
+
+
+
+
+
+
+
+
+
+% 10-24-13
+\section{Abelian varieties over finite fields}
+
+Let $A$ be an abelian variety over $\dF_q$, where $q$ is a power of $p$. For 
+example, $A$ could be the jacobian of a smooth curve. Recall that there is a 
+distinguished endomorphism $\Phi=\Phi_A$ of $A$, called the Frobenius of $A$. 
+If we embed $A$ into some projective space $\dP^n$, then in coordinates we 
+have $\Phi(x_0:\cdots:x_n) = (x_0^q:\cdots:x_n^q)$. As a morphism of schemes, 
+$\Phi$ is the identity on the underlying space of $A$, and is the $q$-th power 
+map on $\sO_A$. Let $d\geqslant 1$ be the dimension of $A$. 
+
+Recall that there is a polynomial $P_A=P_{\Phi_A}\in \dZ[t]$ of degree $2 d$ 
+such that $P_A(n)=\deg(n-\Phi_A)$ for all integers $n$. Also, if $\ell$ is a 
+prime not dividing $q$, $P_A$ is the characteristic polynomial of $\Phi_\ast$ 
+as a $\dZ_\ell$-linear map $\Phi_\ast:T_\ell A\to T_\ell A$. Thus we have a 
+map $P:\mathsf{AbVar}_{\dF_q} \to \dZ[t]$. 
+
+\begin{theorem}
+If $A$ and $B$ are isogenous abelian varieties over $\dF_q$, then 
+$P_A=P_B$.
+\end{theorem}
+\begin{proof}
+Let $f:A\to B$ be an isogeny. For each $e$, we have an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & C \ar[r] 
+    & A[\ell^e] \ar[r]^-f 
+    & A[\ell^e] \ar[r]
+    & 0\text{,}
+}\]
+where $C$ is independant of $e$ if $e\gg 1$ (since $C\subset \ker(f)$, a finite 
+group). At the level of Tate modules, if $f_\ast(x)=0$, then 
+$f(x_i)=0$ in $B[\ell^i]$ for all $i$, so each $x_i\in C$. But $C$ is a finite 
+group, so it contains no nonzero sequences $(x_i)$ with $\ell x_{i+1}=x_i$ for 
+all $i$. Thus $x=0$, so $f_\ast:T_\ell A\to T_\ell B$ is injective. Since 
+$T_\ell A$ and $T_\ell B$ have the same rank, the map 
+$f_\ast:V_\ell A\to V_\ell B$ is an isomorphism. (So far we have shown that 
+$V_\ell A$ is isogeny-invariant over any field.) It is easy to check that 
+$f\circ \Phi_A=\Phi_B\circ f$. It follows that 
+$f_\ast\circ (\Phi_A)_\ast = (\Phi_A)_\ast \circ f$, and from this we see that 
+$P_A=P_B$. 
+\end{proof}
+
+Alternatively, we could note that 
+$T_\ell:\mathsf{AbVar}_k\to \mathsf{Rep}_{\dZ_\ell}(G_k)$ naturally descends to 
+a functor 
+$V_\ell:\mathsf{AbVar}_k\otimes\dQ\to \mathsf{Rep}_{\dZ_\ell}(G_k)\otimes\dQ$. 
+Since $\mathsf{AbVar}_k\otimes\dQ=\mathsf{AbVar}_k^\text{iso}$ and 
+$\mathsf{Rep}_{\dZ_\ell}(G_k)\otimes\dQ=\mathsf{Rep}_{\dQ_\ell}(G_k)$, this 
+gives a functor 
+\[
+  V_\ell:\mathsf{AbVar}_k^\text{iso} \to \mathsf{Rep}_{\dQ_\ell}(G_k) \text{.}
+\]
+(\textbf{details, clarify})
+
+It turns out that $P_A(0)=\deg(-\Phi_A)=\deg(\Phi_A)=q^g$; this can be verified 
+by a direct (but messy) computation. A more interesting quantity is 
+$P_A(1)=\deg(1-\Phi)$. Let $f=1-\Phi$. We claim that $f:A\to A$ is \'etale. 
+Essentially, the map $d f:\operatorname{Lie}(A) \to \operatorname{Lie}(A)$ is 
+the identity, and this comes down to the fact that the differential of 
+Frobenius is zero (morally, $\frac{d}{dx}x^q=q x^{q-1}=0$). Thus 
+$P_A(1)=\# \ker(f)$. Note that $f(x)=0$ if and only if $\Phi(x)=x$, i.e. 
+$x\in A(\dF_q)$. So $P_A(1)=\#A(\dF_q)$. This has a surprising consequence: the 
+quantity $\# A(\dF_q)$ is isogeny-invariant! This fails badly over number 
+fields. 
+
+Let's specialize to elliptic curves. Let $E$ be an elliptic curve over 
+$\dF_q$. We have $P_E(t)=t^2-a t+q$, for some integer $a=a(E)$. One calls $a$ 
+the trace of Frobenius. Indeed, $a=\operatorname{tr}(\Phi_{E\ast},T_\ell)$ for 
+all $\ell\ne p$. Since $\# E(\dF_p)=P_A(1)=1-a+q$, we could have defined 
+$a=1+q-\# E(\dF_q)$. Since $\# \dP^1(\dF_q)=q+1$, we can think of $a$ as an 
+arithmetically interesting ``error term'' measuring how much $E(\dF_q)$ and 
+$\dP^1(\dF_q)$ differ. 
+
+\begin{theorem}[Hasse bound]
+We have $|a| \leqslant 2\sqrt q$, i.e. 
+\[
+  | \# E(\dF_q) - (q+1)| \leqslant 2\sqrt q \text{.}
+\]
+\end{theorem}
+\begin{proof}
+Let $n\in\dQ$, and take $P_E(n)=n^2-a n+q = \deg(n-\pi_E)\geqslant 0$. Thus 
+$t^2-a t+q\geqslant 0$ for all $t\in \dR$. Basic calculus tells us that 
+$a^2-4 q\leqslant 0$, i.e. $|a|\leqslant 2\sqrt q$. 
+\end{proof}
+
+An equivalent way of formulating the Hasse bound is to claim that the complex 
+roots of $P_E$ have absolute value $\sqrt q$. Indeed, one computes 
+\[
+  \left|\frac{a\pm \sqrt{a^2-4 q}}{2}\right| 
+    = \left|\frac{a\pm \sqrt{4 q-a^2} i}{2}\right| 
+    = \sqrt{\frac{a^2}{4} + \frac{4 q-a^2}{4}}
+    = \sqrt q \text{.}
+\]
+If $(q,6)=1$, then we can write $E$ as $y^2=x^3+a x+b$. It follows that 
+\[
+  \# E(\dF_q) = q+1 + \sum_{x\in \dF_q} \left(\frac{x^3+a x+b}{q}\right) \text{,}
+\]
+where $\big(\frac{c}{q}\big)=0$ if $c=0$, $1$ if $c$ is a square in $\dF_q$, 
+and $-1$ otherwise. 
+
+A special case of the Honda-Tate theorem says that for each integer $a$ with 
+$|a|\leqslant 2\sqrt{q}$, there is an elliptic curve $E$ over $\dF_q$ with 
+$a(E)=a$. So the Hasse bound is sharp. Moreover, we will see that $a(E)$, and 
+hence $P_E$, determines $E$ up to isogeny. 
+
+\begin{example}
+Fix a prime $p\equiv 3\pmod 4$, and consider the elliptic curve $E$ over 
+$\dF_p$ given by the equation $y^2=x^3-x$. Recall that 
+$\End^\circ(E_{\dF_{p^2}})$ was a quaternion algebra over $\dQ$, of type 
+$(-1,-p)$. We used the fact that $\Phi_E^2=-p$, but didn't prove this. We 
+know that $P_E(\Phi_E)=0$, i.e. $\Phi_E^2-a \Phi_E+p$, so all we need to do 
+is show that $a=0$. Since $a=p+1-\# E(\dF_p)$, we just need to show that 
+$\# E(\dF_p)=p+1$. The two sets 
+\begin{align*}
+  \{x\in \dF_p &: x^3-x\in (\dF_p^\times)^2\} \\
+  \{x\in \dF_p &: x^3-x\notin (\dF_p)^2\}
+\end{align*}
+are bijective via $x\mapsto -x$. Call their common cardinality $m$. 
+Since $\#\{x\in \dF_p:x^3-x=0\} = 3$, we have $p=2 m+3$, so 
+$\# E(\dF_p)=2 m+3+1=p+1$. 
+\end{example}
+
 
 
 
