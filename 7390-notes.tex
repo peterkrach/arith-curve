@@ -778,41 +778,35 @@ $\overline{\dQ}$ which is not isogenous to a jacobian. This was proven
 recently in \cite{ts12}
 
 \begin{example}[group law on elliptic curves]
-Let $C/k$ be a nice curve of genus one and $C(k)\ne\varnothing$. Choose 
-$O\in C(k)$; this gives us an embedding $j:C\hookrightarrow J$, which is an 
-isomorphism by the Riemann-Roch theorem. Thus $C$ obtains a group law with $O$ 
-as the identity. 
-
-Assume $6$ is a unit in $k$, and begin with an equation $y^2=x^3 + a x+b$ where 
-$a,b\in k$ and $4 a^3+27 b^2\ne 0$. Let $C\subset \dP_k^2$ be the zero set of 
+Let $k$ be field of characteristic not $2$ or $3$. Let $E$ be an elliptic curve 
+of the form $y^2=x^3+a x+b$ with $4 a^3+27 b^2\ne 0$. That is, $E$ is the 
+subset of $\dP_k^2$ given by 
 \[
   x_1^2 x_2 - x_0^3 - a x_0 x_2^2 - b x_2^3 \text{.}
 \]
-Then $C$ is a nice curve of genus $1$, and we choose $0=(0:1:0)\in C(k)$. We 
-would like an explicit description of the group law on $C$ induced by the 
-isomorphism $j:C\to \jac(C)$. We have a rational map $n:C\times C\to C$, where 
-$n(x,y)=z$ if $x$ and $y$ are distinct, the unique line $\ell_{x,y}$ passing 
-through $x$ and $y$ intersects $C$ transversely, and 
-$\ell_{x,y}\cap C=\{x,y,z\}$. It is possible to write down a formula for the 
-map $n$, but that will not be necessary here. Let $\alpha:C\to C$ be the 
-involution $(x_0:x_1:x_2)\mapsto (x_1:x_0:x_2)$. We will prove that 
-$\alpha\circ n$ is the group law on $E$ induced from $\jac(E)$. 
+The choice of $O=(0:1:0)\in E(k)$ induces an embedding $j:E\to \jac(E)$ which 
+is an isomorphism by the Riemann-Roch theorem. We would like to relate the 
+induced group operation on $E$ with the classical definition using chords and 
+tangents. 
 
-projective closure of the plane curve defined 
-by $y^2-x^3-a x-b$. This is a nice curve of genus $1$. Take distinct points 
-$P,Q\in C(L)$ for some field $L/k$. We would like to determine $P+Q$. Take the 
-line in $\dP_L^2$ through $P$ and $Q$, given by $\alpha x+\beta y = c$ 
-for some $\alpha,\beta$. This line and $C$ intersect in three points $P,Q,R$ 
-(counting multiplicities). The divisor 
-$\operatorname{div}(\alpha x+\beta y - c) = P+Q+R - 3 O$, where $O$ is the 
-point at infinity. Rewrite this divisor as $(P-O)+(Q-O)+(R-O)$. In 
-$\picard^\circ(C_L)$, $[P-O] + [Q-O] + [R-O] = \mu(P)+\mu(Q)+\mu(R) = 0$. Note 
-that in general, three points $P,Q,R$ are colinear if and only if 
-$\mu(P)+\mu(Q)+\mu(R) = 0$ in $\picard^\circ(C)$. So, we have shown that 
-$-\mu(R) = \mu(P)+\mu(Q)$. If $P=Q$, we need to take the tangent line to $C$ at 
-$P$. To compute $-R$, take a vertical line through $R$. This will intersect 
-$C$ at $O$ and some $R'$. Thus $\mu(R)+\mu(R')+\mu(O)$, from which we see that 
-$\mu(P)+\mu(Q) = \mu(R')$. 
+Let $P,Q\in E(\bar k)$. If we assume $P,Q\ne O$, then we can write 
+$P=(P_0:P_1:1)$, $Q=(Q_0:Q_1:1)$. Assume $P_0\ne Q_0$. Then there is a 
+canonical rational function $\ell_{P,Q}$ with both $P$ and $Q$ as zeros. One 
+has  
+\[
+ \ell_{P,Q}(x_0:x_1:x_2) = \frac{Q_1-P_1}{Q_0-P_0} \cdot \frac{x_0}{x_2} - \frac{x_1}{x_2} + \frac{P_1 Q_0 - P_0 Q_1}{Q_0-P_0} \text{.}
+\]
+The function $\ell_{P,Q}$ has $P$, $Q$ and a third point $R$ as simple zeros, 
+and one can verify directly that 
+$\operatorname{div}(\ell_{P,Q})=P+Q+R-3 O = (P-O)+(Q-O)+(R-O)$. Recall that 
+$(\jac E)(\bar k)=\picard^\circ(E_{\bar k})$, and the map $j:E\to \jac(E)$ 
+corresponds to $P\mapsto P-O$. Thus 
+$j(P)+j(Q)+j(R)=\operatorname{div}(\ell_{P,Q})=0$ in 
+$\picard^\circ(E_{\bar k})$, i.e. $j(P)+j(Q)=-j(R)$. 
+
+It is well-known that $R$ can be written as a rational function of $P$ and $Q$, 
+so the chord-tangent law defines a rational map $m:E\times E\to E$ with 
+$j(m(P))+j(m(Q))=m(j(P),j(Q))$. It follows that $m$ is defined everywhere. 
 \end{example}
 
 
