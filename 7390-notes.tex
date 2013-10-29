@@ -4,7 +4,7 @@
 
 \title{Arithmetic of curves}
 \author{Daniel Miller
-  \thanks{notes to a course taught by David Zywina at Cornell}}
+  \thanks{based on a course taught by David Zywina at Cornell}}
 \date{fall 2013}
 
 \begin{document}
@@ -24,7 +24,7 @@
 
 These notes originated in a course on the arithmetic of curves taught by David 
 Zywina at Cornell. However, a significant amount of material (including, no 
-doubt, many errors) has been added since then so their content is \emph{not} 
+doubt, many errors) has been added since then, so their content is \emph{not} 
 an exact reflection of what he covered in class. Moreover, the notation has 
 been changed in many places (sometimes significantly) as has the order in which 
 material is covered. Any errors in these notes are entirely my fault. 
@@ -117,7 +117,7 @@ We can give $E/\dQ$ the
 structure of an abelian variety. That is, we can give $E$ the structure of a 
 commutative algebraic group, i.e. the operation is given by regular  
 functions, with $O$ being the identity. Later, we will think of $E$ as 
-being identified with its jacobian $\jac E$ via the choice of a single point 
+being identified with its jacobian $\jac(E)$ via the choice of a single point 
 $O\in E(\dQ)$. Since $E$ is a commutative algebraic group, $E(\dQ)$ is an 
 abelian group (with identity $O$). It is a theorem of Mordell that $E(\dQ)$ is 
 finitely generated. We know the structure of such groups: 
@@ -142,7 +142,7 @@ a rank one elliptic curve uses Heegner points.
 In general, we will take a curve $C/\dQ$, consider its jacobian $J$, and study 
 $J(\dQ)$. This will be a group, and its structure heavily influences $C(\dQ)$. 
 For example, we could study how the rank of $J(\dQ)$ affects $C(\dQ)$. In the 
-case that $C=E$ is an elliptic curve, $\jac E=E$, so studying the curve and 
+case that $C=E$ is an elliptic curve, $\jac(E)=E$, so studying the curve and 
 studying its jacobian is the same thing. The ``average rank of an elliptic 
 curve'' is not known, nor is there a general consensus on what is should be. 
 Some expect it the rank of a random curve to be $0$ or $1$, both with 
@@ -270,12 +270,9 @@ Note that
     &= \hom_{\mathsf{Alg}_\dQ}(\dQ[x,y]/f,A) \\
     &= \hom_{\mathsf{Sch}_k}\left(\spec A,\spec(\dQ[x,y]/f)\right) \text{,}
 \end{align*}
-so this agrees with our general definition. 
+so this agrees with our general definition. The functor $h_X$ determines $X$ 
+up to isomorphism. (This is just the Yoneda lemma.)
 
-\begin{remark}
-The functor $h_X$ determines $X$, up to isomorphism. (This is just the Yoneda 
-lemma).
-\end{remark}
 
 
 
@@ -351,12 +348,12 @@ non-degenerate. It gives us a map $\Phi:\Lambda\to V^\vee$.
 
 \begin{definition}[analytic]
 The \emph{Jacobian} of $X$ is 
-$\jac X=V^\vee/\Phi(X) = \h_\textnormal{dR}^1(X)^\vee/\h_1(X,\dZ)$. 
+$\jac(X)=V^\vee/\Phi(X) = \h_\textnormal{dR}^1(X)^\vee/\h_1(X,\dZ)$. 
 \end{definition}
 
 Is is known that $\Phi(\Lambda)$ is a lattice in $V^\vee$, i.e. it is discrete 
 and $V^\vee/\Phi(\Lambda)$ is compact. There is the \emph{Abel-Jacobi map} from 
-$X$ to $\jac X$ defined as follows. Fix $x_0\in X$; we send $x\in X$ to 
+$X$ to $\jac(X)$ defined as follows. Fix $x_0\in X$; we send $x\in X$ to 
 $\omega\mapsto \int_{[x_0,x]} \omega$, where $[x_0,x]$ denotes some path from 
 $x_0$ to $x$. A different choice of $[x_0,x]$ will differ by a closed loop, 
 i.e. an element of $\h_1(X,\dZ)$. So $X\to\jac X$ is well-defined. Note 
@@ -764,7 +761,7 @@ we can let $\mathcal{A}_g$ be the functor which assigns to a scheme $S$ the set
 of isomorphism classes of principally polarized abelian schemes of dimension 
 $g$ over $S$. The functor $\mathcal{A}_g$ has a coarse moduli space $A_g$. 
 
-The operation ``take Jacobian'' induces a natural transformation 
+The operation ``take jacobian'' induces a natural transformation 
 $j:\mathcal{M}_g\to\mathcal{A}_g$, and Torelli's theorem can be rephrased as 
 saying that $j$ is injective. Shottky's question asks what the image of $j$ is. 
 To see that it cannot be all of $\mathcal{A}_g$, simply note that 
@@ -780,14 +777,28 @@ In fact, for all $d>3$, there exists an abelian variety of dimension $d$ over
 $\overline{\dQ}$ which is not isogenous to a jacobian. This was proven 
 recently in \cite{ts12}
 
-\begin{example}
+\begin{example}[group law on elliptic curves]
 Let $C/k$ be a nice curve of genus one and $C(k)\ne\varnothing$. Choose 
-$O\in C(k)$; this gives us an embedding $C\hookrightarrow J$, which is in fact 
-an isomorphism. Thus $C$ obtains a group law with $O$ as the identity. 
+$O\in C(k)$; this gives us an embedding $j:C\hookrightarrow J$, which is an 
+isomorphism by the Riemann-Roch theorem. Thus $C$ obtains a group law with $O$ 
+as the identity. 
 
-Suppose we begin with the equation $y^2=x^3 + a x+b$ where $a,b\in k$, 
-$4 a^3+27 b^2\ne 0$ and $\operatorname{char}(k)\nmid 6$. Let 
-$C\subset \dP_k^2$ be the projective closure of the plane curve defined 
+Assume $6$ is a unit in $k$, and begin with an equation $y^2=x^3 + a x+b$ where 
+$a,b\in k$ and $4 a^3+27 b^2\ne 0$. Let $C\subset \dP_k^2$ be the zero set of 
+\[
+  x_1^2 x_2 - x_0^3 - a x_0 x_2^2 - b x_2^3 \text{.}
+\]
+Then $C$ is a nice curve of genus $1$, and we choose $0=(0:1:0)\in C(k)$. We 
+would like an explicit description of the group law on $C$ induced by the 
+isomorphism $j:C\to \jac(C)$. We have a rational map $n:C\times C\to C$, where 
+$n(x,y)=z$ if $x$ and $y$ are distinct, the unique line $\ell_{x,y}$ passing 
+through $x$ and $y$ intersects $C$ transversely, and 
+$\ell_{x,y}\cap C=\{x,y,z\}$. It is possible to write down a formula for the 
+map $n$, but that will not be necessary here. Let $\alpha:C\to C$ be the 
+involution $(x_0:x_1:x_2)\mapsto (x_1:x_0:x_2)$. We will prove that 
+$\alpha\circ n$ is the group law on $E$ induced from $\jac(E)$. 
+
+projective closure of the plane curve defined 
 by $y^2-x^3-a x-b$. This is a nice curve of genus $1$. Take distinct points 
 $P,Q\in C(L)$ for some field $L/k$. We would like to determine $P+Q$. Take the 
 line in $\dP_L^2$ through $P$ and $Q$, given by $\alpha x+\beta y = c$ 
@@ -3076,7 +3087,9 @@ gives a functor
 \[
   V_\ell:\mathsf{AbVar}_k^\text{iso} \to \mathsf{Rep}_{\dQ_\ell}(G_k) \text{.}
 \]
-(\textbf{details, clarify})
+Here and elsewhere, if $\cA$ is an additive category, we write 
+$\cA\otimes\dQ$ for the localization of $\cA$ at the class of morphisms 
+$n\cdot 1_A$, $n\in \dZ\setminus 0$.
 
 It turns out that $P_A(0)=\deg(-\Phi_A)=\deg(\Phi_A)=q^g$; this can be verified 
 by a direct (but messy) computation. A more interesting quantity is 
@@ -3117,7 +3130,8 @@ roots of $P_E$ have absolute value $\sqrt q$. Indeed, one computes
     = \sqrt{\frac{a^2}{4} + \frac{4 q-a^2}{4}}
     = \sqrt q \text{.}
 \]
-If $(q,6)=1$, then we can write $E$ as $y^2=x^3+a x+b$. It follows that 
+If $6$ is a unit in $\dF_q$, then we can write $E$ as $y^2=x^3+a x+b$. It 
+follows that 
 \[
   \# E(\dF_q) = q+1 + \sum_{x\in \dF_q} \left(\frac{x^3+a x+b}{q}\right) \text{,}
 \]
@@ -3146,6 +3160,131 @@ Since $\#\{x\in \dF_p:x^3-x=0\} = 3$, we have $p=2 m+3$, so
 $\# E(\dF_p)=2 m+3+1=p+1$. 
 \end{example}
 
+Let $A$ be an abelian variety over $\dF_q$. We can consider its base extension 
+$A_{\dF_{q^n}}$, which is an abelian variety over $\dF_{q^n}$. It has a 
+characteristic polynomial $P_{A_{\dF_{p^n}}}$. Write 
+\[
+  P_A(t) = \prod_{i=1}^{2 d} (x-\omega_i) \text{,}
+\]
+where the $\omega_i\in \dC$. 
+
+\textbf{(use resultants? essentially $\Phi_{A_{\dF_{q^n}}}=\Phi_A^n$)}
+
+\begin{theorem}
+We have $P_{A_{\dF_{q^n}}}(t) = \prod_{i=1}^{2 d} (x-\omega_i^n)$. 
+\end{theorem}
+\begin{proof}
+Let $A'=A_{\dF_{q^n}}$, and fix a prime $\ell\nmid q$. We have equality 
+$V_\ell A = V_\ell A'$; write $V$ for this vector space. The Frobenius 
+on $A$ induces a linear map $\Phi_{A,\ast}:V\to V$ with characteristic 
+polynomial $P_A$. We have $\Phi_A^n=\Phi_{A'}^n$ as morphisms on $A'$, so 
+$\Phi_{A',\ast} = \Phi_{A,\ast}^n$, whence the result. 
+\end{proof}
+
+Let's look at the case where $E/\dF_q$ is an elliptic curve. We have 
+$P_E(t)=t^2-a t+q$, where $a=a(E)\in \dZ$ is the trace of Frobenius acting on 
+$T_\ell E$ for any $\ell\nmid q$. Recall that since $P_E(1)=\# E(\dF_q)$, we 
+get $a=q+1-\# E(\dF_q)$. Moreover, we showed that $|a|\leqslant 2\sqrt q$. 
+Equivalently, the roots of $P_E$ have absolute value $q^{1/2}$. 
+
+\begin{theorem}[Weil]
+Let $A$ be an abelian variety over $\dF_q$. Then the roots of $P_A$ in $\dC$ 
+have absolute value $q^{1/2}$. 
+\end{theorem}
+
+Back to the case of elliptic curves. We can factor 
+$P_E(t)=(t-\omega_1)(t-\omega_2)$ where $\omega_1+\omega_2=a$ and 
+$\omega_1 \omega_2 = q$. We know that 
+\[
+  P_{E_{\dF_{q^n}}}(t) = (x-\omega_1^n)(x-\omega_2^n) 
+    = x^2 - (\omega_1^n + \omega_2^n) t + q^n \text{,}
+\]
+so $\# E(\dF_{q^n}) = q^n+1 - (\omega_1^n+\omega_2^n)$. Recall that the 
+\emph{zeta function} of $E$ is the formal power series 
+\[
+  Z(E,t) = \exp\left(\int \sum_{n\geqslant 1} \# E(\dF_{q^n}) t^n\, \frac{dt}{t}\right) \text{.}
+\]
+We can compute:
+\begin{align*}
+  \int \sum_{n\geqslant 1} \# E(\dF_{q^n}) t^n\, \frac{dt}{t}
+    &= \sum_{n\geqslant 1} \# E(\dF_{q^n}) \frac{t^n}{n} \\
+    &= \sum \frac{(q t)^n}{n} + \sum \frac{t^n}{n} - \sum \frac{(\omega_1 t)^n}{n} - \sum \frac{(\omega_2 t)^n}{n} \\
+    &= -\log(1-q t) - \log(1-t) + \log(1-\omega_1 t) + \log(1-\omega_2 t) \\
+    &= \log\left(\frac{(1-\omega_1 t)(1-\omega_2 t)}{(1-t)(1-q t)} \right) \text{.}
+\end{align*}
+It follows that 
+\[
+  Z(E,t) = \frac{1-a t+q t^2}{(1-t)(1-q t)} \text{.}
+\]
+Note that the numerator is $t^2 P_E(1/t)$. 
+
+\begin{example}
+Let $E/\dF_5$ be the elliptic curve $y^2=x^3+x+2$. One can check directly that 
+$E(\dF_5) = \{0,(1,\pm 2), (4,0)\}$. Thus $\# E(\dF_5) = 4=5+1-a$, so $a=2$. 
+It follows that $P_E(t) = t^2-2 t+5$ and 
+$Z(E,t) =\frac{1-2 t+5 t^2}{(1-t)(1-5 t)}$. In this case, 
+\[
+  \sum_{n\geqslant 1} \# E(\dF_{5^n}) t^n = t\frac{d}{dt}\log Z(E,t)
+    = 4t + 32 t^2 + 148 t^3 + 640 t^4 + 3044 t^5 + O(t^6) \text{.}
+\]
+\end{example}
+
+One puts $\zeta(E,s) = Z(E,q^{-s})$. The fact that the zeros of 
+$P_E$ have absolute value $q^{1/2}$ implies that the zeros of 
+$\zeta(E,s)$ have real part $\frac 1 2$. So the ``Riemann hypothesis'' for 
+$\zeta(E,s)$ is a theorem!
+
+\begin{definition}
+A \emph{$q$-Weil number} is an algebraic integer $\omega\in \bar\dQ$ such that 
+under any embedding $\dQ(\omega)\hookrightarrow\dC$, the image of $\omega$ has 
+absolute value $q^{1/2}$. 
+\end{definition}
+
+Two $q$-Weil numbers $\omega,\omega'$ are \emph{conjugate} if there exists a 
+field isomorphism $\sigma:\dQ(\omega) \to \dQ(\omega')$ such that 
+$\sigma(\omega)=\omega'$, i.e. $\omega$ and $\omega'$ lie in the same 
+$G_\dQ$-orbit in $\bar\dQ$. Equivalently, $\omega$ and $\omega'$ are conjugate 
+if they have the same minimal polynomial over $\dQ$. 
+
+\begin{theorem}[Honda-Tate]
+Let $A$ be an abelian variety over $\dF_q$. 
+\begin{enumerate}
+  \item If $A$ is simple, then $P_A(t) = h(t)^e$ for an irreducible polynomial 
+    $h\in \dZ[t]$ and $e\geqslant 1$.
+  \item The map 
+    \[
+      \{\text{isogeny classes of simple abelian varieties over $\dF_q$}\} \to \{\text{conjugacy classes of $q$-Weil numbers}\}
+    \]
+    sending $A$ to the set of roots in $\bar\dQ$ of $P_A$, is a bijection. 
+  \item Fix $h\in \dZ[t]$ the minimal polynomial of a $q$-Weil number. Then 
+    there exists a unique $e\geqslant 1$ such that $h^e$ is $P_A$ for a simple 
+    $A/\dF_q$. In fact, it is the smallest $e\geqslant 1$ such that 
+    \begin{itemize}
+      \item $h(0)^e>0$ 
+      \item for every monic $\dQ_p$-irreducible factor $g\in \dQ_p[t]$ of $h$, 
+        we have $v_p(g(0)^e)\in r\dZ$, where $q=p^r$. 
+     \end{itemize}
+\end{enumerate}
+\end{theorem}
+
+The injectivity of the map is due to Tate, and the surjectivity is due to 
+Honda. 
+
+\begin{example}
+The number $\sqrt 5 i$ is $5$-Weil, with minimal polynomial $t^2+5$. The 
+conditions of part 3 of the Honda-Tate theorem show that there exists an 
+abelian variety $E$ over $\dF_5$ such that $P_E=t^2+5$. As an exercise, check 
+that $E:y^2=x^3+1$ works. 
+\end{example}
+
+\begin{example}
+The number $\sqrt 5$ is $5$-Weil with minimal polynomial $t^2-5$. It is easy to 
+check that $e=2$, so there is a (simple) abelian variety $A$ over $\dF_5$ such 
+that $P_A(t) = (t^2-5)^2$. One can show that $P_{A_{\dF_{25}}}(t) = (t-5)^4$. 
+Since $5$ is a $25$-Weil number, there exists an elliptic curve $E/\dF_{25}$ 
+such that $P_E(t)=(t-5)^2$. We will find that $A_{\dF_{25}}$ is isogenous to 
+$E\times E$. 
+\end{example}
 
 
 
