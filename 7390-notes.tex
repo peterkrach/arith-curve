@@ -904,23 +904,23 @@ There is a relative version of the Mordell-Lang conjecture known as the
 \emph{Lang-N\'eron theorem}. Let $K/k$ be a \emph{regular} field extension, 
 that is, $\bar k\cap K = k$ and $K/k$ is separable. If $A$ is an abelian 
 variety defined over $K$, then there is an abelian variety 
-$\operatorname{tr}_{K/k}(A)$ defined over $k$ together which a morphism 
-$\tau:\operatorname{tr}_{K/k}(A)_K\to A$ that is initial among abelian 
+$\trace_{K/k}(A)$ defined over $k$ together which a morphism 
+$\tau:\trace_{K/k}(A)_K\to A$ that is initial among abelian 
 varieties $B/k$ with morphisms $B_K\to A$. One calls 
-$\operatorname{tr}_{K/k}(A)$ the \emph{$K/k$-trace of $A$}. Intuitively, 
-$\operatorname{tr}_{K/k}(A)$ is the smallest abelian subvariety of $A$ defined 
+$\trace_{K/k}(A)$ the \emph{$K/k$-trace of $A$}. Intuitively, 
+$\trace_{K/k}(A)$ is the smallest abelian subvariety of $A$ defined 
 over $k$. A proof of the following theorem can be found in \cite{co06}. 
 
 \begin{theorem}[Lang-N\'eron]
 Let $K/k$ be a finitely generated regular extension, and let $A$ be an abelian 
-variety over $K$. Then the group $A(K)/\operatorname{tr}_{K/k}(A)(k)$ is 
+variety over $K$. Then the group $A(K)/\trace_{K/k}(A)(k)$ is 
 finitely generated.
 \end{theorem}
 
 This implies the Mordell-Weil theorem for finitely generated fields. If $K$ is 
 a finitely generated field, let $k$ be the algebraic closure of the prime field 
 of $K$ within $K$. Then $K/k$ is regular, and by the usual Mordell-Weil 
-theorem, $\operatorname{tr}_{K/k}(A)(k)$ is finitely generated, so $A(K)$ has a 
+theorem, $\trace_{K/k}(A)(k)$ is finitely generated, so $A(K)$ has a 
 finitely generated subgroup with finitely generated quotient. It follows that 
 $A(K)$ is finitely generated.
 
@@ -3039,6 +3039,9 @@ have $\Phi(x_0:\cdots:x_n) = (x_0^q:\cdots:x_n^q)$. As a morphism of schemes,
 $\Phi$ is the identity on the underlying space of $A$, and is the $q$-th power 
 map on $\sO_A$. Let $d\geqslant 1$ be the dimension of $A$. 
 
+
+\subsection*{Characteristic polynomial of Frobenius}
+
 Recall that there is a polynomial $P_A=P_{\Phi_A}\in \dZ[t]$ of degree $2 d$ 
 such that $P_A(n)=\deg(n-\Phi_A)$ for all integers $n$. Also, if $\ell$ is a 
 prime not dividing $q$, $P_A$ is the characteristic polynomial of $\Phi_\ast$ 
@@ -3098,7 +3101,7 @@ fields.
 
 Let's specialize to elliptic curves. Let $E$ be an elliptic curve over 
 $\dF_q$. We have $P_E(t)=t^2-a t+q$, for some integer $a=a(E)$. One calls $a$ 
-the trace of Frobenius. Indeed, $a=\operatorname{tr}(\Phi_{E\ast},T_\ell)$ for 
+the trace of Frobenius. Indeed, $a=\trace(\Phi_{E,\ast},T_\ell)$ for 
 all $\ell\ne p$. Since $\# E(\dF_p)=P_A(1)=1-a+q$, we could have defined 
 $a=1+q-\# E(\dF_q)$. Since $\# \dP^1(\dF_q)=q+1$, we can think of $a$ as an 
 arithmetically interesting ``error term'' measuring how much $E(\dF_q)$ and 
@@ -3154,6 +3157,9 @@ Since $\#\{x\in \dF_p:x^3-x=0\} = 3$, we have $p=2 m+3$, so
 $\# E(\dF_p)=2 m+3+1=p+1$. 
 \end{example}
 
+
+\subsection*{Zeta functions}
+
 Let $A$ be an abelian variety over $\dF_q$. We can consider its base extension 
 $A_{\dF_{q^n}}$, which is an abelian variety over $\dF_{q^n}$. It has a 
 characteristic polynomial $P_{A_{\dF_{p^n}}}$. Write 
@@ -3162,9 +3168,7 @@ characteristic polynomial $P_{A_{\dF_{p^n}}}$. Write
 \]
 where the $\omega_i\in \dC$. 
 
-\textbf{(use resultants? essentially $\Phi_{A_{\dF_{q^n}}}=\Phi_A^n$)}
-
-\begin{theorem}
+\begin{theorem}\label{thm:char-poly-power}
 We have $P_{A_{\dF_{q^n}}}(t) = \prod_{i=1}^{2 d} (x-\omega_i^n)$. 
 \end{theorem}
 \begin{proof}
@@ -3228,6 +3232,9 @@ $P_E$ have absolute value $q^{1/2}$ implies that the zeros of
 $\zeta(E,s)$ have real part $\frac 1 2$. So the ``Riemann hypothesis'' for 
 $\zeta(E,s)$ is a theorem!
 
+
+\subsection*{Honda-Tate theory}
+
 \begin{definition}
 A \emph{$q$-Weil number} is an algebraic integer $\omega\in \bar\dQ$ such that 
 under any embedding $\dQ(\omega)\hookrightarrow\dC$, the image of $\omega$ has 
@@ -3239,6 +3246,11 @@ field isomorphism $\sigma:\dQ(\omega) \to \dQ(\omega')$ such that
 $\sigma(\omega)=\omega'$, i.e. $\omega$ and $\omega'$ lie in the same 
 $G_\dQ$-orbit in $\bar\dQ$. Equivalently, $\omega$ and $\omega'$ are conjugate 
 if they have the same minimal polynomial over $\dQ$. 
+
+It is easy to check if a given algebraic integer $\omega$ is $q$-Weil. Let 
+$k=\dQ(\omega)$, and classify embeddings $k\hookrightarrow \dC$. The number 
+$\omega$ is $q$-Weil if and only if $\omega\bar\omega = q$ in each such 
+embedding.  
 
 \begin{theorem}[Honda-Tate]
 Let $A$ be an abelian variety over $\dF_q$. 
@@ -3264,6 +3276,14 @@ Let $A$ be an abelian variety over $\dF_q$.
 The injectivity of the map is due to Tate, and the surjectivity is due to 
 Honda. 
 
+\begin{corollary}
+The map 
+\[
+  \{\text{isogeny classes of elliptic curves over $\dF_q$}\} \to \{a\in \dZ:|a|\leqslant 2\sqrt q\}
+\]
+given by $E\mapsto a(E)=\trace(\Phi_E,T_\ell E) = q+1-\# E(\dF_q)$ is a bijection. 
+\end{corollary}
+
 \begin{example}
 The number $\sqrt 5 i$ is $5$-Weil, with minimal polynomial $t^2+5$. The 
 conditions of part 3 of the Honda-Tate theorem show that there exists an 
@@ -3275,10 +3295,188 @@ that $E:y^2=x^3+1$ works.
 The number $\sqrt 5$ is $5$-Weil with minimal polynomial $t^2-5$. It is easy to 
 check that $e=2$, so there is a (simple) abelian variety $A$ over $\dF_5$ such 
 that $P_A(t) = (t^2-5)^2$. One can show that $P_{A_{\dF_{25}}}(t) = (t-5)^4$. 
-Since $5$ is a $25$-Weil number, there exists an elliptic curve $E/\dF_{25}$ 
-such that $P_E(t)=(t-5)^2$. We will find that $A_{\dF_{25}}$ is isogenous to 
-$E\times E$. 
+Since $5$ is a $25$-Weil number, there exists an elliptic curve $E$ over 
+$\dF_{25}$ such that $P_E(t)=(t-5)^2$. We will find that $A_{\dF_{25}}$ is 
+isogenous to $E\times E$. 
 \end{example}
+
+
+
+
+
+% notes on 10-31-2013
+
+\begin{lemma}
+Let $A$ and $B$ be abelian varieties over $\dF_q$. Then 
+$P_{A\times B}=P_A\times P_B$. 
+\end{lemma}
+\begin{proof}
+On $A\times B$, we have $\Phi_{A\times B}=\Phi_A\times \Phi_B$. Fix 
+$\ell\nmid q$, and consider $V_\ell(A\times B)=V_\ell A\oplus V_\ell B$. On 
+$V_\ell(A\times B)$, we have 
+$\Phi_{A\times B,\ast} = \Phi_{A,\ast}\times \Phi_{B,\ast}$. So it comes down 
+to showing that the characteristic polynomial of $f\oplus g$ is the product of 
+the respective characteristic polynomials. But this is obvious. 
+\end{proof}
+
+For any abelian variety $A$ over $\dF_q$, the Poincar\'e reducibility theorem 
+implies $A$ is isogenous to $\prod B_i^{n_i}$, where the $B_i$ are simple and 
+pairwise non-isogenous. The lemma gives 
+$P_A=P_{\prod B_i^{n_i}} = \prod P_{B_i}^{n_i}$, where the $P_{B_i}$ are powers 
+of distinct irreducible polynomials. If we started with $P_A$, we could factor 
+it as $P_A=\prod h_i^{m_i}$, where the $h_i$ are distinct monic irreducible 
+integral polyomials. For each $h_i$, there is a unique (and computable) 
+$e_i\geqslant 1$ such that $h_i^{e_i} = P_{B_i}$. Thus 
+$P_A=\prod P_{B_i}^{n_i}$, where $n_i=m_i/e_i$. 
+
+\begin{theorem}
+Let $A$ and $B$ be abelian varieties over $\dF_q$. Then $A$ and $B$ are 
+isogenous if and only if $P_A=P_B$.
+\end{theorem}
+
+We can rephrase this as: $A$ and $B$ are isogenous if and only if 
+$V_\ell A$ and $V_\ell B$ are isomorphic $G_{\dF_q}=\widehat\dZ$-modules.
+
+Let $A$ be a simple abelian variety over $\dF_q$. Let 
+$D=\End^\circ(A)=\End_{\dF_q}(A)\otimes\dQ$; this is a division algebra over 
+$\dQ$. Then the field $F=\dQ(\Phi_A)$ is contained in the 
+center of $D$. 
+
+\begin{theorem}
+Let $A$ be a simple abelian variety over $\dF_q$. Then 
+\begin{enumerate}
+  \item $D=\End^\circ(A)$ has center $F=\dQ(\Phi_A)$ 
+  \item $\dim_F D = e^2$, where $P_A =h^e$ with $h$ irreducible
+  \item $2\dim A = e\cdot [F:\dQ]$. 
+\end{enumerate}
+\end{theorem}
+
+The division algebra $D$ can be described explicitly from $\Phi_A$. You can 
+give local invariants that classify it over each $F_v$, where $v$ ranges over 
+the places of $F$. 
+
+The previous remark merits some explanation. Let $k$ be an arbitrary field. 
+Let $\brauer(k)$, be the set of isomorphism classes of division algebras with 
+center $k$. The set $\brauer(k)$ has a highly non-obvious group structure. For 
+$D,D'\in \brauer(k)$, there is a unique $D''\in \brauer(k)$ such that 
+$D\otimes_k D'\simeq M_n(D'')$ for some $n$. Set $D''=D+D'$. Under this 
+operation, $\operatorname{Br}(k)$ is an abelian group, where the inverse of 
+$D$ is opposite algebra $D^\circ$. It turns out (see 
+\cite[X.5]{se79}) that $\brauer(k)$ is naturally isomorphic to the Galois 
+cohomology group $\h^2(G_k,(k^s)^\times) = \h^2(k,\dG_m)$. If $k$ is a 
+nonarchimedean local field, there is a canonical isomorphism 
+$\brauer(k) \to \dQ/\dZ$, so to specify a division algebra with center $k$ is 
+the same as giving an element of $\dQ/\dZ$. 
+
+Suppose $k$ is a number field. If $v$ is a place of $k$, then the operation 
+$D\mapsto D\otimes_k k_v$ defines a homomorphism $\brauer(k) \to \brauer(k_v)$. 
+It turns out that the image of $D$ under this map is $0$ for all but finitely 
+many $v$. In fact, we have an exact sequence
+\[\xymatrix{
+  0 \ar[r] 
+    & \brauer(k) \ar[r] 
+    & \displaystyle\bigoplus_v \brauer(k_v) \ar[r] 
+    & \dQ/\dZ \ar[r] 
+    & 0 \text{.}
+}\]
+This is very deep -- at the level of the main theorems of class field theory. 
+For a proof of this (and the rest of class field theory) see 
+\cite{?:cf86}. In any case, to give an element of $\brauer(k)$, it is sufficient 
+to  give an element of $\brauer(k_{v_i})=\dQ/\dZ$ for finitely many finite 
+places $v_1,\dots,v_r$ and an element of $\brauer(\dR)=\dZ/2$ for each real 
+place of $k$.
+
+\begin{example}
+Let $E$ be an elliptic curve over $\dF_q$ with $P_E=x^2+q$. Then $\Phi_E^2=-q$, 
+so $F=\dQ(\Phi_E)\simeq\dQ(\sqrt{-q})$. It follows that $e=1$, so  
+$\End^\circ(E)=\dQ(\Phi_E)$. 
+\end{example}
+
+\begin{example}
+Let $E$ be an elliptic curve over $\dF_q$ such that $P_E$ is reducble. Then 
+$P_E(t)=(t-\omega)^2$, where $\omega\in \dZ$ with $|\omega|=q^{1/2}$. It 
+follows that $q$ is a square and $\omega=\pm q^{1/2}$. Then 
+$\Phi_E=\omega\in \dZ$, so $F=\dQ(\Phi_E)=\dQ$ and $e=2$. The division ring  
+$\End^\circ (E)$ is a quaternion algebra (we saw an example earlier). 
+\end{example}
+
+
+\subsection*{Curves and their jacobians} % maybe the Weil conjectures -> new section?
+
+Here and elsewhere we will consider alternating sums 
+\[
+  \sum (-1)^i \trace(f_i,H_i)
+\]
+where $f_\bullet:H_\bullet \to H_\bullet$ is a graded linear endomorphism of a 
+locally finite-dimensional graded vector space. We will write 
+$\trace(f_\bullet,H_\bullet)$, or sometimes just $\trace(f,H)$, for this 
+alternating sum. 
+
+Let's start with some motivation. Let $X$ be an $n$-dimensional smooth 
+manifold. Suppose $f:X\to X$ is a smooth map with fixed point $x$. 
+
+connected 
+compact manifold, and $f:X\to X$ a smooth map with only finitely many fixed 
+points. For any point $x\in X$, one has $\h_n(X,X\setminus x,\dZ) \simeq \dZ$. 
+Thus the endomorphism of $\h_n(X,X\setminus x,\dZ)$ induced by $f$ is 
+multiplication by some integer, called the \emph{local degree} of $f$ at $x$, 
+and written $\deg_x f$. The Lefschetz fixed point theorem is very useful here. 
+
+\begin{theorem}[Lefschetz]
+We have 
+\[
+  \sum_{x\in X^f} \deg_x f = \trace(f_\ast,\h_\bullet(X,\dQ))
+\]
+\end{theorem}
+If $f$ is ``well-behaved'' around each fixed point, the local degrees are all 
+one, so the theorem reduces to $\# X^f=\trace(f_\ast,\h_\bullet(X,\dQ))$. If 
+$X$ is a Riemann surface, the alternating sum is 
+\[
+  \trace(f_\ast,\h_0(X,\dQ)) - \trace(f_\ast,\h_1(X,\dQ)) + \trace(f_\ast,\h_2(X,\dQ))\text{.}
+\]
+
+There is an analogue of the Lefschetz fixed point theorem for \'etale 
+cohomology. Let $X$ be a nice variety over a field $k$, and let 
+$f:X\to X$ be an arbitrary morphism. Let $\ell$ be a prime invertible in $k$. 
+It is proven in \cite[IV.3.3]{de77} that one has 
+\[
+  (\Gamma_f \cdot \Delta_X) = \trace(f^\ast,\h^\bullet(X,\dQ_\ell))\text{.}
+\]
+Here $(\Gamma_f\cdot \Delta)$ is the intersection number of the graph of $f$ 
+and the diagonal as cycles in $X\times X$. If $k=\dF_q$ and $f=\Phi$ is the 
+Frobenius on $X$, then $\Gamma_\Phi$ and $\Delta_X$ intersect transversally 
+with multiplicity one, so 
+$(\Gamma_\Phi\cdot \Delta_X)=\# X^\Phi=\# X(\dF_q)$. More generally (see 
+\cite[IV.3.7]{de77}) we have
+\[
+  \# X(\dF_{q^n}) = \sum (-1)^i \trace({\Phi^n}^\ast, \h^i(X,\dQ_\ell)) \text{.}
+\]
+
+If $X=C$ is a nice curve over $\dF_q$, we can be much more concrete. The 
+alternating sum has only three terms:
+\[
+  \# C(\dF_{q^n}) = \trace(\Phi^n,\h^0(C,\dQ_\ell)) - \trace^1(\Phi^n,\h^0(C,\dQ_\ell)) + \trace(\Phi^n,\h^2(C,\dQ_\ell))
+\]
+One can show that the trace on $\h^0(C,\dQ_\ell)$ is $1$, while the trace on 
+$\h^2(C,\dQ_\ell)$ is $q^n$. Let $J$ be the jacobian of $C$. Since 
+$\h^1(C,\dQ_\ell)^\vee \simeq V_\ell J$ as $G_{\dF_q}$-modules, we have 
+\[
+  \# C(\dF_{q^n}) = q^n+1 - \trace(\Phi_\ast^n, V_\ell J) \text{.}
+\]
+The following theorem is a straightforward consequence of the Lefschetz fixed 
+point theorem and Theorem \ref{thm:char-poly-power}. 
+
+\begin{theorem}
+Let $C$ be a nice curve over $\dF_q$ of genus $g$. Let $J$ be its jacobian, and 
+write $P_J(t) = \prod_{i=1}^{2 g} (x-\omega_i)$. Then 
+\[
+  \# C(\dF_{q^n}) = q^n+1 - (\omega_1^n + \cdots + \omega_{2 g}^n) \text{.}
+\]
+\end{theorem}
+
+\begin{corollary}
+$\# C(\dF_{q^n}) - (q^n+1)| \leqslant 2 g q^{n/2}$.
+\end{corollary}
 
 
 
