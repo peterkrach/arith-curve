@@ -175,7 +175,7 @@ the assumption that $f\in \dQ[x,y]$ is not serious. One can prove that every
 curve $C/\dQ$ embeds into $\dP^2_\dQ$, hence is birational to a plane curve. 
 
 Let $C/\dQ$ be a curve. Then 
-$C(\dC)\setminus \{\text{singular points}\}$ is a compact Riemann 
+$C(\dC)\smallsetminus \{\text{singular points}\}$ is a compact Riemann 
 surface with points removed, i.e. it is a torus with $g$ handles with finitely 
 many points removed. Call this $g$ the \emph{genus} of $C$. 
 
@@ -310,7 +310,7 @@ We can identify $K$ with the function field of $C$, i.e.\ the set of rational
 maps $C\to\mathbb{A}^1$. Certainly rational maps yield meromorphic functions, 
 and it is a basic theorem of Riemann surface theory that meromorphic functions 
 are in fact algebraic. Moreover, if $C$ is nice, then $C$ can be recovered 
-from $K$. To do this, pick some $x\in K\setminus \dC$. If we let $A$ be 
+from $K$. To do this, pick some $x\in K\smallsetminus \dC$. If we let $A$ be 
 the integral closure of $\dC[x]$ in $K$, then $\spec(A)$ will be a 
 smooth affine curve. Pick some embedding of $\spec(A)$ into projective space; 
 the closure of its image will be a projective curve $C'$ (possibly with 
@@ -1504,7 +1504,7 @@ For a prime $\fp\subset \fo_k$, we write (as before) $\kappa_\fp = \fo_k/\fp$
 for the \emph{residue field} of $\fp$. The field $\kappa_\fp$ is finite because 
 it is finitely generated (as a ring) over its prime field. There is a unique 
 homomorphism $v_\fp:k^\times \twoheadrightarrow \dZ$ such that for 
-$a\in \fo_k\setminus 0$, we have $(a)=\fp^{v_\fp(a)}\cdot \fb$ with 
+$a\in \fo_k\smallsetminus 0$, we have $(a)=\fp^{v_\fp(a)}\cdot \fb$ with 
 $(\fb,\fp)=1$. This gives us an absolute value 
 \[
   |a|_\fp = \begin{cases}
@@ -1942,7 +1942,7 @@ See \cite[5.4.9]{sz09}.
 \end{proof}
 
 If $S$ is a finite set of primes of $k$, let $\fo_{k,S}=S^{-1}\fo_k$. We will 
-also denote by $S$ the scheme $\spec(\fo_k)\setminus S=\spec(\fo_{k,S})$. A 
+also denote by $S$ the scheme $\spec(\fo_k)\smallsetminus S=\spec(\fo_{k,S})$. A 
 field extension $L/k$ is unramified outside of $S$ precisely when integral 
 closure of $\fo_{k,S}$ inside $L$ is \'etale over $\fo_k$. In other words, the 
 above theorem shows that $\pi_1(S)=G_{k,S}$. Our proof of the weak Mordell-Weil 
@@ -2499,17 +2499,17 @@ $\dR^n$ with the standard dot product. Note that by basic properties of
 heights, $S$ is a discrete subset of $V$. 
 
 For nonzero $u,v\in V$, the \emph{angle} between $u$ and $v$ is the unique 
-number in $[0,\pi]$ satisfying 
+number $\varphi(u,v)$ in $[0,\pi]$ satisfying 
 \[
   \cos\varphi(u,v) = \frac{\langle u,v\rangle_\theta}{|u|_\theta |v|_\theta} \text{.}
 \]
-For a nonzero $v$ and fixed $\varphi\in (0,\pi]$, define the cone 
-$\Gamma_{v,\varphi} = \{u\in V\setminus 0 : \varphi(u,v)<0\}$. This is an open 
+For a nonzero $v$ and fixed $\alpha\in (0,\pi]$, define the cone 
+$\Gamma_{v,\alpha} = \{u\in V\smallsetminus 0 : \varphi(u,v)<\alpha\}$. This is an open 
 subset of $V$ that is stable under scaling by $\dR^+$. Let $S$ be the image of 
 $C(k)$ in $J(k)/J(k)_\text{tors}\hookrightarrow V$. Since $J(k)_\text{tors}$ is 
 finite, we only need to show that $S$ is finite. 
 
-Let $\psi\frac 1 2 \cos^{-1}(\frac 3 4)$, and for an arbitrary $v\in V$, let 
+Let $\psi = \frac 1 2 \cos^{-1}(\frac 3 4)$, and for nonzero $v\in V$, let 
 $U_v=\Gamma_{v,\psi}$. We claim that $U_v\cap S$ is finite. If it is not, 
 then there exist $x,y\in S\cap U_v$  such that $|x|_\theta>\lambda$ and 
 $|y|_\theta>\lambda'|x|_\theta$. By Vojta's theorem, 
@@ -2517,7 +2517,7 @@ $\cos\varphi(x,y)\leqslant \frac 3 4$, so
 $\varphi(x,y)\geqslant \cos^{-1}(\frac 3 4)$. This forces 
 $\varphi(x,u)\geqslant \psi$, a contradiction. 
 
-The sets $\{U_v:v\in V\setminus 0\}$ form an open cover of $V$. Since the unit 
+The sets $\{U_v:v\in V\smallsetminus 0\}$ form an open cover of $V$. Since the unit 
 sphere $\{v\in V:|v|=1\}$ is compact, there is a finite list 
 $v_1,\dots,v_n\in V$ such that $V=U_{v_1}\cup \cdots \cup U_{v_n}$. Since each 
 $U_{v_i}\cap S$ is finite, the set $S$ is finite. 
@@ -3086,7 +3086,7 @@ gives a functor
 \]
 Here and elsewhere, if $\cA$ is an additive category, we write 
 $\cA\otimes\dQ$ for the localization of $\cA$ at the class of morphisms 
-$n\cdot 1_A$, $n\in \dZ\setminus 0$.
+$n\cdot 1_A$, $n\in \dZ\smallsetminus 0$.
 
 It turns out that $P_A(0)=\deg(-\Phi_A)=\deg(\Phi_A)=q^g$; this can be verified 
 by a direct (but messy) computation. A more interesting quantity is 
@@ -3416,7 +3416,7 @@ Let's start with some motivation. Let $X$ and $Y$ be smooth oriented manifolds
 of dimension $n$. Let $f:X\to Y$ be a smooth map that is finite-to-one. For 
 $x\in X$, we can choose small neighborhoods $U,V$ of $x$ and $y=f(x)$ such 
 that $U$ and $V$ are $n$-balls, and for which $f:U\to V$ is injective. 
-The relative homology $\h^n(U,U\setminus x)$ and $\h^n(V,V\setminus y)$ are 
+The relative homology $\h^n(U,U\smallsetminus x)$ and $\h^n(V,V\smallsetminus y)$ are 
 both isomorphic to $\dZ$ with a canonical basis coming from the orientation. 
 With respect to these bases, $f_\ast$ is multiplication by an integer, called 
 the \emph{degree of $f$ at $x$}, and denoted $\deg_x f$. 
