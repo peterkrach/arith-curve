@@ -3412,18 +3412,18 @@ locally finite-dimensional graded vector space. We will write
 $\trace(f_\bullet,H_\bullet)$, or sometimes just $\trace(f,H)$, for this 
 alternating sum. 
 
-Let's start with some motivation. Let $X$ be an $n$-dimensional smooth 
-manifold. Suppose $f:X\to X$ is a smooth map with fixed point $x$. 
-
-connected 
-compact manifold, and $f:X\to X$ a smooth map with only finitely many fixed 
-points. For any point $x\in X$, one has $\h_n(X,X\setminus x,\dZ) \simeq \dZ$. 
-Thus the endomorphism of $\h_n(X,X\setminus x,\dZ)$ induced by $f$ is 
-multiplication by some integer, called the \emph{local degree} of $f$ at $x$, 
-and written $\deg_x f$. The Lefschetz fixed point theorem is very useful here. 
+Let's start with some motivation. Let $X$ and $Y$ be smooth oriented manifolds 
+of dimension $n$. Let $f:X\to Y$ be a smooth map that is finite-to-one. For 
+$x\in X$, we can choose small neighborhoods $U,V$ of $x$ and $y=f(x)$ such 
+that $U$ and $V$ are $n$-balls, and for which $f:U\to V$ is injective. 
+The relative homology $\h^n(U,U\setminus x)$ and $\h^n(V,V\setminus y)$ are 
+both isomorphic to $\dZ$ with a canonical basis coming from the orientation. 
+With respect to these bases, $f_\ast$ is multiplication by an integer, called 
+the \emph{degree of $f$ at $x$}, and denoted $\deg_x f$. 
 
 \begin{theorem}[Lefschetz]
-We have 
+Let $f:X\to X$ be smooth with finitely many nondegenerate fixed points. Then 
+we have 
 \[
   \sum_{x\in X^f} \deg_x f = \trace(f_\ast,\h_\bullet(X,\dQ))
 \]
