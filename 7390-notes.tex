@@ -3475,8 +3475,175 @@ write $P_J(t) = \prod_{i=1}^{2 g} (x-\omega_i)$. Then
 \end{theorem}
 
 \begin{corollary}
-$\# C(\dF_{q^n}) - (q^n+1)| \leqslant 2 g q^{n/2}$.
+$|\# C(\dF_{q^n}) - (q^n+1)| \leqslant 2 g q^{n/2}$.
 \end{corollary}
+
+
+
+
+
+% notes on 11-05-2013
+
+\begin{example}
+If $C$ is a nice curve of genus zero over $\dF_q$, then we know that 
+$|\# C(\dF_q) - (q+1)| \leqslant 0$, so $\# C(\dF_q) = q+1$. In particular, 
+$C$ has a $\dF_q$-rational point, whence $C\simeq \dP_{\dF_q}^1$. 
+\end{example}
+
+\begin{example}
+If $C$ is a nice curve of genus one over $\dF_q$, then we know that 
+$\# C(\dF_q) \geqslant q+1-2\sqrt q = (\sqrt q-1)^2 > 0$. So once again $C$ has 
+a $\dF_q$-rational point, hence $C$ is an elliptic curve. 
+\end{example}
+
+It is a good exercise to find a curve $C$ of genus $g=2$ for which 
+$C(\dF_q)=\varnothing$. (\textbf{do this})
+
+\begin{example}
+Let $C$ be a nice curve of genus two over $\dF_4$. We know that 
+$\# C(\dF_4) \leqslant 4+1+2\cdot 2\cdot \sqrt 4 = 13$. We claim that 
+$\# C(\dF_4) \ne 13$, i.e. the Hasse bound is not sharp. To see this, note 
+that $\# C(\dF_4) = 5 - (\omega_1+\omega_2+\omega_3+\omega_4)$, where each 
+$\omega_i$ has absolute value $2$. Thus 
+$\# C(\dF_4) \leqslant 5 + (2+2+2+2)$, with equality if and only if each 
+$\omega_i=-2$. If each $\omega_i=-2$, then we would have 
+$P_J=(t+2)^4$. This would imply 
+\[
+  \# C(\dF_{16}) = 16+1-(\omega_1^2+\omega_2^2+\omega_3^2+\omega_4^2) = 16+1-(4+4+4+4)=1
+\]
+which contradicts $C(\dF_4)\subset C(\dF_{16})$. 
+\end{example}
+
+\begin{example}[Hermite curve]
+Let $C$ be the curve over $\dF_p$ defined by the equation 
+$x^{p+1}+y^{p+1}+z^{p+1}=0$. Then $C\subset \dP^2$ is a nice curve, and 
+$\# C(\dF_p)=p+1$. This is because for $(x,y,z)\in \dF_p^3$, we have 
+$x^{p+1}+y^{p+1}+z^{p+1}=x^2+y^2+z^2$. This is the equation of a genus zero 
+curve. It turns out that $\# C(\dF_{p^2}) = p^3+1$. One way to prove this is 
+to use the fact that the map $\dF_{p^2}^\times \to \dF_p^\times$ given by 
+$a\mapsto a^{p+1}$ is surjective. The curve $C$ has degree 
+$p+1$, so its genus is $g=\frac{(d-1)(d-2)}{2}$, which in our case is 
+$\frac{p(p-1)}{2}$. We know that 
+\[
+  p^3+1 = \# C(\dF_{p^2}) \leqslant p^2+2 g\sqrt{p^2} = p^3+1 \text{.}
+\]
+In particular, our bound on $\# C(\dF_{p^2})$ is sharp in this case. The fact 
+that $\# C(\dF_{p^2}) = p^2+1+2\sqrt{p^2}$ tells us that 
+$P_{J_{\dF_{p^2}}}(t) = \prod (t-\omega_i^2)$ with each $\omega_i^2=-p$. In 
+other words, $P_{J_{\dF_{p^2}}}(t) = (t+p)^{2g}$. Each 
+$\omega_i = \pm \sqrt p i$, so $p+1=\# C(\dF_p) = (p+1) - \sum \omega_i$ 
+tells us that half of the $\omega_i=\sqrt p i$, and half are 
+$-\sqrt p i$. In other words, 
+\[
+  P_J(t) = (t^2-\sqrt p i)^g (t+\sqrt p i)^g = (t^2+p)^g
+\]
+Thus $J$ is isogenous to $E^g$, where $E$ is an elliptic curve over $\dF_p$ 
+with $a(E)=0$. 
+\end{example}
+
+Recall that for a curve $C$ over $\dF_q$, the \emph{zeta function} of $C$ is 
+the formal power series 
+\begin{align*}
+  Z(C,t) &= \exp\left(\int \sum_{n\geqslant 1} \# C(\dF_{q^n}) t^n\, \frac{dt}{t}\right) \\
+    &= \exp(-\log(1-q t) - \log(1-t) + \log(1-\omega_1 t) + \cdots + \log(1-\omega_{2 g} t)) \\
+    &= \frac{(1-\omega_1 t)\cdots (1-\omega_{2g} t)}{(1-t)(1-q t)} 
+\end{align*}
+where the numerator is the ``reverse'' $t^{2g} P_J(1/t)$ of $P_J$. For 
+\emph{any} smooth variety $X$ over $\dF_q$, one can define $Z(X,t)$ in the same 
+way, and the \emph{Weil conjectures} (now a theorem of Deligne) assert that 
+$Z(X,t)$ is rational. The fact that 
+\[
+  Z(C,t) = \frac{\det(1-\Phi^\ast t,V_\ell J)}{(1-t)(1-q t)}
+\]
+has a general analogue. One has equality 
+\[
+  Z(X,t) = \prod_{i=0}^{2\dim X} \det(1-\Phi^\ast t,\h^i(X,\dQ_\ell))^{(-1)^{i+1}} = \frac{1}{\det(1-\Phi^\ast t,\h^\bullet(X,\dQ_\ell))} \text{.}
+\]
+
+(\textbf{Add details, reference about Weil conjectures, stuff about how to 
+compute zeta functions and number of points. Also, stuff about the 
+``relative zeta function'' 
+\[
+  Z(X,f,t) = \exp\left(\int \sum_{n\geqslant 1} (\Delta_X\cdot \Gamma_{f^n}) t^n\, \frac{dt}{t}\right) = \frac{1}{\det(1-f^\ast t,\h^\bullet(X,\dQ_\ell))} 
+\]
+Mention Weil II, SGA 4.5, \ldots})
+
+We claim that the roots of $P_J$ in $\dC$ can be ordered into pairs 
+$(\omega,\bar\omega=q/\omega)$. Thus the polynomials $t^{2 g} P_J(q/t)$ and 
+$P_J(t)$ have the same roots, so they are equal up to a constant. One can 
+check that $t^{2 g} P_J(q/t) = q^g P_J(t)$. This yields the functional equation 
+(\textbf{include functional equation (with substitution 
+$t=q^{-s}$, general functional equation, analogue to Riemann hypothesis\ldots})
+
+We have 
+\[
+  P_J(t) = t^{2g} + a_1 t^{2g-1} + \cdots + a_g t^g + a_{g-1} q t^{g-1} + a_{g-2} q^2 t^{g-2} + \cdots + a_t q^{g-1} t + q^g \text{.}
+\]
+In particular, $t^{2g} P_J(1/t)$ is congruent to 
+$1+\cdots + a_g t^g$ modulo $t^{g+1}$. Thus 
+\begin{align*}
+  1+ a_1 t + \cdots + a_g t^g &\equiv (1-t)(1-q t)Z(C,t) \\
+    &\equiv (1-t)(1-q t)\exp\left(\sum_{n\geqslant 1} \# C(\dF_{q^n}) \frac{t^n}{n}\right) \pmod{t^{g+1}}
+\end{align*}
+The values $\# C(\dF_q),\dots,\# C(\dF_{q^g})$ determine $a_1,\dots,a_g$, and 
+hence $P_J(t)$ and $Z(C,t)$ are determined by 
+$\# C(\dF_{q^r})$ for $r\leqslant g$. 
+
+\textbf{(should have a new section on Weil conjectures)}
+
+\begin{example}
+Let $C$ be the nice curve over $\dF_p$ arising from 
+$y^2=x^6-x^3+x+1$. (The projective closure of the zero set of this polynomial 
+has a singularity, so we have to blow it up once.) 
+Let $J$ be the jacobian of $C$. We have 
+\[
+  P_J(t) = t^4 + a_1 t^3 + a_2 t^2 + q a_1 t + p^2 
+\]
+and 
+\[
+  1+a_1 t + a_2 t^2 \equiv (1-t)(1-p t)\exp\left(\# C(\dF_p)t + \# C(\dF_{p^2}) \frac{t^2}{2}\right) \pmod{t^3}
+\]
+For $p=3$, one can compute $\# C(\dF_3) = 7$, $\# C(\dF_9) = 13$. Thus 
+\[
+  1+a_1 t + a_2 t^2 \equiv (1-t)(1-3 t)\exp\left(7 t+13\frac{t^2}{2}\right) \equiv 1+3 t+6 t^2 \pmod{t^3}
+\]
+It follows that $P_J(t) = t^4+3 t^3+6 t^2 + 9 t+9$. This factors as 
+$(t^2+3)(t^2+3 t+3)$. 
+
+From this, we see that $J$ is isogenous to a product of non-isogenous elliptic 
+curves. 
+
+If $p=5$, one can brute-force $\# C(\dF_5) = 9$, $\# C(\dF_{25}) = 19$. The 
+same process yields the irreducible polynomial 
+\[
+  P_J(t) = t^4 + 3 t^3 + t^2 + 15 t + 25 \text{.}
+\]
+Thus $J$ is a simple abelian variety of dimension $2$. As a consequence, there 
+is no nonconstant morphism $C\to E$, where $E$ is an elliptic curve. If there 
+was, we would get a nonconstant morphism $J\to E$, the kernel of which would be 
+a nontrivial abelian subvariety of $J$. (\textbf{after taking connected 
+component})
+
+We claim that $J$ is geometrically simple. We want $P_{\dF_{5^n}}$ to be 
+irreducible for all $n$. For, this would imply that $J_{\dF_{5^n}}$ is simple, 
+for each $n$and hence $J_{\bar\dF_5}$ is simple. Let $\omega$ be a root of 
+$P_J(t)$. We know that $\dQ(\omega)/\dQ$ is a degree-four extension. We 
+want $\dQ(\omega^n) = \dQ(\omega)$. We claim that 
+$\dQ(\omega)$ has only the subfields $\dQ(\sqrt 5)$ and $\dQ$. So if 
+$\dQ(\omega^n)\ne\dQ(\omega$, then $\omega^n$ is real, i.e. 
+$\omega^n=\pm 5^{n/2}$. This implies $\omega=\zeta\sqrt 5$ for $\zeta$ a 
+root of unity, whence $\zeta\in \dQ(\omega)$. One can show that the 
+extension $\dQ(\omega)/\dQ$ is not Galois, so 
+$\zeta\in \dQ(\sqrt 5)$, so $\zeta=\pm 1$, whence 
+$\omega = \pm \sqrt 5$, which cannot be the case. 
+\end{example}
+
+(\textbf{mention that zeta function (as rational function) doesn't have 
+cancellation because roots on top and bottom have different absolute 
+values})
+
+
+
 
 
 
