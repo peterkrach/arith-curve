@@ -1,0 +1,1720 @@
+% !TEX root = 7390-notes.tex
+
+
+
+% notes on 09-12-2013
+\section{The Mordell-Weil theorem}
+
+
+Let $k$ be a number field, i.e. $k$ is a finite extension of $\dQ$. Important 
+examples are $k=\dQ(\sqrt d)$ and $\dQ(\zeta_{p^n})$. 
+
+\begin{theorem}[Mordell-Weil]
+Let $A$ be an abelian variety over a number field $k$. Then the abelian group 
+$A(k)$ is finitely generated.
+\end{theorem}
+
+Note that is clearly false if $k=\dC$, for then $A(\dC)$ is a complex Lie 
+group, hence uncountable. In fact, whenever $k$ is a local field, $A(k)$ is a 
+Lie group over $k$, hence uncountable. The Mordell-Weil theorem actually holds 
+whenever $k$ is finitely generated over its prime field. Basic algebra shows 
+that $A(k) = A(k)_\text{tors}\oplus \dZ x_1\oplus \cdots \oplus \dZ x_r$, where 
+the $x_i$ are linearly independent over $\dZ$. We call $r=\rank A$ 
+the \emph{rank} of $A$. Mordell proved the theorem for $A=E/\dQ$ an elliptic 
+curve, demonstrating an assertion of Poincar\'e.
+%Mordell 1922, Poincare 1901
+
+\begin{example}
+Let $E\subset \dP_\dQ^2$ be the projective closure of the affine curve 
+defined by $y=x^3+2 x+3$, with $O=(0:0:1)$ the point at infinity. The curve 
+has a group law where $a+b+c=0$ if and only if $a,b,c$ are colinear. 
+Alternatively, there is a unique map $E\hookrightarrow J_E$ with $O\mapsto 0$; 
+this is an isomorphism, and we can use it to transfer the group structure of 
+$J_E$ to $E$. The curve $E$ has an obvious rational point $(-1,0)$ of order 
+two. Another rational points is $(3,6)$. Their sum is 
+$\left(\frac 1 4,-\frac{15}{16}\right)$. One can show that 
+$E(\dQ) = \langle (-1,0)\rangle \oplus \langle (3,6)\rangle$, where 
+$(-1,0)$ has order two and $(3,6)$ has infinite order. So 
+$E(\dQ) = \dZ/2\oplus \dZ$. 
+\end{example}
+
+\begin{example}
+Let $E/\dQ$ be the projective closure of $y^2+y = x^3+x^2 - 2 x$. We claim 
+that $E(\dQ) = \langle (0,0),(1,0)\rangle$. As an exercise, try to find ten 
+more points in $E(\dQ)$. 
+\end{example}
+
+One thing that motivated Weil is the following conjecture of Mordell (now a 
+theorem of Faltings). 
+
+\begin{theorem}[Faltings]
+If $C$ is a nice curve over a number field $K$ with genus $g\geqslant 2$, then 
+$C(k)$ is finite.
+\end{theorem}
+
+Note that Mordell's conjecture definitely fails if $g\leqslant 1$. For $g=0$, 
+$\dP^1$ has lots of rational points, and we have seen examples of 
+elliptic curves with infinitely many rational points. Here is a heuristic. 
+Assume $C(k)\ne\varnothing$ and consider the canonical embedding 
+$C\hookrightarrow J$. We have $C(k)=C\cap J(k)$. The set $C$ has positive 
+codimension, and $J(k)$ is a finitely generated abelian group. So 
+$C(k)$ is the intersection of two ``sparse'' subsets of $J$. One would expect 
+this forces $C(k)$ to be small. This heuristic is validated by the following 
+theorem, which was conjectured by Mordell and Lang.
+
+\begin{theorem}[Faltings]
+Let $A$ be an abelian variety over an algebraically closed field $k$, and let 
+$\Gamma$ be a finitely generated subgroup of $A(k)$. If $X\subset A$ is a 
+subvariety, then there is a finite set $S\subset \Gamma$ and a finite set 
+$\{B_s:s\in S\}$ of abelian subvarieties of $A$ contained in $X$ such that 
+\[
+  X(k)\cap \Gamma = \bigcup_{s\in S} \left(s+ B_s(k)\cap \Gamma\right)
+\]
+\end{theorem}
+A proof in the case $k=\dC$ can be found in \cite{mc95}, who proves the theorem 
+for more general group varieties than abelian varieties. 
+
+\begin{corollary}
+Let $A$ be an abelian variety over $\dC$, let $C$ be a nice curve in $A$ of 
+genus $g\geqslant 2$. Let $\Gamma$ be a finitely generated subgroup of 
+$A(\dC)$. Then $C(\dC)\cap \Gamma$ is finite. 
+\end{corollary}
+\begin{proof}
+Since $C$ has genus $g\geqslant 2$, it cannot contain a nontrivial abelian 
+variety. Thus each $B_s = 0$, so the theorem yields $C(\dC)\cap \Gamma = S$ 
+for some finite set $S\subset \Gamma$. 
+\end{proof}
+
+There is a relative version of the Mordell-Lang conjecture known as the 
+\emph{Lang-N\'eron theorem}. Let $K/k$ be a \emph{regular} field extension, 
+that is, $\bar k\cap K = k$ and $K/k$ is separable. If $A$ is an abelian 
+variety defined over $K$, then there is an abelian variety 
+$\trace_{K/k}(A)$ defined over $k$ together which a morphism 
+$\tau:\trace_{K/k}(A)_K\to A$ that is initial among abelian 
+varieties $B/k$ with morphisms $B_K\to A$. One calls 
+$\trace_{K/k}(A)$ the \emph{$K/k$-trace of $A$}. Intuitively, 
+$\trace_{K/k}(A)$ is the smallest abelian subvariety of $A$ defined 
+over $k$. A proof of the following theorem can be found in \cite{co06}. 
+
+\begin{theorem}[Lang-N\'eron]
+Let $K/k$ be a finitely generated regular extension, and let $A$ be an abelian 
+variety over $K$. Then the group $A(K)/\trace_{K/k}(A)(k)$ is 
+finitely generated.
+\end{theorem}
+
+This implies the Mordell-Weil theorem for finitely generated fields. If $K$ is 
+a finitely generated field, let $k$ be the algebraic closure of the prime field 
+of $K$ within $K$. Then $K/k$ is regular, and by the usual Mordell-Weil 
+theorem, $\trace_{K/k}(A)(k)$ is finitely generated, so $A(K)$ has a 
+finitely generated subgroup with finitely generated quotient. It follows that 
+$A(K)$ is finitely generated.
+
+\begin{proof}[Proof of Mordell-Weil]
+Let $A$ be an abelian variety over a number field $k$. Our proof has three 
+parts:
+\begin{enumerate}
+  \item construct a ``height function'' $|\cdot|:A(k)\to \dR_{\geqslant 0}$ 
+    with good properties
+  \item prove the weak Mordell-Weil theorem: $A(k)/n A(k)$ is finite for all 
+    $n\geqslant 2$
+  \item show that 1 and 2 formally imply the full Mordell-Weil theorem 
+\end{enumerate}
+We will prove 3 here, defer 2 to the next section, and cite a source for 1. 
+Suppose $A$ is an arbitrary abelian group with a function 
+$|\cdot|:A\to \dR_{\geqslant 0}$ satisfying 
+\begin{itemize}
+  \item for any $c>0$, the set $B_c = \{x\in A:|x|\leqslant c\}$ 
+    is finite
+  \item we have $|x-y|\leqslant |x|+|y|$ and $|n x|=n |x|$ for all 
+    $x\in A$ and some $n\geqslant 2$
+  \item for the same $n\geqslant 2$, the group $A/n$ is finite
+\end{itemize}
+We will prove that $A$ is finitely generated. Let $\{a_i\}$ be a (finite) set 
+of coset representatives for $A/n$. Let $c=2\sup \{|a_i|\}$. We claim that $A$ 
+is generated by the finite set $B_c$. This will be shown by 
+descent. Let $x_1\in A$. By our assumptions, we can write 
+$x_1 = y_{i_1} + n x_2$, and one see that 
+\[
+  |x_2| = \frac 1 n |x_1 - y_{i_1}| 
+    \leqslant \frac{|x_1| + |y_{i_1}|}{n} 
+    \leqslant \frac 1 n |x_1| + \frac{c}{2 n}
+\]
+Setting $x_{r+1} = y_{i_r} + n x_r$, we can continue this process, obtaining 
+the inequality 
+\[
+  |x_{r+1}| \leqslant \frac 1 n |x_r| + \frac{c}{2 n}
+    \leqslant \frac{1}{n^r} |x_1| + \frac 1 2\left(\frac 1 n + \cdots + \frac{1}{n^r}\right) c 
+    \leqslant \frac{|x_1|}{n^r} + \frac c 2
+\]
+For $r\gg 0$, the quantity on the right is less than $c$. Thus $x_1$ is in the 
+subgroup of $A$ generated by $B_c$ and $\{a_i\}$. Since $|a_i|\leqslant c$ for 
+each $i$, we have $A=\left\langle B_c\right\rangle$. 
+\end{proof}
+
+We will prove the existence of a height function on $A(k)$ satisfying the 
+desired properties in section \ref{sec:heights}. Very briefly, there is a 
+canonical height function on $\dP^n(\bar k)$ defined by  
+\[
+  h(x_0:\cdots:x_n) = \frac{1}{[L:k]} \sum_v \log \sup\{|x_i|_v\} \text{,}
+\]
+where $L/k$ is some extension containing the $x_i$ and $|\cdot|_v$ is the 
+normalized absolute value associated with $v$. For a very ample divisor $c$ on 
+$A$, we get an embedding $\varphi_c:A\to \dP^n$, and thus a height function 
+$h_c:A(\bar k)\to \dR_{\geqslant 0}$. As it stands, this is not well-defined, 
+but there is a canonical way of adjusting $h_c$ by a bounded function on 
+$A(\bar k)$ to get a function $\widehat h_c:A(\bar k)\to \dR$ such that 
+\[
+  (x,y)\mapsto \langle x,y\rangle_{\widehat h_c} = \widehat h_c(x+y) - \widehat h_c(x) - \widehat h_c(y)
+\]
+is bilinear. One calls $\widehat h_c$ the \emph{N\'eron-Tate height} associated 
+with $c$. The function $|\cdot|$ in the proof is the absolute value 
+$|\cdot|_c=\widehat h_c^{1/2}$ for any very ample even divisor $c$.
+
+
+
+
+
+Our proof is very nearly effective. Given a set of generators for 
+$A(k)/n A(k)$, it gives an algorithm for finding a set of generators for 
+$A(k)$. Moreover, one can choose any $n$. Most people use $n = 2$ when doing 
+computations. In the next section, we will give a proof of the weak 
+Mordell-Weil theorem using Galois cohomology. Let $\bar k$ be the algebraic 
+closure of $k$, and let  $G_k = \gal(\bar k/k)$ be the absolute Galois group of 
+$k$. The abelian group $A(\bar k)$ has a continuous $G_k$-action. One way to 
+see this is to embed $A$ into some $\dP^N$, and let $G_k$ act on 
+coordinates. A fancier way to see this is to note that 
+$A(\bar k) = \hom(\spec(\bar k),A)$, so if $\sigma\in G_k$, $x\in A(\bar k)$, 
+the point $^\sigma x$ is the composite 
+$\spec(\bar k)\xrightarrow{\sigma^*} \spec(\bar k) \xrightarrow{x} A$. 
+
+Let $A[n]$ be the kernel of $\cdot n : A(\bar k)\to A(\bar k)$. We can take 
+$G_k$-invariants of $A[n]$. We get an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A[n]^{G_k} \ar[r] 
+    & A(k) \ar[r]^-n 
+    & A(k)
+}\]
+We are interested in continuing this exact sequence to the right, i.e. in 
+constructing a long exact sequence 
+\[
+  0 \to A[n]^{G_k} \to A(k) \to A(k) \to \h^1(G_k,A[n]) \to \h^1\left(G_k,A(\bar k)\right)\to \h^1\left(G_k, A(\bar k)\right) \to \h^2\left(G_k, A[n]\right) \to \cdots
+\]
+This fits into a general framework of derived functors, but we will mostly 
+just use the concrete definition of $\h^\bullet(G_k,-)$ using cocycles and 
+coboundaries. 
+
+
+
+
+
+
+
+
+
+
+% lecture 09-17-2013
+\section{Group cohomology}
+
+Eventually we'll get to Selmer groups and the weak Mordell-Weil theorem, but 
+first we need to discuss group cohomology. Let $k$ be a number field, $\bar k$ 
+an algebraic closure of $k$, and $G_k=\gal(\bar k/k)$ the \emph{absolute Galois 
+group} of $k$. This is a \emph{profinite group} (compact, totally connected 
+Hausdorff group) with a basis of neighborhoods of $1$ being the groups 
+$G_L=\gal(\bar k/L)$ where $L$ ranges over the finite extensions of $k$. Let 
+$A$ be an abelian variety over $k$ of dimension $d\geqslant 1$. There is no 
+harm in thinking of $k=\dQ$ and $A$ as an elliptic curve. 
+
+The homomorphism $A\xrightarrow n A$ that sends $x$ to $n\cdot x$ is an 
+isogeny. Let $A[n]$ be the $n$-torsion subgroup of $A(\bar k)$, i.e. 
+\[
+  A[n] = \{x\in A(\bar k) : n\cdot x = 0\}
+\]
+If $k$ were a field of positive characteristic $p$ and $p\mid n$, it would be 
+better to think of $A[n]$ as the scheme $A\times_A 0$ via $n:A\to A$. In any 
+case, there is an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A[n] \ar[r] 
+    & A(\bar k) \ar[r]^-n 
+    & A(\bar k) \ar[r] 
+    & 0
+}\]
+Recall that if $G$ is an arbitrary group acting on some abelian group $M$, we 
+define $M^G=\{m\in M:\sigma m = m\forall \sigma\in G\}$, the module of 
+\emph{$G$-invariants} of $M$. Taking $G_k$-invariants of the above short exact 
+sequence, we get an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A[n]^{G_k} \ar[r] 
+    & A(k) \ar[r]^-n 
+    & A(k)
+}\]
+We don't have exactness on the right because $(-)^{G_k}$ is only left exact in 
+general. More concretely, if $A(k)\xrightarrow n A(k)$ were always surjective, 
+then $A(k)$ would be a divisible abelian group, which contradicts the fact that 
+if $k$ is a number field, then $A(k)$ is finitely generated. 
+
+We can define $\h^\bullet(G_k,A[n])$ using derived functors. Consider the 
+category $G_k\text{-}\mathsf{Mod}$ of (discrete) abelian groups with continuous 
+$G_k$-action. This is an abelian category with enough injectives. The functor 
+$\Gamma=(-)^{G_k}:G_k\text{-}\mathsf{Mod}\to \mathsf{Ab}$ is left-exact, we we 
+define the group cohomology as the derived functors of $\Gamma$, i.e. 
+$\h^\bullet(G_k,-) = \mathsf{R}^\bullet \Gamma$. In particular, 
+$\h^0(G_k,M) = M^{G_k}$ for any discrete $G_k$-module $M$. 
+
+Choose $x\in A(k)$. Then $x=n\cdot y$ for some $y\in A(\bar k)$. Take 
+$\sigma\in G_k$. Then $x=\sigma x$, so $\sigma(n\cdot y) = n\cdot \sigma(y)$. 
+Then $n\cdot (\sigma y - y) = n\cdot \sigma y - n\cdot y = 0$, so 
+$\sigma y-y\in A[n]$. Thus we have a map (\emph{not} a usually a homomorphism) 
+$\varphi:G_k\to A[n]$, $\sigma\mapsto \sigma y - y$. Take $\sigma,\tau\in G_k$. 
+Then one computes 
+\begin{align*}
+  \varphi(\sigma\tau) &= \sigma\tau(y) - y \\
+    &= \sigma(\tau y - y) + \sigma y -y \\
+    &= \sigma\varphi(\tau) + \varphi(\sigma)
+\end{align*}
+So $\varphi$ is a homomorphism exactly when the action of $G_k$ on 
+$A[n]$ is trivial. Moreover, there is a number field $L/k$ such that 
+$G_L\subset G_k$ fixes $y$. In particular, $\varphi(G_L)=0$, i.e. the map 
+$\varphi:G_k\to A[n]$ is continuous. Suppose we choose some $y'$ distinct from 
+$y$ with $x=n\cdot y'$. We could define $\varphi':G_k\to A[n]$ by 
+$\sigma\mapsto \sigma y'-y'$. Since $n(y-y')=0$, we have $y'-y\in A[n]$, hence 
+$y'=y+\alpha$ for some $\alpha\in A[n]$. We now have 
+\begin{align*}
+  \varphi'(\sigma) &= \sigma y'-y' \\
+    &= \sigma(y+\alpha) - (y+\alpha) \\
+    &= \sigma y - y + \sigma\alpha-\alpha \\
+    &= \varphi(\sigma) + \sigma \alpha-\alpha
+\end{align*}
+Maps $G_k\to A[n]$ of the form $\sigma\mapsto \sigma \alpha-\alpha$ will be 
+called \emph{coboundaries}. 
+
+Suppose we have another point $x'\in A(k)$. Choose a $y'$ with $x'=n y'$. Then 
+$x+x'=n(y+y')$, and the point $x+x'$ gives rise to a map $G_k\to A[n]$, 
+$\sigma\mapsto \sigma(y+y')-(y+y')$; this map is just $\varphi+\varphi'$, where 
+$\varphi':\sigma\mapsto \sigma y'-y$. 
+
+\begin{definition}
+Let $G$ be a profinite group, $M$ a discrete $G$-module. The group $Z^1(G,M)$ 
+of \emph{$1$-cocycles} consists of continuous maps $\varphi:G\to M$ such that 
+$\varphi(\sigma\tau)=\sigma\varphi(\tau)+\varphi(\sigma)$. The group $B^1(G,M)$ 
+of \emph{$1$-coboundaries} consists of continuous maps $\varphi:G\to M$ of the 
+form $\sigma\mapsto \sigma\alpha-\alpha$ for some $\alpha\in M$. The 
+\emph{first cohomology of $G$ with coefficients in $M$} is 
+\[
+  \h^1(G,M) = Z^1(G,M) / B^1(G,M)
+\]
+\end{definition}
+One can prove using a canonical projective resolution of $M$ that this agrees 
+with the derived functor definition.One can check directly that if 
+$0\to M'\xrightarrow f M\xrightarrow g M''$ is an exact sequence of 
+$G_k$-modules, then there is a natural exact sequence:
+\[\xymatrix{
+  0 \ar[r] 
+    & {M'}^G \ar[r]^-f
+    & M^G \ar[r]^-g
+    & {M''}^G \ar[r]^-\delta
+    & \h^1(G,M') \ar[r]^-{f_*}
+    & \h^1(G,M) \ar[r]^-{g_*}
+    & \h^1(G,M'')
+}\]
+where $\delta(x)$ is defined as follows. Choose a lift $\tilde x$ in 
+$M$, and let $\delta(x)(\sigma) = f^{-1}(\sigma \tilde x - \tilde x)$. One can 
+check that this is a cocycle, and that choosing a different $\tilde x$ changes 
+$\delta(x)(\sigma)$ by a coboundary. 
+
+If $G$ is a discrete group, then the cohomology $\h^\bullet(G,M)$ can be 
+interpreted as an $\operatorname{Ext}$-group. It is easy to see that the 
+category of $G$-module is equivalent to the category of $\dZ[G]$-modules, and 
+that $M^G\simeq \hom_{\dZ[G]}(\dZ,G)$. It follows that 
+$\h^\bullet(G,M)\simeq \operatorname{Ext}_{\dZ[G]}^\bullet(\dZ,M)$. If $G$ is a 
+profinite group, then $\dZ[G]$ is the wrong ring to use. Instead, one considers 
+the \emph{completed group ring} 
+\[
+  \dZ\llbracket G\rrbracket = \varprojlim_{\substack{N\triangleleft G \\ N\text{ open}}} \dZ[G/N]
+\]
+where we give each $\dZ[G/n]$ the discrete topology and 
+$\dZ\llbracket G\rrbracket$ the inverse limit topology. The category of 
+discrete $G$-modules with continuous action is equivalent to the category of 
+discrete $\dZ\llbracket G\rrbracket$-modules with continuous action, 
+$M^G\simeq \hom_{\dZ\llbracket G\rrbracket}(\dZ,M)$, whence 
+$\h^\bullet(G,M) \simeq \operatorname{Ext}_{\dZ\llbracket G\rrbracket}^\bullet(\dZ,M)$. 
+
+In the case that $G=G_k$, one can interpret the groups $\h^\bullet(G,M)$ as a 
+special case of \'etale cohomology. Recall that a morphism $f:X\to S$ of 
+schemes is \emph{\'etale} if it is flat and unramified. The \emph{\'etale 
+site} of $S$, denoted $\et S$, is the full subcategory of $\mathsf{Sch}_S$ 
+consisting of $X\to S$ that are \'etale. A collection $\{f_i:U_i\to X\}$ in 
+$\et S$ is a \emph{cover} if the images of the $f_i$ cover $X$. With this 
+notion of a cover, $\et S$ is a (subcanonical) site, so we can talk about 
+sheaves and cohomology on $\et S$. There are two key examples. If $k$ is a 
+field, write $\et k$ for $\et{\spec(k)}$. Then the objects of $\et k$ are all 
+of the form $\spec(L_1)\sqcup \cdots \sqcup \spec(L_n)\to \spec(k)$ for a 
+finite family of separable field extensions $L_1,\dots,L_n$ of $k$. One can 
+check that the category $\sheaf(\et k)$ of abelian sheaves on $\et k$ is 
+equivalent to the category of discrete $G_k$-modules, via the functor 
+$\sF\mapsto \sF_{\bar k} = \varinjlim_{L/k} \sF(\spec L)$, where $L$ ranves 
+over all finite Galois extensions of $k$. If $M$ is a $G_k$-module, then there 
+is a corresponding \'etale sheaf $\widetilde M$, determined by 
+$\widetilde M(\spec L) = M^{G_L}$. Since 
+$M^G\simeq \h^0(\et k,\widetilde M)$, we obtain that 
+$\h^\bullet(G_k,M) \simeq \h^\bullet(\et k, \widetilde M)$. For more details, 
+see \cite[I 2.4]{de77}. 
+
+In our case, the exact sequence 
+$0\to A[n]\to A(\bar k) \xrightarrow n A(\bar k) \to 0$ gives rise to a long 
+exact sequence 
+\[\xymatrix@=0.5cm{
+  0 \ar[r] 
+    & A[n]^{G_k} \ar[r] 
+    & A(k) \ar[r]^-n 
+    & A(k) \ar[r]^-\delta 
+    & \h^1\left(G_k,A[n]\right) \ar[r] 
+    & \h^1\left(G_k,A(\bar k)\right) \ar[r] 
+    & \h^1\left(G_k, A(\bar k)\right) \ar[r] 
+    & \cdots
+}\]
+It follows that we have an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A(k) / n \ar[r]^-\delta
+    & \h^1\left(G_k,A[n]\right) \ar[r] 
+    & \h^1\left(G_k,A(\bar k)\right)[n] \ar[r]
+    & 0
+}\]
+We will try to prove that $A(k)/ n$ is finite by embedding it into a group 
+we know is finite. Unfortunately $\h^1(G_k, A[n])$ is infinite, so we cannot 
+just use the above exact sequence show that $A(k)/n$ is finite. 
+
+In general, suppose $G$ is a (commutative) group scheme over $k$. For example, 
+$G$ could be the multiplicative group $\dG_m$, and abelian variety $A$. If 
+$G$ is any commutative group scheme over $k$, we will use $G[n]$ to denote the 
+fiber product $G\times_G 0$, where the map $G\to G$ is ``multiply by $n$.'' 
+This conflicts with our earlier convention that $A[n]=A(\bar k)[n]$, but 
+no confusion should arise from this. The group $G(\bar k)$ is 
+a $G_k$-module, so we can consider the cohomology groups 
+$\h^\bullet\left(G_k, G(\bar k)\right)$. We know that these are isomorphic to 
+the \'etale cohomology groups 
+$\h^\bullet\left(\et k, \widetilde{G(\bar k)}\right)$, and one can check quite 
+easily that $\widetilde{G(\bar k)}$ is just $G$, regarded as a sheaf on $\et k$ 
+via its functor of points. It follows that 
+$\h^\bullet\left(G_k, G(\bar k)\right) = \h^\bullet(\et k, G)$, and we will 
+pass between the two without comment in the future. 
+
+To simplify the notation, we will often write $k$ for $\et k$, i.e. 
+$\h^\bullet(k,G) = \h^\bullet(\et k,G)$. In this context, Hilbert's 
+\emph{theorem 90} says that for $k$ a field, $\h^1(k,\dG_m) = 0$. If we write 
+$\mu_n = \dG_m[n]$, then \emph{Kummer theory} starts with the short exact 
+sequence $1\to \mu_n\to \dG_m\xrightarrow n \dG_m \to 1$ and uses Hilbert's 
+theorem 90 together with the long exact sequence in sheaf cohomology to derive 
+$\h^1(k,\mu_n) = k^\times / (k^\times)^n$. 
+
+There is an alternate description of $\h^1(k,A)$. If $G$ is an arbitrary 
+commutative algebraic group over $k$, a \emph{principal homogeneous space} 
+(also called a \emph{torsor}) for $G$ over $k$ is a nonempty variety $X/k$ 
+together with a morphism $G\times X\to X$ which, on $\bar k$-valued points, is 
+a simply transitive group action. That is, if we write $g+x$ for the 
+image of $(g,x)$ in $X$, we require that 
+\begin{itemize}
+  \item $g+(h+x) = (g+h)+x$ 
+  \item $0+x = x$
+  \item for all $x,y\in X(\bar k)$, there is a unique $g\in G(\bar k)$ such 
+    that $g+x = y$
+\end{itemize}
+more generally, if $S$ is a scheme and $\sG$ is an abelian sheaf on $\et S$, a 
+\emph{torsor} for $\sG$ is a sheaf of sets $\sT$ with a group action 
+$\sG\times \sT\to\sT$ that, \'etale-locally on $S$, is isomorphic to $\sG$ as 
+a sheaf with left $\sG$-action. Two torsors $\sT,\sT'$ are isomorphic if there 
+is a sheaf isomorphism $\sT\to \sT'$ that commutes with the action of $\sG$. 
+One can show (see e.g. \cite[IV 1.1]{de77}) that $\h^1(\et S,\sG)$ is 
+naturally isomorphic as a pointed set to the set of isomorphism classes of 
+$\sG$-torsors. 
+
+Thus if $G$ is a commutative algebraic group over $k$, there is a natural 
+bijection between the set of isomorphism classes of $G$-torsors and 
+$\h^1(k,G)$. There is a non-abelian version of this. If $\sG$ is an arbitrary 
+sheaf of groups over $\et S$, then one can still define the notion of a 
+$\sG$-torsor. An identical theorem holds, except that one must define the 
+``cohomology set'' $\h^1(\et S,\sG)$. For details, see \cite{sk01}. There is a 
+non-abelian version of Hilbert's theorem 90: it says that 
+$\h^1(k,\text{SL}_n) = \h^1(k,\text{GL}_n) = 0$ for all $n$ \cite[X 1]{se79}. 
+
+
+
+
+
+
+
+
+
+
+% class on 09-19-2013
+\section{Selmer groups and weak Mordell-Weil}
+
+Recall that if $G$ is a profinite group (e.g $G_k$ for some field $k$) and $M$ 
+is a discrete abelian group with continuous $G$-action, we directly defined the 
+first cohomology group $\h^1(G,M) = Z^1(G,M) / B^1(G,M)$, where 
+\[
+  Z^1(G,M) = \{\varphi:G\to M\text{ continuous}: \varphi(\sigma\tau) = \sigma \varphi(\tau)+\varphi(\sigma)\}
+\]
+and $B^1(G,M)$ consisted of all $\varphi:G\to M$ of the form 
+$\sigma\mapsto \sigma x-x$. Note that if $G$ acts trivially on $M$, then 
+$\h^1(G,M) = \hom_\text{cts}(G,M)$. If $f:M\to M'$ is $G$-equivariant, then 
+there is an obvious map $f_*L\h^1(G,M)\to \h^1(G,M')$ given by 
+$f_*[\varphi] = [f\circ \varphi]$. Moreover, if $f:G'\to G$ is a continuous 
+group homomorphism, then we have a map $f^*:\h^1(G,M) \to \h^1(G',M)$ given 
+by $f^*[\varphi] = \varphi\circ f$, where we regard $G'$ as acting on $M$ via 
+$f$. 
+
+Let $k$ be a number field, $A$ be an abelian variety over $k$, and 
+$n\geqslant 2$. The short exact sequence $0\to A[n]\to A\xrightarrow n A \to 0$ 
+of group schemes induces an exact sequence 
+\[\xymatrix{
+  0 \ar[r]  
+    & A(k)/n \ar[r] 
+    & \h^1\left(k,A[n]\right) \ar[r] 
+    & \h^1(k,A)[n] \ar[r] 
+    & 0
+}\]
+We are trying to prove that $A(k)/n$ is finite. Since $\h^1\left(k,A[n]\right)$ 
+can be infinite, we'll need to do some work to show this. 
+
+\begin{example}
+Let $K=\dQ$, and let $E$ be the elliptic curve defined by 
+$y^2=(x-a)(x-b)(x-c)$ for distinct $a,b,c\in \dQ$. Then 
+$E[2](\bar\dQ) = \{0,(a,0),(b,0),(c,0)\}$. Thus 
+\begin{align*}
+  \h^1(\dQ,E[2]) &= \hom(G_\dQ,E[2]) \\
+    &= \hom(G_\dQ,\dZ/2\times \dZ/2) \\
+    &= \hom(G_\dQ,\dZ/2) \times \hom(G_\dQ,\dZ/2)
+\end{align*}
+This is easily seen to be infinite (either using global class field theory, or 
+by noting that $\dQ$ has lots of Galois extensions of degree $2$.) In fact, 
+using Kummer theory, one can show that 
+$\h^1(\dQ,E[2]) = \bigoplus_{\aleph_0} \dZ/2$. 
+\end{example}
+
+Our goal is to find a finite subgroup of $\h^1(k,A[n])$ containing $A(k)/n$. 
+We haven't really used the fact that $k$ is a number field yet -- everything so 
+far works for any perfect field. That changes when we start looking at 
+completions of $k$. 
+
+As before, let $k$ be a number field, and let $k_v$ denote the completion of 
+$k$ at a place $v$. One can show that $k_v$ will either be $\dR$, $\dC$, or a 
+finite extension of some $\dQ_p$. Choose $\overline{k_v}\supset k$; this gives 
+a homomorphism $G_{k_v} \to G_k$, where $\sigma\mapsto \sigma|_{\bar k}$. It 
+turns out that this is injective, but we will prove this later. As an example, 
+if $k=\dQ$, $k_v=\dR$, then $G_{\dR}=\{1,c\}$ where $c:\dC\to \dC$ is complex 
+conjugation. The image of $c$ in $G_\dQ$ is some element of order two. 
+
+The functoriality of $\h^\bullet(-,-)$ applied to the map $G_{k_v} \to G_k$ 
+gives us a map $\h^1(k,A[n]) \to \h^1(k_v,A[n])$, where we regard $A[n]$ as a 
+group scheme over $k_v$ by base extension. We now have a commutative diagram: 
+\[\xymatrix{
+  0 \ar[r] 
+    & A(k)/n \ar[r] \ar[d] 
+    & \h^1(k,A[n]) \ar[r] \ar[d]^-\beta 
+    & \h^1(k,A)[n] \ar[r] \ar[d] 
+    & 0 \\
+  0 \ar[r] 
+    & \displaystyle\prod_v A(k_v)/n \ar[r]^-\alpha 
+    & \displaystyle\prod_v \h^1(k_v,A[n]) \ar[r] 
+    & \displaystyle\prod_v \h^1(k_v,A)[n] \ar[r] 
+    & 0
+}\]
+The \emph{$n$-Selmer group} of $A$ over $k$ is 
+\begin{align*}
+  \selmer_n(A) = \{x\in \h^1(k,A[n]) : \beta(x) \in \im(\alpha)\} 
+    = \ker\left(\h^1(k,A[n]) \to \prod_v \h^1(k_v,A)[n]\right)
+\end{align*}
+Similarly, we define the \emph{Tate-Shafarevich group} of $A$ by the exact 
+sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & \sha(A) \ar[r] 
+    & \h^1(k,A) \ar[r]
+    & \displaystyle\prod_v \h^1(k_v,A)
+}\]
+Putting these two definitions together, we obtain a short exact 
+sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & A(k)/n \ar[r] 
+    & \selmer_n(A) \ar[r] 
+    & \sha(A)[n] \ar[r] 
+    & 0
+}\]
+We will soon prove that $\selmer_n(A)$ is finite, hence $A(k)/n$ and 
+$\sha(A)[n]$ are finite. 
+
+\begin{question}[Tate-Shafarevich]
+If $A$ is an abelian variety over a number field $k$, is $\sha(A)$ finite?
+\end{question}
+This is currently open. A positive answer would show that for $n$ sufficiently 
+large, $A(k)/n \simeq \selmer_n(A)$. In particular, this would imply that for $p$ 
+large enough, $\rank(A) = \dim_{\dF_p} \selmer_p(A)$, where as before 
+$\rank(A) = \rank_\dZ A(k)$ is the algebraic rank of 
+$A$. 
+
+\begin{remark}
+The Selmer groups $\selmer_n(A)$ are effectively computable. If $\sha(A)$ were 
+always finite, then $A(k)$ would be computable. 
+\end{remark}
+
+
+
+
+
+\section{Crash course in algebraic number theory}
+
+If $k$ is a number field, we already used (without defining) the notion of a 
+\emph{place} of $k$. In this section, we will see that $k$ comes with a lot of 
+extra structure which will be used later on. Let's start with places. 
+
+\begin{definition}
+A \emph{local field} is a topological field that is locally compact as a 
+topological space. 
+\end{definition}
+
+Let $k$ be a local field. Then the additive group of $k$ is a locally compact 
+group, so it has a nontrivial \emph{Haar measure}, i.e. a 
+translation-invariant Borel measure $\mu$. For $\alpha\in k$, the measure 
+$\alpha^*\mu$ defined by $\alpha^* \mu(S) = \mu(\alpha S)$ is easily seen to 
+be translation-invariant as well. It is known that $\mu$ is unique up to 
+scalar, so there is a real number, denoted $|\alpha|$, such that 
+$\alpha^*\mu = |\alpha|\mu$. One can prove that the function 
+$|\cdot|:k\to \dR_{\geqslant 0}$ is an \emph{absolute value}. That is, 
+\begin{enumerate}
+  \item $|x|=0$ if and only if $x=0$
+  \item $|x y| = |x|\cdot |y|$
+  \item $|x+y|\leqslant |x|+|y|$
+\end{enumerate}
+It turns out that $|\cdot|$ induces the topology that $k$ already has, and 
+that $k$ is complete with respect to $|\cdot|$. 
+
+Local fields can be completely classified. If the strict triangle inequality 
+holds, i.e. $|x+y|\leqslant \sup\{|x|,|y|\}$ for all $x,y\in k$, we say that 
+$k$ is \emph{non-archimedean}. If $k$ is not non-archimedean, we say it is 
+\emph{archimedean}. If $k$ is archimedean, one can prove that $k$ has 
+characteristic zero, so $\dQ\subset k$. The absolute value on $k$ induces one 
+on $\dQ$, and it is a theorem that the only archimedean absolute value on 
+$\dQ$ is the usual one. Thus $\dR\subset k$. It is a general theorem that $k$ 
+can only be locally compact if $[k:\dR]<\infty$, from which it follows that 
+either $k=\dR$ or $k=\dC$. 
+
+If $k$ is non-archimedean of characteristic $p$, then one can prove that 
+$k=\dF_q\lau t$ for some finite field $\dF_q$, where $q=p^r$. If $k$ is 
+non-archimedean of characteristic zero, then once again $\dQ\subset k$. It is 
+known (Otrowski's theorem) that the only non-archimedean absolute values on 
+$\dQ$ are of the form $|\cdot|_p$ for primes $p$, where $|x|_p=p^{-v_p(x)}$. 
+Here $v_p:\dQ^\times \to \dZ$ is the unique homomorphism with 
+$v_p(p)=1$, $v_p(n)=0$ for $p\nmid n$. If we write $\dQ_p$ for the completion 
+of $\dQ$ with respect to $|\cdot|_p$, then $k$ contains some $\dQ_p$. Once 
+again a general theorem shows that $[k:\dQ_p]<\infty$. To summarize, local 
+fields are one of the following:
+\begin{itemize}
+  \item $\dR$ or $\dC$
+  \item $\kappa\lau t$ for some finite field $\kappa$
+  \item a finite extension of $\dQ_p$
+\end{itemize}
+
+If $k$ is a non-archimedean local field, we write 
+$\fo_k=\{x\in k:|x|\leqslant 1\}$ and $\fp_k = \{x\in k:|x|<1\}$. It turns 
+out that $\fo_k$ is a complete discrete valuation ring with maximal ideal 
+$\fp_k$. We denote the residue field by $\kappa_k=\fo_k/\fp_k$. When $k$ is 
+understood, we write $\fo,\fp,\kappa$ instead of $\fo_k,\fp_k,\kappa_k$. 
+Choose a separable closure $k^s$ of $k$. Because the field $k$ is 
+\emph{henselian} ($|\cdot|$ has a unique extension to $k^s$), the integral 
+closure $\fo_{k^s}$ of $\fo_k$ in $k^s$ is a local ring (no longer noetherian) 
+and elements of $G_k$ preserve $|\cdot|$. The field 
+$\fo_{k^s}/\fp_{k^s}$ is separably closed, so we get a map 
+$G_k\to G_\kappa$, given by $\sigma\mapsto \bar\sigma$, where 
+$\bar\sigma(\bar x)=\overline{\sigma x}$. The kernel is called the 
+\emph{inertia group} of $k$, and denoted $I_k$. 
+
+\begin{definition}
+A \emph{global field} is either a finite extension of either $\dQ$ or 
+$\dF_p(t)$ for some prime $p$. 
+\end{definition}
+A \emph{place} of a global 
+field $k$ is an equivalence class of embeddings $k\hookrightarrow K$, where 
+$K$ is a local field such that the image of $k$ is dense. Two such 
+embeddings are equivalent if they are (topologically) isomorphic over $k$. 
+We will use the letter $v$ to denote places of $k$, and denote a choice of 
+representative by $k_v$. If $k_v$ is non-archimedean, we call $v$ 
+\emph{finite}, otherwise it is \emph{infinite}. For the remainder, let $v$ be 
+a finite place of $k$. 
+
+The absolute value on $k_v$ induces one on $k$, which we will denote by 
+$|\cdot|_v$. If $v$ is non-archimedean (i.e. $k_v$ is non-archimedean) then we 
+will also use $v$ to denote the valuation on $k$ induced by the canonical 
+valuation on $k_v$. We will write $\fo_v$, $\fp_v$, $\kappa_v$ instead of 
+$\fo_{k_v}$\ldots. We can choose $k_v^s\supset k^s$, in which case restriction 
+induces a continuous homomorphism $G_{k_v} \to G_k$. We will prove later that 
+this is injective. The image is often denoted $G_v$, and the image of 
+$I_{k_v}$ inside $G_v$ will be written $I_v$. Note that $G_v$, as a subset of 
+$G_k$, is only well defined up to conjugacy. 
+
+There is a lot more to be said about global fields, but we will conclude with 
+the \emph{product formula}. Given the canonical absolute value $|\cdot|_v$ 
+associated with a place, one can prove that 
+\[
+  \prod_v |x|_v = 1
+\]
+This property actually characterizes global fields -- see \cite{ar45}. For 
+more details on local and global fields, see \cite{we95}. 
+
+
+
+
+
+
+
+
+
+
+% class on 09-24-2013
+%\section{Crash course in algebraic number theory}
+
+Let $k$ be a number field, i.e. a finite extension of $\dQ$. Let $\fo_k$ be the 
+\emph{ring of integers} of $k$, that is, $\fo_k$ is the integral closure of 
+$\dZ$ in $k$. The ring $\fo_k$ is a dedekind domain. Thus if $\fa\subset \fo_k$ 
+is a nonzero ideal, we have a factorization $\fa=\fp_1^{e_1}\dotsm \fp_r^{e_r}$ 
+where the $\fp_i\subset\fo_k$ are prime (hence maximal) ideals, and each 
+$e_i\geqslant 1$. This factorization is unique up to reordering if we require 
+that the $\fp_i$ be distinct. 
+
+For a prime $\fp\subset \fo_k$, we write (as before) $\kappa_\fp = \fo_k/\fp$ 
+for the \emph{residue field} of $\fp$. The field $\kappa_\fp$ is finite because 
+it is finitely generated (as a ring) over its prime field. There is a unique 
+homomorphism $v_\fp:k^\times \twoheadrightarrow \dZ$ such that for 
+$a\in \fo_k\smallsetminus 0$, we have $(a)=\fp^{v_\fp(a)}\cdot \fb$ with 
+$(\fb,\fp)=1$. This gives us an absolute value 
+\[
+  |a|_\fp = \begin{cases}
+              0 & \text{if $a=0$} \\
+              (\# \kappa_\fp)^{-v_\fp(a)} & \text{otherwise}
+            \end{cases}
+\]
+Completing $k$ with respect to this absolute value, we get a local field 
+$k_\fp$. Our valuation (and absolute value) extend by continuity to a 
+valuation $v_\fp:k_\fp^\times\to\dZ$ and absolute value 
+$|\cdot|_\fp:k_\fp\to\dR_{\geqslant 0}$. 
+
+Let $L/k$ be a finite extension, $\fp\subset \fo_k$ a prime ideal. The ideal 
+$\fp\fo_L$ factors uniquely as 
+$\fq_1^{e(\fq_1/\fp)}\dotsm\fq_r^{e(\fq_r/\fp)}$, where the $\fq_i\subset\fp_L$ 
+are prime. For example, if $L=\dQ(i)$, then $2=-i(1+i)^2$ and $5=(1+2i)(1-2i)$. 
+One can show that 
+\begin{align*}
+  2\fo_L &= ((1+i)\fo_L)^2 \\
+  3\fo_L &= 3\fo_L \\
+  5\fo_L &= ((1+2i)\fo_L)\cdot ((1-2i)\fo_L)
+\end{align*}
+are prime factorizations in $\fo_L$. One says that $\fp$ is \emph{unramified} 
+in $L$ if $e(\fq_i/\fp)=1$ for all $i$. It is an easy theorem that only 
+finitely many primes can ramify. 
+
+Now assume $L/k$ is Galois. The action of the galois group $G=\gal(L/k)$ 
+preserves $\fo_L$, fixing $\fo_k$. This action does \emph{not} fix ideals in 
+$\fo_L$. In fact, if $\fq_1,\dots,\fq_r$ are the primes lying above 
+$\fp\subset \fo_k$, then $G$ acts transitively on $\{\fp_1,\dots,\fp_r\}$, 
+from which we see that each $e(\fq_i/\fp)$ is the same integer, denoted 
+$e_\fp$. Fix $\fq=\fq_1$. The \emph{decomposition group} of $\fq/\fp$ is 
+\[
+  D(\fq/\fp) = \{\sigma\in \gal(L/k) : \sigma(\fq) = \fq\}
+\]
+There is a canonical homomorphism 
+$D(\fq/\fp) \to \gal(\kappa_\fq/\kappa_\fp)$ given by ``reduce $\sigma$ modulo 
+$\fp$.'' This gives us an exact sequence 
+\[\xymatrix{
+  1 \ar[r] 
+    & I(\fq/\fp) \ar[r] 
+    & D(\fq/\fp) \ar[r] 
+    & \gal(\kappa_\fq/\kappa_\fp) \ar[r] 
+    & 1
+}\]
+(One can prove that the map on the right is surjective.) So the \emph{inertia 
+group} of $\fq/\fp$, denoted $I(\fq/\fp)$, is the subgroup of $D(\fq/\fp)$ 
+consisting of automorphisms whose action is trivial modulo $\fq$. Choosing 
+$\fq=\fq_i$ for some $i\ne 1$ gives a $D(\fq_i/\fp)$ that is conjugate to 
+$D(\fq/\fp)$. We will often write $D_\fp$ and $I_\fp$, keeping in mind that 
+they are only well-defined up to conjugacy. We will use the fact that 
+$\# I_\fp = e_\fp$. So $\fp$ is unramified in $L$ if and only if 
+$I_\fp = 1$. 
+
+Choosing $\fq$ lying over $\fp$, we can complete $L$ and $k$ to get an 
+extension $L_\fq/k_\fp$ of local fields. We have seen that restriction 
+gives a map $\gal(L_\fq/k_\fp) \to \gal(L/k)$. It turns out that this map is an 
+isomorphism onto the image $D(\fq/\fp)\subset \gal(L/k)$. We'll write 
+$I(L_\fq/k_\fp)$ for the inverse image of $I(\fq/\fp)$ in 
+$\gal(L_\fq/k_\fp)$. It can be defined directly in exactly the same manner as 
+$I(\fq/\fp)$. 
+
+Passing to the algebraic closure of $k_\fp$, we can consider the absolute 
+Galois group 
+\[
+  G_{k_\fp} = \varprojlim_{L_\fq\supset k_\fp} \gal(L_\fq/k_\fp)
+\]
+where $L_\fq$ ranges over all finite Galois extensions of $k_\fp$. The group 
+$G_{k_\fp}$ has a distinguished subgroup $I_\fp$, which is the inverse limit 
+\[
+  I_\fp = \varprojlim_{L_\fq/k_\fp} I(L_\fq/k_\fp)
+\]
+Our exact sequence 
+\[\xymatrix{
+  1 \ar[r] 
+    & I_\fp \ar[r] 
+    & G_{k_\fp} \ar[r] 
+    & \gal(\overline{\kappa_\fp}/\kappa_\fp) =\hat\dZ \ar[r] 
+    & 1
+}\]
+extends to a filtration of $G_{k_\fp}$ by normal closed subgroups whose 
+successive quotients are abelian. Once again, recall that there is a canonical 
+embedding $G_{k_\fp}\hookrightarrow G_k$ via an embedding 
+$\bar k\hookrightarrow \overline{k_\fp}$. 
+
+
+
+
+
+
+
+
+
+
+\section{Reduction of abelian varieties}
+
+Let $A$ be an abelian variety over a local field $k_\fp$. Let $\fo_\fp$ be the 
+ring of integers of $k_\fp$, i.e. $\fo_\fp=\{x\in k_\fp:|x|_\fp\leqslant 1\}$. 
+The ideal $\fp\fo_\fp$ is the unique maximal ideal of $\fo_\fp$, and it turns 
+out that $\fp\fo_\fp = \{x\in k_\fp:|x|_\fp<1\}$. In an abuse of notation, we 
+write $\fp$ for $\fp\fo_\fp$. 
+
+\begin{definition}
+We say that a variety $X/k_\fp$ has \emph{good reduction} if there is a smooth 
+proper model $\cX/\fo_\fp$ .
+\end{definition}
+That is, there is a smooth proper scheme $\cX$ over $\fo_\fp$ such that the 
+following diagram is cartesian:
+\[\xymatrix{
+  X \ar[r] \ar[d]  
+    & \cX \ar[d] \\
+  \spec(k_\fp) \ar[r] 
+    & \spec(\fo_k)
+}\]
+We write $X_\fp$ for $\cX\times_{\spec(\fo_k)}\spec(\kappa_\fp)$, and call 
+$X_\fp$ the \emph{reduction of $X$ modulo $\fp$}. 
+
+One can show that if $A$ is an abelian variety over $k_\fp$ with good 
+reduction, then $A_\fp$ is independent of the choice of $\cA$, that $\cA$ gets 
+the structure of an abelian scheme over $\fo_k$, and that $A_\fp/\kappa_\fp$ is 
+an abelian variety. 
+
+There is in fact a canonical model for $A$ over $\fo_p$, and it exists in great 
+generality. Let $S$ be a connected dedekind scheme with field of fractions $k$. 
+If $A$ is an abelian variety over $k$, one calls a \emph{N\'eron model} of $A$ 
+a smooth model $\cA$ for $A$ over $S$ for which any morphism $X_k\to A$, where 
+$X$ is a smooth scheme over $S$, has a unique extension to a morphism 
+$X\to \cA$. In other words, $\cA$ represents the functor 
+$X\mapsto \hom_k(X_k,A)$ from smooth schemes over $S$ to $k$-varieties. It is 
+clear that $\cA$ (if it exists) is unique up to unique isomorphism. 
+Fortunately, it is a theorem (see \cite[1.4.1]{blr90}) that in our setting 
+($S$ a connected dedekind scheme and $A$ an abelian variety over $k$) N\'eron 
+models always exist. Moreover, there is a unique structure of a group scheme 
+on $\cA$ extending that of $A$ \cite[1.2.6]{blr90}. 
+
+So if $S=\spec(\fo_k)$ for a number field $k$ and $\fp\subset \fo$ is a prime, 
+we could have said that an abelian variety $A/k$ has good reduction at $\fp$ 
+if the N\'eron model $\cA$ for $\fo_\fp$ (the localization of $\fo$ at 
+$\fp$) is proper. 
+
+\begin{example}
+Let $E:y^2=x^3+a x+b$, where $a,b\in \dZ$ and $\Delta=-16(4 a^3+27b^2)\ne 0$. 
+If $p\nmid \Delta$, then $E/\dQ_p$ has good reduction, and $E_p/\dF_p$ is given 
+by the reduction of our original equation modulo $p$. 
+\end{example}
+
+There is a reduction map $A(k_\fp)\to A_\fp(\kappa_\fp)$ which is a group 
+homomorphism. This is the composite 
+\[
+  A(k_\fp)=\cA(\fo_\fp) \to \cA(\kappa_\fp) = A_\fp(\kappa_\fp)
+\]
+To see that $A(k_\fp)=\cA(\fo_\fp)$, think of $A$ as being a subset of some 
+projective space $\dP^N$. For a point
+$x=(x_0:\cdots:x_N)\in \dP^N(k_\fp)$, we can scale $x$ be the 
+denominators of the $x_i$ to get a model 
+$x=(x_0:\cdots:x_N)\in\dP^N(\fo_\fp)$. We can even get a model with 
+some $x_i\not\equiv 0\mod\fp$, and the image of $x$ in 
+$\dP^N(\kappa_\fp)$ is in $A_\fp(\kappa_\fp)$. By Hensel's lemma, the 
+map $A(k_\fp) \to A_\fp(\kappa_\fp)$ is a surjection. The kernel is a pro-$p$ 
+group, where $p$ is the characteristic of $\kappa_\fp$. In fact, the kernel is 
+a $p$-adic Lie group. 
+
+We can extend our reduction map to algebraic closures, getting a homomorphism 
+$A(\overline{k_\fp}) \to A_\fp(\overline{\kappa_\fp})$, that has a pro-$p$ 
+kernel. Choose an integer $n\geqslant 2$ with $p\nmid n$. The map 
+$A(\overline{k_\fp})[n] \to A_\fp(\overline{\kappa_\fp})[n]$ is an isomorphism 
+because both groups have the same cardinality ($n^2$) and the kernel is 
+pro-$p$. In that isomorphism both groups have a Galois action -- $G_{k_\fp}$ on 
+the left and $G_{\kappa_\fp}=\hat\dZ$ on the right. The map is compatible with 
+the Galois action, so in particular, the inertia group $I_\fp$ acts trivially 
+on $A(\overline{k_\fp})[n]$. 
+
+Let $A/k_\fp$ be an abelian variety with good reduction. Recall we had a map 
+$\delta:A(k_\fp)/n A(k_\fp) \hookrightarrow \h^1(k_\fp,A[n])$ defined as 
+follows. For $x\in A(k_\fp)$, choose $y\in A(\overline{k_\fp})$ such that 
+$n\cdot y=x$. We define the $1$-cocycle $\varphi=\delta(x)$ by 
+$\sigma\mapsto \sigma y - y$. For $\sigma\in I_\fp$, the elements 
+$\sigma y$ and $y$ have the same image in $A_\fp(\overline{\kappa_\fp})$, hence  
+$\sigma y - y\in A(\overline{k_\fp})[n]$ has trivial image modulo $\fp$. It 
+follows that $\sigma y-y=0$ since it is an $n$-torsion point that is $0$ 
+modulo $\fp$. This tells us that $\varphi(\sigma) = 0$ for all 
+$\sigma\in I_\fp$, i.e. $\varphi(I_\fp) = 0$. 
+
+\begin{lemma}
+Let $A$ be an abelian variety over a number field $k$. With the above notation, 
+$\varphi(I_\fp) = 0$ for all $\fp\subset \fo_k$ of good reduction for $A$. 
+\end{lemma}
+
+If we let $S$ be the finite set of primes for which $A$ has bad reduction, we 
+will show that the group
+\[
+  \h_S^1(k,A[n]) = \{[\varphi]\in \h^1(k,A[n]) : \varphi(I_\fp) = 0\text{ for all } \fp\notin S\}
+\]
+is finite. 
+
+
+
+
+
+
+
+
+
+
+% lecture 09-26-2013
+\section{Torsion and weak Mordell-Weil}
+
+Let $A$ be an abelian variety over a number field $k$. Recall that we are 
+trying to show that $A(k)$ is finitely generated. We have shown that it is 
+sufficient to prove that the quotients $A(k)/n$ are finite for all 
+$n\geqslant 2$. Once we know that $A(k)$ is finitely generated, we can write 
+$A(k)=A(k)_\text{tors}\oplus \dZ\cdot x_1\oplus \cdots \oplus \dZ x_r$, where 
+each $x_i$ is of infinite order. The algebraic rank $r=\rank A$ is 
+very difficult to compute in general, but $A(k)_\text{tors}$ is computable. 
+
+Choose a prime $\fp\subset \fo_k$ at which $A$ has good reduction (this is true 
+for all but finitely many $\fp$). We have a reduction map 
+$A(k_\fp)\to A_\fp(\kappa_\fp)$, which has pro-$p$ kernel. The group 
+$A(k)_\text{tors}$ is contained in $A(k_\fp)$, so we can think about its image 
+in $A_\fp(\kappa_\fp)$. Since $A(k)_\text{tors}$ is finite, the kernel of 
+$A(k)_\text{tors}\to A_\fp(\kappa_\fp)$ is a $p$-group. Pick another prime 
+$\fp'$ of good reduction for $A$, with residue characteristic $\ell\ne p$. The 
+kernel of the map 
+$A(k)_\text{tors}\to A_\fp(\kappa_\fp)\times A_{\fp'}(\kappa_{\fp'})$ is a 
+$p$-group and a $\ell$-group, hence trivial, i.e. $A(k)_\text{tors}$ is a 
+subgroup of $A_\fp(\kappa_\fp)\times A_{\fp'}(\kappa_{\fp'})$. (This gives us a 
+way to compute $A(k)_\text{tors}$, because $A_\fp(\kappa_\fp)$ and 
+$A_{\fp'}(\kappa_{\fp'})$ are computable. ($X(\kappa)$ for $X$ any projective 
+variety over any finite field $\kappa$ is computable, for stupid reasons.)
+
+\begin{example}
+Let $E$ be the elliptic curve over $\dQ$ given by $y^2=x^3+3$. This has 
+descriminant $\Delta=-2^4\cdot 3^5$, so $E$ has good reduction away from $2$ 
+and $3$. We can compute 
+\begin{align*}
+  E_5(\dF_5) &= \{O,(1,\pm 2),(2,\pm 1),(3,0)\} \\
+  \left|E_7(\dF_7)\right| &= 13
+\end{align*}
+The kernel of $E(\dQ)_\text{tors}\to E_5(\dF_5)$ is a $5$-group, and the kernel 
+of $E(\dQ)_\text{tors}\to E_7(\dQ_7)$ is a $7$-group. From this, we know that 
+$E(\dQ)_\text{tors}$ has no points of order $5$ or $7$. Thus  
+$E(\dQ)_\text{tors}$ embeds into groups of oder $6$ and $13$, so it is the 
+trivial group. Since $(1,2)\in E(\dQ)$ and $E(\dQ)_\text{tors}=0$, we know that 
+$E(\dQ)$ is infinite. 
+\end{example}
+
+\begin{example}
+Let $E/\dQ$ be the curve defined by $y^2 + y = x^3-x^2-10 x-20$. One can check 
+that $E$ has good reduction away from $11$. Easy computations yield 
+\begin{center}
+  \begin{tabular}{c|c}
+    $p$ & $  \# E_p(\dF_p)$ \\ \hline
+    2   & 5  \\
+    3   & 5  \\
+    5   & 5  \\
+    7   & 10 \\
+    13  & 10
+  \end{tabular}
+\end{center}
+This shows us that $E(\dQ)_\text{tors}$ is either $0$ or $\dZ/5$. In fact, it 
+is the latter with $E(\dQ)_\text{tors}=\langle (5,5)\rangle$. 
+\end{example}
+
+Let's get back to the weak Mordell-Weil theorem. Let $A$ be an abelian variety 
+over a number field $k$, and let $S$ be the (finite) set of primes $\fp$ for 
+which $A$ has bad reduction at $\fp$. We have a map 
+$\delta:A(k_\fp)/n \to\h^1(k_\fp,A[n])$. If $[\varphi]=\delta(x)$ for 
+$x\in A(k_\fp)$, then $\varphi(I_\fp) = 0$, where as before, $I_\fp$ is the 
+inertia subgroup of $G_{k_\fp}$. Thus we have a commutative diagram with 
+exact rows:
+\[\xymatrix{
+  0 \ar[r] 
+    & A(k)/n \ar[r]^-\delta \ar[d]
+    & \h^1(k,A[n]) \ar[d] \\
+  0 \ar[r]
+    & A(k_\fp)/n \ar[r]^-\delta 
+    & \h^1(k_\fp,A[n])
+}\]
+We define 
+\[
+  \h^1(k,A[n]) = \{[\varphi]\in \h^1(k,A[n]) : \varphi(I_\fp) = 0\text{ for all }\fp\notin S\}
+\]
+Note that $A(k)/n\hookrightarrow \selmer_n(A)\subset \h_S^1(k,A[n])$. The group 
+$\selmer_n(A)$ is a ``better approximation'' of $A(k)/n$ than $\h_S^1(k,A[n])$, 
+but it is $\h_S^1(k,A[n])$ that we will actually show is finite. 
+
+\begin{theorem}
+Let $A$ be an abelian variety of dimension $d$ over a number field $k$, and let 
+$S$ be the set of places of $k$ at which $A$ has bad reduction. Then the group 
+$\h_S^1(k,A[n])$ is finite.
+\end{theorem}
+\begin{proof}
+We need one last bit of group cohomology. Let $G$ be a profinite group acting 
+continuously on a discrete abelian group $M$. Let $H\subset G$ be a closed 
+subgroup. The \emph{inflation-restriction exact sequence} comes from the 
+map $\h^1(G,M) \to \h^1(H,M)$ defined by $[\varphi]\mapsto [\varphi|_H]$: 
+\[\xymatrix{
+  0 \ar[r] 
+    & \h^1(G/H,M^H) \ar[r]^-{\text{inf}} 
+    & \h^1(G,M) \ar[r]^-{\text{res}}
+    & \h^1(H,M)
+}\]
+It's easy to see that the map 
+$\text{inf}:[\varphi]\mapsto [\varphi\circ (G\twoheadrightarrow G/H)]$ is 
+well-defined. 
+
+Let $L/k$ be a finite Galois extension such that $G_L$ acts trivially on the 
+finite group $A[n]$. We can apply the inflation-restriction exact sequence to 
+$(G_k,G_L,A[n])$ to get 
+\[\xymatrix{
+  0 \ar[r] 
+    & \h^1\left(\gal(L/k), A[n]^{G_L}\right) \ar[r] 
+    & \h^1(k,A[n]) \ar[r] 
+    & \h^1(L,A[n])
+}\]
+We could have done this locally at all places of good reduction, and if we let 
+$S'$ be the set of all places of $L$ laying over some place in $S$, we get 
+\[\xymatrix{
+  0 \ar[r] 
+    & \h_S^1(\gal(L/k),A[n]^{G_L}) \ar[r] 
+    & \h_S^1(k,A[n]) \ar[r]
+    & \h_{S'}^1(L,A[n])
+}\]
+The first group is finite because both $\gal(L/k)$ and $A[n]^{G_L}$ are finite. 
+If we can show that $\h_{S'}^1(L,A[n])$ is finite, we'll be done. In other 
+words, in trying to show that $\h_S^1(k,A[n])$ is finite, we may assume that 
+$A[n]\subset A(k)$. In this case, we have that 
+\[
+  \h^1(k,A[n]) = \h^1(G_k,A[n]) = \hom(G_k,A[n]) = \hom(G_k,\dZ/n)^{\oplus 2d}
+\]
+where ``$\hom$'' denotes the set of continuous group homomorphisms. The group 
+$\hom(G_k,\dZ/n)$ is always infinite, but we only need to prove that 
+\[
+  \h_S^1(k,A[n]) = \{\varphi:G_k\to A[n] : \varphi(I_\fp) = 0\text{ for all }\fp\notin S\}
+\]
+is finite. Take such a $\varphi$; it will factor through a finite quotient 
+$\gal(L/k)$ of $G_k$. Since $\varphi(I_\fp)=0$, the extension $L/k$ is 
+unramified at $k$. Moreover, $[L:k]\leqslant n^{2 d}$. By theorem 
+\ref{thm:hermite}, we know that $L\subset K$ for a fixed extension $K/k$. 
+Thus $\h_S^1(k,A[n])\hookrightarrow \hom(\gal(K/k),\dZ/n)^{\oplus 2d}$, a  
+finite group. 
+\end{proof}
+
+\begin{theorem}[Hermite]\label{thm:hermite}
+Let $k$ be a number field, $S$ a finite set of places of $\fo_k$. For a fixed 
+integer $N\geqslant 1$, there is a finite extension $K\subset \bar k$ such that 
+if $L\subset \bar k$ is an extension of $k$ unramified outside of $S$ with 
+$[L:k]\leqslant N$, then $L\subset K$. 
+\end{theorem}
+\begin{proof}
+This follows easily from \cite[B.2.14]{bg06}. 
+\end{proof}
+
+There is a geometric interpretation of the Tate-Shafarevich group $\sha(A)$, 
+defined by the exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & \sha(A) \ar[r] 
+    & \h^1(k,A) \ar[r] 
+    & \displaystyle\prod_v \h^1(k_v,A)
+ }\]
+Recall that a \emph{torsor} of $A$ over $k$ is a nice variety $X/k$ with a 
+simply transitive group action $A\times X\to X$ which is a morphism of 
+$k$-varieties. In other words, we require $A(L)\times X(L)\to X(L)$ to be 
+a simply transitive group action whenever $X(L)\ne\varnothing$. If 
+$x\in X(L)$, we get an isomorphism $A_L\to X_L$ which is \emph{not} generally 
+defined over $k$. Two torsors are equivalent if they have compatible group 
+actions (i.e. if they are $A$-equivariantly isomorphic over $k$). A torsor is 
+\emph{trivial} if it is equivalent to $A$ with the usual left action. It turns 
+out that a torsor $X$ is trivial if and only if $X(k)\ne\varnothing$. 
+
+There is a natural bijection 
+\[
+  \{\text{torsors over $A$}\}/\text{equivalence} \leftrightarrow \h^1(k,A)
+\]
+
+\begin{example}
+Let $C/k$ be a nice curve of genus $1$. (It could be that $C$ is not elliptic, 
+for instance if $C(k)=\varnothing$.) Let $E=\jac C$; this is an elliptic curve. 
+There is a bijection $C\to \picard_C^1$ given by $x\mapsto [x]$. This induces a 
+bijection $E=\picard_C^0$. There is an action 
+$\picard_C^0\times \picard_C^1\to \picard_C^1$, induced by $(D_1,D_2)\mapsto D_1+D_2$. 
+This makes $C$ a torsor over $E$. 
+\end{example}
+
+
+
+
+
+\section{Restricted ramification}
+
+Let $k$ be a number field, and let $S$ be a finite set of primes of $k$. Recall 
+that we defined, for a $G_k$-module $M$, the ``cohomology with restricted 
+ramification'' 
+\[
+  \h_S^1(G_k,M) = \{[\varphi]\in \h^1(G,M) : \varphi(I_\fp) = 0\text{ for all }\fp\notin S\}
+\]
+We will see that $\h_S^1(G_k,M)$ can be defined directly both as a Galois 
+cohomology group and as an \'etale cohomology group. First we need to clarify: 
+requiring $\varphi(I_\fp)=0$ actually means that $\varphi(I_\fp)=0$ for 
+\emph{any} choice of $I_\fp$. (Recall that the embeddings 
+$G_{k_\fp}\hookrightarrow G_k$, and hence $I_\fp\hookrightarrow G_k$, are only 
+well-defined up to conjugacy.) One easily checks that, for any 
+$[\varphi]\in \h^1(G_k,M)$, the set 
+$\ker(\varphi)=\{\sigma:\varphi(\sigma)=0\}$ is a subgroup of $G_k$. In other 
+words, if $H\subset G_k$ denotes the (normal) subgroup generated by the 
+$I_\fp$ for $\fp\notin S$, then 
+\[
+  \h_S^1(G_k,M) = \ker\left(\h^1(G_k,M) \to \h^1(H,M)\right) 
+                = \h^1(G_k/H,M^H) \text{,}
+\]
+the second equality coming from the inflation-restriction sequence. 
+
+The normal subgroup of $G_k$ generated by $\bigcup_{\fp\notin S} I_\fp$ is the 
+Galois group of an extension $k_S/k$. One can prove that whenever $L/k$ is a 
+finite extension unramified away from $S$, then $L\subset k_S$. We write 
+$G_{k,S}=\gal(k_S/k) = G_k/G_{k_S}$, and call $G_{k,S}$ a Galois 
+group \emph{with restricted ramification}. In the future, if $M$ is a 
+$G_k$-module for which the action of $G_k$ on $M$ is unramified away from 
+$S$, we will write $\h^1(G_{k,S},M)$ instead of $\h_S^1(G_k,M)$. 
+
+Just as one can interpret the 
+absolute Galois group $G_k$ as the \'etale fundamental group 
+$\pi_1(\spec k)$, the group $G_{k,S}$ can be interpreted as an \'etale 
+fundamental group using the following theorem.
+
+\begin{theorem}
+Let $S$ be normal connected scheme with function field $k$. Then the group 
+$\pi_1(S)$ is naturally isomorphic to $\gal(k_S/k)$, where $k_S$ is the 
+composite of all finite extensions $L\subset k^s$ for which the normalization 
+of $S$ in $L$ is \'etale over $S$. 
+\end{theorem}
+\begin{proof}
+See \cite[5.4.9]{sz09}.
+\end{proof}
+
+If $S$ is a finite set of primes of $k$, let $\fo_{k,S}=S^{-1}\fo_k$. We will 
+also denote by $S$ the scheme $\spec(\fo_k)\smallsetminus S=\spec(\fo_{k,S})$. A 
+field extension $L/k$ is unramified outside of $S$ precisely when integral 
+closure of $\fo_{k,S}$ inside $L$ is \'etale over $\fo_k$. In other words, the 
+above theorem shows that $\pi_1(S)=G_{k,S}$. Our proof of the weak Mordell-Weil 
+theorem ended up relying on the fact that $G_{k,S}$ has only finitely many open 
+subgroups of any given index. One calls a profinite group $G$ \emph{small} if 
+this property holds for $G$. (Equivalently, if $\h^1(G,A)$ is finite for all 
+finite $G$-modules $A$.) Hermite's theorem has a huge generalization: if $X$ is 
+a connected scheme of finite type such that $X\to \spec(\dZ)$ has dense image, 
+then $\pi_1(X)$ is small. For a proof, see \cite[2.8]{hh09}. 
+
+A $G_{k,S}$-module induces a sheaf $\widetilde M$ on the \'etale site of 
+$\spec(\fo_{k,S})$, and in pretty good generality (see \cite{fo11} or 
+\cite[II.2.9]{mi06}) one has 
+$\h^\bullet(G_{k,S},M) = \h^\bullet(\et{\spec(\fo_{k,S})},\widetilde M)$. We 
+will often write $\h^\bullet(\fo_{k,S},M)$ for both groups. So, our statement 
+that $\selmer_n(A)\subset \h_S^1(k,A[n])$ would now be written 
+$\selmer_n(A)\subset \h^1(\fo_{k,S},A[n])$. 
+
+
+
+
+
+
+
+
+
+
+% lecture on 10-01-2013
+\section{Tate-Shafarevich groups}
+
+Let $k$ be a number field, $A$ an abelian variety over $k$. Recall the 
+Tate-Shafarevich group of $A$ is 
+\[
+  \sha(A) = \ker\left(\h^1(k,A) \to \prod_v \h^1(k_v,A)\right) \text{.}
+\]
+The \emph{Weil-Ch\^atelet group} of $A$, written $\operatorname{WC}(A)$, is 
+the group of torsors over $A$ modulo equivalence. As we have seen, there is a 
+bijection $\operatorname{WC}(A) = \h^1(k,A)$. If $k$ is a number field, then 
+$\operatorname{WC}(A)$ is infinite, but if $k$ is finite then 
+$\operatorname{WC}(A)=0$. We'll define the map 
+$\operatorname{WC}(A)\to \h^1(k,A)$. Fix an $A$-torsor $X$. There exists some 
+$L/k$ with $X(L)\ne\varnothing$. Choose $x\in X(L)$, and define a cocycle 
+$\varphi:G_k\to A(\bar k)$ by $\sigma\mapsto \sigma x - x$, where 
+$\sigma x- x$ is the unique point $a\in A(\bar k)$ such that $a+x=\sigma(x)$. 
+The image of $X$ in $\h^1(k,A)$ is the cocycle $\varphi$. It isn't too hard to 
+check that this map is well-defined. 
+
+This tells us that there is a natural bijection between $\sha(A)$ and the set 
+of torsors $X$ of $A/k$, such that $X(k_v)\ne\varnothing$ for all places $v$ of 
+$k$. This can be generalized. Let $X/k$ be a nice variety. We say that $X$ 
+satisfies the \emph{Hasse principle} if $X(k_v)\ne\varnothing$ for all $v$ 
+implies $X(k)\ne\varnothing$. So $\sha(A)$ classifies torsors over $A$ that 
+do not satisfy the Hasse principle. Clearly, if $X(k)\ne\varnothing$, then 
+$X$ satisfies the Hasse principle. Similarly, if $X(k_v)=\varnothing$ for some 
+$v$, then $X$ satisfies the Hasse principle. 
+
+\begin{example}[Selmer]
+The plane curve $C\subset \dP_\dQ^2$ given by $3 x^3+4 y^3+5 z^3=0$ fails the 
+Hasse principle. In other words, $C(\dQ_p)\ne \varnothing$ for all $p$, 
+$C(\dR)\ne\varnothing$, but $C(\dQ)=\varnothing$. If we let $E=\jac C$, then 
+we know that $\sha(E)\ne 0$. 
+\end{example}
+
+It turns out that the Hasse principle can be checked. That is, for a nice 
+variety $X$ over $\dQ$ there is an algorithm to determine whether 
+$X(\dQ_v)\ne\varnothing$ for all primes. This is because $X$ will have good 
+reduction at all but a finite (computable!) set of primes. If $X$ has good 
+reduction at $p$ with integral model $\mathcal X$, then 
+$\mathcal X(\dF_p)\ne\varnothing$ by the Weil conjectures. Since $\mathcal X$ 
+is smooth, Hensel's lemma lets us lift an element of $\mathcal X(\dF_p)$ to 
+$\mathcal X(\dZ_p)\subset X(\dQ_p)$. For a prime $p$ at 
+which $X$ has bad reduction, we can still pick an integral model $\mathcal X$. 
+Either there will be an $n$ for which $\mathcal X(\dZ/p^n)=\varnothing$, in 
+which case $X(\dQ_p)=\varnothing$, or elements of $\mathcal X(\dZ/p^n)$ for 
+$n\gg 0$ will lift to $X(\dZ_p)$. Checking whether $X(\dR)=\varnothing$ is easy 
+analysis. 
+
+If $C$ is a nice curve of genus zero over a number field, then $C$ satisfies 
+the Hasse principle \cite[3.4]{ca67}. This is essentially the 
+Hasse-Minkowski theorem. 
+
+\begin{example}[descent]
+Let $E/\dQ$ be the elliptic curve defined by $y^2=(x-e_1)(x-e_2)(x-e_3)$ where 
+the $e_i\in \dZ$ are distinct. It's easy to see that 
+$E[2]=\{0,(e_1,0),(e_2,0),(e_3,0)\}\simeq (\dZ/2)^{\oplus 2}$. We use 
+$\{(e_1,0),(e_2,0)\}$ as a $\dF_2$-basis for $E[2]$. We have 
+\begin{align*}
+  \h^1(\dQ,E[2]) &= \hom(G_\dQ,E[2]) \\
+    &= \hom(G_\dQ,\dZ/2)^{\oplus 2} \\
+    &= \left(\dQ^\times/2\right)^{\oplus 2}
+\end{align*}
+Here, as always, ``$\hom$'' denotes the group of continuous homomorphisms, and 
+we write $\dQ^\times/2$ for $\dQ^\times/(\dQ^\times)^2$. The isomorphism 
+$\h^1(\dQ,E[2])\simeq (\dQ^\times/2)^{\oplus 2}$ comes from Kummer theory. 
+Given a homomorphism $\varphi:G_\dQ\to \dZ/2$, the group $\ker(\varphi)$ 
+fixes a field $k=\dQ(\sqrt d)$ with $d\in \dQ^\times$. The equivalence class of 
+$d$ in $\dQ^\times/2$ is dependent only on $\varphi$. The fact that 
+$\varphi\mapsto d$ is a bijection is the content of Kummer theory. 
+
+The boundary morphism in group cohomology gives us a map 
+$\delta:E(\dQ)/2 \hookrightarrow \h^1(\dQ,E[2])$. The 
+composite of $\delta$ with the isomorphism 
+$\h^1(\dQ,E[2])\xrightarrow\sim )=(\dQ^\times/2)^{\oplus 2}$ is quite explicit 
+-- we have for $x=(x_0:x_1:1)$:
+\[
+  \delta(x) 
+    = \begin{cases}
+        (1,1)             & \text{if $x=0$} \\
+        (x_0-e_1,x_1-e_2) & \text{if $x_0\notin \{e_2,e_3\}$} \\
+        \left(\frac{e_1-e_3}{e_1-e_2},e_1-e_2\right) & \text{if $x_0=e_1$} \\
+        \left(e_2-e_1,\frac{e_2-e_3}{e_2-e_1}\right) & \text{if $x_0=e_2$}
+      \end{cases}
+\]
+Let $S$ be the set of primes that divide $2(e_1-e_3)(e_2-e_3)(e_2-e_1)$; this 
+contains the set of primes at which $E$ has bad reduction. We know that the 
+group $\h^1(\dZ_S,E[2]) = \h^1(G_{\dQ,S},E[2])$ is finite. Even better, one can 
+show that it is $\mathcal H^{\oplus 2}$, where 
+\[
+  \mathcal H = \left\{b\in \dQ^\times/2 : \text{$v_p(b)\equiv 0\pmod 2$ for $p\notin S$}\right\}
+\]
+The group $\mathcal H$ is generated by $S\cup\{-1\}$. This allows us to bound 
+the rank of $E$. We know that $\dim_{\dF_2}(\mathcal H)\leqslant \# S+1$, so 
+the fact that $E(\dQ)/2\hookrightarrow \mathcal H^{\oplus 2}$ implies 
+$\rank(E) \leqslant 2(\# S+1)$. 
+
+We know that $E(\dQ)/2\hookrightarrow \selmer_2(E)\subset \mathcal H^{\oplus 2}$, 
+so we could get a better bound on $\rank(E)$ if we could compute 
+the image of $\selmer_2(E)$ inside of $\mathcal H^{\oplus 2}$. Recall that there 
+is a commutative diagram:
+\[\xymatrix{
+  & \h^1(\dZ_S,E[2]) \ar[r] 
+    & \h^1(\dQ,E) \\
+  0 \ar[r] 
+    & E(\dQ)/2 \ar[r] \ar@{^{(}->}[u] 
+    & \selmer_2(E) \ar[r] \ar@{^{(}->}[u] 
+    & \sha(E)[2] \ar[r]
+    & 0
+}\]
+For a pair $b=(b_1,b_2)\in \mathcal H^{\oplus 2}$, we get an element of 
+$\h^1(\dQ,E)$. This gives us a torsor $X_b$ of $E/\dQ$. Observe that 
+$b\in \selmer_2(E)$ if and only if $X_b(\dQ_p)\ne \varnothing$ for all $p$ and 
+$X_b(\dR)\ne\varnothing$. 
+
+The curve $X_b$ can be computed. We have $X_b\subset \dP_\dQ^3$, a nice curve 
+of genus one defined by 
+\begin{align*}
+  b_1 z_1^2 - b_2 z_2^2 &= (e_2-e_1)z_0^2 \\
+  b_1 z_1^2 - b_1 b_2 z_3^2 &= (e_3 -e_1) z_0^2
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $E/\dQ$ be the elliptic curve $y=x^3-x=x(x-1)(x+1)$. We'll pick 
+$e_1=0$, $e_2=1$, $e_3=-1$. For our curve we have $S=\{2\}$, so $\mathcal H$ is 
+the subgroup of $\dQ^\times/2$ generated by $\{-1,2\}$. The group 
+$\mathcal H^{\oplus 2}$ has representatives 
+$\{(\pm 1,\pm 1),(\pm 2,\pm 1),(\pm 1,\pm 2),(\pm 2,\pm 2)\}$. We know that for 
+$b=(b_1,b_2)\in (\dQ^\times)^2$, the curve $X_b$ is 
+\begin{align*}
+  b_1 z_2^2 - b_2 z_2^2 &= z_0^2 \\
+  b_1 z_1^2 - b_1 b_2 z_3^2&=-z_0^2 \\
+\end{align*}
+Thus $X_b(\dR)=\varnothing$ if $b_1<0$ and $b_2>0$, or if 
+$b>0$ and $b_2<0$. That tells us that 
+$\selmer_2(E)\subset \{(b_1,b_2)\in \mathcal H^{\oplus 2}:b_1 b_2>0\}$, a group of 
+order eight with representatives $\{\pm (1,1),\pm (2,1),\pm (1,2),\pm (2,2)\}$. 
+
+We have 
+\[\xymatrix{
+  0 \ar[r] 
+    & E(\dQ)/2 \ar[r]^-\delta 
+    & \selmer_2(E) \ar@{^{(}->}[r] 
+    & \langle-(1,1),-(2,1),-(1,2),-(2,2)\rangle
+}\]
+Since $E[2]\subset E(\dQ)$, this tells us that $E(\dQ)/2$ has order at least 
+four. We have $\delta(E[2])=\{(1,1),(-1,-2),(-1,-1),(1,2)\}$. Consider 
+$b=(2,1)$. Then $X_b$ is 
+\begin{align*}
+  2 z_1^2 - z_2^2 &= z_0^2 \\
+  2 z_1^2 - 2 z_3^2 &= -z_0^2
+\end{align*}
+This curve has real points, so we only need to check $X_b(\dQ_2)$. As an 
+exercise, show that $X_b(\dZ/4)=\varnothing$, which implies 
+$X_b(\dQ_2)=\varnothing$, which shows that $b\notin \selmer_2(E)$, and thus 
+$\# E(\dQ)/2=4$. Since $4=\# E[2]$, we know that $\rank(E)=0$. 
+\end{example}
+
+
+
+
+
+
+
+
+
+
+% notes on 10-03-2013
+\section{Heights}\label{sec:heights}
+
+Recall that to prove the Mordell-Weil theorem, we needed the weak Mordell-Weil 
+theorem and a good height function. We gave an extremely terse introduction to 
+heights earlier -- here we will do things more carefully. 
+
+The idea is as follows. Let $X$ be a nice variety over a number field $k$. We 
+want a function $H:X(k)\to \dR$ that measures the ``arithmetic complexity'' of 
+a point. For example, $\frac 1 2$ and $\frac{100001}{200001}$ are very close in 
+$\dR$, but we should think of the latter as being much more ``arithmetically 
+complex.'' We would want $H$ to have properties arising from the geometry of 
+$X$, and (this is very important), be such that the sets 
+$\{x\in X(k):|H(x)|\leqslant c\}$ are finite for all $c$. 
+
+Let's start with heights on projective space over $\dQ$. Consider a point 
+$x=(x_0:\cdots:x_n)\in \dP^n(\dQ)$. After scaling by a rational number, we can 
+assume that the $x_i\in \dZ$ and $\gcd(x_0,\dots,x_n)=1$. We set 
+\[
+  H_\dQ(x) = \sup\{|x_0|,\dots,|a_n|\}
+\]
+It is easy to see that this is well defined, but it doesn't work very well over 
+a general number field. Returning to our example, we have 
+$H_\dQ(\frac 1 2:1)=2$, while $H_\dQ(\frac{100001}{200001}:1)=200001$, which is 
+much larger. 
+
+Now let $k$ be a number field. Each finite place $v$ of $k$ is associated with 
+a prime $\fp_v\subset \fo=\fo_k$. We set 
+\[
+  \|a\|_v = |a|_{\fp_v} 
+        = \begin{cases}
+            \#(\fo/\fp_v)^{-v_\fp(a)} & \text{if $a\ne 0$} \\
+            0                         & \text{if $a=0$}
+          \end{cases}
+\]
+We call $\|\cdot\|_v$ the canonical absolute value associated with $v$. If $v$ 
+is a real place of $k$, i.e. $v$ corresponds with $i:k\hookrightarrow \dR$, we 
+set $\|a\|_v = |i(a)|$. Similarly, if $v$ is a place corresponding to an 
+embedding $i:k\hookrightarrow \dC$ with dense image, we set 
+$\|a\|_v=|i(a)|^2$. Note that $\|\cdot\|_v$ is \emph{not} an absolute value 
+because it doesn't satisfy the triangle inequality. Recall the following 
+
+\begin{theorem}[product formula]
+Let $k$ be a global field. For $a\in k^\times$, we have 
+\[
+  \prod_v \|a\|_v = 1
+\]
+\end{theorem}
+\begin{proof}
+We'll only look at $k=\dQ$. Take $a=\pm \prod_p p^{v_p(a)}\in \dQ^\times$. We 
+have $\|a\|_p=p^{-v_p(a)}$ for each $p$, while $\|a\|_\infty = |a|$. Thus
+\[
+  \prod_v \|a\|_v = \|a\|_\infty\cdot \prod_p p^{-v_p(a)}  = \prod_p p^{v_p(a)}\cdot \prod_p p^{-v_p(a)} = 1
+\]
+For general $k/\dQ$, one uses the norm map $N:k\to \dQ$ to prove the product 
+formula for $k$.
+\end{proof}
+
+For $k$ a general number field, we define $H_k:\dP^n(k)\to [1,\infty)$ by 
+\[
+  H_k(a_0:\cdots:a_n) = \prod_v \sup\{ \|a_0\|_v,\dots,\|a_n\|_v\}
+\]
+If $k=\dQ$ and the $a_i\in \dZ$ with $\gcd(a_0,\dots,a_n)=1$, then 
+$\max\{|a_0|_p,\dots,|a_n|_p\}=1$. Thus 
+$H_\dQ(a_0:\cdots:a_n)=\sup\{|a_0|,\dots,|a_n|\}$. The height $H_k$ is 
+well-defined because of the product formula. For $c\in k^\times$, we have 
+\[
+  \prod_v \sup\{\|ca_0\|_v,\dots,\|ca_n\|_v\} = \prod_v \|c\|_v \prod_v \sup\{\|a_0\|_v,\dots,\|a_n\|_v\} = 1\cdot \prod_v \sup\{\|a_0\|_v,\dots,\|a_n\|_v\}
+\]
+which implies $H_k(c a_0:\cdots:c a_n)=H_k(a_0:\cdots:a_n)$. It turns out that 
+for each $c\in \dR$, we have  
+\[
+  \#\{a\in \dP^n(k) : H_k(a)\leqslant c\} = O\left(c^{(N+1)[k:\dQ]}\right)
+\]
+In particular, the set on the left is finite. 
+
+The \emph{absolute height} is a map $H:\dP^n(\bar\dQ)\to [1,\infty)$ is defined 
+by $H(a) = H_k(a)^{[k:\dQ]^{-1}}$ for any $k\subset \bar\dQ$ with $a\in k$. 
+The sets $\{x\in \dP^n(\bar\dQ):H(a)\leqslant c\}$ can be infinite, but the 
+sets 
+\[
+  \{x\in \dP^n(\bar\dQ):H(a)\leqslant c\text{ and } [\dQ(x):\dQ]\leqslant d\}
+\]
+are finite. The \emph{logarithmic absolute height} is the map 
+$h=\log H:\dP^n(\bar\dQ)\to [0,\infty)$. 
+
+Let $X$ be a nice variety over $k$. We would like to define a reasonable height 
+function on $X$. One way to do this is to take an embedding $\phi:X\to \dP^n$ 
+(probably for some very large $n$) and let $h_\phi:X(\bar k)\to [0,\infty)$ be 
+the composite $X(k) \xrightarrow\phi \dP^n(\bar k) \xrightarrow{h} [0,\infty)$. 
+We can rephrase this. Let $D\in \divisor(X)$ be a very ample divisor. A choice of a 
+generating set for the global sections of $\sL(D)$ gives an embedding 
+$\phi_D:X\hookrightarrow \dP^n$. We write $h_D(\bar k)\to [0,\infty)$ for the 
+composite 
+$X(\bar k) \xrightarrow{\phi_D} \dP^n(\bar k)\xrightarrow{h} [0,\infty)$. Note 
+that the notation $h_D$ is a little bit misleading, because $h_D$ actually 
+depends on a choice of a generating set for $\sL(D)$. If we chose another 
+generating set, getting an embedding $\phi_D'$ of $X$ into some projective 
+space, then we have $h \phi_D - h \phi_D'=O(1)$, i.e. the two heights differ by 
+a (globally) bounded function $X(\bar k)\to \dR$. So if we consider 
+$h_D$ as an equivalence class in $\dR^{X(\bar k)}$, then $h_D$ is well-defined. 
+If $E\sim D$ is another very ample divisor, then $h_D-h_E=O(1)$, so the 
+equivalence class of $h_D$ only depends on the class of $D$ in the class group 
+of $X$. Finally, if $E,D\in \divisor(X)$ are very ample, then 
+$h_{D+E}=h_D+h_E+O(1)$. 
+
+\begin{theorem}[Weil's ``height machine'']\label{thm:weil-height}
+Let $X$ be a nice variety over a number field $k$. Then there exists a unique 
+homomorphism $h:\picard(X)\to \dR^{X(\bar k)}/O(1)$ such that 
+\begin{enumerate}
+  \item If $D$ is very ample, then $h_D=h\circ \phi_D+O(1)$. (normalization)
+  \item For a morphism $\phi:X\to Y$ of nice $k$-varieties, we have 
+    $h_{X,\phi^\ast D} = h_{Y,D}\circ\phi + O(1)$ for all $D\in \divisor(Y)$. 
+    (functoriality)
+  \item For all $D$, $h_D\geqslant O(1)$ on the complement of the base locus 
+    of $D$. (positivity)
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+The existence and uniqueness of $h$ follows easily from the above remarks. For 
+a proof of 2 and 3, see \cite[\S2.4]{bg06}. 
+\end{proof}
+
+The case we are interested in is when $X=A$ is an abelian variety over $k$. For 
+$D\in \divisor(A)$, one can show (see \cite[I.5.4]{mi-av}) that 
+$[n]^\ast D\sim \frac{n(n+1)}{2} D + \frac{n(n-1)}{2}[-1]^\ast D$. In 
+particular, if $D$ is symmetric (that is, $[-1]^\ast D=D$) then 
+$[n]^\ast D\sim n^2 D$. (There are plenty of symmetric divisors: if $D$ is 
+arbitrary, $D+[-1]^\ast D$ is symmetric). By theorem \ref{thm:weil-height}, 
+if $D$ is symmetric, we have 
+\begin{align*}
+  h_{A,D}\circ[n]+O(1)
+    &= h_{A,[n]^\ast D} + O(1) \\
+    &= h_{A,n^2 D}+O(1) \\
+    &= n^2 h_{A,D}+O(1)
+\end{align*}
+So for all $x\in A(\bar k)$, we have 
+$h_{A,D}(n\cdot x) = n^2 h_{A,D}(x)+O(1)$. In other words, repeated addition 
+gives a quadratic growth in the ``complexity'' of a point $x\in A(\bar k)$. 
+
+Fix a symmetric divisor $D\in \divisor(A)$. Define the \emph{canonical (or 
+N\'eron-Tate) height} associated to $D$, as a function 
+$\widehat h_D:A(\bar k)\to \dR$, by 
+\[
+  \widehat h_D(a) = \lim_{n\to \infty} \frac{1}{4^n} h_D(2^n\cdot a) \text{.}
+\]
+
+
+
+
+
+
+
+
+
+
+% class on 10-08-2013
+Let's show that the limit defining $\widehat h_D$ exists. Our previous 
+discussion shows that $|h_D(2\cdot x)-h_D(x)|\leqslant C$ for some constant $C$ 
+depending only on $A$. We write this as $h_D(2\cdot x)=h_D(X)+O(1)$, keeping in 
+mind that this $O(1)$ only depends on $A$. Note that 
+\[
+  \frac{h_D(2^i\cdot x)}{4^i} = \frac{h_D(2\cdot (2^{i-1}\cdot x))}{4^i} = \frac{4 h_D(2^{i-1}\cdot x)+O(1)}{4^i} = \frac{h_D(2^{i-1}\cdot x)}{4^{i-1}} + \frac{O(1)}{4^i} \text{.}
+\]
+Thus, for any $n>m$, we have 
+\begin{align*}
+  \left| \frac{h_D(2^n \cdot x)}{4^n} - \frac{h_D(2^m\cdot x)}{4^m}\right|
+    &\leqslant \sum_{i=m+1}^n \left|\frac{h_D(2^i\cdot x)}{4^i} - \frac{h_D(2^{i-1}\cdot x)}{4^{i-1}}\right| \\
+    &= \sum_{i=m+1}^n \left|\frac{h_D(2^{i-1}\cdot x)}{2^{i-1}} +\frac{O(1)}{4^i} - \frac{h_D(2^{i-1}\cdot x)}{2^{i-1}}\right| \\
+    &\leqslant \sum_{i=m+1}^n \frac{C}{4^i} \text{,}
+\end{align*}
+which shows that $\left\{4^{-n} h_D(2^n\cdot x)\right\}_{n=1}^\infty$ is a Cauchy 
+sequence. So the limit defining $\widehat h_D(x)$ exists. If we set $m=0$ and 
+let $n\to \infty$, we see that $h_D=\widehat h_D+O(1)$. 
+
+If $D$ is antisymmetric, we define 
+$\widehat h_D(x)=\lim_{n\to\infty} \frac{1}{2^n} h_D(2^n\cdot x)$
+The same proof shows that $\widehat h_D$ is well-defined. We can extend 
+$\widehat h$ to a function $\widehat h:\divisor(A)\to \dR^{A(\bar k)}$ by setting 
+\[
+  \widehat h_D=\frac 1 2 \left(\widehat h_{D+[-1]^\ast D} +  h_{D-[-1]^\ast D}\right) \text{.}
+\]
+It turns out that $\widehat h_D$ depends only on the class of $\sL(D)$ in 
+$\picard(A)$, so we will think of $\widehat h$ as a function 
+$\widehat h:\picard(A) \to \dR^{A(\bar k)}$. 
+
+For $c\in \picard(A)$, the N\'eron-Tate height $\widehat h_c$ has many nice 
+properties, for example 
+\begin{align*}
+  \widehat h_c(n\cdot x) &= n^2 \widehat h_c(x) \\
+  \widehat h_c(x+y)+\widehat h_c(x-y) &= 2\left(\widehat h_c(x)+\widehat h_c(y)\right)
+\end{align*}
+These are easy corollaries of the following lemma.
+
+\begin{lemma}\label{lem:height-quadratic}
+Let $A$ be an abelian variety over a number field $k$, and let $c\in \picard(A)$. 
+Then the function 
+$\langle \cdot,\cdot\rangle:A(\bar k)\times A(\bar k)\to \dR$ defined by 
+\[
+  \langle x,y\rangle = \widehat h_c(x+y)-\widehat h_c(x)-\widehat h_c(y)
+\]
+is bilinear. 
+\end{lemma}
+\begin{proof}
+We are trying to prove that for $x,y,z\in A(\bar k)$, we have 
+\[
+  \widehat h_c(x+y+z)-\widehat h_c(x+y)-\widehat h_c(z) = \left(\widehat h_c(x+z)-\widehat h_c(x)-\widehat h_c(z)\right) + \left(\widehat h_c(y+z)-\widehat h_c(y)-\widehat h_c(z)\right) \text{.}
+\]
+This is equivalent to 
+\begin{equation}\label{eq:height-quadratic}
+  -\widehat h_c(x+y+z)+\widehat h_c(x+y)+\widehat h_c(x+z)+\widehat h_c(y+z)-\widehat h_c(x)-\widehat h_c(y)-\widehat h_c(z) = 0 \text{.}
+\end{equation}
+Now we use the fact that for a morphism $f:A\to B$ of abelian varieties, one has 
+$\widehat h_{f^\ast c}=\widehat h_c\circ f$. For a finite set $S$ and 
+$\sigma\subset S$, write $\pi_\sigma:A^S=\prod_S A\to A$ for the map 
+$(x_s)_{s\in S}\mapsto \sum_{s\in\sigma} x_s$. With this, we can rewrite 
+equation \eqref{eq:height-quadratic} as 
+\[
+  \sum_{\sigma\subset \{1,2,3\}} (-1)^{|\sigma|}\widehat h_c\circ \pi_\sigma = 0 \text{.}
+\]
+By the functoriality of $\widehat h$, it is enough to show that one has 
+\[
+  \sum_{\sigma\subset \{1,2,3\}} (-1)^{|\sigma|} \pi_\sigma^\ast = 0 \text{.}
+\]
+This is just the ``theorem of the cube'' (theorem \ref{thm:cube}). 
+\end{proof}
+
+The basic idea in this proof comes from the proofs of theorems 8.6.11 and 
+9.2.8 in \cite{bg06}. 
+
+\begin{theorem}\label{thm:cube}
+Let $A$ be an abelian variety over a field $k$. For any finite set $S$ with 
+$\# S\geqslant 3$, one has 
+\[
+  \sum_{\sigma\subset S} (-1)^{|\sigma|} \pi_\sigma^\ast = 0
+\]
+as a map $\picard(A)\to \picard(A^S)$. 
+\end{theorem}
+\begin{proof}
+For $\# S=3$ this is just \cite[III.10]{mu08}. The general case follows easily 
+by induction. 
+\end{proof}
+
+
+
+If $c$ is the class of a very ample line bundle, then 
+$\widehat h_c\geqslant 0$ and for all $x\in A(\bar k)$, 
+$\widehat h_c(x)=0$ if and only if $x$ is torsion. 
+Indeed, if $x$ is torsion, then for some $n>1$, we have 
+$n^2 \widehat h_c(x)=\widehat h_c(n x)=\widehat h_c(x)$, which implies 
+$\widehat h_c(x)=0$. On the other hand, if $\widehat h_c(x)=0$, then 
+$\widehat h_c(n\cdot x)=0$ for all $n$. The set 
+$\{x,2\cdot x,3\cdot x,\dots\}$ is contained inside $A(L)$, where $L=k(x)$ is 
+the finite extension of $k$ generated by (the coordinates of) $x$. Thus 
+$\mathbb{N}\cdot x\subset \{a\in A(L):\widehat h_c(a)\leqslant 0\}$, which we 
+know is a finite set. It follows that $x$ is torsion. 
+
+\begin{example}
+Let $E/\dQ$ be an elliptic curve. Then a divisor on $E$ is just a formal sum 
+$\sum_{x\in E} n_x\cdot x$. Of course, $E$ has a canonical point -- the origin 
+$O$, so for each $n\in \dZ$, we can consider the N\'eron-Tate height associated 
+with $n O$. Since $\widehat h_{n O}=n \widehat h_O$, we don't lose any 
+information by restricting ourselves to $n=1$, but since $O$ isn't very ample, 
+we can only directly compute $h_{n O}$ starting with $n=2$. 
+
+For $n=2$, the Riemann-Roch theorem tells us that $\ell(2 O)=2$, i.e. 
+$\h^0(\sL(2 O)) = k\oplus k x$, where $x$ is a rational function on $E$. For 
+$E$ with chosen model $y^2=x^3+a x+b$, $x$ the rational function corresponds to 
+the map $E\to \dP^1$ given by $(x:y:1)\mapsto (x:1)$. Thus 
+$h_{2 O}(x:y:1)=h_\dQ(x)$. 
+
+For $n=3$, the divisor $3 O$ is actually very ample. By the Riemann-Roch 
+theorem, $\ell(3 O)=3$, so $\h^0(\sL(3 O))=k\oplus k x\oplus k y$, where 
+$(x:y:1):E\to \dP^2$ gives a Weierstrass embedding. That is, there exist 
+$a,b$ such that $y^2=x^3+a x+b$, and $\phi_{3 O}:E\to \dP^2$ induces an 
+isomorphism between $E$ and the zero set of $y^2=x^3+a x+b$ in $\dP^2$. 
+One has $\widehat h_{3 O}(e)=h_\dQ(x(e):y(e):1)+O(1)$. 
+\end{example}
+
+Once again, let $c$ be the class of a symmetric, very ample line bundle on an 
+abelian variety $A/k$. The function  
+\[
+  \langle x,y\rangle_c = \frac 1 2 \left(\widehat h_c(x+y) - \widehat h_c(x)-\widehat h_c(y)\right)
+\]
+is bilinear, and descends to $A(\bar k)/A(\bar k)_\text{tors}$. 
+We can even tensor with $\dR$ to get a bilinear form on 
+$A(k)_\dR = A(k)\otimes \dR$. The form $\langle \cdot,\cdot\rangle_c$ 
+is positive-definite on $A(k)_\dR$. Thus $A(k)_\dR$ with the pairing 
+$\langle\cdot\rangle_c$ is isomorphic to $\dR^n$ with the standard inner 
+product, where $n=\rank A$. The group $A(k)/A(k)_\text{tors}$ is a 
+lattice in $A(k)_\dR$, and we can define the \emph{regulator} of $A$ with 
+respect to $c$ to be the volume of the fundamental domain of 
+$A(k)/A(k)_\text{tors}$ in $A(k)_\dR$. That is, 
+\[
+  \operatorname{Reg}_c(A) = \left|\det\left(\langle x_i,x_j\rangle_c\right)_{i,j}\right|
+\]
+where $\{x_i\}$ is a $\dZ$-basis for $A(k)/A(k)_\text{tors}$. 
+
+
+If $A$ is an arbitrary abelian variety, there is no natural ``good choice'' for 
+a canonical divisor on $A$. On the other hand, if $A=J=\jac C$ for some nice 
+curve $C$ of genus $g$ with $C(k)\ne\varnothing$, then we can use the induced 
+embedding $j:C\to J$ to define a canonical divisor on $J$. Let 
+$\Theta=j(C)+\cdots + j(C)$ be the $(g-1)$-fold sum of $C$ in $J$, and consider 
+$\Theta$ as a divisor on $J$. We call $\Theta$, and the induced class $\theta$ 
+in $\picard(J)$, the \emph{theta-divisor of $J$}. Note that if $J=E$ is an elliptic 
+curve with origin $O$, the theta-divisor is just $O$.  It turns out that 
+$\theta$ is ample (see \cite[8.10.22]{bg06}), and thus 
+$\langle\cdot,\cdot\rangle_\theta$ is positive-semidefinite. For any 
+$c\in \picard(J)$ for which $\langle\cdot,\cdot\rangle_c$ is 
+positive-semidefinite, set 
+$|x|_c=\sqrt{\langle x,x\rangle_c} = \widehat h_c(x)^{1/2}$. The following 
+theorem is very deep.
+
+\begin{theorem}[Vojta's inequality]
+Let $C$ be a nice curve of genus $g\geqslant 2$ over a number field $k$. Let 
+$J=\jac C$, and let $\theta$ be the theta-divisor on $J$. Then there are 
+effectively computable constants $\lambda,\lambda'$ depending only on $C$ and 
+a chosen $x_0\in C(\bar k)$ such that for $x,y\in C\hookrightarrow J$, if 
+$|x|_\theta\geqslant \lambda$ and 
+$|y|_\theta\geqslant \lambda'|x|_\theta$, then 
+
+\[
+  \langle x,y\rangle_\theta \leqslant \frac 3 4 |x|_\theta\cdot |y|_\theta\text{.}
+\]
+\end{theorem}
+\begin{proof}
+This is hard -- see \cite[11.9.1]{bg06}. The constant $\frac 3 4$ is not 
+important, as the theorem would hold for any constant in the interval 
+$(g^{-1/2},1]$. 
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+% notes on 10-10-2013
+
+
+
+\begin{theorem}[Faltings]
+Let $C$ be a nice curve of genus $g\geqslant 2$ over a number field $k$. Then 
+$C(k)$ is finite.
+\end{theorem}
+\begin{proof}
+We can assume $C(k)\ne\varnothing$, so the choice of $x_0\in C(k)$ gives us an 
+embedding $j:C\hookrightarrow J=\jac C$ defined over $k$. Let 
+$V=J(k)\otimes_\dZ\dR$. By Mordell-Weil, this is a finite-dimensional 
+vector space, and its rank is just the (algebraic) rank of $J$. The induced 
+pairing $\langle\cdot,\cdot\rangle_\theta$ on $V$ is now a nondegenerate 
+positive-definite bilinear form, so $V$ is isomorphic as a Hilbert space to 
+$\dR^n$ with the standard dot product. Note that by basic properties of 
+heights, $S$ is a discrete subset of $V$. 
+
+For nonzero $u,v\in V$, the \emph{angle} between $u$ and $v$ is the unique 
+number $\varphi(u,v)$ in $[0,\pi]$ satisfying 
+\[
+  \cos\varphi(u,v) = \frac{\langle u,v\rangle_\theta}{|u|_\theta |v|_\theta} \text{.}
+\]
+For a nonzero $v$ and fixed $\alpha\in (0,\pi]$, define the cone 
+$\Gamma_{v,\alpha} = \{u\in V\smallsetminus 0 : \varphi(u,v)<\alpha\}$. This is an open 
+subset of $V$ that is stable under scaling by $\dR^+$. Let $S$ be the image of 
+$C(k)$ in $J(k)/J(k)_\text{tors}\hookrightarrow V$. Since $J(k)_\text{tors}$ is 
+finite, we only need to show that $S$ is finite. 
+
+Let $\psi = \frac 1 2 \cos^{-1}(\frac 3 4)$, and for nonzero $v\in V$, let 
+$U_v=\Gamma_{v,\psi}$. We claim that $U_v\cap S$ is finite. If it is not, 
+then there exist $x,y\in S\cap U_v$  such that $|x|_\theta>\lambda$ and 
+$|y|_\theta>\lambda'|x|_\theta$. By Vojta's theorem, 
+$\cos\varphi(x,y)\leqslant \frac 3 4$, so 
+$\varphi(x,y)\geqslant \cos^{-1}(\frac 3 4)$. This forces 
+$\varphi(x,u)\geqslant \psi$, a contradiction. 
+
+The sets $\{U_v:v\in V\smallsetminus 0\}$ form an open cover of $V$. Since the unit 
+sphere $\{v\in V:|v|=1\}$ is compact, there is a finite list 
+$v_1,\dots,v_n\in V$ such that $V=U_{v_1}\cup \cdots \cup U_{v_n}$. Since each 
+$U_{v_i}\cap S$ is finite, the set $S$ is finite. 
+\end{proof}
+
+This proof essentially gives an effectively computable upper bound for 
+$\# C(k)$. Indeed, since the dimension of $V$ can be bounded above (for 
+instance, by computing certain Selmer groups) it is possible to give an 
+effectively computable upper bound for $\# C(k)$. On the other hand, the set 
+$C(k)$ is not known to be effectively computable, because our proof does 
+\emph{not} give a bound for the heights of points in $C(k)$.
+
+
+
+

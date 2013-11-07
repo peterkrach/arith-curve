@@ -1,0 +1,784 @@
+% !TEX root = 7390-notes.tex
+
+
+\section{Motivation: plane curves}
+
+
+
+
+Fir a non-constant polynomial $f(x,y)\in\dQ[x,y]$. Assume $f$ is 
+geometrically irreducible, that is, irreducible in the ring 
+$\overline{\dQ}[x,y]$. We can define the curve $C$ over $\dQ$ determined by the 
+equation $f(x,y)=0$. For now, we will think of $C$ in terms of its functor of 
+points. To any $\dQ$-algebra $A$, we have $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$. 
+As a scheme, $C=\spec\left(\dQ[x,y]/f\right)$. Some big questions are:
+\begin{enumerate}
+  \item Is $C(\dQ)=\varnothing$?
+  \item Is $C(\dQ)$ finite?
+  \item Can we compute $C(\dQ)$?
+\end{enumerate}
+None of these questions can be answered in full generality. 
+
+\begin{example}
+Let $f=x^2+y^2-1$, i.e. $C$ is the circle. It is well-known that 
+\[
+  C(\dQ)=\left\{\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right):t\in\dQ\right\}\cup \{(-1,0)\}
+\]
+This can be proved in the usual manner by choosing the point $(-1,0)$ in $C$, 
+and then drawing lines with rational slopes through $(-1,0)$. As a Riemann 
+surface, $C(\dC)$ is a sphere with two points removed. 
+\end{example}
+
+\begin{example}
+Let $f=x^2+y^2+1$. Then $C(\dR)=\varnothing$, hence $C(\dQ)=\varnothing$. But 
+as a Riemann surface, $C(\dC)$ is the same sphere with two points removed. Thus 
+the geometry of $C$ does not necessarily determine $C(\dQ)$. 
+\end{example}
+
+\begin{example}
+Let $f=x^4+y^4-1$. Then it is a theorem of Fermat that 
+$C(\dQ)=\{(\pm 1,0),(0,\pm 1)\}$. It is a (much harder) theore of Wiles that if 
+$C_n$ is the curve given by $f=x^n+y^n-1$ for $n\geqslant 3$, then 
+$Cn(\dQ)=\{(\pm 1,0),(0,\pm 1)\}$. 
+\end{example}
+
+\begin{example}[Stoll]
+Consider 
+\begin{align*}
+  C : y^2 = 82342800 x^6 &- 470135160 x^5 + 52485681 x^4 + 2396040466 x^3 \\
+    &+ 567207969 x^2 - 985905640 x + 247747600
+\end{align*}
+This is a curve of genus 2, i.e. $C(\dC)$ is a punctured two-holed 
+torus. It turns out that $\# C(\dQ)\geqslant 642$ \cite[\S 6]{st09}. 
+However, by a theorem of Faltings, $\# C(\dQ)$ is finite. It is 
+currently the largest known number of rational points of a genus two curve 
+over $\dQ$. If we take $C:y^2=f(x)$ with $f\in\dQ[x]$ a 
+``random'' sextic polynomial, then the expectation is that 
+$C(\dQ)=\varnothing$. 
+\end{example}
+
+\begin{question}
+Does there exist a number $B_g$ such that if a curve $C/\dQ$ has 
+genus $g\geqslant 2$, then $\# C(\dQ)\leqslant B_g$?
+\end{question}
+
+This is not even known for genus $g=2$. 
+
+\begin{example}
+Let $C:y^2=x^3+875 x$. Note that $C(\dQ)$ has the obvious point 
+$(0,0)$, and one can do a bit of work to show that this is the only point. 
+\end{example}
+
+\begin{example}
+Let $C:y^2=x^3+877 x$. Then $C(\dQ)$ once again contains $(0,0)$. A 
+computer search showed that $(0,0)$ is the only point on $C$ of height 
+$\leqslant 1000000$. For now, the \emph{height} of a solution is just the 
+largest absolute value of the numerator / denominator of a solution written 
+in reduced fractions. But other methods lead us to expect many more solutions
+(infinitely many, in fact). Let $E$ be the projective curve over $\dQ$ obtained 
+by adjoining a point $O$ to $C$. As a Riemann surface, $E(\dC)$ is just a 
+torus. 
+
+We can give $E/\dQ$ the 
+structure of an abelian variety. That is, we can give $E$ the structure of a 
+commutative algebraic group, i.e. the operation is given by regular  
+functions, with $O$ being the identity. Later, we will think of $E$ as 
+being identified with its jacobian $\jac(E)$ via the choice of a single point 
+$O\in E(\dQ)$. Since $E$ is a commutative algebraic group, $E(\dQ)$ is an 
+abelian group (with identity $O$). It is a theorem of Mordell that $E(\dQ)$ is 
+finitely generated. We know the structure of such groups: 
+$E(\dQ)\simeq A\times \dZ^r$, where $A$ is finite, and $r=\rank E$ 
+is the \emph{(algebraic) rank} of $E$. 
+
+In general, the $A$ is computable. In our case, $A=\dZ/2$. It is much harder to 
+compute the algebraic rank of $E$. The Birch and Swinnerton-Dyer 
+conjecture says that $r$ agrees with the order of vanishing $r'$ of a certain 
+holomorphic function $L(E,s)$ at $s=1$. Sometimes, $r'$ can be computed.  
+In our example, a computation shows that $r'=1$, so we expect 
+$E(\dQ)\simeq \dZ/2\times\dZ$. In particular, 
+$E(\dQ)$ should be infinite. One can show (using other methods) that 
+$E(\dQ)=\langle (0,0),(x_0,y_0)\rangle$, where 
+\[
+  x_0 = \frac{37 5494 5281 2716 2193 1055 0406 9942 0927 9234 6201}{6215 9877 7687 1505 4254 6322 0780 6972 3804 4100}
+\]
+For details, see \cite{br84}. One method to construct such large solutions for 
+a rank one elliptic curve uses Heegner points. 
+\end{example}
+
+In general, we will take a curve $C/\dQ$, consider its jacobian $J$, and study 
+$J(\dQ)$. This will be a group, and its structure heavily influences $C(\dQ)$. 
+For example, we could study how the rank of $J(\dQ)$ affects $C(\dQ)$. In the 
+case that $C=E$ is an elliptic curve, $\jac(E)=E$, so studying the curve and 
+studying its jacobian is the same thing. The ``average rank of an elliptic 
+curve'' is not known, nor is there a general consensus on what is should be. 
+Some expect it the rank of a random curve to be $0$ or $1$, both with 
+probability $\frac 1 2$. Others suppose that elliptic curves over $\dQ$ have 
+rank $2$ with nonzero probability as well. It was proven recently (see 
+\cite[\S 1]{bh10}) that 
+\[
+  \limsup_{x\to\infty} \frac{1}{4 x^2} \sum_{\substack{|a|,|b|\leqslant B \\ 4 a^3+27 b^2\ne 0}} \rank(E_{a,b}) \leqslant\frac 7 6 \text{,}
+\]
+where $E_{a,b}$ is the elliptic curve over $\dQ$ defined by $y^2=x^3 +a x+b$.
+
+\begin{question}
+Is $\rank E(\dQ)$ bounded for all elliptic curves 
+$E/\dQ$?
+\end{question}
+
+It is known that there are curves with rank at least $28$, but their exact 
+ranks are not known \cite{du}. The largest known rank is $19$. 
+%It is generally thought that the answer is no, and that the NSA has examples of curves with 
+%much larger ranks than publicly known. 
+
+Our assumption that $f(x,y)$ is irreducible is not a serious one. For example, 
+if $f=y^2-x^2$, then we can factor $f$ as $(x+y)(x-y)$, and then treat the 
+solutions to $x+y=0$ and $x-y=0$ separately. Another example is $f=x^2+y^2$, 
+which only factors over $\dQ(i)$ as $(y+i x)(y-i x)$, and we the rational 
+points lie in the intersection of the two components over $\dQ(i)$. In general, 
+a curve over $\dQ$ will be the union of finitely many geometrically irreducible 
+components, each of which is defined over some finite extension of $\dQ$. Also, 
+the assumption that $f\in \dQ[x,y]$ is not serious. One can prove that every 
+curve $C/\dQ$ embeds into $\dP^2_\dQ$, hence is birational to a plane curve. 
+
+Let $C/\dQ$ be a curve. Then 
+$C(\dC)\smallsetminus \{\text{singular points}\}$ is a compact Riemann 
+surface with points removed, i.e. it is a torus with $g$ handles with finitely 
+many points removed. Call this $g$ the \emph{genus} of $C$. 
+
+\begin{theorem}[Faltings, conjectured by Mordell]
+If $C$ is a curve over $\dQ$ with $g\geqslant 2$, then $C(\dQ)$ 
+is finite. 
+\end{theorem}
+
+For curves of genus $g<2$, $\# C(\dQ)$ can be infinite. In Faltings' 
+theorem, $\dQ$ can be replace by any field finitely generated over 
+$\dQ$. 
+
+Now let $C$ be a smooth projective curve of genus $g$ over $\mathbb{F}_p$. 
+We are interested in $\#C(\mathbb{F}_{p^n})$, which is obviously computable 
+for each $n$. Define the \emph{zeta function} of $C$ to be the formal power 
+series 
+\[
+  Z(C,t) = \exp\left( \int\sum_{n\geqslant 1} \# C(\mathbb{F}_{p^n}) t^n\, \frac{dt}{t}\right) \text{.}
+\]
+
+\begin{theorem}[Weil]\label{thm:Weil-curve}
+If $C/\mathbb{F}_p$ is a smooth projective curve of genus $g$, then 
+\[
+  Z(C,t) = \frac{P(C,t)}{(1-t)(1-p t)} \text{,}
+\]
+where $P(C,t)\in \dZ[t]$ has degree $2 g$. Moreover, if 
+$P(C,t) = \prod_{i=1}^{2 g} (1-\alpha_i t)$, then for each $i$, one has 
+$|\alpha_i|=p^{1/2}$. 
+\end{theorem}
+
+The second statement in the theorem is called the \emph{Riemann hypothesis} 
+for $C$. It can be used to obtain explicit bounds on the size of 
+$C(\mathbb{F}_{p^n})$ as $n\to\infty$. For example, we can compute 
+\begin{align*}
+  \sum_{n>0} \# C(\mathbb{F}_{p^n}) \frac{t^n}{n} 
+    &= \log Z(C,t) \\
+    &= -\log(1-t) - \log(1-p t) + \sum_i \log(1-\alpha_t t) \\
+    &= \sum_{n>0} \left(p^n+1-\sum_{i=1}^{2 g} \alpha_i^n\right) \frac{t^n}{n} \text{.}
+\end{align*}
+Therefore, $\# C(\mathbb{F}_{p^n}) = p^n+1-\sum_{i=1}^{2 g} \alpha_i^n$. It 
+follows easily that $|\# C(\mathbb{F}_{p^n})-(p^n+1)| \leqslant 2 g p^{n/2}$. 
+This is equivalent to saying 
+\[
+  p^n-2 g p^{n/2}+1 
+    \leqslant \# C(\mathbb{F}_{p^n}) 
+    \leqslant p^n + 2 g p^{n/2} + 1 \text{.}
+\]
+In particular, setting $n = g = 1$, we obtain 
+$\# C(\mathbb{F}_p) \geqslant (p^{1/2}-1)^2>0$, hence 
+$C(\mathbb{F}_p)\ne\varnothing$. 
+
+
+
+
+
+
+
+
+
+
+% notes taken on 09-03-2013
+
+\section{Jacobians and abelian varieties}
+
+%\subsection*{Abelian varieties over $\dC$}
+
+At first, we will work over $\dC$ and treat curves as Riemann surfaces. Since 
+the category of smooth projective curves over $\dC$ is equivalent to the 
+category of compact connected Riemann surfaces, there is no loss of 
+information here. Let's start with some general definitions.
+
+\begin{definition}
+A \emph{variety} over a field $k$ is a separated scheme of finite type over 
+$\spec(k)$. We call a variety $X/k$ \emph{nice} if it is smooth, projective, 
+and geometrically integral.
+\end{definition}
+
+Recall that $X/k$ is \emph{geometrically integral} if 
+$X_{\bar k}=X\times_k \spec(\bar k)$ is integral. A \emph{curve} is a 
+variety of dimension one. If we are interested in $C(k)$ for general curves, 
+it is sufficient to consider nice curves. If $X$ is a variety, we can consider 
+its functor of points $h_X:\mathsf{Alg}_k\to \mathsf{Set}$ which assigns to a 
+$k$-algebra $A$ the set $X(A)$ of ``$A$-valued points.'' This determines a 
+functor $h_X:\mathsf{Sch}_k^\circ\to\mathsf{Set}$ which is defined by 
+$h_X(Y)=\hom_k(Y,X)$. 
+
+Earlier, for $f\in \dQ[x,y]$ and $C$ defined by the equation $f=0$, we 
+defined $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$ for any $\dQ$-algebra $A$. 
+Note that 
+\begin{align*}
+  C(A) &= \{(a,b)\in A^2:f(a,b) = 0\} \\
+    &= \hom_{\mathsf{Alg}_\dQ}(\dQ[x,y]/f,A) \\
+    &= \hom_{\mathsf{Sch}_k}\left(\spec A,\spec(\dQ[x,y]/f)\right) \text{,}
+\end{align*}
+so this agrees with our general definition. The functor $h_X$ determines $X$ 
+up to isomorphism. (This is just the Yoneda lemma.)
+
+
+
+
+
+
+\subsection*{Jacobians over $\dC$}
+
+For the rest of this section, let $C$ be a nice curve over $\dC$. Set 
+$X=C(\dC)$; this is a compact connected Riemann surface. So 
+topologically, $X$ is a many-handled torus. Let $\Lambda=\h_1(X,\dZ)$, 
+the first singular homology group of $X$, which can be identified with 
+$\pi_1(X)^\text{ab}$. We will regard elements of $\Lambda$ are equivalence 
+classes $[\gamma]$ for $\gamma\in \pi_1(X)$. 
+
+%\begin{remark}
+%The notation $\h_\bullet$, $\pi_1$\ldots will always denote the 
+%\emph{topological} homology, fundamental group\ldots. For, e.g. 
+%etale cohomology, we will write $\h_\text{et}^\bullet(C,\dQ_\ell)$, or 
+%$\h_\text{crys}^\bullet(X/\dZ_p)$ for crystalline cohomology.
+%\end{remark}
+
+It is a theorem of algebraic topology that $\Lambda\simeq\dZ^{2 g}$; we 
+will call $g$ the \emph{genus} of $X$ (and also of $C$). Let $K$ be the field 
+of meromorphic functions on $X$. That is, elements of $K$ are of the 
+form $f=g/h$ where $g$ and $h$ are holomorphic functions on $X$ and $g\ne 0$. 
+(This forces $g\ne 0$ except on a finite subset of $X$.) At any point 
+$x\in X$, we can write $f$ in local coordinates as $z^n(a_0+a_1 z+\cdots)$ 
+where $a_0\ne 0$ and $n\in\dZ$. We call $n=\ord_x(f)$ the \emph{order 
+of vanishing} of $f$ at $x$. The \emph{degree} of $f$ is the sum 
+$\deg(f)=\sum_{x\in X}\ord_x(f)$. If $f$ is holomorphic instead of just 
+meromorphic, then $\deg(f)=0$.  
+ 
+\begin{remark}
+We can identify $K$ with the function field of $C$, i.e.\ the set of rational 
+maps $C\to\mathbb{A}^1$. Certainly rational maps yield meromorphic functions, 
+and it is a basic theorem of Riemann surface theory that meromorphic functions 
+are in fact algebraic. Moreover, if $C$ is nice, then $C$ can be recovered 
+from $K$. To do this, pick some $x\in K\smallsetminus \dC$. If we let $A$ be 
+the integral closure of $\dC[x]$ in $K$, then $\spec(A)$ will be a 
+smooth affine curve. Pick some embedding of $\spec(A)$ into projective space; 
+the closure of its image will be a projective curve $C'$ (possibly with 
+singularities) with function field $K$. We can resolve the singularities of 
+$C'$ to obtain a smooth projective curve $C''$ with function field $K$. 
+Clearly $C''$ and $C$ are birational -- in fact this forces them to be 
+isomorphic. Indeed, let $f:C''\to C$ be a birational map. By 
+\cite[thm 3.1]{mi-av}, $f$ and $f^{-1}$ are regular, hence $f$ is an 
+isomorphism of varieties. 
+\end{remark}
+
+One might ask whether the singular homology $\h_1(X,\dZ)$ can be 
+defined ``algebraically.'' Essentially, the answer is no -- that is, there is 
+no known algebraic definition for $\h_1(X,\dZ)$ that gives the 
+``right'' answers. On the other hand, $\h_1(X,\dQ)$ is naturally 
+isomorphic to the dual of the algebraic de Rham cohomology 
+$\h_\text{dR}^1(X/\dQ)$, and $\h_1(X,\dZ_\ell)$ is naturally 
+isomorphic to the dual of the $\ell$-adic cohomology 
+$\h_\text{et}^1(X,\dZ_\ell)$. Both of these isomorphisms are hard 
+theorems -- the first follows from work of Grothendieck \cite{gr66}, the 
+second from \cite[I 4.6.3]{de77}. 
+
+With $C$ as before, let $V=\Omega^1(X)=\h^0(X,\Omega^1)=\h^1_\text{dR}(X)$. 
+This is a complex vector space of dimension $g$. (Here, $\h_\text{dR}^1(X,\dC)$ 
+is the analytic de Rham cohomology of $C$ -- the algebraic de Rham cohomology 
+would be written $\h_\text{dR}^1(C/\dC)$.) This gives us an algebraic 
+definition of $g$. We can consider $\Omega^1$ as the sheaf of (algebraic) 
+differentials, and $g=\dim_\dC\h^0(X,\Omega^1)$. There is a pairing 
+$\h_1(X,\dZ)\otimes\h_\text{dR}^1(X)\to\dC$, defined by 
+\[
+  [\gamma]\otimes \omega \mapsto \int_\gamma \omega
+\]
+This pairing is $\dC$-linear in the second component, and is in fact 
+non-degenerate. It gives us a map $\Phi:\Lambda\to V^\vee$. 
+
+\begin{definition}[analytic]
+The \emph{Jacobian} of $X$ is 
+$\jac(X)=V^\vee/\Phi(X) = \h_\textnormal{dR}^1(X)^\vee/\h_1(X,\dZ)$. 
+\end{definition}
+
+Is is known that $\Phi(\Lambda)$ is a lattice in $V^\vee$, i.e. it is discrete 
+and $V^\vee/\Phi(\Lambda)$ is compact. There is the \emph{Abel-Jacobi map} from 
+$X$ to $\jac(X)$ defined as follows. Fix $x_0\in X$; we send $x\in X$ to 
+$\omega\mapsto \int_{[x_0,x]} \omega$, where $[x_0,x]$ denotes some path from 
+$x_0$ to $x$. A different choice of $[x_0,x]$ will differ by a closed loop, 
+i.e. an element of $\h_1(X,\dZ)$. So $X\to\jac X$ is well-defined. Note 
+that $\jac X$ is a compact complex Lie group. 
+
+\begin{remark}
+After choosing a basis for $V^\vee$, we have $\jac X\simeq \dC^g/L$, where 
+$L\simeq \dZ^{2 g}$. As a real Lie group, $\jac X$ is isomorphic to 
+$(S^1)^{2 g}$. 
+\end{remark}
+
+We care about $\jac X$ because, despite its analytic definition, it is in fact 
+a projective variety.
+
+\begin{theorem}
+For $X$ a compact Riemann surface, $\jac X$ is algebraic, i.e. there exists a 
+variety $J$ defined over $\dC$ such that $J(\dC)\simeq\jac X$ as 
+complex manifolds. Moreover, the group operation on $\jac X$ is algebraic, 
+i.e. there is a morphism $m:J\times_\dC J\to J$ such that 
+$J(\dC)\times J(\dC)\to J(\dC)$ corresponds to the 
+addition law on $\jac X$. 
+\end{theorem}
+\begin{proof}
+See \cite[I.18]{mi-av}. Essentially, $X$ is the analytification of a curve $C$, 
+and one proves that $\jac X$ (defined analytically) is isomorphic as a complex 
+manifold to the analytification of $\jac C$ (defined algebraically). 
+\end{proof}
+
+Let $\divisor X$ be the free abelian group generated by the points of $X$. There 
+is a map $\deg:\divisor X\to \dZ$, defined by 
+$\sum n_x\cdot x\mapsto \sum n_x$. We define $\divisor^\circ X$ by the short exact 
+sequence 
+\[\xymatrix{
+  0 \ar[r]
+    & \divisor^\circ X \ar[r]
+    & \divisor X \ar[r]
+    & \dZ \ar[r]
+    & 0
+}\]
+There is also a map $\operatorname{div}:K^\times\to \divisor X$, where 
+$\operatorname{div}(f) = \sum_x \ord_x(f)\cdot x$. It is a basic fact that 
+$\deg(\operatorname{div}(f)) = 0$, so we can define the \emph{Picard group} 
+of $X$ to be $\picard X = \divisor X/\operatorname{div}(K^\times)$ and 
+$\picard^\circ X = \divisor^\circ (X)/\operatorname{div}(K^\times)$. 
+
+\begin{remark}
+Let $\mathscr{M}$ be the sheaf of meromorphic functions on $X$. It is a basic 
+fact that $\divisor(X)=\h^0(X,\mathscr{M}^\times/\sO^\times)$ and 
+$\picard(X)=\h^1(X,\sO^\times)$. 
+\end{remark}
+
+\begin{example}
+One can prove that $\picard^\circ(\dP^1) = 0$.
+\end{example}
+
+The Abel-Jacobi map $\mu:X\to \jac X$ extends to a map 
+$\mu:\divisor^\circ X\to \jac X$. 
+
+\begin{theorem}[Jacobi]
+The map $\mu:\divisor^\circ X\to\jac X$ is surjective.
+\end{theorem}
+
+\begin{theorem}[Abel]
+The kernel of $\mu:\divisor^\circ X\to \jac X$ is $\operatorname{div}(K^\times)$. 
+\end{theorem}
+
+It follows that $\mu$ induces an isomorphism $\mu:\picard^\circ X\to \jac X$. 
+Note that $\picard^\circ X$ parameterizes invertible sheaves (line bundles) on 
+$X$ of degree zero. 
+
+Note that in general, $\dC^g/L$ for some lattice $L$ need not be 
+algebraic if $g>1$. In the future, we'll try to define $\jac C$ for a curve 
+$C$ over an any field. The variety $\jac C$ will be a nice variety, i.e. 
+smooth, projective and geometrically integral. We will use this to give an 
+algebraic definition of $\h_1(X,\dZ/n)$. 
+
+
+
+
+
+% lecture on 09-05-2013
+\subsection*{Abelian varieties over arbitrary fields}
+
+Recall that a variety $X/k$ is \emph{nice} if it is smooth, projective, and 
+geometrically connected. 
+
+\begin{definition}
+Let $k$ be a field. An \emph{abelian variety} over $k$ is a nice group variety 
+over $k$.
+\end{definition}
+
+In other words, there are morphisms $m:A\times A\to A$, $i:A\to A$, 
+$e:\spec(k)\to A$ such that the induced maps $m_*:h_A\times h_A\to h_A$ etc. 
+turn $h_A$ into a group-valued functor. In particular, $A(X)$ is an ``honest  
+group'' for each $k$-scheme $X$. 
+
+\begin{example}
+The general linear group $\operatorname{GL}(n)$ is a group variety, but not 
+nice (at least, not in the technical sense) because it is not projective. More 
+generally, no linear algebraic group is an abelian variety, for the same 
+reason. 
+\end{example}
+
+Note that abelian varieties are not required to be commutative, but this is in 
+fact the case. This is easy to see over $\dC$. If $A/\dC$ is an 
+abelian variety, then $G=A(\dC)$ is a compact connected complex Lie 
+group. Let $\mathfrak{g}$ be its Lie algebra. Consider the composite map 
+$f:G\xrightarrow{\text{ad}}\operatorname{GL}(\mathfrak{g}) \hookrightarrow 
+\End(\mathfrak{g})$, where 
+$\operatorname{ad}:G\to\operatorname{GL}(\mathfrak{g})$ is the adjoint 
+representation. After picking a basis for $\End(\mathfrak{g})$, 
+the components of $f$ are entire holomorphic functions on a compact complex 
+manifold, hence locally constant. Since $G$ is connected, $f$ is constant, i.e. 
+the adjoint representation of $G$ is trivial. But 
+$\ker(\operatorname{ad}) = Z(G)$, so $G$ is commutative. For more details, see 
+\cite[I.1]{mu08}. The case $A/k$ for arbitrary $k$ of characteristic zero 
+follows from the Lefschetz principle, or one can just prove commutativity 
+directly using a ``rigidity principle'' for maps on projective varieties
+\cite[I.1.4]{mi-av}. 
+
+
+
+
+
+\subsection*{Albanese varieties}
+
+We'd like to describe the jacobian $J$ of a nice curve $C/k$ with 
+$C(k)\ne\varnothing$. It will be an abelian variety over $k$ of dimension 
+$g$, the genus of $C$. We had only defined the genus of a curve $C/k$ with 
+$k\subset \dC$. For an arbitrary field $k$ and a curve $C/k$, set 
+$g(C)=h^0(C_{\bar k},\Omega^1) = h^1(\sO_C)$. In general, if $\sF$ is some 
+sheaf on a scheme $X$ over $k$, we write $h^i(X,\sF)$ or $h^i(\sF)$ for 
+$\dim_k \h^i(X,\sF)$.
+
+\begin{definition}[Albanese]
+Let $C/k$ be a curve with fixed $x_0\in C(k)$. The \emph{jacobian} of $C$ is 
+an abelian variety $J$ with a morphism $\mu:C\to J$ taking $x_0$ to $0$, such 
+that for any morphism $f:C\to A$ to an abelian variety $A$ with $f(x_0)=0$, 
+thre is a unique $\tilde f:J\to A$ making the following diagram commute:
+\[\xymatrix{
+  C \ar[r]^-\mu \ar[dr]_-f 
+    & J \ar@{.>}[d]^-{\tilde f} \\
+  & A
+}\]
+\end{definition}
+
+Since $(J,\mu)$ is the solution of a universal problem, it is unique up to 
+unique isomorphism. Our definition can be made much more concise. Let 
+$\mathsf{AbVar}_k$ be the category of abelian varieties over $k$, and let 
+$\mathsf{Var}_{k,\ast}$ be the category of ``nice pointed varieties'' over $k$, 
+i.e. nice varieties $X/k$ with chosen $x\in X(k)$. Forgetting the group 
+structure gives an inclusion functor 
+$\iota:\mathsf{AbVar}_k\to \mathsf{Var}_k$. Our definition of $\jac C$ can be 
+rephrased as saying that $\mu:C\to A$ induces a natural isomorphism 
+\[
+  \hom_{\mathsf{Var}_{k,\ast}}(C,\iota A) \simeq \hom_{\mathsf{AbVar}_k}(\jac C,A)\text{.}
+\]
+It turns out that for any nice pointed variety $X$, there is an abelian variety 
+$A=\operatorname{Alb} X$, the \emph{Albanese variety} of $X$, with a morphism 
+$\mu:X\to \operatorname{Alb} X$ that induces a same natural isomorphism (with 
+$\operatorname{Alb} X$ in place of $\jac C$). So the jacobian may be seen as 
+the left-adjoint to the forgetful functor from abelian varieties to pointed 
+varieties. For a proof that $\operatorname{Alb} X$ exists, see 
+\cite[A.11]{mo12}.
+
+In general, the map $X\to \operatorname{Alb} X$ need not be an embedding. 
+For example, if $C$ is a curve of genus $0$, then $\operatorname{Alb} X=0$ by 
+\cite[I.3.9]{mi-av}. On the other hand, if the genus $g\geqslant 1$, then 
+$C\to J$ is an embedding. The map $C(\bar k)\to \picard^\circ(C_{\bar k})$ sends 
+a point $x$ to the divisor $[x]-[x_0]$, and one can check that this is 
+injective. For, principal divisors correspond to morphisms 
+$f:C\to\dP^1$. These cannot have zeros and poles of multiplicity one, 
+otherwise $f$ would have degree one, hence it would be an isomorphism. This 
+cannot be the case. 
+
+If $C(k)=\varnothing$, we can still define $J=\jac C$. It will be a $k$-variety 
+with a morphism $\eta:C\times C\to J$ such that $\mu(\Delta)=0$. We require 
+that for any abelian variety $A$ over $k$ with $f:C\times C\to A$ such that 
+$f(\Delta)=0$, there is a unique lift $\tilde f:J\to A$ of $f$. The map $\eta$ 
+should be thought of $(x,y)\mapsto \mu(x)-\mu(y)$, even though the embedding 
+$\mu:C\to J$ may not be defined over $k$. 
+
+
+
+
+
+\subsection*{Picard schemes}
+
+Another approach to defining $J=\jac C$ involves the Picard group. Recall 
+that over $\dC$, we proved that $J(\dC)\simeq\picard^\circ(C)$. 
+One might hope that $J$ satisfies $J(L)=\picard^\circ(C_L)$ for all field 
+extensions $L/k$. This works if $C(k)\ne\varnothing$, but not otherwise. For, 
+if $J(k^s)=\picard^\circ(C_{k^s})$, then we would have 
+$\picard^\circ(C) = J(k) = J(k^s)^{G_k} = \picard^\circ(C_{k^s})^{G_k}$. But this 
+does not always hold. 
+
+For a curve $C$ over $k$, we will define an abelian variety $\picard^\circ(C)$ in 
+terms of its functor of points. To do this, we need to define Picard groups for 
+arbitrary schemes. For any scheme $X$, the \emph{Picard group} of $X$ is 
+$\picard(X)=\h^1(X,\sO_X^\times)$. It is straightforward to show (using \v Cech 
+cohomology) that $\picard(X)$ is isomorphic to the group of isomorphism classes of 
+invertible sheaves on $X$, with group operation induced by tensor product, i.e. 
+$[\sL] + [\mathscr{L'}] = [\sL\otimes \sL']$. 
+
+Let $C$ be a nice curve. If $D=\sum D_x\cdot x$ is a divisor on $C$, the 
+\emph{degree} of $D$ is $\deg D=\sum D_x\in \dZ$. Since $C$ is smooth, Cartier 
+divisors are Weil divisors, so $\deg$ induces a well-defined map 
+$\picard(C)\to \dZ$. For $T$ an arbitrary scheme, define 
+$\picard^\circ(C\times T)$ to be the subset of $\picard(C\times T)$ consisting of 
+invertible sheaves $\sL$ with $\deg(\sL_t)=0$ for all $t\in T$. That is, the 
+following sequence is exact 
+\[\xymatrix{
+  0 \ar[r] 
+    & \picard^\circ(C\times T) \ar[r]^-{(i_t^*)}
+    & \displaystyle\prod_{t\in T} \picard^\circ (C)\text{,}
+}\]
+where $i_t:t\hookrightarrow T$ are the canonical injections. Now we define the 
+functor $\picard_C^\circ:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ that sends $T$ to 
+$\picard^\circ(C\times_k T)/\picard(T)$. 
+
+\begin{theorem}
+If $C(k)\ne \varnothing$, then $\picard_C^\circ$ is represented by $J=\jac C$.
+\end{theorem}
+\begin{proof}
+See \cite[III.1.2]{mi-av}.
+\end{proof}
+
+In general, we might have $C(k)=\varnothing$. We will have 
+$J(L)=\picard^\circ(C_{L'})^{\gal(L'/L)}$ where $L'/L$ is any separable extension 
+with $C(L')\ne\varnothing$. 
+
+The idea behind Weil's original construction is the following. We already 
+know that $J=\jac C$ exists, and has a canonical map $\mu:C\to J$. Consider 
+$C^g=C\times\cdots\times C$ ($g$-fold product), and consider the map 
+$f:C^g\to J$, $f(x_1,\dotsc,x_g)=\mu(x_1)+\cdots+\mu(x_g)$. The symmetric 
+group $S_g$ acts on $C^g$, and $f$ is $S_g$-equivariant. The quotient 
+$\operatorname{Sym}^g C = C^g/S_g$ exists, and has a map 
+$\operatorname{Sym}^g C\to J$. This is birational. Weil defined a ``rational 
+group law'' on $\operatorname{Sym}^g C$ using the Riemann-Roch theorem. For 
+more details on Weil's construction (and proofs), see \cite[III.7]{mi-av}. 
+
+
+
+
+
+
+
+
+
+
+% lecture on 09-10-2013
+%\section{More abelian varieties}
+%\subsection*{Picard schemes}
+
+%Let $k$ be a field, $C/k$ a nice curve, and $J=\jac_C = J_C = \jac C$ be its 
+%jacobian. Recall that $J$ is a nice variety that is also a commutative group 
+%scheme. We had $J(T) = \picard^\circ(C\times T)/\picard(T)$ for all $k$-schemes $T$, 
+%under the assumption that $C(k)\ne \varnothing$. 
+
+Now suppose $X$ is an arbitrary scheme. Recall that 
+$\picard(X)=\h^1(X,\sO_X^\times)$; this classifies invertible sheaves on 
+$X$, where the group operation on sheaves is $\otimes$. If $X$ is integral, 
+$\picard(X)$ is isomorphic to the class group $\operatorname{Cl}(X)$ of Cartier 
+divisors (Weil divisors if $X$ is a nice curve). This is easy to prove. Recall 
+that if $\mathscr{M}$ is the sheaf of rational functions on $X$, then the 
+group of Cartier divisors is $\divisor(X) = \h^0(X,\mathscr{M}^\times/\sO^\times)$. 
+The short exact sequence 
+\[
+  1 \to \sO^\times \to \mathscr{M}^\times\to \mathscr{M}^\times/\sO^\times \to 1
+\]
+induces a long exact sequence in sheaf cohomology:
+\[
+  0 \to \h^0(\sO^\times) \to \h^0(\mathscr{M}^\times) \to \divisor(X) \to \picard(X) \to \h^1(\mathscr{M}^\times) \to \cdots
+\]
+When $X$ is integral, $\mathscr{M}^\times$ is flasque, so 
+$\h^1(\mathscr{M}) = 0$, whence 
+$\picard(X)=\divisor(X)/\h^0(\sO^\times) = \operatorname{Cl}(X)$. 
+
+For $X/k$ an arbitrary scheme, consider the functor 
+$\picard_X:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ given by 
+$\picard_X(T) = \picard(X\times_k T)/\picard(T)$. This is not in general 
+representable. However, if $X$ is a nice $k$-variety, then the 
+fppf-sheafification of $\picard_X$ is representable \cite[4.1.38]{kl05}. Even 
+better, if $X(k)\ne\varnothing$, then $\picard_X$ is representable 
+\cite[2.5]{kl05}. We will also denote the representing scheme by $\picard_X$, and 
+we call $\picard_X$ the \emph{Picard scheme} of $X$. It is not a variety, but it 
+is a disjoint union of ind-varieties \cite[4.8]{kl05}. More precisely, choose 
+a very ample line bundle $\sL$ on $X$. If $\sF$ is any coherent 
+sheaf on $X$, write 
+$\sF(n) = \sF\otimes\sL^{\otimes n}$. Recall that the 
+\emph{Euler characteristic} of $\sF$ is 
+$\chi(\sF) = \sum (-1)^i h^i(\sF)$. By \cite[2.5.3]{gr61}, 
+there is a (unique) polynomial $\phi\in \dQ[t]$ such that 
+$\chi\left(\sF(n)\right) = \phi(n)$ for all 
+$n\in\dZ$; set $h_\sL(\sF) = \phi$. We call $\phi$ the 
+\emph{Hilbert polynomial} of $\sF$. The Hilbert polynomial 
+$h_\sL(\sF)$ does depend on $\sL$.
+
+Denote by 
+$\picard_X^\phi$ the functor which assigns to a scheme $T$ the subset of 
+$\picard_X(T)$ consisting of invertible sheaves $\sF$ on $X\times T$ with 
+$h_\sL(\sF_t) = \phi$ for all $t\in T$. By \cite[6.20]{kl05}, 
+$\picard_X^\phi$ represents a clopen subscheme of $\picard_X$, and $\picard_X$ is 
+covered by the $\picard_X^\phi$. Moreover, the $\picard_X^\phi$ are varieties. We can 
+do even better. If we let $\picard_X^d$ send $T$ to the subset of $\picard_X(T)$ 
+consisting of invertible sheaves $\sF$ with 
+$\deg h_\sL(\sF_t) = d$ for all $t\in T$, then the 
+$\picard_X^d$ form a cover of $\picard_X$ by clopen subvarieties. Just as the genus 
+of a curve is the dimension of its jacobian, there is a natural isomorphism 
+$\h^1(\mathscr{O}_X) \simeq \operatorname{Lie}(\picard_X)$, from which we deduce 
+$\dim(\picard_X) = h^1(\mathscr{O}_X)$ when $X$ is nice \cite[5.11]{kl05}.
+
+Unlike the case when $X$ is a curve, it is not always true that 
+$\picard_X(\bar k)/\picard_X^\circ(\bar k) = \dZ$. In general, we set 
+$\operatorname{NS}(X) = \picard_X(\bar k) / \picard_X^\circ(\bar k)$, and call 
+$\operatorname{NS}(X)$ the \emph{N\'eron-Severi group} of $X$. 
+Suppose $X=A$ is already an abelian variety over $k$. Then we have 
+\[
+  \picard_A^\circ(\bar k) = \left\{c\in \picard(A_{\bar k}) : t_a^* c = c\text{ for all }a\in A(\bar k)\right\} 
+\]
+where $t_a:A_{\bar k}\to A_{\bar k}$ is translation by $a$. See 
+\cite[I.8.4]{mi-av} for a partial proof. 
+
+
+In any case, the \emph{dual} of $A$ is defined to be $A^\vee = \picard_A^\circ$. 
+Each $c\in \picard(A)$ gives a map $\varphi_c:A\to A^\vee$. At the level of 
+points, it is defined as $a\mapsto t_a^* c - c$, where if $c=[\sL]$, 
+the class $t_a^*c - c\in A^\vee(\bar k) = \picard^\circ(A)$ is represented by 
+$[t_a^*\sL\otimes\sL^{-1}]$. 
+It turns out that $A^{\vee\vee} \simeq A$, so calling $A^\vee$ the dual of $A$ 
+is rather natural. The map $\varphi_c:A\to A^\vee$ is a homomorphism of abelian 
+varieties. If $c$ is ample (i.e. the map from $A$ to some projective space 
+induced by $n\cdot c$ for $n\gg 0$ is an embedding) then $\varphi_c$ is an 
+\emph{isogeny}, where 
+
+\begin{definition}
+A homomorphism $\varphi:A\to B$ is an \emph{isogeny} if it is surjective with 
+finite kernel.
+\end{definition}
+
+It is not at all obvious, but ``$A$ is isogenous to $B$'' is an equivalence 
+relation on abelian varieties. The relation is clearly reflexive and 
+transitive. To see that it is symmetric, suppose we have an 
+isogeny $\varphi:A\to B$. For any ample $c\in \picard(A^\vee)$, $d\in \picard(B)$, 
+the composite 
+\[\xymatrix{
+  B \ar[r]^-{\varphi_d} 
+    & B^\vee \ar[r]^-{\varphi^\vee} 
+    & A^\vee \ar[r]^-{\varphi_c}
+    & A^{\vee\vee} \ar[r]^-\sim 
+    & A
+}\]
+is an isogeny. 
+
+\begin{definition}
+Let $A$ be an abelian variety. A \emph{polarization} of $A$ is an isogeny 
+of the form $\varphi_c:A\to A^\vee$ for some ample $c\in \picard(A)$.
+\end{definition}
+
+
+
+
+
+%\section{Jacobians revisited}
+\subsection*{Recovering a curve from its jacobian}
+
+Let $k$ be a field, $C/k$ a nice curve, and $J=\jac C$ its jacobian. What does 
+(the arithmetic of) $J$ tell us about (the arithmetic of) $C$? In particular, 
+can we recover $C$ from $J$? In general, $J$ does not determine $C$. For 
+example, if $g=g(C)=0$, then $A=0$, and there are many non-isomorphic nice 
+curves of genus zero (over a non-algebraically closed field). There are more 
+difficult examples with genus $g>0$. 
+
+Suppose we add some data. Assume $g\geqslant 2$ and $C(k)\ne\varnothing$. This 
+gives us a map $\mu:C\to J$ determined by $x\mapsto 0$ for some distinguished 
+$x\in C(k)$. Consider $\theta = \mu(C)+\cdots + \mu(C)$, where there are $g-1$ 
+terms in the sum. It turns out that $\theta$ is an irreducible ample divisor of 
+$J$. Thus $\theta$ induces a polarization $\varphi_\theta:J\to J^\vee$. 
+
+\begin{theorem}[Torelli]
+If $C,C'$ are nice curves over a field $k$ with $(J,\theta)\simeq (J',\theta')$, 
+then $C\simeq C'$ over $k$. 
+\end{theorem}
+
+It is known that $\varphi_\theta:J\to J^\vee$ is actually an isomorphism. We 
+call a polarization $A\to A^\vee$ \emph{principal} if it is an isomorphism. 
+
+\begin{question}[Schottky]
+What pairs $(A,c)$, with $c$ inducing a principal polarization, come from 
+jacobians? 
+\end{question}
+
+This question has an easy partial answer if we are willing to use heavy 
+machinery. Consider the functor $\mathcal{M}_g$ which sends a scheme $S$ to the 
+set of isomorphism classes of curves of genus $g$ over $S$. The functor 
+$\mathcal{M}_g$ is unfortunately not representable (there is n 
+\emph{fine} moduli spaces for curves), but it is nearly so (there is a 
+\emph{coarse} moduli space). That is, there is a scheme (a variety, 
+actually) $M_g$ together with a natural transformation 
+$\mathcal{M}_g\to h_{M_g}$ such that $\mathcal{M}_g(L)\to h_{M_g}(L)$ is a 
+bijection whenever $L$ is an algebraically closed field, and such that 
+$\mathcal{M}_g\to h_{M_g}$ is initial among all morphisms from $\mathcal{M}_g$ 
+to representable functors. For a proof, see \cite[5]{mu94}. Along the same lines, 
+we can let $\mathcal{A}_g$ be the functor which assigns to a scheme $S$ the set 
+of isomorphism classes of principally polarized abelian schemes of dimension 
+$g$ over $S$. The functor $\mathcal{A}_g$ has a coarse moduli space $A_g$. 
+
+The operation ``take jacobian'' induces a natural transformation 
+$j:\mathcal{M}_g\to\mathcal{A}_g$, and Torelli's theorem can be rephrased as 
+saying that $j$ is injective. Shottky's question asks what the image of $j$ is. 
+To see that it cannot be all of $\mathcal{A}_g$, simply note that 
+$\dim(M_g) = 3 g - 3$, while $\dim(A_g) = \frac{g(g+1)}{2}$. For 
+$g>3$, $A_g$ has greater dimension than $M_g$, so 
+$j:M_g(\bar\dQ)\to A_g(\bar\dQ)$ cannot possibly be surjective. On the other 
+hand, for $g\leqslant 3$, all principally polarized abelian varieties are 
+jacobians (possibly after a change of the polarization). 
+
+One might hope that all abelian varieties are at least isogenous to jacobians. 
+While this is true for dimension $d\leqslant 3$, it is not true in general. 
+In fact, for all $d>3$, there exists an abelian variety of dimension $d$ over 
+$\overline{\dQ}$ which is not isogenous to a jacobian. This was proven 
+recently in \cite{ts12}
+
+\begin{example}[group law on elliptic curves]
+Let $k$ be field of characteristic not $2$ or $3$. Let $E$ be an elliptic curve 
+of the form $y^2=x^3+a x+b$ with $4 a^3+27 b^2\ne 0$. That is, $E$ is the 
+subset of $\dP_k^2$ given by 
+\[
+  x_1^2 x_2 - x_0^3 - a x_0 x_2^2 - b x_2^3 \text{.}
+\]
+The choice of $O=(0:1:0)\in E(k)$ induces an embedding $j:E\to \jac(E)$ which 
+is an isomorphism by the Riemann-Roch theorem. We would like to relate the 
+induced group operation on $E$ with the classical definition using chords and 
+tangents. 
+
+Let $P,Q\in E(\bar k)$. If we assume $P,Q\ne O$, then we can write 
+$P=(P_0:P_1:1)$, $Q=(Q_0:Q_1:1)$. Assume $P_0\ne Q_0$. Then there is a 
+canonical rational function $\ell_{P,Q}$ with both $P$ and $Q$ as zeros. One 
+has  
+\[
+ \ell_{P,Q}(x_0:x_1:x_2) = \frac{Q_1-P_1}{Q_0-P_0} \cdot \frac{x_0}{x_2} - \frac{x_1}{x_2} + \frac{P_1 Q_0 - P_0 Q_1}{Q_0-P_0} \text{.}
+\]
+The function $\ell_{P,Q}$ has $P$, $Q$ and a third point $R$ as simple zeros, 
+and one can verify directly that 
+$\operatorname{div}(\ell_{P,Q})=P+Q+R-3 O = (P-O)+(Q-O)+(R-O)$. Recall that 
+$(\jac E)(\bar k)=\picard^\circ(E_{\bar k})$, and the map $j:E\to \jac(E)$ 
+corresponds to $P\mapsto P-O$. Thus 
+$j(P)+j(Q)+j(R)=\operatorname{div}(\ell_{P,Q})=0$ in 
+$\picard^\circ(E_{\bar k})$, i.e. $j(P)+j(Q)=-j(R)$. 
+
+It is well-known that $R$ can be written as a rational function of $P$ and $Q$, 
+so the chord-tangent law defines a rational map $m:E\times E\to E$ with 
+$j(m(P))+j(m(Q))=m(j(P),j(Q))$. It follows that $m$ is defined everywhere. 
+\end{example}
+
+
+
+
+
+
+
+
