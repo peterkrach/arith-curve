@@ -32,9 +32,156 @@ pedagogically correct) approach. Any errors in these notes are my fault.
 
 
 
-\include{7390-1_jacobians}
-\include{7390-2_mordell-weil}
-\include{7390-3_finite-fields}
+%\include{7390-1_jacobians}
+%\include{7390-2_mordell-weil}
+%\include{7390-3_finite-fields}chro
+
+
+
+
+
+\section{Birch and Swinnerton-Dyer conjecture}
+
+Consider an elliptic curve $E$ over $\dQ$. It has a model of the form 
+$y^2=x^3+a x+b$ with $a,b\in \dZ$ and the discriminant 
+$\Delta=-16(4 a^3+27 b^2)\ne 0$. The Mordell-Weil theorem (proved in this case 
+by Mordell) tells us that $E(\dQ)$ is finitely generated. By basic algebra, 
+we can write $E(\dQ) = E(\dQ)_\text{tors}\oplus \dZ^r$ where 
+$E(\dQ)_\text{tors}$ is finite, and $r=\rank E(\dQ)$ is the algebraic rank of 
+$E$ (over $\dQ$). The group $E(\dQ)_\text{tors}$ can be computed. One way is to 
+look at the map $E(\dQ)_\text{tors}\to E(\dF_p)\times E(\dF_{p'})$, which is 
+injective when $p$ and $p'$ are distinct primes of good reduction. For 
+example, we could choose $p\ne p'$, with both not dividing $\Delta$. 
+
+The group $E(\dQ)$ is one of a finite list. In fact, there is the following 
+deep theorem of Mazur (conjectured by Ogg).
+
+\begin{theorem}
+Let $E$ be an elliptic curve over $\dQ$. Then $E(\dQ)_\textnormal{tors}$ is 
+isomorphic to one of the following:
+\begin{align*}
+  \dZ/n & \text{ with $1\leqslant n\leqslant 12$ and $n\ne 11$} \\
+  \dZ/2\oplus \dZ/2 n & \text{ with $1\leqslant n\leqslant 4$}
+\end{align*}
+\end{theorem}
+(Cite Mazur's paper\ldots mention his techniques.) 
+Each of these possibilities occur infinitely often.
+
+Unlike the situation with $E(\dQ)_\text{tors}$, where everything is computable 
+and well-understood, there is no known algorithm to compute the rank of an 
+elliptic curve. If $\sha(E)$ is finite, then there is an algorithm, but the 
+finiteness of $\sha(E)$ is not known in general. 
+
+The vague idea of the Birch and Swinnerton-Dyer conjecture (henceforth BSD) is 
+as follows. Suppose $E(\dQ)$ has high rank. Then for $p$ a prime of good 
+reduction, we have a map $E(\dQ) \to E(\dF_p)$. (Scheme-theoretically, 
+$E(\dF_p)$ doesn't make sense. We set $E(\dF_p) = \cE(\dF_p)$, where 
+$\cE$ is the N\'eron model of $E$ over $\dF[\frac 1 p]$. Since 
+$E(\dQ) = E(\dZ)$, we are really looking at the map 
+$E(\dZ) \to \cE(\dF_p)$.) The group $E(\dF_p)$ has order 
+$p+1-a_p(E)$, where $a_p(E) = a(\cE_{\dF_p})$, and 
+$|a_p(E)|\leqslant 2\sqrt p$. The expectation is for $E(\dF_p)$ to be 
+``slightly larger'' than average, given that the map 
+$E(\dQ) \to E(\dF_p)$ gives us some points ``for free.'' This effect turns out 
+to be very subtle. 
+
+Define the function $\pi_E$ on $\dR_{\geqslant 0}$ by 
+\[
+  \pi_E(x) = \prod_{p\leqslant x \text{ good}} \frac{\# E(\dF_p)}{p} \text{.}
+\]
+We hope that $r=\rank E$ can be detected from the growth of $\pi_E$. In the 
+early 60s, Swinnerton-Dyer used a computer to get numerical data on these 
+types of problem. He and Birch conjectured the following: 
+\[
+  \lim_{x\to \infty} \frac{\log \pi_E(x)}{\log \log x} = r
+\]
+One could also conjecture that $\pi_E(X) \sim C (\log x)^r$ as $x\to \infty$ 
+for some constant $C$. The function $\pi_E$ is hard to work with. Instead, we 
+will follow standard practice in number theory and introduce an $L$-function. 
+
+\begin{definition}
+Let $E$ be an elliptic curve over $\dQ$ with discriminant $\Delta$. The 
+\emph{partial $L$-function of $E$} is 
+\[
+  L_\Delta(E,s) = \prod_{p\nmid \Delta} \frac{1}{1-a_p(E) p^{-s} + p^{1-2s}} \text{.}
+\]
+\end{definition}
+
+Here, $s$ is a complex variable, but this product does converge on the whole 
+complex plane. Recall that if $E$ is an elliptic curve over $\dF_p$, the 
+characteristic polynomial of the Frobenius $\Phi_E$ acting on $T_\ell E$ is 
+$t^2-a_p t + p$. The reverse of this is 
+$\det(1-\Phi^\ast t,V_\ell E) = 1-a_p t + p t^2$. (\textbf{finish, clarify 
+relationship to \'etale cohomology\ldots $L$-functions for arbitrary schemes 
+of finite type over $\spec(\dZ)$\ldots})
+
+\begin{lemma}
+The product defining $L_\Delta(E,s)$ converges absolutely for all $s\in \dC$ 
+with $\Re s>\frac 3 2$. Moreover, $L_\Delta(E,s)$ is holomorphic on that 
+region. 
+\end{lemma}
+\begin{proof}
+The basic idea is to use the factorization 
+$1-a_p t + p t^2 = (2-\omega_{p,1} t)(1-\omega_{p,2})$, with 
+$|\omega_{p,i}| = p^{1/2}$ by the Weil conjectures. We can write  
+\[
+  L_\Delta(E,s) = \prod_{p\nmid \Delta} \left(1-\frac{\omega_{p,1}}{p^{1/2}} p^{1/2-s}\right)^{-1}\left( 1-\frac{\omega_{p,2}}{p^{1/2}} p^{1/2-s}\right)^{-1}
+\]
+Standard arguments (using only the fact that the $\omega_{p,i}$ are $p$-Weil) 
+yield the result. 
+\end{proof}
+
+Following Euler, we look at $L_\Delta(E,1)$, (which does not exist unless 
+$L_\Delta(E,s)$ has some kind of analytic continuation, which we have not 
+proved). At least formally (ignoring convergence) we have 
+\begin{align*}
+  L_\Delta(E,1) &= \prod_{p\nmid \Delta} (1-a_p(E) p^{-1} + p^{-1})^{-1} \\
+    &= \prod_{p\nmid \Delta} \frac{p}{p-a_p(E)+1} \\
+    &= \prod_{p\nmid \Delta} \frac{p}{\# E(\dF_p)}
+\end{align*}
+This looks very similar to our definition of the function $\pi_E$. At least 
+intuitively, larger $r$ should lead to ``quicker vanishing'' at $s=1$. 
+
+\begin{conjecture}[Birch and Swinnerton-Dyer]
+The function $L_\Delta(E,s)$ has an analytic continuation to a neighborhood of 
+$s=1$. Moreover, 
+\[
+  \ord_{s=1} L_\Delta(E,s) = \rank E \text{.}
+\]
+\end{conjecture}
+
+In other words, the conjecture says that $L_\Delta(E,s)\sim c(s-1)^r$ near 
+$s=1$ for some constant $c$. Modern formulations of BSD include a formula for 
+$c$. 
+
+Let's define the factors in $L(E,s)$ for primes $p\mid \Delta$. For such a 
+prime, $E$ will have a N\'eron model $\cE_p$ over $\dZ_{(p)}$, and the 
+reduction $(\cE_p)_{\dF_p}$ will either be smooth (good reduction), have a 
+cusp (additive reduction), or a double point (multiplicative reduction). In the 
+latter two cases, the nonsingular locus of $(\cE_p)_{\dF_p}$ is isomorphic (as 
+a group scheme) to $\dG_{a,\dF_p}$ and $\dG_{m,\dF_p}$ respectively. 
+We put the local factor to be 
+\[
+  L_p(E,s) = \begin{cases}
+               \frac{1}{1-a_p p^{-s} + p^{1-2 s}} & \text{if $p$ has good reduction} \\
+               1 & \text{if $p$ has additive reduction} \\
+               \frac{1}{1-a_p p^{-s}} & \text{if $p$ has multiplicative reduction}
+             \end{cases}
+\]
+If $E$ has multiplicative reduction at $p$, we set $a_p=1$ if the singularity 
+is defined over $\dF_p$, and $a_p=-1$ otherwise. 
+
+More abstractly, the reduction $E_{\dF_p} = (\cE_p)_{\dF_p}$ will be a group 
+scheme over $\dF_p$, with nonsingular locus $E_{p,\text{ns}}$ (also a group 
+scheme). Generally, 
+\[
+  L_p(E,1) = \frac{p}{\# E_{p,\text{ns}}(E_p)}
+\]
+
+The global $L$-function of $E$ is 
+\[
+  L(E,s) = \prod_p L_p(E,s) \text{.}
+\]
 
 
 
