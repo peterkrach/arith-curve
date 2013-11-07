@@ -59,12 +59,18 @@ deep theorem of Mazur (conjectured by Ogg).
 \begin{theorem}
 Let $E$ be an elliptic curve over $\dQ$. Then $E(\dQ)_\textnormal{tors}$ is 
 isomorphic to one of the following:
-\begin{align*}
-  \dZ/n & \text{ with $1\leqslant n\leqslant 12$ and $n\ne 11$} \\
-  \dZ/2\oplus \dZ/2 n & \text{ with $1\leqslant n\leqslant 4$}
-\end{align*}
+\[
+  \begin{array}{ll}
+    \dZ/n & \text{with $n=1,\dots,10$ or $n=12$} \\
+    \dZ/n\oplus \dZ/2 & \text{with $n=1,\dots,4$}
+  \end{array}
+\]
 \end{theorem}
-(Cite Mazur's paper\ldots mention his techniques.) 
+\begin{proof}
+See \cite[III.5.1]{ma77}. Essentially, Mazur classifies rational points on the 
+modular curves $X_0(N)$. 
+\end{proof}
+
 Each of these possibilities occur infinitely often.
 
 Unlike the situation with $E(\dQ)_\text{tors}$, where everything is computable 
@@ -182,6 +188,7 @@ The global $L$-function of $E$ is
 \[
   L(E,s) = \prod_p L_p(E,s) \text{.}
 \]
+\textbf{(check relationship between this and cohomological definition)}
 
 
 
