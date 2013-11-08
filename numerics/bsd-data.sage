@@ -1,19 +1,21 @@
-def ell_twist(p):
-    return lambda d: EllipticCurve(GF(p),[0,0,0,-d^2,0])
+pis = [1.1]
+primes = [1]
 
-ds =[1,5,34,1254,29274]
-pis = [1.0,1.0,1.0,1.0,1.0]
+for i in range(0,1000):
+    p = Primes().unrank(10*i+5)
+    E = EllipticCurve(GF(p),[0,0,0,-34^2,0])
+    n = E.cardinality()
+    pis.append(n)  # x[-1] is last element in x
+    primes.append(p)
+    #print str(p) + ' ' + str(pis[i])
+    sys.stdout.write("\r%d%%" %i)
+    sys.stdout.flush()
 
-file = open('sage-test-data.log', 'w')
-file.write('#p N_p(E_1)  N_p(E_2)  ...\n\n')
+data = zip(primes, pis)
+ndata = [(log(log(float(x))), log(pi)) for (x,pi) in data]
 
-for i in range(1,1000):
-    p = Primes().unrank(50000*i)
-    ell_curves = map(ell_twist(p), ds)
-    num_points = [e.cardinality() for e in ell_curves]
-    pis = [a*b/p for (a,b) in zip(num_points,pis)]
-    print num_points
-    print pis
-    file.write(str(p) + ' ' + ' '.join(map(str,num_points)) + '\n')
+sys.stdout.write("\n")
+sys.stdout.flush()
 
-file.close()
+
+scatter_plot(ndata[1:], markersize=10).save('../../../html/test-plot.pdf')
