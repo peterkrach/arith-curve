@@ -82,7 +82,7 @@ The vague idea of the Birch and Swinnerton-Dyer conjecture (henceforth BSD) is
 as follows. Suppose $E(\dQ)$ has high rank. Then for $p$ a prime of good 
 reduction, we have a map $E(\dQ) \to E(\dF_p)$. (Scheme-theoretically, 
 $E(\dF_p)$ doesn't make sense. We set $E(\dF_p) = \cE(\dF_p)$, where 
-$\cE$ is the N\'eron model of $E$ over $\dF[\frac 1 p]$. Since 
+$\cE$ is the N\'eron model of $E$ over $\dZ_{(p)}$. Since 
 $E(\dQ) = E(\dZ)$, we are really looking at the map 
 $E(\dZ) \to \cE(\dF_p)$.) The group $E(\dF_p)$ has order 
 $p+1-a_p(E)$, where $a_p(E) = a(\cE_{\dF_p})$, and 
@@ -117,9 +117,13 @@ Here, $s$ is a complex variable, but this product does converge on the whole
 complex plane. Recall that if $E$ is an elliptic curve over $\dF_p$, the 
 characteristic polynomial of the Frobenius $\Phi_E$ acting on $T_\ell E$ is 
 $t^2-a_p t + p$. The reverse of this is 
-$\det(1-\Phi^\ast t,V_\ell E) = 1-a_p t + p t^2$. (\textbf{finish, clarify 
-relationship to \'etale cohomology\ldots $L$-functions for arbitrary schemes 
-of finite type over $\spec(\dZ)$\ldots})
+$\det(1-\Phi^\ast t,V_\ell E) = 1-a_p t + p t^2$. It follows that we could have 
+defined 
+\[
+  L_\Delta(E,s) = \prod_{p\nmid \Delta} \frac{1}{\det(1-\Phi_{E,p}^\ast p^{-s}, \h^1(E_p,\dQ_\ell))}
+\]
+for some prime $\ell\mid \Delta$. There is a way of adding factors at the 
+``bad primes'' dividing the discriminant of $E$. We will come back to that later. 
 
 \begin{lemma}
 The product defining $L_\Delta(E,s)$ converges absolutely for all $s\in \dC$ 
