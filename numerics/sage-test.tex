@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{sagetex}
+
+\begin{document}
+
+\begin{sageblock}
+  aps = []
+  primes = []
+
+  for i in range(0,300):
+      p = Primes().unrank(i+2)
+      n = EllipticCurve(GF(p),[0,0,0,1,0]).cardinality()
+      aps.append(abs(p+1-n))
+      primes.append(p)
+  data = zip(primes, aps)
+  data_plot = scatter_plot(data, markersize=10)
+\end{sageblock}
+
+\begin{center}
+  \sageplot[scale=.7]{data_plot + plot(2*sqrt(x), (1,2000), label='$y=x^{1/2}$', title='Hasse bound for $y^2=x^3+x$', aspect_ratio=10)}
+\end{center}
+
+
+\end{document}
+
