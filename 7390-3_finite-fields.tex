@@ -581,6 +581,31 @@ $t^2-a t+q\geqslant 0$ for all $t\in \dR$. Basic calculus tells us that
 $a^2-4 q\leqslant 0$, i.e. $|a|\leqslant 2\sqrt q$. 
 \end{proof}
 
+% Some SAGE computations
+
+The following graph of $a_p(E)$ for $E:y^2=x^3+x$ shows that while for 
+``most'' primes one has $a_p(E)=0$, there are still a lot with 
+$a_p(E)=\lfloor 2\sqrt p\rfloor$. 
+
+\begin{sagesilent}
+  aps = []
+  primes = []
+
+  for i in range(0,300):
+      p = Primes().unrank(i+2)
+      n = EllipticCurve(GF(p),[0,0,0,1,0]).cardinality()
+      aps.append(abs(p+1-n))
+      primes.append(p)
+  data = zip(primes, aps)
+  data_plot = scatter_plot(data, markersize=10)
+  func_plot = plot(2*sqrt(x), (1,2000), legend_label='$y=2x^{1/2}$', title='Hasse bound for $y^2=x^3+x$', aspect_ratio=10)
+\end{sagesilent}
+
+\begin{center}
+  \sageplot[scale=.7]{data_plot+func_plot}
+\end{center}
+
+
 An equivalent way of formulating the Hasse bound is to claim that the complex 
 roots of $P_E$ have absolute value $\sqrt q$. Indeed, one computes 
 \[
