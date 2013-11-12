@@ -14,7 +14,6 @@
 
 
 
-
 \newpage
 \section*{Disclaimer}
 
@@ -164,22 +163,46 @@ In other words, the conjecture says that $L_\Delta(E,s)\sim c(s-1)^r$ near
 $s=1$ for some constant $c$. Modern formulations of BSD include a formula for 
 $c$. 
 
-Let's define the factors in $L(E,s)$ for primes $p\mid \Delta$. For such a 
-prime, $E$ will have a N\'eron model $\cE_p$ over $\dZ_{(p)}$, and the 
-reduction $(\cE_p)_{\dF_p}$ will either be smooth (good reduction), have a 
-cusp (additive reduction), or a double point (multiplicative reduction). In the 
-latter two cases, the nonsingular locus of $(\cE_p)_{\dF_p}$ is isomorphic (as 
-a group scheme) to $\dG_{a,\dF_p}$ and $\dG_{m,\dF_p}$ respectively. 
-We put the local factor to be 
+Let's define the factors in $L(E,s)$ for primes $p\mid \Delta$. The following 
+seems quite ad-hoc without motivation:
+%For such a 
+%prime, $E$ will have a N\'eron model $\cE_p$ over $\dZ_{(p)}$, and the 
+%reduction $(\cE_p)_{\dF_p}$ will either be smooth (good reduction), have a 
+%cusp (additive reduction), or a double point (multiplicative reduction). In the 
+%latter two cases, the nonsingular locus of $(\cE_p)_{\dF_p}$ is isomorphic (as 
+%a group scheme) to $\dG_{a,\dF_p}$ and $\dG_{m,\dF_p}$ respectively. 
+%We define the local factor by  
 \[
-  L_p(E,s) = \begin{cases}
-               \frac{1}{1-a_p p^{-s} + p^{1-2 s}} & \text{if $p$ has good reduction} \\
-               1 & \text{if $p$ has additive reduction} \\
-               \frac{1}{1-a_p p^{-s}} & \text{if $p$ has multiplicative reduction}
-             \end{cases}
+  L_p(E,s)
+    = \begin{cases}
+        \displaystyle\frac{1}{1-a_p p^{-s} + p^{1-2 s}} & \text{if $E$ has good reduction at $p$}  \\
+        \displaystyle\frac{1}{1-a_p p^{-s}} & \text{if $E$ has bad reduction at $p$} \\
+  %      1-p^{-s} & \text{if $E$ has nonsplit multiplicative reduction at $p$} \\
+  %      1+p^{-s} & \text{if $E$ has split multiplicative reduction at $p$}
+      \end{cases}
 \]
-If $E$ has multiplicative reduction at $p$, we set $a_p=1$ if the singularity 
-is defined over $\dF_p$, and $a_p=-1$ otherwise. 
+Here, $a_p=-1$ if $E$ has split multiplicative reduction at $p$, 
+$a_p=-1$ if $E$ has nonsplit multiplicative reduction, and $a_p=0$ if $E$ has 
+additive reduction. 
+% a_p=-1 if split, 1 if nonsplit, 0 if additive reduction
+This terminology deserves some explanation. Fix a prime $p$. A \emph{minimal 
+model} for $E$ at $p$ is an equation $y^2=x^3+a x+b$, where $a,b$ are integral 
+over $\dZ_{(p)}$, and such that the descriminant $\Delta=-16(4 a^3+27 b^2)$ has 
+minimal $p$-adic valuation among such models. Let $\widetilde E$ be a minimal 
+model for $E$. Then $\widetilde E$ is a scheme over $\dZ_{(p)}$, so we can 
+consider its reduction $\widetilde E_p=\widetilde E_{\dF_p}$ modulo $p$. If 
+$E$ has bad reduction at $p$, $\widetilde E_p$ will be singular, but its 
+nonsingular locus $\widetilde E_{p,\text{ns}}$ will be a smooth group scheme 
+over $\dF_p$. There are three possibilities for $\widetilde E_{p,\text{ns}}$. 
+Either it will be the additive group $\dG_{a,\dF_p}$, in which case we say 
+$E$ has \emph{additive reduction at $p$}, or it will be a one-dimensional 
+torus (isomorphic to $\dG_{\bar\dF_p}$ after base change). In the second 
+case we say $E$ has \emph{split multiplicative reduction at $p$} if 
+$\widetilde E_{p,\text{ns}}\simeq \dG_{m,\dF_p}$, and we say $E$ has 
+\emph{nonsplit multiplicative reduction at $p$} if 
+$\widetilde E_{p,\text{ns}}\not\simeq \dG_{m,\dF_p}$ (it turns out that 
+we get isomorphism after base change to a quadratic extension of 
+$\dF_p$). See \cite[III.2.5,2.6]{si06}. 
 
 More abstractly, the reduction $E_{\dF_p} = (\cE_p)_{\dF_p}$ will be a group 
 scheme over $\dF_p$, with nonsingular locus $E_{p,\text{ns}}$ (also a group 
