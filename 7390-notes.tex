@@ -280,6 +280,174 @@ $1$.
 
 
 
+\section{More BSD}
+
+Let $E$ be an elliptic curve over $\dQ$. We are interested in the rank of 
+$E(\dQ)\simeq E(\dQ)_\text{tors}\oplus \dZ^r$. In particular, we would like to 
+relate $r$ to the partial $L$-function 
+\[
+  L(E,s) = \prod_{p\text{ good}} \frac{1}{1-a_p p^{-s} + p (p^{-s})^2} \cdot \prod_{p\text{ bad}} \frac{1}{1-a_p p^{-s}} 
+\]
+where 
+\[
+  a_p 
+    = \begin{cases}
+        p+1-\# E(\dF_p) & \text{if $E$ has good reduction at $p$} \\
+        0               & \text{if $E$ has additive reduction at $p$} \\
+        1               & \text{if $E$ has split multiplicative reduction at $p$} \\
+        -1              & \text{if $E$ has nonsplit multiplicative reduction at $p$}
+      \end{cases}
+\]
+The product for $L(E,s)$ converges absolutely for all $s\in \dC$ with 
+$\Re (s)>\frac 3 2$. Let $N$ be the \emph{conductor} of $E$, i.e. 
+\[
+  N - \prod_p p^{f_p}
+\]
+where 
+\[
+  f_p = 
+    \begin{cases} 
+      0 & \text{good at $p$} \\ 
+      1 & \text{ if mult} \\
+       2+\delta_p & \text{$\delta_p=0$ if $p\geqslant 5$} 
+       \end{cases}
+\]
+(\textbf{define the conductor in generality -- maybe need Swan conductor})
+
+\begin{theorem}
+The function $L(E,s)$ has an analytic continuation to all of $\dC$. It 
+satisfies a functional equation: there exists $\omega\in \{\pm 1\}$ such that 
+\[
+  \Lambda(s) = \omega \Lambda(2-s)
+\]
+where $\Lambda(s) = N^{s/2} (2\pi)^{-s} \Gamma(s) L(E,s)$. 
+\end{theorem}
+
+The constants $N$ and $\omega$ are easily computed. They are a product of local 
+factors, so in particular no analysis is needed to find their values. 
+
+We can expand the product formula for $L(E,s)$ to get a Dirichlet series 
+\[
+  L(E,s) = \sum_{n\geqslant 1} \frac{a_n}{n^s} \qquad (a_n\in \dZ)
+\]
+This is consistent with our earlier definition of $a_p$. Moreover, if 
+$(m,n)=1$, then $a_{mn}=a_m a_n$. If $n\geqslant 2$, then 
+\[
+  a_{p^n} = a_p a_{p^{n-1}} - p a_{p^{n-2}} \text{.}
+\]
+Define the Fourier series 
+\[
+  f(z) = \sum_{n\geqslant 1} a_n e^{2\pi i n z} = \sum a_n q^n
+\]
+where as usual $q=e^{2\pi i z}$ and $z$ ranges over the upper half-plane 
+$\fh=\{z\in \dC:\Im z>0\}$. 
+
+\begin{theorem}[Wiles, Taylor-Wiles, Breuil-Conrad-Diamond-Taylor]
+The function $f$ is a cusp form of weight $2$ and level $N$. Moreover, $f$ is 
+an eigenform (eigenvector for all Hecke operators). 
+\end{theorem}
+
+(\textbf{explain / define everything})
+
+This is the Taniyama-Shimura conjecture. Recall that $SL(2,\dZ)$ acts on $\fh$ 
+via fractional linear transformations:
+\[
+  \begin{pmatrix} a & b \\ c & d\end{pmatrix}\cdot z = \frac{a z+b}{c z+d}
+\]
+Let $\eta=f(z)dz$, this is a complex one-form on $\fh$. If 
+$\gamma=\smat a b c d$, then 
+\[
+  \gamma^\ast \eta = f(\gamma z)d(\gamma z) = f(\gamma z)(c z+d)^{-2} dz 
+\]
+We say a function $f:\fh\to \dC$ is a \emph{weak modular form} of level $N$ and 
+weight $2$ if it is holomorphic and $f(z)\, dz$ is invariant under the action of 
+\[
+  \Gamma_0(N) = \left\{\gamma \in SL(2,\dZ) : \gamma \equiv \begin{pmatrix} \ast & \ast \\ 0 & \ast \end{pmatrix} \mod N\right\}
+\]
+In other words, for $A=\smat a b c d\in\Gamma_0(N)$, one has 
+\[
+  f\left(\frac{a z+b}{c z+d}\right) = (c z+d)^{-2} f(z) \text{.}
+\]
+We an consider the Riemann surface $\fh/\Gamma_0(N)$. It is not compact, but we 
+denote its compactification (formed by adding finitely many cusps) by 
+$X_0(N)^\text{an}$. We say $f$ is a \emph{cusp form} if the differential 
+$f(z) dz$ vanishes on the cusps of $X_0(N)^\text{an}$. 
+
+For a modular form $f$, we can look at its Mellin transform 
+\[
+  \int_0^\infty f(i t) t^s\, \frac{dt}{t}  = \sum_{n\geqslant 1} a_n \int_0^\infty e^{-2\pi n t} t^s\, \frac{dt}{t}
+\]
+Making the substitution $u=2\pi n t$, we get 
+\[
+  \sum_{n\geqslant 1} a_n \frac{1}{(2\pi n)^s} \int_0^\infty e^{-u} u^s\, \frac{du}{u}
+    = (2\pi)^{-s} \Gamma(s) \sum_{n\geqslant 1} \frac{a_n}{n^s} \qquad (= (2\pi)^{-s} \Gamma(s) L(E,s) \text{ if $f$ comes from an elliptic curve}
+\]
+The function $\sum a_n n^{-s}$ (coming from a modular form $f$) has an analytic 
+continuation and a functional equation by a theorem of Hecke. 
+
+(Converse: given $f=\sum a_n q^n$ with $a_n\in \dQ$, can construct elliptic curve 
+$E_f$ over $\dQ$\ldots Eichler-Shimura: summarize and cite sources (Conrad)\ldots)
+
+Back to BSD. Let $E$ be an elliptic curve over $\dQ$ with rank $r$, and 
+analytic rank 
+\[
+  r_\text{an} = \ord_{s=1} L(E,s)
+\]
+By the previous discussion, $L(E,s)$ has an analytic continuation to $s=1$, so 
+this is well-defined. As stated earlier, one version of BSD is that 
+$r=r_\text{an}$. 
+
+From the functional equation, we get $(-1)^{r_\text{an}}=\omega$. The 
+\emph{parity conjecture} is that $r\equiv r_\text{an}\pmod 2$. The better 
+variant is that $(-1)^r=\omega$. Since $\omega$ can be computed without 
+dealing with $L(E,s)$, the parity can be approached computationally. The parity 
+conjecture is a theorem whenever $\sha(E)$ is finite. \textbf{(cite source for 
+this})
+
+\begin{theorem}[Kolyvagin, Gross-Zagier]
+If $r_\textnormal{an}\leqslant 1$, then $r=r_\textnormal{an}$ and $\sha(E)$ is 
+finite. 
+\end{theorem}
+\begin{proof}
+(\textbf{cite source})
+\end{proof}
+
+One can compute $L(E,s)$ to arbitrary precision. In particular, we can look at 
+$L(E,1)$. It turns out that 
+\[
+  L(E,1) = (1+\omega) \sum_{n\geqslant 1} \frac{a_n}{n} e^{-2\pi n/\sqrt N}
+\]
+If $\omega=-1$, then $L(E,1)=0$, and it turns out that 
+\[
+  L'(E,1) = 2 \sum_{n\geqslant 1} \frac{a_n}{n} E_1(\frac{2\pi n}{\sqrt N})
+\]
+where 
+\[
+  E_1(x) = \int_x^\infty e^{-t}\, \frac{dt}{t} \text{.}
+\]
+
+\begin{example}
+Let $E$ be the elliptic curve $y^2=x^3+875 x$ over $\dQ$. We can compute 
+$L(E,1) = -3.9\ldots$. In particular, $L(E,1)\ne 0$, which implies 
+$r_\text{an}=0$. The above theorem tells us that $r=0$, so 
+$E(\dQ)=E(\dQ)_\text{tors}=\{O,(0,0)\}$. 
+\end{example}
+
+\begin{example}
+Let $E$ be the elliptic curve $y^2=x^3+877 x$ over $\dQ$. It turns out that 
+$L(E,1) = 0.000\ldots$. This does \emph{not} imply $L(E,1) = 0$. We can 
+compute $\omega=-1$, which means $r_\text{an}$ is odd. Thus we cannot have 
+$L(E,1) = 0$. The BSD conjecture would imply $E$ has rank at least one. One 
+can compute $L'(E,1) = 32.7\dots\ne 0$. In particular, 
+$r_\text{an}\leqslant 1$, so the above theorem tells us $r=1$. In other words, 
+$E(\dQ)\simeq \dZ/2\oplus \dZ$, hence $E(\dQ)$ is infinite. 
+\end{example}
+
+
+
+
+
+
 \bibliographystyle{amsplain}
 \bibliography{7390-sources}
 
