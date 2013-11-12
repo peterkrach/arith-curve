@@ -182,7 +182,7 @@ seems quite ad-hoc without motivation:
       \end{cases}
 \]
 Here, $a_p=-1$ if $E$ has split multiplicative reduction at $p$, 
-$a_p=-1$ if $E$ has nonsplit multiplicative reduction, and $a_p=0$ if $E$ has 
+$a_p=1$ if $E$ has nonsplit multiplicative reduction, and $a_p=0$ if $E$ has 
 additive reduction. 
 % a_p=-1 if split, 1 if nonsplit, 0 if additive reduction
 This terminology deserves some explanation. Fix a prime $p$. A \emph{minimal 
@@ -202,20 +202,80 @@ $\widetilde E_{p,\text{ns}}\simeq \dG_{m,\dF_p}$, and we say $E$ has
 \emph{nonsplit multiplicative reduction at $p$} if 
 $\widetilde E_{p,\text{ns}}\not\simeq \dG_{m,\dF_p}$ (it turns out that 
 we get isomorphism after base change to a quadratic extension of 
-$\dF_p$). See \cite[III.2.5,2.6]{si06}. 
+$\dF_p$). See \cite[III.2.5, 2.6]{si06} for a proof and details.  
 
-More abstractly, the reduction $E_{\dF_p} = (\cE_p)_{\dF_p}$ will be a group 
-scheme over $\dF_p$, with nonsingular locus $E_{p,\text{ns}}$ (also a group 
-scheme). Generally, 
+There is a way of defining the local factors for $L(E,s)$ that is more 
+conceptual. Let $\cE$ be the N\'eron model for $E$ over $\dZ$ (this exists by 
+\cite[1.4.3]{blr90}). One way of characterizing $\cE$ is by requiring 
+that it represent the functor $X\mapsto \hom(X_\dQ,E)$ on smooth varieties over 
+$\dZ$. In particular, $\cE$ is a smooth (but not projective) group scheme over 
+$\dZ$, so each $\cE_p=\cE_{\dF_p}$ is a group variety over $\dF_p$. If we write 
+$\cE_p^\circ$ for the connected component of the identity in $\cE_p$, then by 
+\cite[C.15.1, C.16]{si06}, one has 
 \[
-  L_p(E,1) = \frac{p}{\# E_{p,\text{ns}}(E_p)}
+  a_p = p - \# \widetilde E_{p,\text{ns}}(\dF_p) = p - \# \cE_p^\circ(\dF_p) \text{.}
 \]
+This yields the following theorem.
 
-The global $L$-function of $E$ is 
+\begin{theorem}
+Let $E$ be an elliptic curve over $\dQ$, and let $\ell$ be a prime. Then for all 
+primes $p\ne \ell$, we have 
 \[
-  L(E,s) = \prod_p L_p(E,s) \text{.}
+  L_p(E,s) = \frac{1}{\det\left(1-\Phi_{p,\ast}\cdot p^{-s}, (T_\ell E)^{I_p}\right)} \text{.}
 \]
-\textbf{(check relationship between this and cohomological definition)}
+\end{theorem}
+\begin{proof}
+Recall that $I_p\subset G_\dQ$ is the inertia subgroup at $p$. If $E$ has good 
+reduction at $p$, then the action of $G_\dQ$ on $T_\ell E$ is unramified at 
+$p$ (this is the N\'eron-Ogg-Shafarevich criterion, \cite[thm 1]{st68}). In 
+that case $T_\ell E \simeq T_\ell \cE_p$, and the result follows from our 
+computation in Section \ref{sec:ab-fin-fld} of the characteristic polynomial 
+of Frobenius over finite fields. In general, one has 
+\[
+  T_\ell\cE_p^\circ = (T_\ell E)^{I_p}\text{.}
+\]
+This is proven in \cite[IX.2.2]{gr72}. Since $T_\ell \cE_p^\circ$ has rank one 
+over $\dZ_\ell$, we just need to prove that $\Phi_{p,\ast}$ is multiplication 
+by $a_p$ on $T_\ell \cE_p^\circ$. If $E$ has additive or split multiplicative 
+reduction at $p$, this is trivial. 
+\end{proof}
+
+Much of this generalizes further. Let $k$ be a number field with ring of 
+integers $\fo$. Let $A$ be any abelian variety over $k$ with N\'eron model 
+$\cA$. For a prime $\fp$ of $\fo$, let $\kappa_\fp=\fo/\fp$ be the residue 
+field of $\fp$. The connected component $A_\fp^\circ$ of the reduction 
+$A_\fp = \cA_{\kappa_\fp}$ is a smooth commutative group variety over 
+$\kappa_\fp$. As such, it admits a maximal subtorus 
+$T\subset A_\fp^\circ$, such that the quotient $A_\fp^\circ/T$ is the extension 
+of an abelian variety by a unipotent group \cite[IX.2]{gr72}. One says 
+$A$ has \emph{good reduction} at a prime $\fp$ if $A_\fp^\circ$ is itself 
+abelian. On the other hand, if $A_\fp^\circ/T$ is abelian, the variety 
+$A_\fp^\circ$ is semi-abelian, so we say that $A$ has \emph{semistable 
+reduction at $\fp$}. If the subtorus of $A_\fp^\circ$ splits over $\kappa_\fp$ 
+we say that $A$ has \emph{split semistable reduction} at $\fp$, otherwise it 
+has \emph{nonsplit semistable reduction} at $\fp$. 
+For elliptic curves, semistable reduction is equivalent to multiplicative 
+reduction. 
+
+For each finite place $\fp$ of $k$, choose a prime $\ell$ not dividing $\fp$ 
+and put 
+\[
+  L_\fp(A,s) = \frac{1}{\det\left(1-\Phi_{\fp,\ast} \cdot (N\fp)^{-s}, (T_\ell A)^{I_\fp}\right)} \text{.}
+\]
+The global $L$-function of $A$ is the product of its local pieces:
+\[
+  L(A,s) = \prod_\fp L_\fp(A,s) \text{.}
+\]
+The \emph{Bloch-Kato conjecture} (which makes sense in much more generality -- 
+arbitrary pure motives) predicts the order of vanishing of 
+$L(A,s)$ at $1$, as well as the leading term in its Taylor expansion at 
+$1$. 
+
+
+%Generally, 
+%\[
+%  L_p(E,1) = \frac{p}{\# E_{p,\text{ns}}(E_p)}
+%\]
 
 
 
