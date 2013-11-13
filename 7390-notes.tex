@@ -312,9 +312,16 @@ $G=\gal(L/\dQ_p)$. We define
 \[
   f_p(E) = \sum_{i\geqslant 0} \frac{1}{[G_0:G_i]} \dim_{\dF_\ell} V/V^{G_i} \text{.}
 \]
-The quantity $\dim V/V^{I_p}$ is called the \emph{tame part} of $f_p$, and the 
-rest of the sum is called the \emph{wild part}. If $p\geqslant 5$, the wild 
-part is trivial and there is an easy formula for $f_p$:
+Note that $G_0=I_p$, the inertia group at $p$, and $G_1=P_p$, the Sylow 
+$p$-subgroup of $G$ (consisting of ``wild inertia''), see \cite[IV]{se79} for a 
+proof. So we can split up the sum as 
+\[
+  f_p(E) = \dim_{\dF_\ell} V/V^{I_p} + \sum_{i\geqslant 1} \frac{1}{[G_0:G_i]} \dim_{\dF_\ell} V/V^{G_i} \text{.}
+\]
+The quantity $\dim V/V^{I_p}$ is called the \emph{tame part} of $f_p$, 
+sometimes written $\varepsilon_p$, and the 
+rest of the sum is called the \emph{wild part}, written $\delta_p$. If 
+$p\geqslant 5$, the wild part is zero and there is an easy formula for $f_p$: 
 \[
   f_p(E) 
     = \begin{cases}
@@ -357,7 +364,7 @@ $(m,n)=1$, then $a_{mn}=a_m a_n$. If $n\geqslant 2$, then
 This allows us to compute $a_n$ for any $n$ just using the $a_p$. Define the 
 Fourier series 
 \[
-  f(z) = \sum_{n\geqslant 1} a_n a^n \qquad (q=e^{2\pi i z})
+  f(z) = \sum_{n\geqslant 1} a_n q^n \qquad (q=e^{2\pi i z})
 \]
 where $z$ ranges over the upper half-plane $\fh=\{z\in \dC:\Im z>0\}$. 
 
@@ -366,16 +373,16 @@ The function $f$ is a cusp form of weight $2$ and level $N$. Moreover, $f$ is
 an eigenform (eigenvector for all Hecke operators). 
 \end{theorem}
 This is one version of the Taniyama-Shimura conjecture. We'll take a moment to 
-explain everything in the theorem. Recall that $SL(2,\dR)$ acts on $\fh$ 
+explain everything in the theorem. Recall that $\operatorname{SL}(2,\dR)$ acts on $\fh$ 
 via fractional linear transformations:
 \[
   \begin{pmatrix} a & b \\ c & d\end{pmatrix}\cdot z = \frac{a z+b}{c z+d} \text{.}
 \]
-(This comes from the action of $GL(2,\dC)$ on $\dP^1(\dC)$.) Let 
+(This comes from the action of $\operatorname{GL}(n+1)$ on $\dP^n$.) Let 
 $\omega=f(z)dz$; this is a complex one-form on $\fh$. For 
-$\gamma=\smat a b c d\in SL(2,\dR)$, one easily computes 
+$\gamma=\smat a b c d\in \operatorname{SL}(2,\dR)$, one easily computes 
 \[
-  \gamma^\ast \omega = f(\gamma z)d(\gamma z) = f(\gamma z)(c z+d)^{-2} dz 
+  \gamma^\ast \omega = f(\gamma z)d(\gamma z) = (c z+d)^{-2}f(\gamma z) dz 
 \]
 We say a function $f:\fh\to \dC$ is a \emph{weak modular form} of level $N$ and 
 weight $2$ if it is holomorphic and $f(z)\, dz$ is invariant under the action of 
@@ -384,7 +391,7 @@ weight $2$ if it is holomorphic and $f(z)\, dz$ is invariant under the action of
 \]
 In other words, for for all matrices $\smat a b c d\in\Gamma_0(N)$, one has 
 \[
-  f\left(\frac{a z+b}{c z+d}\right) = (c z+d)^{-2} f(z) \text{.}
+  f\left(\frac{a z+b}{c z+d}\right) = (c z+d)^2 f(z) \text{.}
 \]
 We an consider the Riemann surface $\fh/\Gamma_0(N)$. It is not compact, but we 
 denote its compactification (formed by adding finitely many cusps) by 
@@ -472,8 +479,13 @@ $r=r_\textnormal{an}$, $\sha(E)$ is finite, and
 
 ($\Omega_E$ is a real period, the $c_p$ are Tamagawa numbers)
 
-(\textbf{mention Bloch-Kato eventually})
 
+% TODO: 
+%  - Bloch-Kato, its link with BSD and the analytic class number formula
+%  - Grothendieck-Ogg-Saito formula
+%  - cohomological definition of L-function of elliptic curve
+%  - reduction of abelian varieties, relate to reduction of elliptic curves
+%  - L-functions of motives (Tate number-theoretic background is useful here)
 
 
 
