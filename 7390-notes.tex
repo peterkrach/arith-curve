@@ -333,8 +333,8 @@ that
 where $\Lambda(s) = N^{s/2} (2\pi)^{-s} \Gamma(s) L(E,s)$. 
 \end{theorem}
 
-The constants $N$ and $\omega$ are easily computed. They are a product of local 
-factors, so in particular no analysis is needed to find their values. 
+The constants $N$ and $\varepsilon$ are easily computed. They are a product of 
+local factors, so in particular no analysis is needed to find their values. 
 
 We can give a sketch of a proof of this theorem. Expand the product formula for 
 $L(E,s)$ to get a Dirichlet series 
@@ -411,12 +411,12 @@ By the previous discussion, $L(E,s)$ has an analytic continuation to $s=1$, so
 this is well-defined. As stated earlier, one version of BSD is that 
 $r=r_\text{an}$. 
 
-From the functional equation, we get $(-1)^{r_\text{an}}=\omega$. The 
+From the functional equation, we get $(-1)^{r_\text{an}}=\varepsilon$. The 
 \emph{parity conjecture} is that $r\equiv r_\text{an}\pmod 2$. The better 
-variant is that $(-1)^r=\omega$. Since $\omega$ can be computed without 
+variant is that $(-1)^r=\varepsilon$. Since $\varepsilon$ can be computed without 
 dealing with $L(E,s)$, the parity can be approached computationally. The parity 
 conjecture is a theorem whenever $\sha(E)$ is finite. \textbf{(cite source for 
-this})
+this)}
 
 \begin{theorem}[Kolyvagin, Gross-Zagier]
 If $r_\textnormal{an}\leqslant 1$, then $r=r_\textnormal{an}$ and $\sha(E)$ is 
@@ -429,9 +429,9 @@ finite.
 One can compute $L(E,s)$ to arbitrary precision. In particular, we can look at 
 $L(E,1)$. It turns out that 
 \[
-  L(E,1) = (1+\omega) \sum_{n\geqslant 1} \frac{a_n}{n} e^{-2\pi n/\sqrt N}
+  L(E,1) = (1+\varepsilon) \sum_{n\geqslant 1} \frac{a_n}{n} e^{-2\pi n/\sqrt N}
 \]
-If $\omega=-1$, then $L(E,1)=0$, and it turns out that 
+If $\varepsilon=-1$, then $L(E,1)=0$, and it turns out that 
 \[
   L'(E,1) = 2 \sum_{n\geqslant 1} \frac{a_n}{n} E_1(\frac{2\pi n}{\sqrt N})
 \]
