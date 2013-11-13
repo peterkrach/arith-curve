@@ -1,4 +1,14 @@
-% !TEX root = 7390-notes.tex
+% Package '7390-style'
+% written by Daniel Miller, fall 2013
+% 
+% This package is pretty simple. It has the following macros for special fonts:
+%  \c? -> \mathcal{?}
+%  \d? -> \mathbb{?} or \mathbf{?} (if pazo option is invoked)
+%  \f? -> \mathfrak{?}
+%  \s? -> \mathscr{?}
+% 
+% The only option is 'pazo' which uses the mathpazo font and mathbf instead of 
+% mathbb. 
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{7390-style}
@@ -15,17 +25,12 @@
 }
 \RequirePackage[pdfpagelabels,backref=page]{hyperref}
 \RequirePackage[all]{xy}
+\newcommand{\myboldfont}{\mathbb}
 
 % uses mathpazo and mathbf
 \newif\if@loadpazo\@loadpazofalse
 \DeclareOption{pazo}{
   \@loadpazotrue
-  \newcommand{\myboldfont}{\mathbf}
-}
-
-% my 'standard' style
-\DeclareOption{normal}{
-  \newcommand{\myboldfont}{\mathbb}
 }
 
 % produce warning if unknown option called
@@ -33,13 +38,14 @@
   \PackageWarning{7390-notes}{Unknown option '\CurrentOption'}
 }
 
-\ProcessOptions\relax
+\ProcessOptions\relax % end of options
 
 
 % use mathpazo font it option 'pazo' was called
 \if@loadpazo
   \RequirePackage{lmodern} % takes care of font-size warnings?
   \RequirePackage{mathpazo}
+  \renewcommand{\myboldfont}{\mathbf}
 \fi
 
 
@@ -50,9 +56,9 @@
   \DeclareMathOperator{\divisor}{Div}
   \DeclareMathOperator{\End}{End}
   \DeclareMathOperator{\gal}{Gal}
-  \DeclareMathOperator{\h}{H}
-  \DeclareMathOperator{\im}{im}
-  \DeclareMathOperator{\jac}{Jac}
+  \DeclareMathOperator{\h}{H}     % (co)homology
+  \DeclareMathOperator{\im}{im}   % image of a map
+  \DeclareMathOperator{\jac}{Jac} % jacobian of a curve
   \DeclareMathOperator{\ord}{ord}
   \DeclareMathOperator{\picard}{Pic}
   \DeclareMathOperator{\rank}{rk}
@@ -77,6 +83,7 @@
   \def\mydefallf#1{\ifx#1\mydefallf\else\mydeff#1\expandafter\mydefallf\fi}
   \mydefallf abcdefghjklmnopqrstuvwxyz\mydefallf
   
+% miscellanies commands and symbols
   \newcommand{\et}[1]{{#1}_\textnormal{\'et}}
   \newcommand{\lau}[1]{(\!({#1})\!)}
 % Tate-Shafarevich groups
@@ -92,14 +99,12 @@
   \newtheorem{lemma}[subsection]{Lemma}
   \newtheorem{theorem}[subsection]{Theorem}
   \newtheorem{definition}[subsection]{Definition}
-  \theoremstyle{definition}
+  \theoremstyle{definition} % contents are not italic
   \newtheorem{example}[subsection]{Example}
   \newtheorem{question}[subsection]{Question}
-  \newtheorem{remark}[subsection]{Remark}
+  %\newtheorem{remark}[subsection]{Remark}
 
 
 
-\endinput
-
-
+\endinput % end of style 
 
