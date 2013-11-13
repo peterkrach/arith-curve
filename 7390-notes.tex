@@ -204,72 +204,72 @@ $\widetilde E_{p,\text{ns}}\not\simeq \dG_{m,\dF_p}$ (it turns out that
 we get isomorphism after base change to a quadratic extension of 
 $\dF_p$). See \cite[III.2.5, 2.6]{si06} for a proof and details.  
 
-There is a way of defining the local factors for $L(E,s)$ that is more 
-conceptual. Let $\cE$ be the N\'eron model for $E$ over $\dZ$ (this exists by 
-\cite[1.4.3]{blr90}). One way of characterizing $\cE$ is by requiring 
-that it represent the functor $X\mapsto \hom(X_\dQ,E)$ on smooth varieties over 
-$\dZ$. In particular, $\cE$ is a smooth (but not projective) group scheme over 
-$\dZ$, so each $\cE_p=\cE_{\dF_p}$ is a group variety over $\dF_p$. If we write 
-$\cE_p^\circ$ for the connected component of the identity in $\cE_p$, then by 
-\cite[C.15.1, C.16]{si06}, one has 
-\[
-  a_p = p - \# \widetilde E_{p,\text{ns}}(\dF_p) = p - \# \cE_p^\circ(\dF_p) \text{.}
-\]
-This yields the following theorem.
-
-\begin{theorem}
-Let $E$ be an elliptic curve over $\dQ$, and let $\ell$ be a prime. Then for all 
-primes $p\ne \ell$, we have 
-\[
-  L_p(E,s) = \frac{1}{\det\left(1-\Phi_{p,\ast}\cdot p^{-s}, (T_\ell E)^{I_p}\right)} \text{.}
-\]
-\end{theorem}
-\begin{proof}
-Recall that $I_p\subset G_\dQ$ is the inertia subgroup at $p$. If $E$ has good 
-reduction at $p$, then the action of $G_\dQ$ on $T_\ell E$ is unramified at 
-$p$ (this is the N\'eron-Ogg-Shafarevich criterion, \cite[thm 1]{st68}). In 
-that case $T_\ell E \simeq T_\ell \cE_p$, and the result follows from our 
-computation in Section \ref{sec:ab-fin-fld} of the characteristic polynomial 
-of Frobenius over finite fields. In general, one has 
-\[
-  T_\ell\cE_p^\circ = (T_\ell E)^{I_p}\text{.}
-\]
-This is proven in \cite[IX.2.2]{gr72}. Since $T_\ell \cE_p^\circ$ has rank one 
-over $\dZ_\ell$, we just need to prove that $\Phi_{p,\ast}$ is multiplication 
-by $a_p$ on $T_\ell \cE_p^\circ$. \textbf{(not finished)}
-\end{proof}
-
-Much of this generalizes further. Let $k$ be a number field with ring of 
-integers $\fo$. Let $A$ be any abelian variety over $k$ with N\'eron model 
-$\cA$. For a prime $\fp$ of $\fo$, let $\kappa_\fp=\fo/\fp$ be the residue 
-field of $\fp$. The connected component $A_\fp^\circ$ of the reduction 
-$A_\fp = \cA_{\kappa_\fp}$ is a smooth commutative group variety over 
-$\kappa_\fp$. As such, it admits a maximal subtorus 
-$T\subset A_\fp^\circ$, such that the quotient $A_\fp^\circ/T$ is the extension 
-of an abelian variety by a unipotent group \cite[IX.2]{gr72}. One says 
-$A$ has \emph{good reduction} at a prime $\fp$ if $A_\fp^\circ$ is itself 
-abelian. On the other hand, if $A_\fp^\circ/T$ is abelian, the variety 
-$A_\fp^\circ$ is semi-abelian, so we say that $A$ has \emph{semistable 
-reduction at $\fp$}. If the subtorus of $A_\fp^\circ$ splits over $\kappa_\fp$ 
-we say that $A$ has \emph{split semistable reduction} at $\fp$, otherwise it 
-has \emph{nonsplit semistable reduction} at $\fp$. 
-For elliptic curves, semistable reduction is equivalent to multiplicative 
-reduction. 
-
-For each finite place $\fp$ of $k$, choose a prime $\ell$ not dividing $\fp$ 
-and put 
-\[
-  L_\fp(A,s) = \frac{1}{\det\left(1-\Phi_{\fp,\ast} \cdot (N\fp)^{-s}, (T_\ell A)^{I_\fp}\right)} \text{.}
-\]
-The global $L$-function of $A$ is the product of its local pieces:
-\[
-  L(A,s) = \prod_\fp L_\fp(A,s) \text{.}
-\]
-The \emph{Bloch-Kato conjecture} (which makes sense in much more generality -- 
-arbitrary pure motives) predicts the order of vanishing of 
-$L(A,s)$ at $1$, as well as the leading term in its Taylor expansion at 
-$1$. 
-
+%There is a way of defining the local factors for $L(E,s)$ that is more 
+%conceptual. Let $\cE$ be the N\'eron model for $E$ over $\dZ$ (this exists by 
+%\cite[1.4.3]{blr90}). One way of characterizing $\cE$ is by requiring 
+%that it represent the functor $X\mapsto \hom(X_\dQ,E)$ on smooth varieties over 
+%$\dZ$. In particular, $\cE$ is a smooth (but not projective) group scheme over 
+%$\dZ$, so each $\cE_p=\cE_{\dF_p}$ is a group variety over $\dF_p$. If we write 
+%$\cE_p^\circ$ for the connected component of the identity in $\cE_p$, then by 
+%\cite[C.15.1, C.16]{si06}, one has 
+%\[
+%  a_p = p - \# \widetilde E_{p,\text{ns}}(\dF_p) = p - \# \cE_p^\circ(\dF_p) \text{.}
+%\]
+%This yields the following theorem.
+%
+%\begin{theorem}
+%Let $E$ be an elliptic curve over $\dQ$, and let $\ell$ be a prime. Then for all 
+%primes $p\ne \ell$, we have 
+%\[
+%  L_p(E,s) = \frac{1}{\det\left(1-\Phi_{p,\ast}\cdot p^{-s}, (T_\ell E)^{I_p}\right)} \text{.}
+%\]
+%\end{theorem}
+%\begin{proof}
+%Recall that $I_p\subset G_\dQ$ is the inertia subgroup at $p$. If $E$ has good 
+%reduction at $p$, then the action of $G_\dQ$ on $T_\ell E$ is unramified at 
+%$p$ (this is the N\'eron-Ogg-Shafarevich criterion, \cite[thm 1]{st68}). In 
+%that case $T_\ell E \simeq T_\ell \cE_p$, and the result follows from our 
+%computation in Section \ref{sec:ab-fin-fld} of the characteristic polynomial 
+%of Frobenius over finite fields. In general, one has 
+%\[
+%  T_\ell\cE_p^\circ = (T_\ell E)^{I_p}\text{.}
+%\]
+%This is proven in \cite[IX.2.2]{gr72}. Since $T_\ell \cE_p^\circ$ has rank one 
+%over $\dZ_\ell$, we just need to prove that $\Phi_{p,\ast}$ is multiplication 
+%by $a_p$ on $T_\ell \cE_p^\circ$. \textbf{(not finished)}
+%\end{proof}
+%
+%Much of this generalizes further. Let $k$ be a number field with ring of 
+%integers $\fo$. Let $A$ be any abelian variety over $k$ with N\'eron model 
+%$\cA$. For a prime $\fp$ of $\fo$, let $\kappa_\fp=\fo/\fp$ be the residue 
+%field of $\fp$. The connected component $A_\fp^\circ$ of the reduction 
+%$A_\fp = \cA_{\kappa_\fp}$ is a smooth commutative group variety over 
+%$\kappa_\fp$. As such, it admits a maximal subtorus 
+%$T\subset A_\fp^\circ$, such that the quotient $A_\fp^\circ/T$ is the extension 
+%of an abelian variety by a unipotent group \cite[IX.2]{gr72}. One says 
+%$A$ has \emph{good reduction} at a prime $\fp$ if $A_\fp^\circ$ is itself 
+%abelian. On the other hand, if $A_\fp^\circ/T$ is abelian, the variety 
+%$A_\fp^\circ$ is semi-abelian, so we say that $A$ has \emph{semistable 
+%reduction at $\fp$}. If the subtorus of $A_\fp^\circ$ splits over $\kappa_\fp$ 
+%we say that $A$ has \emph{split semistable reduction} at $\fp$, otherwise it 
+%has \emph{nonsplit semistable reduction} at $\fp$. 
+%For elliptic curves, semistable reduction is equivalent to multiplicative 
+%reduction. 
+%
+%For each finite place $\fp$ of $k$, choose a prime $\ell$ not dividing $\fp$ 
+%and put 
+%\[
+%  L_\fp(A,s) = \frac{1}{\det\left(1-\Phi_{\fp,\ast} \cdot (N\fp)^{-s}, (T_\ell A)^{I_\fp}\right)} \text{.}
+%\]
+%The global $L$-function of $A$ is the product of its local pieces:
+%\[
+%  L(A,s) = \prod_\fp L_\fp(A,s) \text{.}
+%\]
+%The \emph{Bloch-Kato conjecture} (which makes sense in much more generality -- 
+%arbitrary pure motives) predicts the order of vanishing of 
+%$L(A,s)$ at $1$, as well as the leading term in its Taylor expansion at 
+%$1$. 
+%
 
 %Generally, 
 %\[
@@ -280,45 +280,55 @@ $1$.
 
 
 
-\section{More BSD}
+% lecture on 11-12-2013
 
-Let $E$ be an elliptic curve over $\dQ$. We are interested in the rank of 
-$E(\dQ)\simeq E(\dQ)_\text{tors}\oplus \dZ^r$. In particular, we would like to 
-relate $r$ to the partial $L$-function 
+Let $E$ be an elliptic curve over $\dQ$ with rank $r$. The \emph{conductor} of 
+$E$ is an integer measuring the how badly $E$ reduces over various primes. 
+Before we can define the conductor, we need to recall some basic facts about 
+Galois groups of local fields. Let $k$ be a local field, $L/k$ a finite Galois 
+extension. Let $v$ be a valuation on $K$ normalized by the condition 
+$v(\pi_L)=1$. Let $G=\gal(L/k)$. Then the \emph{higher ramification groups} of 
+the extension $L/k$ are:
 \[
-  L(E,s) = \prod_{p\text{ good}} \frac{1}{1-a_p p^{-s} + p (p^{-s})^2} \cdot \prod_{p\text{ bad}} \frac{1}{1-a_p p^{-s}} 
+  G_i = \{\sigma\in G : v(\sigma (x)-x) > i\text{ for all $x\in \fo_L$}\} \text{.}
 \]
-where 
+For example, $G_{-1}=G$, $G_0$ is the inertia subgroup of $L/k$, and $G_1$ is 
+the ``wild inertia'' subgroup of $G$. The $G_i$ form an exhaustive descending 
+filtration of $G$. For a careful study of the higher ramification groups, see 
+\cite[IV]{se79}. 
+
+The conductor of an elliptic curve $E$ over $\dQ$ is defined as a product of 
+local data: $N = \prod_p p^{f_p}$. Each of the $f_p$ only depend on the base 
+change $E_{\dQ_p}$. So, treat $E$ is an elliptic curve over $\dQ_p$, and 
+choose a prime $\ell\ne p$. Let $V=E[\ell]$; this is a two-dimensional vector 
+space over $\dF_\ell$ with an action of $G_{\dQ_p}$. Since $GL(V)$ is finite, 
+the action of $G_{\dQ_p}$ factors through a finite quotient 
+$G=\gal(L/\dQ_p)$. We define 
 \[
-  a_p 
+  f_p(E) = \sum_{i\geqslant 0} \frac{1}{[G_0:G_i]} \dim_{\dF_\ell} V/V^{G_i} \text{.}
+\]
+The quantity $\dim V/V^{I_p}$ is called the \emph{tame part} of $f_p$, and the 
+rest of the sum is called the \emph{wild part}. If $p\geqslant 5$, the wild 
+part is trivial and there is an easy formula for $f_p$:
+\[
+  f_p(E) 
     = \begin{cases}
-        p+1-\# E(\dF_p) & \text{if $E$ has good reduction at $p$} \\
-        0               & \text{if $E$ has additive reduction at $p$} \\
-        1               & \text{if $E$ has split multiplicative reduction at $p$} \\
-        -1              & \text{if $E$ has nonsplit multiplicative reduction at $p$}
+        0 & \text{if $E$ has good reduction at $p$} \\
+        1 & \text{if $E$ has multiplicative reduction at $p$} \\
+        2 & \text{if $E$ has additive reduction at $p$} 
       \end{cases}
 \]
-The product for $L(E,s)$ converges absolutely for all $s\in \dC$ with 
-$\Re (s)>\frac 3 2$. Let $N$ be the \emph{conductor} of $E$, i.e. 
-\[
-  N - \prod_p p^{f_p}
-\]
-where 
-\[
-  f_p = 
-    \begin{cases} 
-      0 & \text{good at $p$} \\ 
-      1 & \text{ if mult} \\
-       2+\delta_p & \text{$\delta_p=0$ if $p\geqslant 5$} 
-       \end{cases}
-\]
-(\textbf{define the conductor in generality -- maybe need Swan conductor})
+See \cite[IV.10.2]{si94} for a proof of this. 
+%There is an easy way to compute 
+%$f_p$ even when $p\leqslant 3$, called the \emph{Grothendieck-Ogg-Saito 
+%formula}. 
 
 \begin{theorem}
-The function $L(E,s)$ has an analytic continuation to all of $\dC$. It 
-satisfies a functional equation: there exists $\omega\in \{\pm 1\}$ such that 
+The function $L(E,s)$ has an analytic continuation to all of $\dC$. Moreover, 
+it satisfies a functional equation: there exists $\varepsilon\in \{\pm 1\}$ such 
+that 
 \[
-  \Lambda(s) = \omega \Lambda(2-s)
+  \Lambda(s) = \varepsilon \Lambda(2-s)
 \]
 where $\Lambda(s) = N^{s/2} (2\pi)^{-s} \Gamma(s) L(E,s)$. 
 \end{theorem}
@@ -326,45 +336,48 @@ where $\Lambda(s) = N^{s/2} (2\pi)^{-s} \Gamma(s) L(E,s)$.
 The constants $N$ and $\omega$ are easily computed. They are a product of local 
 factors, so in particular no analysis is needed to find their values. 
 
-We can expand the product formula for $L(E,s)$ to get a Dirichlet series 
+We can give a sketch of a proof of this theorem. Expand the product formula for 
+$L(E,s)$ to get a Dirichlet series 
 \[
-  L(E,s) = \sum_{n\geqslant 1} \frac{a_n}{n^s} \qquad (a_n\in \dZ)
+  L(E,s) = \sum_{n\geqslant 1} \frac{a_n}{n^s} \qquad (a_n\in \dZ) \text{.}
 \]
-This is consistent with our earlier definition of $a_p$. Moreover, if 
+It is not immediately obvious that these $a_n$ agree with our earlier 
+definition of the $a_p=p+1-\# E(\dF_p)$. It follows from an argument similar to 
+the one Euler used to prove the product formula for $\zeta(s)$. The function 
+$a\mapsto a_n$ is multiplicative in the number-theoretic sense: if 
 $(m,n)=1$, then $a_{mn}=a_m a_n$. If $n\geqslant 2$, then 
 \[
   a_{p^n} = a_p a_{p^{n-1}} - p a_{p^{n-2}} \text{.}
 \]
-Define the Fourier series 
+This allows us to compute $a_n$ for any $n$ just using the $a_p$. Define the 
+Fourier series 
 \[
-  f(z) = \sum_{n\geqslant 1} a_n e^{2\pi i n z} = \sum a_n q^n
+  f(z) = \sum_{n\geqslant 1} a_n a^n \qquad (q=e^{2\pi i z})
 \]
-where as usual $q=e^{2\pi i z}$ and $z$ ranges over the upper half-plane 
-$\fh=\{z\in \dC:\Im z>0\}$. 
+where $z$ ranges over the upper half-plane $\fh=\{z\in \dC:\Im z>0\}$. 
 
 \begin{theorem}[Wiles, Taylor-Wiles, Breuil-Conrad-Diamond-Taylor]
 The function $f$ is a cusp form of weight $2$ and level $N$. Moreover, $f$ is 
 an eigenform (eigenvector for all Hecke operators). 
 \end{theorem}
-
-(\textbf{explain / define everything})
-
-This is the Taniyama-Shimura conjecture. Recall that $SL(2,\dZ)$ acts on $\fh$ 
+This is one version of the Taniyama-Shimura conjecture. We'll take a moment to 
+explain everything in the theorem. Recall that $SL(2,\dR)$ acts on $\fh$ 
 via fractional linear transformations:
 \[
-  \begin{pmatrix} a & b \\ c & d\end{pmatrix}\cdot z = \frac{a z+b}{c z+d}
+  \begin{pmatrix} a & b \\ c & d\end{pmatrix}\cdot z = \frac{a z+b}{c z+d} \text{.}
 \]
-Let $\eta=f(z)dz$, this is a complex one-form on $\fh$. If 
-$\gamma=\smat a b c d$, then 
+(This comes from the action of $GL(2,\dC)$ on $\dP^1(\dC)$.) Let 
+$\omega=f(z)dz$; this is a complex one-form on $\fh$. For 
+$\gamma=\smat a b c d\in SL(2,\dR)$, one easily computes 
 \[
-  \gamma^\ast \eta = f(\gamma z)d(\gamma z) = f(\gamma z)(c z+d)^{-2} dz 
+  \gamma^\ast \omega = f(\gamma z)d(\gamma z) = f(\gamma z)(c z+d)^{-2} dz 
 \]
 We say a function $f:\fh\to \dC$ is a \emph{weak modular form} of level $N$ and 
 weight $2$ if it is holomorphic and $f(z)\, dz$ is invariant under the action of 
 \[
   \Gamma_0(N) = \left\{\gamma \in SL(2,\dZ) : \gamma \equiv \begin{pmatrix} \ast & \ast \\ 0 & \ast \end{pmatrix} \mod N\right\}
 \]
-In other words, for $A=\smat a b c d\in\Gamma_0(N)$, one has 
+In other words, for for all matrices $\smat a b c d\in\Gamma_0(N)$, one has 
 \[
   f\left(\frac{a z+b}{c z+d}\right) = (c z+d)^{-2} f(z) \text{.}
 \]
@@ -376,6 +389,7 @@ $f(z) dz$ vanishes on the cusps of $X_0(N)^\text{an}$.
 For a modular form $f$, we can look at its Mellin transform 
 \[
   \int_0^\infty f(i t) t^s\, \frac{dt}{t}  = \sum_{n\geqslant 1} a_n \int_0^\infty e^{-2\pi n t} t^s\, \frac{dt}{t}
+  \to \widehat f(\chi) = \int_\dR \chi(t)\, d^\times s
 \]
 Making the substitution $u=2\pi n t$, we get 
 \[
