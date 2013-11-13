@@ -1,17 +1,46 @@
-\usepackage{
+% !TEX root = 7390-notes.tex
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{7390-style}
+
+\RequirePackage{
   amsmath,
   amssymb,
   amsthm,
   fullpage,
-  lmodern,  % takes care of warnings
-  mathpazo, % to use the Palatino font
   mathrsfs,
   microtype,
   sagetex,
   stmaryrd
 }
-\usepackage[pdfpagelabels,backref=page]{hyperref}
-\usepackage[all]{xy}
+\RequirePackage[pdfpagelabels,backref=page]{hyperref}
+\RequirePackage[all]{xy}
+
+% uses mathpazo and mathbf
+\newif\if@loadpazo\@loadpazofalse
+\DeclareOption{pazo}{
+  \@loadpazotrue
+  \newcommand{\myboldfont}{\mathbf}
+}
+
+% my 'standard' style
+\DeclareOption{normal}{
+  \newcommand{\myboldfont}{\mathbb}
+}
+
+% produce warning if unknown option called
+\DeclareOption*{
+  \PackageWarning{7390-notes}{Unknown option '\CurrentOption'}
+}
+
+\ProcessOptions\relax
+
+
+% use mathpazo font it option 'pazo' was called
+\if@loadpazo
+  \RequirePackage{lmodern} % takes care of font-size warnings?
+  \RequirePackage{mathpazo}
+\fi
 
 
 
@@ -36,11 +65,10 @@
   \newcounter{char}
   \setcounter{char}{1}
   \loop\ifnum\value{char}<27
-    %\edef\c{\Alph{char}} % this messes up the 'cedilla'
-    \expandafter\edef\csname c\Alph{char}\endcsname{\noexpand\mathcal{\Alph{char}}}  % mathcal
-    \expandafter\edef\csname d\Alph{char}\endcsname{\noexpand\mathbf{\Alph{char}}}   % mathbb
-    \expandafter\edef\csname f\Alph{char}\endcsname{\noexpand\mathfrak{\Alph{char}}} % mathfrak
-    \expandafter\edef\csname s\Alph{char}\endcsname{\noexpand\mathscr{\Alph{char}}}  % mathscr
+    \expandafter\edef\csname c\Alph{char}\endcsname{\noexpand\mathcal{\Alph{char}}}      % mathcal
+    \expandafter\edef\csname d\Alph{char}\endcsname{\noexpand\myboldfont{\Alph{char}}}   % mathbb / mathbf
+    \expandafter\edef\csname f\Alph{char}\endcsname{\noexpand\mathfrak{\Alph{char}}}     % mathfrak
+    \expandafter\edef\csname s\Alph{char}\endcsname{\noexpand\mathscr{\Alph{char}}}      % mathscr
     \addtocounter{char}{1}
   \repeat
 % can't do the previous for lower-case mathfrak because \fi is already defined 
@@ -68,4 +96,10 @@
   \newtheorem{example}[subsection]{Example}
   \newtheorem{question}[subsection]{Question}
   \newtheorem{remark}[subsection]{Remark}
+
+
+
+\endinput
+
+
 

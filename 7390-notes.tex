@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{7390-style}
+\usepackage[pazo]{7390-style}
 
 \title{Arithmetic of curves}
 \author{Daniel Miller
@@ -70,7 +70,12 @@ See \cite[III.5.1]{ma77}. Essentially, Mazur classifies rational points on the
 modular curves $X_0(N)$. 
 \end{proof}
 
-Each of these possibilities occur infinitely often.
+Each of these possibilities occur infinitely often. An analogous theorem holds 
+over any number field. More precisely, for each integer $d$, there is a global 
+bound $B(d)$ such that for any elliptic curve $E$ over a number field $k$ with 
+$[k:\dQ]=d$, one has $\# E(k)_\text{tors} \leqslant B(d)$. This is proven in 
+\cite{me96}. For $k$ quadratic over $\dQ$, the possible groups 
+$E(k)_\text{tors}$ have been classified. 
 
 Unlike the situation with $E(\dQ)_\text{tors}$, where everything is computable 
 and well-understood, there is no known algorithm to compute the rank of an 
