@@ -596,7 +596,8 @@ $r=r_\textnormal{an}$, $\sha(E)$ is finite, and
 \]
 \end{conjecture}
 
-($\Omega_E$ is a real period, the $c_p$ are Tamagawa numbers)
+($\Omega_E$ is a real period, the $c_p$ are Tamagawa numbers) There is the 
+implicit conjecture that $\sha(E)$ is finite. 
 
 
 % TODO: 
@@ -605,6 +606,175 @@ $r=r_\textnormal{an}$, $\sha(E)$ is finite, and
 %  - cohomological definition of L-function of elliptic curve
 %  - reduction of abelian varieties, relate to reduction of elliptic curves
 %  - L-functions of motives (Tate number-theoretic background is useful here)
+
+Let's explain all these terms. Take a minimal Weierstrass model 
+\[
+  y^2+a_1 xy+a_3 y=x^3+a_2 x^2+a_4 x+a_6
+\]
+for $E$, with the $a_i\in \dZ$ and minimal discriminant (with respect to 
+divisibility). 
+
+\textbf{(discuss minimal model, clarify definition involving connected 
+component of identity)}
+
+We define 
+\[
+  \Omega_E = \int_{E(\dR)} \frac{dx}{2 y + a_1 x+a_3} \in \dR \text{.}
+\]
+This is easily computable (using the AG-mean). The integrand is the canonical 
+invariant differential on $E$. 
+
+We define the regulator $\operatorname{Reg}_E$. Choose a basis 
+$x_1,\dots,x_r$ of $E(\dQ)/E(\dQ)_\text{tors}$. Using our minimal model, we can 
+write any $x\in E(\dQ)$ as $x=(x_0:x_1:x_2)$, where the $x_i\in \dZ$ with 
+$\gcd(x_0,x_1,x_2)=1$. Recall that the height of $x$ is 
+\[
+  h(x) = \log\max\{|x_0|,|x_1|,|x_2|\} \text{.}
+\]
+Set 
+\[
+  \widehat h(x) = \lim_{n\to \infty} \frac{h(2^n\cdot x)}{4^n} \text{.}
+\]
+(This is just the N\'eron-Tate height associated with our minimal model.) 
+This gives us the N\'eron-Tate pairing  
+\[
+  \langle x,y\rangle = \frac 1 2\left(\widehat h(x+y)-\widehat h(x)-\widehat h(y)\right) \text{.}
+\]
+This induced a nondegenerate bilinear pairing (hence the structure of a Hilbert 
+space) on $V=E(\dQ)\otimes\dR$. There is a canonical Haar measure associated 
+with $\langle\cdot,\cdot\rangle$ (\textbf{define this in general}). Let 
+$\Lambda$ be the image of $E(\dQ)$ in $V$; this is a lattice, and we set 
+\[
+  \operatorname{Reg}_E = \operatorname{vol}(V/\Lambda) = \left|\det\left(\langle x_i,x_j\rangle_{i,j}\right) \right|
+\]
+(the volume of the lattice, maybe to some power). 
+
+Recall that the \emph{Tate-Shafarevich group} $\sha(E)$ is 
+\[
+  \sha(E) = \ker\left(\h^1(\dQ,E) \to \prod_v \h^1(\dQ_v,E)\right)
+\]
+where $\h^1(k,E) = \h^1(G_k,E(\bar k))$. 
+
+The $c_p$ are \emph{Tamagawa numbers} of $E$. Let $E_0(\dQ_p)$ be the group of 
+points in $E(\dQ_p)$ whose reduction modulo $p$ is is not singular. 
+(\textbf{clarify this: $E(\dQ_p)$ should be $E_0(\dQ_p)$ and a formal group})
+and we put 
+\[
+  c_p=[E(\dQ_p):E_0(\dQ_p)]
+\]
+Clearly $c_p=1$ if $E$ has good reduction at $p$. The $c_p$ are easy to compute 
+using Tate's algorithm. 
+
+\textbf{(include Tate's quote)}
+
+\begin{example}
+Let $E$ be the rational elliptic curve $y^2+x y=x^3+x^2-1154 x-15345$. We 
+can compute $L(E,1) = 1.844815\dots\ne 0$. Since $r_\text{an}=0$, $E$ has rank 
+zero by an earlier theorem, so $E(\dQ)$ is finite (and by work of Kolyvagin, 
+$\sha(E)$ is finite). In this case (as with all 
+curves of rank zero) the regulator is $1$. We also have 
+$\Omega_E=2\cdot 0.4099589\dots$ For $p\notin\{3,227\}$ $E$ has good reduction 
+at $p$, so $c_p=1$. Using Tate's algorithm, we get 
+\begin{align*}
+  c_3&= 2 \\
+  c_{227} &= 2 
+\end{align*}
+Finally, $E(\dQ)_\text{tors}\simeq (\dZ/2)^{\oplus 2}$. We know everything in 
+the BSD formula except for $\# \sha(E)$. Solving for it, we get (conjecturally) 
+\[
+  \frac{\Omega_E \cdot \operatorname{Reg}_E\cdot \prod c_p\cdot \sha(E)}{\# E(\dQ)_\text{tors}^2} = 0.2049\dots \cdot \# \sha(E) = L(E,1) = 1.84\ldots
+\]
+This implies (again, assuming BSD) 
+\[
+  \# \sha(E) = 8.999\ldots
+\]
+so we could expect $\sha(E)=9$. 
+\end{example}
+
+\begin{example}
+Let $E$ be the rational elliptic curve $-139\cdot y^2=x^3+4 x^2 - 48 x+80$. 
+We can compute $L(E,1) = 0.00\dots$, which may or may not be zero. Moreover, 
+$L'(E,0)=0.00\dots$, $L''(E,0) = 0.00\ldots$, but 
+$L'''(E,1) = 110.57\dots\ne 0$. In particular, we would guess that 
+$r_\text{an}=3$. But we know that $(-1)^{r_\text{an}}=\omega=-1$, so 
+$r_\text{an}$ is odd (in particular, $L(E,1)=0$ on the nose). One can do a 
+``$2$-descent'' to show that $E(\dQ)\simeq \dZ^{\oplus 3}$. 
+
+\textbf{(use sage to find a basis)}
+
+You can find a basis and compute 
+\begin{align*}
+  \operatorname{Reg}_E &= 15.36\dots \\
+  \Omega_E &= 0.074\ldots \\
+  \# E(\dQ)_\text{tors} &= 1 \\
+  c_{139} &= 4 \\
+  c_p &= 1 \qquad \text{if $p\ne 139$}
+\end{align*}
+It is not known if $\sha(E)$ is finite, but assuming BSD, its order is 
+\[
+  \# \sha(E) = \frac{L^{(3)}(E,1)/3!}{\Omega_E \operatorname{Reg}_E \prod c_p / E(\dQ)_\text{tors}^2} = 3.99\dots
+\]
+so we would expect $\sha(E)=4$. 
+
+Recall that if $r_\text{an}=1$, then work of Gross-Zagier and Kolyvagin implies 
+$r=1$. Since $r>1$, we have $r_\text{an}>1$, and since it is odd it must be 
+$3$. 
+\end{example}
+
+(\textbf{$\#\sha(E)$ would be finite because $\sha(E)[n]$ has a pairing -- 
+Cassels did this. Also, parity conjecture holds over $\dQ$ by functional 
+equation / modularity?})
+
+Goldfeld used this curve and the fact $r_\text{an}=3$ to show that the class 
+number of $\dQ(\sqrt{-D})$ for $D>0$ square-free satisfies the bound 
+\[
+  h\left(\dQ(\sqrt{-D})\right) > c_\varepsilon \left(\log|D|\right)^{1-\varepsilon}
+\]
+for an effective constant $c_\varepsilon>0$. Previous lower bounds (by Siegel) 
+were ineffective. He used this to classify quadratic imaginary fields with 
+class number $1$. \textbf{(write list, cite original paper)}
+
+
+% averages
+
+Let, for $a,b\in \dZ$, $E_{a,b}:y^2=x^3+a x+b$. Define 
+\[
+  \cE = \{E_{a,b} : a,b\in \dZ, 4 a^3+27 b^2\ne 0\text{ and there is no $p$ such that $p^4\mid a$ and $p^6\mid b$}\}
+\] 
+Set $H(E_{a,b}) = \max\{|4 a^3|, 27 b^2\}$; this is not the Faltings height. 
+Define 
+\[
+  \cE_{<x} = \{E\in \cE : H(E)\leqslant x\} \text{.}
+\]
+Given a map $\phi:\cE\to \dR$, we set 
+\[
+  \operatorname{avg}(\phi) = \lim_{x\to \infty} \frac{ \sum_{E\in \cE_x} \phi(E)}{\# \cE_x} \text{,}
+\]
+and let $\overline{\operatorname{avg}}(\phi)$ and 
+$\underline{\operatorname{avg}}(\phi)$ be the corresponding lim sups and lim 
+infs. 
+
+\begin{theorem}[Bhargava-Shankar, 2010]
+$\operatorname{avg}(\# \selmer_2) = 3$ and 
+$\overline{\operatorname{avg}}(\# \selmer_3) \leqslant 4$. 
+\end{theorem}
+
+As a corollary, $\overline{\operatorname{avg}}(\rank) \leqslant \frac 7 6$. 
+David expects the average to be $\frac 1 2$. 
+
+Indeed, since $E(\dQ)/ 3E(\dQ)\hookrightarrow \selmer_3 (E)$, we have 
+$e^{\rank E}\leqslant \#\selmer_3(E)=3^s$. It follows that 
+$r\leqslant s\leqslant \frac{3^s+3}{6}$, so 
+\[
+  \overline{avg}(r) \leqslant \frac{\overline{avg}(3^s) }{6} + \overline{avg}(3/6) \leqslant 4/6+1/2=7/6
+\]
+
+
+
+
+
+
+
 
 
 
