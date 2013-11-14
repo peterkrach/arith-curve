@@ -330,32 +330,33 @@ $p\geqslant 5$, the wild part is zero and there is an easy formula for $f_p$:
         2 & \text{if $E$ has additive reduction at $p$} 
       \end{cases}
 \]
-See \cite[IV.10.2]{si94} for a proof of this. 
+See \cite[IV.10.2]{si94} for a proof of this. Sometimes $f_p$ is called the 
+\emph{Swan conductor} of $E[\ell]$. 
 %There is an easy way to compute 
 %$f_p$ even when $p\leqslant 3$, called the \emph{Grothendieck-Ogg-Saito 
 %formula}. 
 
-\begin{theorem}
+\begin{theorem}\label{thm:L-cont}
 The function $L(E,s)$ has an analytic continuation to all of $\dC$. Moreover, 
-it satisfies a functional equation: there exists $\varepsilon\in \{\pm 1\}$ such 
-that 
+it satisfies a functional equation: there exists $\omega =\pm 1$ such that 
 \[
-  \Lambda(s) = \varepsilon \Lambda(2-s)
+  \Lambda(s) = \omega \Lambda(2-s)
 \]
 where $\Lambda(s) = N^{s/2} (2\pi)^{-s} \Gamma(s) L(E,s)$. 
 \end{theorem}
 
-The constants $N$ and $\varepsilon$ are easily computed. They are a product of 
+The constants $N$ and $\omega$ are easily computed. They are a product of 
 local factors, so in particular no analysis is needed to find their values. 
 
 We can give a sketch of a proof of this theorem. Expand the product formula for 
 $L(E,s)$ to get a Dirichlet series 
 \[
-  L(E,s) = \sum_{n\geqslant 1} \frac{a_n}{n^s} \qquad (a_n\in \dZ) \text{.}
+  L(E,s) = \sum_{n\geqslant 1} \frac{a_n(E)}{n^s} \text{.}
 \]
-It is not immediately obvious that these $a_n$ agree with our earlier 
+It is not immediately obvious that these $a_n=a_n(E)$ agree with our earlier 
 definition of the $a_p=p+1-\# E(\dF_p)$. It follows from an argument similar to 
-the one Euler used to prove the product formula for $\zeta(s)$. The function 
+the one Euler used to prove the product formula for $\zeta(s)$. Moreover, we 
+have $a_n\in \dZ$ for all $n$. The function 
 $a\mapsto a_n$ is multiplicative in the number-theoretic sense: if 
 $(m,n)=1$, then $a_{mn}=a_m a_n$. If $n\geqslant 2$, then 
 \[
@@ -368,50 +369,166 @@ Fourier series
 \]
 where $z$ ranges over the upper half-plane $\fh=\{z\in \dC:\Im z>0\}$. 
 
-\begin{theorem}[Wiles, Taylor-Wiles, Breuil-Conrad-Diamond-Taylor]
-The function $f$ is a cusp form of weight $2$ and level $N$. Moreover, $f$ is 
-an eigenform (eigenvector for all Hecke operators). 
+\begin{theorem}[Fermat-Wiles]\label{thm:fermat-wiles}
+Let $E$ be an elliptic curve over $\dQ$ with conductor $E$. Then the function 
+$f=f_E$ defined above is a cusp form of weight $2$ and level $N$. Moreover, 
+$f$ is an eigenform (eigenvector for all Hecke operators). 
 \end{theorem}
+\begin{proof}
+See \cite{bcdt01} for a proof which relies heavily on previous work by 
+Wiles (with help from Taylor).
+\end{proof}
 This is one version of the Taniyama-Shimura conjecture. We'll take a moment to 
-explain everything in the theorem. Recall that $\operatorname{SL}(2,\dR)$ acts on $\fh$ 
-via fractional linear transformations:
+explain everything in the theorem. Recall that $\operatorname{SL}(2,\dR)$ acts 
+on $\fh$ via fractional linear transformations:
 \[
   \begin{pmatrix} a & b \\ c & d\end{pmatrix}\cdot z = \frac{a z+b}{c z+d} \text{.}
 \]
-(This comes from the action of $\operatorname{GL}(n+1)$ on $\dP^n$.) Let 
-$\omega=f(z)dz$; this is a complex one-form on $\fh$. For 
+There is nothing ad-hoc about this: the group scheme 
+$\operatorname{GL}(n+1)$ acts on $\dP^n$ in the obvious way, and our action is 
+just a restriction of the action of $\operatorname{GL}(2,\dC)$ on $\dP^1(\dC)$ 
+to an action of $\operatorname{SL}(2,\dR)$ on $\fh\subset \dP^1(\dC)$. 
+The space $\Omega^1(\fh)$ of (complex) holomorphic one-forms on $\fh$ consists of 
+differentials $\eta=f(z)dz$. For 
 $\gamma=\smat a b c d\in \operatorname{SL}(2,\dR)$, one easily computes 
 \[
-  \gamma^\ast \omega = f(\gamma z)d(\gamma z) = (c z+d)^{-2}f(\gamma z) dz 
+  \gamma^\ast \eta = f(\gamma z)d(\gamma z) = (c z+d)^{-2}f(\gamma z) dz \text{.}
 \]
-We say a function $f:\fh\to \dC$ is a \emph{weak modular form} of level $N$ and 
-weight $2$ if it is holomorphic and $f(z)\, dz$ is invariant under the action of 
-\[
-  \Gamma_0(N) = \left\{\gamma \in SL(2,\dZ) : \gamma \equiv \begin{pmatrix} \ast & \ast \\ 0 & \ast \end{pmatrix} \mod N\right\}
-\]
-In other words, for for all matrices $\smat a b c d\in\Gamma_0(N)$, one has 
+
+Let $N\geqslant 1$ be an integer, and let $\Gamma$ be one of the following 
+groups:
+\begin{align*}
+  \Gamma_0(N) &= \left\{\gamma \in \operatorname{SL}(2,\dZ) : \gamma \equiv \begin{pmatrix} \ast & \ast \\ 0 & \ast \end{pmatrix} \mod N\right\} \\
+  \Gamma_1(N) &= \left\{\gamma \in \operatorname{SL}(2,\dZ) : \gamma \equiv \begin{pmatrix} 1 & \ast \\ 0 & 1 \end{pmatrix} \mod N\right\} \text{.}
+\end{align*}
+We say a function $f:\fh\to \dC$ is a \emph{weak modular form} of weight $2$ 
+for $\Gamma$ if it is holomorphic and $f(z)\, dz$ is invariant under the action 
+of $\Gamma$. Explicitly, for for all matrices $\smat a b c d\in\Gamma$, we 
+require: 
 \[
   f\left(\frac{a z+b}{c z+d}\right) = (c z+d)^2 f(z) \text{.}
 \]
-We an consider the Riemann surface $\fh/\Gamma_0(N)$. It is not compact, but we 
-denote its compactification (formed by adding finitely many cusps) by 
-$X_0(N)^\text{an}$. We say $f$ is a \emph{cusp form} if the differential 
-$f(z) dz$ vanishes on the cusps of $X_0(N)^\text{an}$. 
-
-For a modular form $f$, we can look at its Mellin transform 
+The quotient 
+$Y_\Gamma=\fh/\Gamma$ may be a non-compact orbifold, but there is a canonical 
+way of removing the non-smooth points and compactifying (by adding finitely 
+many ``cusps'') to arrive at a compact Riemann surface $X_\Gamma$. 
+We say $f$ is a \emph{modular cusp form} of level $N$ and weight two if it descends 
+to a holomorphic differential on $X_\Gamma$. For weight-two forms, 
+the differential $f\,dz$ automatically vanishes on the cusps of $X_\Gamma$. 
+For details, see \cite{ds05}, or \cite[XI.11]{kn92} for the case 
+$\Gamma=\Gamma_0(N)$. One writes $X_0(N)$, and $X_1(N)$ for 
+$X_{\Gamma_0(N)}$ and $X_{\Gamma_1(N)}$, and calls these \emph{modular curves}. 
+If we write $S_2(\Gamma)$ for the space of weight-two modular forms of level 
+$\Gamma$, then by definition we have equality
 \[
-  \int_0^\infty f(i t) t^s\, \frac{dt}{t}  = \sum_{n\geqslant 1} a_n \int_0^\infty e^{-2\pi n t} t^s\, \frac{dt}{t}
+  S_2(\Gamma) = \h^0(X_\Gamma,\Omega^1) \text{.}
+\]
+
+Modular curves have a moduli-theoretic interpretation. There are canonical 
+bijections \cite[1.5]{ds05}:
+\begin{align*}
+  X_0(N) &\simeq \{(E,C):\text{$E$ a complex torus and $C\subset E$ cyclic of order $N$}\}/\sim  \\
+  X_1(N) &\simeq \{(E,P):\text{$E$ a complex torus and $P\in E$ of order $N$}\}/\sim \text{.}
+\end{align*}
+This allows us to define \emph{Hecke operators} which are correspondences on 
+$X_0(N)$. Suppose $p\nmid N$. Then there are canonical maps 
+\[\xymatrix{
+  X_0(N) 
+    & \ar[l]_-\alpha X_0(p N) \ar[r]^-\beta 
+    & X_0(N) \text{.}
+}\]
+If we think $X_0(N)$ and $X_0(p N)$ as modular spaces, these maps are easy to 
+define. An element of $X_0(p N)$ is a pair $(E,C)$ where $C$ is cyclic of order 
+$p N$; we may decompose $C$ uniquely as $C_p\oplus C_N$, where $C_p$ and $C_N$ 
+are cyclic of orders $p$ and $N$. The map $\alpha$ sends $(E,C)$ to 
+$(E,C_N)$ and $\beta$ sends $(E,C)$ to $(E/C_N,C/C_N)$. Write 
+$T_p$ for the image of $\alpha\times \beta$; this is a subvariety of 
+$X_0(N)\times X_0(N)$. In fact, it is a correspondence, so it induces an 
+endomorphism of $\h(X_0(N))$ for $\h$ any Weil cohomology theory. In 
+particular, we have maps called \emph{Hecke operators} (and also denoted 
+$T_p$):
+\[
+  T_p:S_2(\Gamma_0(N)) = \h^0(X_0(N),\Omega^1) \to \h^0(X_0(N),\Omega^1) = S_2(\Gamma_0(N)) \text{.}
+\]
+See chapter 12 of \cite{rs11} for a careful discussion. A cusp form 
+$f\in S_2(\Gamma_0(N))$ is an \emph{eigenform} if it is an eigenfunction for 
+each $T_p$ where $p\nmid N$. 
+
+To see how Theorem \ref{thm:L-cont} follows from Theorem 
+\ref{thm:fermat-wiles}, we need to briefly introduce the Mellin transform. Recall 
+that for a locally 
+compact abelian group $G$, the \emph{Pontryagin dual} $\widehat G$ of $G$ is 
+the group $\hom(G,S^1)$ of one-dimensional unitary representations of $G$, with 
+the compact-open topology. The group $\widehat G$ is also locally compact. If 
+$G=\dR$, then $\widehat G=\dR$ as well, where we interpret $s\in \dR$ as a 
+character of $\dR$ via $x\mapsto e^{2\pi i s x}$. For 
+$x\in G,y\in \widehat G$, write $\langle x,y\rangle$ instead of $y(x)$. The 
+\emph{Fourier transform} of a function $f:G\to \dC$ is the function 
+$\widehat f:\widehat G\to \dC$defined by 
+\[
+  \widehat f(y) = \int_G f(x) \overline{\langle x,y\rangle}\, dx \text{,}
+\]
+where $d x$ is a Haar measure on $G$. 
+
+The locally compact group $\dR^\times$ (which is isomorphic to $\dR$) has 
+dual $i\dR$ via $\langle x,s\rangle = x^{-s}$. A Haar measure on 
+$\dR^\times$ is $d^\times x=dx/x$. The \emph{Mellin transform} 
+of a function $f:\dR^\times\to \dC$ is just its Fourier transform:
+\[
+  (\cM f)(s) 
+    = \int_{\dR^\times} f(t) \overline{\langle t,s\rangle}\, d^\times t
+    = \int_0^\infty f(t) t^{s-1}\, dt
+\]
+(This is not quite the standard version of the Mellin transform, but it is the 
+most natural in our setting.) For a modular form $f$ of level $N$, we can look 
+at what is essentially its Mellin transform: 
+\[
+  \Lambda(f,s) 
+    = N^{s/2}\int_0^\infty f(i t) t^{s-1}\, dt  
+    = \sum_{n\geqslant 1} a_n \int_0^\infty e^{-2\pi n t} t^{s-1}\,dt \text{.}
 \]
 Making the substitution $u=2\pi n t$, we get 
 \[
-  \sum_{n\geqslant 1} a_n \frac{1}{(2\pi n)^s} \int_0^\infty e^{-u} u^s\, \frac{du}{u}
-    = (2\pi)^{-s} \Gamma(s) \sum_{n\geqslant 1} \frac{a_n}{n^s} \qquad (= (2\pi)^{-s} \Gamma(s) L(E,s) \text{ if $f$ comes from an elliptic curve})
+  \Lambda(f,s) 
+    = N^{s/2} \sum_{n\geqslant 1} \frac{a_n}{(2\pi n)^s} \int_0^\infty e^{-u} u^{s-1}\, du
+    = N^{s/2}(2\pi)^{-s} \Gamma(s) \sum_{n\geqslant 1} \frac{a_n}{n^s} \text{.}
+    %(= (2\pi)^{-s} \Gamma(s) L(E,s) \text{ if $f$ comes from an elliptic curve})
 \]
-The function $\sum a_n n^{-s}$ (coming from a modular form $f$) has an analytic 
-continuation and a functional equation by a theorem of Hecke. 
+Note that if $f=f_E$ for an elliptic curve, we have 
+$\Lambda(f,s) = \Lambda(E,s)$. By work of Hecke, the function $\Lambda(f,s)$ 
+has an analytic continuation to all of $\dC$ and a functional equation 
+$\Lambda(f,s) = \pm \Lambda(f,2-s)$. See \cite[VII.9.8]{kn92} for a modern 
+proof.  
 
-(Converse: given $f=\sum a_n q^n$ with $a_n\in \dQ$, can construct elliptic curve 
-$E_f$ over $\dQ$\ldots Eichler-Shimura: summarize and cite sources (Conrad)\ldots)
+
+The function $\sum a_n n^{-s}$ (coming from a modular form $f$) has an analytic 
+continuation and a functional equation by a theorem of Hecke. It follows from 
+Theorem \ref{thm:fermat-wiles} that if $E$ is an elliptic curve over $\dQ$, 
+the function $L(E,s)$ has an analytic continuation to $\dC$ and the prescribed 
+functional equation. 
+
+The modularity theorem has a sort of converse. 
+
+\begin{theorem}[Eichler-Shimura]
+Let $f=\sum a_n(f) q^n$ be a newform $2$ and level $N$ with 
+$a_1=1$ and $a_n\in \dQ$ for all $n$. Suppose further that 
+$T_n f = f$ for all $n$ relatively prime to $N$. Then there exists an 
+elliptic curve $E_f$ over $\dQ$ such that $a_n(E_f) = a_n(f)$ for all $n$. 
+\end{theorem}
+\begin{proof}
+See \cite[XI.11]{kn92} for a proof and a definition of newforms. The elliptic 
+curve $E_f$ can be constructed explicitly in two ways. First, the Riemann 
+surface $X_0(N)$ actually has a canonical model (also denoted $X_0(N)$ over 
+$\dQ$; we denote its jacobian by $J_0(N)$. There is a subring $\dT_N$ of 
+$\End J_0(N)$ called the \emph{Hecke algebra} which contains all of the 
+$T_n$. If one puts $I_f = \{T\in \dT_N:T f=0\}$, then 
+$E_f=J_0(N)/I_f$. Complex-analytically, $E$ is the quotient of $\dC$ by 
+the lattice 
+\[
+  \left\{ \int_i^{\gamma\cdot i} f(z)\, dz : \gamma\in \Gamma_0(N)\right\} \text{.}
+\]
+\end{proof}
+
 
 Back to BSD. Let $E$ be an elliptic curve over $\dQ$ with rank $r$, and 
 analytic rank 
@@ -419,22 +536,24 @@ analytic rank
   r_\text{an} = \ord_{s=1} L(E,s)
 \]
 By the previous discussion, $L(E,s)$ has an analytic continuation to $s=1$, so 
-this is well-defined. As stated earlier, one version of BSD is that 
+this is well-defined. As stated earlier, a weak version of BSD is that 
 $r=r_\text{an}$. 
-
-From the functional equation, we get $(-1)^{r_\text{an}}=\varepsilon$. The 
+From the functional equation, we get $(-1)^{r_\text{an}}=\omega$. The 
 \emph{parity conjecture} is that $r\equiv r_\text{an}\pmod 2$. The better 
-variant is that $(-1)^r=\varepsilon$. Since $\varepsilon$ can be computed without 
+variant is that $(-1)^r=\omega$. Since $\omega$ can be computed without 
 dealing with $L(E,s)$, the parity can be approached computationally. The parity 
-conjecture is a theorem whenever $\sha(E)$ is finite. \textbf{(cite source for 
-this)}
+conjecture is a theorem whenever $\sha(E)$ is finite. See 
+\cite{do10} for discussion and a proof. 
 
-\begin{theorem}[Kolyvagin, Gross-Zagier]
-If $r_\textnormal{an}\leqslant 1$, then $r=r_\textnormal{an}$ and $\sha(E)$ is 
+\begin{theorem}
+Let $E$ be an elliptic curve over $\dQ$ with 
+$r_\textnormal{an}\leqslant 1$. Then $r=r_\textnormal{an}$ and $\sha(E)$ is 
 finite. 
 \end{theorem}
 \begin{proof}
-(\textbf{cite source})
+Kolyvagin \cite{ko88} proved the theorem if $r_\text{an}=0$ and $E$ is modular 
+(which is known over $\dQ$). If $r_\text{an}=1$, this is follows from work of 
+Gross and Zagier \cite{gz86}. 
 \end{proof}
 
 One can compute $L(E,s)$ to arbitrary precision. In particular, we can look at 
@@ -444,7 +563,7 @@ $L(E,1)$. It turns out that
 \]
 If $\varepsilon=-1$, then $L(E,1)=0$, and it turns out that 
 \[
-  L'(E,1) = 2 \sum_{n\geqslant 1} \frac{a_n}{n} E_1(\frac{2\pi n}{\sqrt N})
+  L'(E,1) = 2 \sum_{n\geqslant 1} \frac{a_n}{n} E_1\left(\frac{2\pi n}{\sqrt N}\right)
 \]
 where 
 \[
