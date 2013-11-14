@@ -1,6 +1,7 @@
 *.py
 *.swp
-7390-notes.sage
+*.sagetex.*
+sage-plots-for*
 
 *.acn
 *.acr
