@@ -1,204 +1,6 @@
 % !TEX root = 7390-notes.tex
 
 
-\section{Motivation: plane curves}
-
-
-
-
-Fir a non-constant polynomial $f(x,y)\in\dQ[x,y]$. Assume $f$ is 
-geometrically irreducible, that is, irreducible in the ring 
-$\overline{\dQ}[x,y]$. We can define the curve $C$ over $\dQ$ determined by the 
-equation $f(x,y)=0$. For now, we will think of $C$ in terms of its functor of 
-points. To any $\dQ$-algebra $A$, we have $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$. 
-As a scheme, $C=\spec\left(\dQ[x,y]/f\right)$. Some big questions are:
-\begin{enumerate}
-  \item Is $C(\dQ)=\varnothing$?
-  \item Is $C(\dQ)$ finite?
-  \item Can we compute $C(\dQ)$?
-\end{enumerate}
-None of these questions can be answered in full generality. 
-
-\begin{example}
-Let $f=x^2+y^2-1$, i.e. $C$ is the circle. It is well-known that 
-\[
-  C(\dQ)=\left\{\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right):t\in\dQ\right\}\cup \{(-1,0)\}
-\]
-This can be proved in the usual manner by choosing the point $(-1,0)$ in $C$, 
-and then drawing lines with rational slopes through $(-1,0)$. As a Riemann 
-surface, $C(\dC)$ is a sphere with two points removed. 
-\end{example}
-
-\begin{example}
-Let $f=x^2+y^2+1$. Then $C(\dR)=\varnothing$, hence $C(\dQ)=\varnothing$. But 
-as a Riemann surface, $C(\dC)$ is the same sphere with two points removed. Thus 
-the geometry of $C$ does not necessarily determine $C(\dQ)$. 
-\end{example}
-
-\begin{example}
-Let $f=x^4+y^4-1$. Then it is a theorem of Fermat that 
-$C(\dQ)=\{(\pm 1,0),(0,\pm 1)\}$. It is a (much harder) theorem of Wiles that if 
-$C_n$ is the curve given by $f=x^n+y^n-1$ for $n\geqslant 3$, then 
-$C_n(\dQ)=\{(\pm 1,0),(0,\pm 1)\}$. In fact, this is the celebrated 
-``Fermat's last theorem,'' proved in \cite{wi95}. 
-\end{example}
-
-\begin{example}[Stoll]
-Consider 
-\begin{align*}
-  C : y^2 = 82342800 x^6 &- 470135160 x^5 + 52485681 x^4 + 2396040466 x^3 \\
-    &+ 567207969 x^2 - 985905640 x + 247747600
-\end{align*}
-This is a curve of genus 2, i.e. $C(\dC)$ is a punctured two-holed 
-torus. It turns out that $\# C(\dQ)\geqslant 642$ \cite[\S 6]{st09}. 
-However, by a theorem of Faltings, $\# C(\dQ)$ is finite. It is 
-currently the largest known number of rational points of a genus two curve 
-over $\dQ$. If we take $C:y^2=f(x)$ with $f\in\dQ[x]$ a 
-``random'' sextic polynomial, then the expectation is that 
-$C(\dQ)=\varnothing$. 
-\end{example}
-
-\begin{question}
-Does there exist a number $B_g$ such that if a curve $C/\dQ$ has 
-genus $g\geqslant 2$, then $\# C(\dQ)\leqslant B_g$?
-\end{question}
-
-This is not even known for genus $g=2$. 
-
-\begin{example}
-Let $C:y^2=x^3+875 x$. Note that $C(\dQ)$ has the obvious point 
-$(0,0)$, and one can do a bit of work to show that this is the only point. 
-\end{example}
-
-\begin{example}
-Let $C:y^2=x^3+877 x$. Then $C(\dQ)$ once again contains $(0,0)$. A 
-computer search showed that $(0,0)$ is the only point on $C$ of height 
-$\leqslant 1000000$. For now, the \emph{height} of a solution is just the 
-largest absolute value of the numerator / denominator of a solution written 
-in reduced fractions. But other methods lead us to expect many more solutions
-(infinitely many, in fact). Let $E$ be the projective curve over $\dQ$ obtained 
-by adjoining a point $O$ to $C$. As a Riemann surface, $E(\dC)$ is just a 
-torus. 
-
-We can give $E/\dQ$ the 
-structure of an abelian variety. That is, we can give $E$ the structure of a 
-commutative algebraic group, i.e. the operation is given by regular  
-functions, with $O$ being the identity. Later, we will think of $E$ as 
-being identified with its jacobian $\jac(E)$ via the choice of a single point 
-$O\in E(\dQ)$. Since $E$ is a commutative algebraic group, $E(\dQ)$ is an 
-abelian group (with identity $O$). It is a theorem of Mordell that $E(\dQ)$ is 
-finitely generated. We know the structure of such groups: 
-$E(\dQ)\simeq A\times \dZ^r$, where $A$ is finite, and $r=\rank E$ 
-is the \emph{(algebraic) rank} of $E$. 
-
-In general, the $A$ is computable. In our case, $A=\dZ/2$. It is much harder to 
-compute the algebraic rank of $E$. The Birch and Swinnerton-Dyer 
-conjecture says that $r$ agrees with the order of vanishing $r'$ of a certain 
-holomorphic function $L(E,s)$ at $s=1$. Sometimes, $r'$ can be computed.  
-In our example, a computation shows that $r'=1$, so we expect 
-$E(\dQ)\simeq \dZ/2\times\dZ$. In particular, 
-$E(\dQ)$ should be infinite. One can show (using other methods) that 
-$E(\dQ)=\langle (0,0),(x_0,y_0)\rangle$, where 
-\[
-  x_0 = \frac{37 5494 5281 2716 2193 1055 0406 9942 0927 9234 6201}{6215 9877 7687 1505 4254 6322 0780 6972 3804 4100}
-\]
-For details, see \cite{br84}. One method to construct such large solutions for 
-a rank one elliptic curve uses Heegner points. 
-\end{example}
-
-In general, we will take a curve $C/\dQ$, consider its jacobian $J$, and study 
-$J(\dQ)$. This will be a group, and its structure heavily influences $C(\dQ)$. 
-For example, we could study how the rank of $J(\dQ)$ affects $C(\dQ)$. In the 
-case that $C=E$ is an elliptic curve, $\jac(E)=E$, so studying the curve and 
-studying its jacobian is the same thing. The ``average rank of an elliptic 
-curve'' is not known, nor is there a general consensus on what is should be. 
-Some expect it the rank of a random curve to be $0$ or $1$, both with 
-probability $\frac 1 2$. Others suppose that elliptic curves over $\dQ$ have 
-rank $2$ with nonzero probability as well. It was proven recently (see 
-\cite[\S 1]{bh10}) that 
-\[
-  \limsup_{x\to\infty} \frac{1}{4 x^2} \sum_{\substack{|a|,|b|\leqslant B \\ 4 a^3+27 b^2\ne 0}} \rank(E_{a,b}) \leqslant\frac 7 6 \text{,}
-\]
-where $E_{a,b}$ is the elliptic curve over $\dQ$ defined by $y^2=x^3 +a x+b$.
-
-\begin{question}
-Is $\rank E(\dQ)$ bounded for all elliptic curves 
-$E/\dQ$?
-\end{question}
-
-It is known that there are curves with rank at least $28$, but their exact 
-ranks are not known \cite{du}. The largest known rank is $19$. 
-%It is generally thought that the answer is no, and that the NSA has examples of curves with 
-%much larger ranks than publicly known. 
-
-Our assumption that $f(x,y)$ is irreducible is not a serious one. For example, 
-if $f=y^2-x^2$, then we can factor $f$ as $(x+y)(x-y)$, and then treat the 
-solutions to $x+y=0$ and $x-y=0$ separately. Another example is $f=x^2+y^2$, 
-which only factors over $\dQ(i)$ as $(y+i x)(y-i x)$, and we the rational 
-points lie in the intersection of the two components over $\dQ(i)$. In general, 
-a curve over $\dQ$ will be the union of finitely many geometrically irreducible 
-components, each of which is defined over some finite extension of $\dQ$. Also, 
-the assumption that $f\in \dQ[x,y]$ is not serious. One can prove that every 
-curve $C/\dQ$ embeds into $\dP^2_\dQ$, hence is birational to a plane curve. 
-
-Let $C/\dQ$ be a curve. Then 
-$C(\dC)\smallsetminus \{\text{singular points}\}$ is a compact Riemann 
-surface with points removed, i.e. it is a torus with $g$ handles with finitely 
-many points removed. Call this $g$ the \emph{genus} of $C$. 
-
-\begin{theorem}[Faltings, conjectured by Mordell]
-If $C$ is a curve over $\dQ$ with $g\geqslant 2$, then $C(\dQ)$ 
-is finite. 
-\end{theorem}
-
-For curves of genus $g<2$, $\# C(\dQ)$ can be infinite. In Faltings' 
-theorem, $\dQ$ can be replace by any field finitely generated over 
-$\dQ$. 
-
-Now let $C$ be a smooth projective curve of genus $g$ over $\mathbb{F}_p$. 
-We are interested in $\#C(\mathbb{F}_{p^n})$, which is obviously computable 
-for each $n$. Define the \emph{zeta function} of $C$ to be the formal power 
-series 
-\[
-  Z(C,t) = \exp\left( \int\sum_{n\geqslant 1} \# C(\mathbb{F}_{p^n}) t^n\, \frac{dt}{t}\right) \text{.}
-\]
-
-\begin{theorem}[Weil]\label{thm:Weil-curve}
-If $C/\mathbb{F}_p$ is a smooth projective curve of genus $g$, then 
-\[
-  Z(C,t) = \frac{P(C,t)}{(1-t)(1-p t)} \text{,}
-\]
-where $P(C,t)\in \dZ[t]$ has degree $2 g$. Moreover, if 
-$P(C,t) = \prod_{i=1}^{2 g} (1-\alpha_i t)$, then for each $i$, one has 
-$|\alpha_i|=p^{1/2}$. 
-\end{theorem}
-
-The second statement in the theorem is called the \emph{Riemann hypothesis} 
-for $C$. It can be used to obtain explicit bounds on the size of 
-$C(\mathbb{F}_{p^n})$ as $n\to\infty$. For example, we can compute 
-\begin{align*}
-  \sum_{n>0} \# C(\mathbb{F}_{p^n}) \frac{t^n}{n} 
-    &= \log Z(C,t) \\
-    &= -\log(1-t) - \log(1-p t) + \sum_i \log(1-\alpha_t t) \\
-    &= \sum_{n>0} \left(p^n+1-\sum_{i=1}^{2 g} \alpha_i^n\right) \frac{t^n}{n} \text{.}
-\end{align*}
-Therefore, $\# C(\mathbb{F}_{p^n}) = p^n+1-\sum_{i=1}^{2 g} \alpha_i^n$. It 
-follows easily that $|\# C(\mathbb{F}_{p^n})-(p^n+1)| \leqslant 2 g p^{n/2}$. 
-This is equivalent to saying 
-\[
-  p^n-2 g p^{n/2}+1 
-    \leqslant \# C(\mathbb{F}_{p^n}) 
-    \leqslant p^n + 2 g p^{n/2} + 1 \text{.}
-\]
-In particular, setting $n = g = 1$, we obtain 
-$\# C(\mathbb{F}_p) \geqslant (p^{1/2}-1)^2>0$, hence 
-$C(\mathbb{F}_p)\ne\varnothing$. 
-
-
-
-
-
-
 
 
 
@@ -245,7 +47,7 @@ up to isomorphism. (This is just the Yoneda lemma.)
 
 
 
-\subsection*{Jacobians over $\dC$}
+\subsection{Jacobians over \texorpdfstring{$\dC$}{C}}
 
 For the rest of this section, let $C$ be a nice curve over $\dC$. Set 
 $X=C(\dC)$; this is a compact connected Riemann surface. So 
@@ -392,7 +194,7 @@ algebraic definition of $\h_1(X,\dZ/n)$.
 
 
 % lecture on 09-05-2013
-\subsection*{Abelian varieties over arbitrary fields}
+\subsection{Abelian varieties over arbitrary fields}
 
 Recall that a variety $X/k$ is \emph{nice} if it is smooth, projective, and 
 geometrically connected. 
@@ -435,7 +237,7 @@ directly using a ``rigidity principle'' for maps on projective varieties
 
 
 
-\subsection*{Albanese varieties}
+\subsection{Albanese varieties}
 
 We'd like to describe the jacobian $J$ of a nice curve $C/k$ with 
 $C(k)\ne\varnothing$. It will be an abelian variety over $k$ of dimension 
@@ -497,7 +299,7 @@ $\mu:C\to J$ may not be defined over $k$.
 
 
 
-\subsection*{Picard schemes}
+\subsection{Picard schemes}
 
 Another approach to defining $J=\jac C$ involves the Picard group. Recall 
 that over $\dC$, we proved that $J(\dC)\simeq\picard^\circ(C)$. 
@@ -675,7 +477,7 @@ of the form $\varphi_c:A\to A^\vee$ for some ample $c\in \picard(A)$.
 
 
 %\section{Jacobians revisited}
-\subsection*{Recovering a curve from its jacobian}
+\subsection{Recovering a curve from its jacobian}
 
 Let $k$ be a field, $C/k$ a nice curve, and $J=\jac C$ its jacobian. What does 
 (the arithmetic of) $J$ tell us about (the arithmetic of) $C$? In particular, 
@@ -697,11 +499,9 @@ then $C\simeq C'$ over $k$.
 
 It is known that $\varphi_\theta:J\to J^\vee$ is actually an isomorphism. We 
 call a polarization $A\to A^\vee$ \emph{principal} if it is an isomorphism. 
-
-\begin{question}[Schottky]
-What pairs $(A,c)$, with $c$ inducing a principal polarization, come from 
-jacobians? 
-\end{question}
+The famous \emph{Schottky problem} asks 
+what pairs $(A,c)$, with $c$ inducing a principal polarization, come from 
+jacobians. 
 
 This question has an easy partial answer if we are willing to use heavy 
 machinery. Consider the functor $\mathcal{M}_g$ which sends a scheme $S$ to the 
