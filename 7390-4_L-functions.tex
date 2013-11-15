@@ -530,7 +530,7 @@ dealing with $L(E,s)$, the parity can be approached computationally. The parity
 conjecture is a theorem whenever $\sha(E)$ is finite. See 
 \cite{do10} for discussion and a proof. 
 
-\begin{theorem}
+\begin{theorem}\label{thm:r_an=0}
 Let $E$ be an elliptic curve over $\dQ$ with 
 $r_\textnormal{an}\leqslant 1$. Then $r=r_\textnormal{an}$ and $\sha(E)$ is 
 finite. 
@@ -576,109 +576,170 @@ $E(\dQ)\simeq \dZ/2\oplus \dZ$, hence $E(\dQ)$ is infinite.
 
 
 
+
+
+
+
+
 \subsection{The strong Birch and Swinnerton-Dyer conjecture}
 
-There is a ``fancier'' version of BSD. 
+The standard version of BSD predicts the order of vanishing of the 
+$L$-function $L(E,s)$ of an elliptic curve at $1$ in terms of the algebraic 
+rank of $E$. There is a stronger version of the conjecture that also predicts 
+the leading term in the Laurent expansion of $L(E,s)$ at $1$. 
 
-\begin{conjecture}[BSD]
-$r=r_\textnormal{an}$, $\sha(E)$ is finite, and 
+\begin{conjecture}[strong BSD]
+Let $E$ be an elliptic curve over $\dQ$. Then 
+$\rank(E)=r_\textnormal{an}(E)$, $\sha(E)$ is finite, and 
 \[
-  \lim_{s\to 1} \frac{L(E,s)}{(s-1)^r} = \frac{L^{(r)}(E,1)}{r!} = \frac{\Omega_E \operatorname{Reg}_E \# \sha(E) \prod_p c_p}{\# E(\dQ)_\textnormal{tors}^2}
+  \lim_{s\to 1} \frac{L(E,s)}{(s-1)^r} = \frac{\Omega_E \regulator_E \# \sha(E) \prod_p c_p}{\# E(\dQ)_\textnormal{tors}^2} \text{.}
 \]
 \end{conjecture}
 
-($\Omega_E$ is a real period, the $c_p$ are Tamagawa numbers) There is the 
-implicit conjecture that $\sha(E)$ is finite. 
-
-
+We need to explain the quantities appearing in the conjecture. 
 % TODO: 
 %  - Bloch-Kato, its link with BSD and the analytic class number formula
 %  - Grothendieck-Ogg-Saito formula
 %  - cohomological definition of L-function of elliptic curve
 %  - reduction of abelian varieties, relate to reduction of elliptic curves
 %  - L-functions of motives (Tate number-theoretic background is useful here)
-
-Let's explain all these terms. Take a minimal Weierstrass model 
+First we define the \emph{real period} $\Omega_E$ of $E$. Choose a minimal 
+Weierstrass model 
 \[
   y^2+a_1 xy+a_3 y=x^3+a_2 x^2+a_4 x+a_6
 \]
-for $E$, with the $a_i\in \dZ$ and minimal discriminant (with respect to 
-divisibility). 
-
-\textbf{(discuss minimal model, clarify definition involving connected 
-component of identity)}
-
-We define 
+for $E$, with the $a_i\in \dZ$ and $\Delta=-16(4 ^3+28 b^2)$ minimal with 
+respect to divisibility. It is not obvious that this is possible. In fact, it 
+can only be done for elliptic curves over global fields with class number one 
+\cite[VIII.8.3]{si06}. The differential 
 \[
-  \Omega_E = \int_{E(\dR)} \frac{dx}{2 y + a_1 x+a_3} \in \dR \text{.}
+  \omega = \frac{dx}{2 y + a_1 x + a_3}
 \]
-This is easily computable (using the AG-mean). The integrand is the canonical 
-invariant differential on $E$. 
-
-We define the regulator $\operatorname{Reg}_E$. Choose a basis 
-$x_1,\dots,x_r$ of $E(\dQ)/E(\dQ)_\text{tors}$. Using our minimal model, we can 
-write any $x\in E(\dQ)$ as $x=(x_0:x_1:x_2)$, where the $x_i\in \dZ$ with 
-$\gcd(x_0,x_1,x_2)=1$. Recall that the height of $x$ is 
+is called the \emph{invariant differential} associated to $E$. It is unique 
+up to a unit in $\dZ$ \cite[VII.1.3]{si06}. We define 
 \[
-  h(x) = \log\max\{|x_0|,|x_1|,|x_2|\} \text{.}
+  \Omega_E = \int_{E(\dR)} |\omega|\text{,}
 \]
-Set 
+where we choose the orientation of $E(\dR)$ necessary to make the integral 
+positive. The real period of $E$ is easily computable using a trick that 
+takes advantage of the fast convergence of the algebro-geometric mean. 
+
+Next we define the \emph{regulator} $\regulator_E$ of $E$. Our minimal model 
+for $E$ induces an embedding $E\hookrightarrow \dP^2$, and we write $h$ for 
+the induced Weil height (see Section \ref{sec:heights} for a general 
+definition). We can write any $x\in E(\dQ)$ as $(x_0,x_1,x_2)$ with the 
+$x_i\in \dZ$ and $\gcd(x_0,x_1,x_2)=1$. Explicitly, 
+\[
+  h(x) = \log \max\{|x_0|,|x_1|,|x_2|\} \text{.}
+\]
+Recall that the N\'eron-Tate height $\widehat h$ associated with our embedding 
+can be computed as 
 \[
   \widehat h(x) = \lim_{n\to \infty} \frac{h(2^n\cdot x)}{4^n} \text{.}
 \]
-(This is just the N\'eron-Tate height associated with our minimal model.) 
-This gives us the N\'eron-Tate pairing  
+Using this we define a pairing on $E(\dQ)$:
 \[
   \langle x,y\rangle = \frac 1 2\left(\widehat h(x+y)-\widehat h(x)-\widehat h(y)\right) \text{.}
 \]
-This induced a nondegenerate bilinear pairing (hence the structure of a Hilbert 
-space) on $V=E(\dQ)\otimes\dR$. There is a canonical Haar measure associated 
-with $\langle\cdot,\cdot\rangle$ (\textbf{define this in general}). Let 
-$\Lambda$ be the image of $E(\dQ)$ in $V$; this is a lattice, and we set 
+This induces a nondegenerate bilinear pairing (hence the structure of a 
+Hilbert space) on $V=E(\dQ)\otimes \dR$. There is a canonical Haar measure 
+on any Hilbert space. It is the unique Haar measure such that, given an 
+orthonormal basis $\{v_1,\dots,v_r\}$ of $V$, assigns to the fundamental 
+domain 
 \[
-  \operatorname{Reg}_E = \operatorname{vol}(V/\Lambda) = \left|\det\left(\langle x_i,x_j\rangle_{i,j}\right) \right|
+  \left\{\sum_{i=1}^r  \lambda_i v_i : 0\leqslant \lambda_i \leqslant 1\right\}
 \]
-(the volume of the lattice, maybe to some power). 
+the volume $1$. For a lattice (discrete, cocompact subgroup) 
+$\Lambda\subset V$, put $\volume(\Lambda)=\volume(V/\Lambda)$. Then 
+\[
+  \regulator_E = \volume(E(\dQ)/E(\dQ)_\text{tors})^2 \text{,}
+\]
+where $E(\dQ)/E(\dQ)_\text{tors}$ is a thought of as a lattice in 
+$E(\dQ)\otimes \dR$. More explicitly, for any basis 
+$\{x_1,\dots,x_r\}$ of $E(\dQ)$, one has 
+\[
+  \regulator_E = \left|\det\left(\langle x_i,x_j\rangle_{i,j}\right) \right| \text{.}
+\]
 
-Recall that the \emph{Tate-Shafarevich group} $\sha(E)$ is 
+The \emph{Tate-Shafarevich group} of $E$ is 
 \[
   \sha(E) = \ker\left(\h^1(\dQ,E) \to \prod_v \h^1(\dQ_v,E)\right)
 \]
-where $\h^1(k,E) = \h^1(G_k,E(\bar k))$. 
+where as usual we write $\h^1(k,A)$ for $\h^1(G_k,A(\bar k))$ when $k$ is a 
+field and $A$ is a commutative group variety over $k$. 
 
 The $c_p$ are \emph{Tamagawa numbers} of $E$. Let $E_0(\dQ_p)$ be the group of 
-points in $E(\dQ_p)$ whose reduction modulo $p$ is is not singular. 
-(\textbf{clarify this: $E(\dQ_p)$ should be $E_0(\dQ_p)$ and a formal group})
-and we put 
+points in $E(\dQ_p)$ whose reduction modulo $p$ is is nonsingular. We define 
 \[
   c_p=[E(\dQ_p):E_0(\dQ_p)]
 \]
 Clearly $c_p=1$ if $E$ has good reduction at $p$. The $c_p$ are easy to compute 
 using Tate's algorithm. 
 
-\textbf{(include Tate's quote)}
+
+
+
+
+
+
+
+
+
+\subsection{Computations related to BSD}
+
+% y^2+x y = x^3 + x^2 - 1154 x - 15345
+%\begin{sagesilent}
+%E  = EllipticCurve([1,1,0,-1154,-15345]) 
+%L  = E.lseries().dokchitser()
+%Om = E.period_lattice().omega()
+%\end{sagesilent}
 
 \begin{example}
-Let $E$ be the rational elliptic curve $y^2+x y=x^3+x^2-1154 x-15345$. We 
-can compute $L(E,1) = 1.844815\dots\ne 0$. Since $r_\text{an}=0$, $E$ has rank 
-zero by an earlier theorem, so $E(\dQ)$ is finite (and by work of Kolyvagin, 
-$\sha(E)$ is finite). In this case (as with all 
-curves of rank zero) the regulator is $1$. We also have 
-$\Omega_E=2\cdot 0.4099589\dots$ For $p\notin\{3,227\}$ $E$ has good reduction 
-at $p$, so $c_p=1$. Using Tate's algorithm, we get 
-\begin{align*}
-  c_3&= 2 \\
-  c_{227} &= 2 
-\end{align*}
-Finally, $E(\dQ)_\text{tors}\simeq (\dZ/2)^{\oplus 2}$. We know everything in 
-the BSD formula except for $\# \sha(E)$. Solving for it, we get (conjecturally) 
+Let $E$ be the rational elliptic curve $y^2+x y=x^3+x^2-1154 x-15345$. Using 
+Sage, we can predict the order of $\sha(E)$. 
+
+\begin{sageblock}
+sage: E  = EllipticCurve([1,1,0,-1154,-15345])
+sage: Lval  = E.lseries().dokchitser()(1)
+sage: Om = E.period_lattice().omega()
+sage: factor(E.discriminant())
+sage: c3 = E.local_data(3).tamagawa_number()
+sage: c227 = E.local_data(3).tamagawa_number()
+sage: G = E.torsion_subgroup()
+\end{sageblock}
+
+Since $L(E,1)\ne 0$, the analytic rank $r_\text{an}=0$, 
+so by Theorem \ref{thm:r_an=0}, $E(\dQ)$ and $\sha(E)$ are finite. Thus 
+(as is true for any curve of rank zero) the regulator of $E$ is $1$. 
+We now know everything in the BSD formula except for $\# \sha(E)$. Solving for 
+it, we get (conjecturally) 
 \[
-  \frac{\Omega_E \cdot \operatorname{Reg}_E\cdot \prod c_p\cdot \sha(E)}{\# E(\dQ)_\text{tors}^2} = 0.2049\dots \cdot \# \sha(E) = L(E,1) = 1.84\ldots
+  \# \sha(E) = \frac{L(E,1) \cdot \# E(\dQ)_\text{tors}^2}{\Omega_E \cdot \regulator_E \cdot \prod c_p} = \sage{Lval * G.order()^2 / (Om * c3 * c227)} \text{.}
 \]
-This implies (again, assuming BSD) 
-\[
-  \# \sha(E) = 8.999\ldots
-\]
+%\begin{align*}
+%  c_3     &= \sage{E.local_data(3).tamagawa_number()} \\
+%  c_{227} &= \sage{E.local_data(227).tamagawa_number()}
+%\end{align*}
+
+%can compute $L(E,1) = 1.844815\dots\ne 0$. Since $r_\text{an}=0$, $E$ has rank 
+%zero by an earlier theorem, so $E(\dQ)$ is finite (and by work of Kolyvagin, 
+%$\sha(E)$ is finite). In this case (as with all 
+%curves of rank zero) the regulator is $1$. We also have 
+%$\Omega_E=2\cdot 0.4099589\dots$ For $p\notin\{3,227\}$ $E$ has good reduction 
+%at $p$, so $c_p=1$. Using Tate's algorithm, we get 
+%\begin{align*}
+%  c_3&= 2 \\
+%  c_{227} &= 2 
+%\end{align*}
+%Finally, $E(\dQ)_\text{tors}\simeq (\dZ/2)^{\oplus 2}$. We know everything in 
+%the BSD formula except for $\# \sha(E)$. Solving for it, we get (conjecturally) 
+%\[
+%  \frac{\Omega_E \cdot \regulator_E\cdot \prod c_p\cdot \sha(E)}{\# E(\dQ)_\text{tors}^2} = 0.2049\dots \cdot \# \sha(E) = L(E,1) = 1.84\ldots
+%\]
+%This implies (again, assuming BSD) 
+%\[
+%  \# \sha(E) = 8.999\ldots
+%\]
 so we could expect $\sha(E)=9$. 
 \end{example}
 
@@ -695,7 +756,7 @@ $r_\text{an}$ is odd (in particular, $L(E,1)=0$ on the nose). One can do a
 
 You can find a basis and compute 
 \begin{align*}
-  \operatorname{Reg}_E &= 15.36\dots \\
+  \regulator_E &= 15.36\dots \\
   \Omega_E &= 0.074\ldots \\
   \# E(\dQ)_\text{tors} &= 1 \\
   c_{139} &= 4 \\
@@ -703,7 +764,7 @@ You can find a basis and compute
 \end{align*}
 It is not known if $\sha(E)$ is finite, but assuming BSD, its order is 
 \[
-  \# \sha(E) = \frac{L^{(3)}(E,1)/3!}{\Omega_E \operatorname{Reg}_E \prod c_p / E(\dQ)_\text{tors}^2} = 3.99\dots
+  \# \sha(E) = \frac{L^{(3)}(E,1)/3!}{\Omega_E \regulator_E \prod c_p / E(\dQ)_\text{tors}^2} = 3.99\dots
 \]
 so we would expect $\sha(E)=4$. 
 
