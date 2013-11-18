@@ -758,54 +758,64 @@ See \cite[I.6]{mi06} for a definition of this pairing in much greater
 generality. Note that the parity conjecture holds over $\dQ$ by the functional 
 equation, which is proved via the modularity theorem. 
 
-In the paper \cite{go85}, Goldfeld, drawing on work of Gross and Zagier 
+In his paper \cite{go85} Goldfeld, drawing on work of Gross and Zagier,  
 used this curve (in particular, the fact that it has analytic rank $3$) to 
 solve a very old problem of Gauss. For every $\varepsilon>0$, there is an 
-effectively computable constant $c_\varepsilon>0$ such that the class number 
+effectively computable constant $c>0$ such that the class number 
 $h(D)$ of the field $\dQ(\sqrt{-D})$ for $D>0$ square-free satisfies the bound 
 \[
-  h(D) > c_\varepsilon \left(\log D\right)^{1-\varepsilon} \text{.}
+  h(D) > c \left(\log D\right)^{1-\varepsilon} \text{.}
 \]
 It follows that for \emph{any} constant $C$, it is possible to enumerate the 
-(finite) list of imaginary quadratic fields with class number $\leqslant C$. 
+(finite) list of imaginary quadratic fields with class number $h\leqslant C$. 
 For example, the only imaginary quadratic fields with class number $1$ are 
 $\dQ(\sqrt{-D})$ for $D$ one of 
 \[
-  -1,-2,-3,-7,-11,-19,-43,-67,-163 \text{.}
+  1,2,3,7,11,19,43,67,163 \text{.}
 \]
 
 
 % averages
 
-Let, for $a,b\in \dZ$, $E_{a,b}:y^2=x^3+a x+b$. Define 
+
+
+
+\subsection{Average orders of Selmer groups}
+
+For $a,b\in \dZ$ with $4 a^3+27 b^2\ne 0$, let $E_{a,b}$ be the rational 
+elliptic curve $y^2=x^3+a x+b$. Set 
 \[
-  \cE = \{E_{a,b} : a,b\in \dZ, 4 a^3+27 b^2\ne 0\text{ and there is no $p$ such that $p^4\mid a$ and $p^6\mid b$}\}
-\] 
-Set $H(E_{a,b}) = \max\{|4 a^3|, 27 b^2\}$; this is not the Faltings height. 
-Define 
+  \cE = \{E_{a,b} : a,b\in \dZ : 4 a^3+27 b^2\ne 0\text{ and $p^6\nmid b$ whenever $p^4\mid a$}\} \text{.}
+\]
+Every elliptic curve over $\dQ$ is isomorphic to a unique element of $\cE$. 
+We define a ``naive height'' on $\cE$ by $H(E_{a,b}) =\max\{|4 a^3|, 27 b^2\}$. 
+For any $x\geqslant 0$, set 
 \[
-  \cE_{<x} = \{E\in \cE : H(E)\leqslant x\} \text{.}
+  \cE_{x} = \{E\in \cE : H(E)\leqslant x\} \text{.}
 \]
 Given a map $\phi:\cE\to \dR$, we set 
 \[
   \operatorname{avg}(\phi) = \lim_{x\to \infty} \frac{ \sum_{E\in \cE_x} \phi(E)}{\# \cE_x} \text{,}
 \]
-and let $\overline{\operatorname{avg}}(\phi)$ and 
-$\underline{\operatorname{avg}}(\phi)$ be the corresponding lim sups and lim 
-infs. 
+and let $\overline{\operatorname{avg}}(\phi)$ be the corresponding lim sup. 
 
-\begin{theorem}[Bhargava-Shankar, 2010]
+\begin{theorem}[Bhargava-Shankar]
+We have 
 $\operatorname{avg}(\# \selmer_2) = 3$ and 
 $\overline{\operatorname{avg}}(\# \selmer_3) \leqslant 4$. 
 \end{theorem}
+\begin{proof}
+See \cite{bh10-1} for a proof of the first equality, and \cite{bh10} for a 
+proof of the second inequality. 
+\end{proof}
 
 As a corollary, $\overline{\operatorname{avg}}(\rank) \leqslant \frac 7 6$. 
-David expects the average to be $\frac 1 2$. 
-
-Indeed, since $E(\dQ)/ 3E(\dQ)\hookrightarrow \selmer_3 (E)$, we have 
-$e^{\rank E}\leqslant \#\selmer_3(E)=3^s$. It follows that 
-$r\leqslant s\leqslant \frac{3^s+3}{6}$, so 
+Many mathematicians (including Zywina) expect the average to be $\frac 1 2$. 
+To see that the average rank is at most $\frac 7 6$, note that since 
+since $E(\dQ)/ 3E(\dQ)\hookrightarrow \selmer_3 (E)$, we have 
+$3^{\rank E}\leqslant \#\selmer_3(E)=3^s$. It follows that 
+$\rank E\leqslant s\leqslant \frac{3^s+3}{6}$, so 
 \[
-  \overline{avg}(r) \leqslant \frac{\overline{avg}(3^s) }{6} + \overline{avg}(3/6) \leqslant 4/6+1/2=7/6
+  \overline{\operatorname{avg}}(\rank ) \leqslant \frac{\overline{\operatorname{avg}}(3^s)}{6} + \frac 1 2 \leqslant \frac 4 6 + \frac 1 2 = \frac 7 6 \text{.}
 \]
 
