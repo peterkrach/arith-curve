@@ -188,14 +188,18 @@ $G_k$-invariants of $A[n]$, resulting in an exact sequence:
 }\]
 We are interested in continuing this exact sequence to the right, i.e. in 
 constructing a long exact sequence 
-\[
-  0 \to A[n]^{G_k} 
-    \to A(k) 
-    \to A(k) 
-    \to \h^1(G_k,A[n]) 
-    \to \h^1\left(G_k,A(\bar k)\right) 
-    \to \cdots
-\]
+\begin{center}
+\begin{tikzcd}
+  0 \rar 
+    & A[n]^{G_k} \rar 
+    & A(k) \rar 
+    & A(k) \ar[out=355,in=175]{dll} \\
+  & \h^1(G_k,A[n]) \rar 
+    & \h^1\left(G_k,A(\bar k)\right) \rar 
+    & \h^1\left(G_k,A(\bar k)\right) \rar
+    & \cdots
+\end{tikzcd}
+\end{center}
 This fits into a general framework of derived functors, but we will mostly 
 just use the concrete definition of $\h^\bullet(G_k,-)$ using cocycles and 
 coboundaries. 
@@ -338,18 +342,20 @@ form $\sigma\mapsto \sigma\alpha-\alpha$ for some $\alpha\in M$. The
 \]
 \end{definition}
 One can prove using a canonical projective resolution of $M$ that this agrees 
-with the derived functor definition.One can check directly that if 
+with the derived functor definition. One can check directly that if 
 $0\to M'\xrightarrow f M\xrightarrow g M''$ is an exact sequence of 
 $G_k$-modules, then there is a natural exact sequence:
-\[\xymatrix{
-  0 \ar[r] 
-    & {M'}^G \ar[r]^-f
-    & M^G \ar[r]^-g
-    & {M''}^G \ar[r]^-\delta
-    & \h^1(G,M') \ar[r]^-{f_*}
-    & \h^1(G,M) \ar[r]^-{g_*}
-    & \h^1(G,M'')
-}\]
+\begin{center}
+\begin{tikzcd}
+  0 \rar 
+    & {M'}^G \rar{f}
+    & M^G \rar{g}
+    & {M''}^G \ar[out=355,in=175]{dll}{\delta} \\
+  & \h^1(G,M') \rar{f_\ast}
+    &\h^1(G,M) \rar{g_\ast} 
+    & \h^1(G,M'') \text{.}
+\end{tikzcd}
+\end{center}
 where $\delta(x)$ is defined as follows. Choose a lift $\tilde x$ in 
 $M$, and let $\delta(x)(\sigma) = f^{-1}(\sigma \tilde x - \tilde x)$. One can 
 check that this is a cocycle, and that choosing a different $\tilde x$ changes 
@@ -393,26 +399,15 @@ $M^G\simeq \h^0(\et k,\widetilde M)$, we obtain that
 $\h^\bullet(G_k,M) \simeq \h^\bullet(\et k, \widetilde M)$. For more details, 
 see \cite[I 2.4]{de77}. 
 
-In our case, the exact sequence 
-$0\to A[n]\to A(\bar k) \xrightarrow n A(\bar k) \to 0$ gives rise to a long 
+In our case, from the long exact sequence associated to 
+$0\to A[n]\to A(\bar k) \xrightarrow n A(\bar k) \to 0$ yields a short 
 exact sequence 
-\[\xymatrix@=0.5cm{
-  0 \ar[r] 
-    & A[n]^{G_k} \ar[r] 
-    & A(k) \ar[r]^-n 
-    & A(k) \ar[r]^-\delta 
-    & \h^1\left(G_k,A[n]\right) \ar[r] 
-    & \h^1\left(G_k,A(\bar k)\right) \ar[r] 
-    & \h^1\left(G_k, A(\bar k)\right) \ar[r] 
-    & \cdots
-}\]
-It follows that we have an exact sequence 
 \[\xymatrix{
   0 \ar[r] 
     & A(k) / n \ar[r]^-\delta
     & \h^1\left(G_k,A[n]\right) \ar[r] 
     & \h^1\left(G_k,A(\bar k)\right)[n] \ar[r]
-    & 0
+    & 0 \text{.}
 }\]
 We will try to prove that $A(k)/ n$ is finite by embedding it into a group 
 we know is finite. Unfortunately $\h^1(G_k, A[n])$ is infinite, so we cannot 
