@@ -685,106 +685,94 @@ using Tate's algorithm.
 
 
 
-\subsection{Computations related to BSD}
+\subsection{Predicting the order of \texorpdfstring{$\sha$}{Sha}}
 
-% y^2+x y = x^3 + x^2 - 1154 x - 15345
-%\begin{sagesilent}
-%E  = EllipticCurve([1,1,0,-1154,-15345]) 
-%L  = E.lseries().dokchitser()
-%Om = E.period_lattice().omega()
-%\end{sagesilent}
 
 \begin{example}
-Let $E$ be the rational elliptic curve $y^2+x y=x^3+x^2-1154 x-15345$. Using 
-Sage, we can predict the order of $\sha(E)$. 
-
-\begin{sageblock}
-sage: E  = EllipticCurve([1,1,0,-1154,-15345])
-sage: Lval  = E.lseries().dokchitser()(1)
-sage: Om = E.period_lattice().omega()
-sage: factor(E.discriminant())
-sage: c3 = E.local_data(3).tamagawa_number()
-sage: c227 = E.local_data(3).tamagawa_number()
-sage: G = E.torsion_subgroup()
-\end{sageblock}
-
-Since $L(E,1)\ne 0$, the analytic rank $r_\text{an}=0$, 
-so by Theorem \ref{thm:r_an=0}, $E(\dQ)$ and $\sha(E)$ are finite. Thus 
-(as is true for any curve of rank zero) the regulator of $E$ is $1$. 
-We now know everything in the BSD formula except for $\# \sha(E)$. Solving for 
-it, we get (conjecturally) 
+% y^2+x y = x^3 + x^2 - 1154 x - 15345
+\begin{sagesilent}
+E  = EllipticCurve([1,1,0,-1154,-15345]) 
+L  = E.lseries().dokchitser()
+\end{sagesilent}
+Let $E$ be the rational elliptic curve $\sage{E}$. Using Sage, we can predict 
+the order of $\sha(E)$. First, 
+$\Omega_E\approx \sage{E.period_lattice().omega()}$. 
+Next, we compute 
+$L(E,1)\approx \sage{L(1)}\ne 0$, so $r_\text{an}(E)=0$. By Theorem 
+\ref{thm:r_an=0}, $E(\dQ)$ and $\sha(E)$ are both finite. It follows that the 
+regulator of $E$ is $1$. Moreover, the discriminant of $E$ is 
+$\sage{factor(E.discriminant())}$, so we only need to compute 
+$c_3 = \sage{E.local_data(3).tamagawa_number()}$ and 
+$c_{227}=\sage{E.local_data(227).tamagawa_number()}$. Finally, it is possible 
+to compute $\# E(\dQ)_\text{tors}=\sage{E.torsion_subgroup().cardinality()}$. 
+We now know everything in the BSD formula except for the cardinality of 
+$\sha(E)$. Solving for it, we get (conjecturally): 
 \[
-  \# \sha(E) = \frac{L(E,1) \cdot \# E(\dQ)_\text{tors}^2}{\Omega_E \cdot \regulator_E \cdot \prod c_p} = \sage{Lval * G.order()^2 / (Om * c3 * c227)} \text{.}
+  \# \sha(E) = \frac{L(E,1) \cdot \# E(\dQ)_\text{tors}^2}{\Omega_E \cdot c_3 \cdot c_{227}} 
+    \approx \sage{E.sha().an_numerical()}
 \]
-%\begin{align*}
-%  c_3     &= \sage{E.local_data(3).tamagawa_number()} \\
-%  c_{227} &= \sage{E.local_data(227).tamagawa_number()}
-%\end{align*}
-
-%can compute $L(E,1) = 1.844815\dots\ne 0$. Since $r_\text{an}=0$, $E$ has rank 
-%zero by an earlier theorem, so $E(\dQ)$ is finite (and by work of Kolyvagin, 
-%$\sha(E)$ is finite). In this case (as with all 
-%curves of rank zero) the regulator is $1$. We also have 
-%$\Omega_E=2\cdot 0.4099589\dots$ For $p\notin\{3,227\}$ $E$ has good reduction 
-%at $p$, so $c_p=1$. Using Tate's algorithm, we get 
-%\begin{align*}
-%  c_3&= 2 \\
-%  c_{227} &= 2 
-%\end{align*}
-%Finally, $E(\dQ)_\text{tors}\simeq (\dZ/2)^{\oplus 2}$. We know everything in 
-%the BSD formula except for $\# \sha(E)$. Solving for it, we get (conjecturally) 
-%\[
-%  \frac{\Omega_E \cdot \regulator_E\cdot \prod c_p\cdot \sha(E)}{\# E(\dQ)_\text{tors}^2} = 0.2049\dots \cdot \# \sha(E) = L(E,1) = 1.84\ldots
-%\]
-%This implies (again, assuming BSD) 
-%\[
-%  \# \sha(E) = 8.999\ldots
-%\]
 so we could expect $\sha(E)=9$. 
 \end{example}
 
 \begin{example}
-Let $E$ be the rational elliptic curve $-139\cdot y^2=x^3+4 x^2 - 48 x+80$. 
-We can compute $L(E,1) = 0.00\dots$, which may or may not be zero. Moreover, 
-$L'(E,0)=0.00\dots$, $L''(E,0) = 0.00\ldots$, but 
-$L'''(E,1) = 110.57\dots\ne 0$. In particular, we would guess that 
-$r_\text{an}=3$. But we know that $(-1)^{r_\text{an}}=\omega=-1$, so 
-$r_\text{an}$ is odd (in particular, $L(E,1)=0$ on the nose). One can do a 
-``$2$-descent'' to show that $E(\dQ)\simeq \dZ^{\oplus 3}$. 
-
-\textbf{(use sage to find a basis)}
-
-You can find a basis and compute 
-\begin{align*}
-  \regulator_E &= 15.36\dots \\
-  \Omega_E &= 0.074\ldots \\
-  \# E(\dQ)_\text{tors} &= 1 \\
-  c_{139} &= 4 \\
-  c_p &= 1 \qquad \text{if $p\ne 139$}
-\end{align*}
-It is not known if $\sha(E)$ is finite, but assuming BSD, its order is 
+\begin{sagesilent}
+E = EllipticCurve([0,4,0,-48,80]).quadratic_twist(-139)
+L = E.lseries().dokchitser()
+\end{sagesilent}
+Let $E$ be the rational elliptic curve $\sage{E}$ (this is the quadratic twist 
+of $y^2=x^3+4 x^2-48 x+80$ by $-139$). We can compute 
+$L(E,1) \approx \sage{L(1)}$, which may or may not be zero. Similarly, 
+$L'(E,1)$ and $L''(E,1)$ appear to be zero, but 
+$L'''(E,1) \approx \sage{L.derivative(1,3)}\ne 0$. So we would guess that 
+$r_\text{an}(E)=3$. We know that $(-1)^{r_\text{an}}=\omega=-1$, so 
+$r_\text{an}$ is odd. This tells us $L(E,1)=0$ on the nose. One can do a 
+``$2$-descent'' to show that $\rank E=\sage{E.rank()}$ and 
+$E(\dQ)_\text{tors}=\sage{E.torsion_subgroup().order()}$. In fact, $E(\dQ)$ 
+has as a basis 
 \[
-  \# \sha(E) = \frac{L^{(3)}(E,1)/3!}{\Omega_E \regulator_E \prod c_p / E(\dQ)_\text{tors}^2} = 3.99\dots
+  \sage{E.gens()} \text{.}
 \]
-so we would expect $\sha(E)=4$. 
-
+We can now compute 
+\begin{align*}
+  \regulator_E          &= \sage{E.regulator()} \\
+  \Omega_E              &= \sage{E.period_lattice().omega()} \\
+  \# E(\dQ)_\text{tors} &= \sage{E.torsion_subgroup().cardinality()} \\
+  \Delta                &= \sage{factor(E.discriminant())} \\
+  c_{37}                &= \sage{E.local_data(37).tamagawa_number()} \\
+  c_{139}               &= \sage{E.local_data(139).tamagawa_number()}
+\end{align*}
+Since $r_\text{an}\geqslant 1$, we don't know if $\sha(E)$ is finite, but 
+assuming BSD its order is 
+\[
+  \frac{L^{(3)}(E,1)/3!}{\Omega_E \cdot \regulator_E \cdot c_{139}} \approx \sage{E.sha().an_numerical()} \text{.}
+\]
 Recall that if $r_\text{an}=1$, then work of Gross-Zagier and Kolyvagin implies 
-$r=1$. Since $r>1$, we have $r_\text{an}>1$, and since it is odd it must be 
-$3$. 
+$r=1$. Since $r>1$, we have $r_\text{an}>1$, and since $r_\text{an}$ is odd it 
+must be $3$. So $L'(E,1)=L''(E,1) = 0$. 
 \end{example}
 
-(\textbf{$\#\sha(E)$ would be finite because $\sha(E)[n]$ has a pairing -- 
-Cassels did this. Also, parity conjecture holds over $\dQ$ by functional 
-equation / modularity?})
+In general, if $\sha(E)$ is finite, then its cardinality must be a square. 
+This is because there is a canonical pairing 
+$\sha(E)\times \sha(E)\to \dQ/\dZ$, which is nondegenerate if $E$ is finite. 
+See \cite[I.6]{mi06} for a definition of this pairing in much greater 
+generality. Note that the parity conjecture holds over $\dQ$ by the functional 
+equation, which is proved via the modularity theorem. 
 
-Goldfeld used this curve and the fact $r_\text{an}=3$ to show that the class 
-number of $\dQ(\sqrt{-D})$ for $D>0$ square-free satisfies the bound 
+In the paper \cite{go85}, Goldfeld, drawing on work of Gross and Zagier 
+used this curve (in particular, the fact that it has analytic rank $3$) to 
+solve a very old problem of Gauss. For every $\varepsilon>0$, there is an 
+effectively computable constant $c_\varepsilon>0$ such that the class number 
+$h(D)$ of the field $\dQ(\sqrt{-D})$ for $D>0$ square-free satisfies the bound 
 \[
-  h\left(\dQ(\sqrt{-D})\right) > c_\varepsilon \left(\log|D|\right)^{1-\varepsilon}
+  h(D) > c_\varepsilon \left(\log D\right)^{1-\varepsilon} \text{.}
 \]
-for an effective constant $c_\varepsilon>0$. Previous lower bounds (by Siegel) 
-were ineffective. He used this to classify quadratic imaginary fields with 
-class number $1$. \textbf{(write list, cite original paper)}
+It follows that for \emph{any} constant $C$, it is possible to enumerate the 
+(finite) list of imaginary quadratic fields with class number $\leqslant C$. 
+For example, the only imaginary quadratic fields with class number $1$ are 
+$\dQ(\sqrt{-D})$ for $D$ one of 
+\[
+  -1,-2,-3,-7,-11,-19,-43,-67,-163 \text{.}
+\]
 
 
 % averages
