@@ -819,3 +819,191 @@ $\rank E\leqslant s\leqslant \frac{3^s+3}{6}$, so
   \overline{\operatorname{avg}}(\rank ) \leqslant \frac{\overline{\operatorname{avg}}(3^s)}{6} + \frac 1 2 \leqslant \frac 4 6 + \frac 1 2 = \frac 7 6 \text{.}
 \]
 
+
+
+
+
+% notes on 11-19-2013
+
+\subsection{The congruent number problem}
+
+Fix a squarefree integer $n\geqslant 1$. We say that $n$ is a 
+\emph{congruent number} if there is a right triangle with rational side 
+lengths, with area $n$. The requirement that $n$ is squarefree is not 
+significant: we can always scale the triangle by a rational number to make its 
+area squarefree. From the classical triangle with sides $(3,4,5)$, we see that 
+$6$ is a congruent number. Our general equations are: 
+\begin{align*}
+  a^2+b^2 &= c^2 \\
+  a b/2 &= n \text{.}
+\end{align*}
+These equations describe a curve $C_n\subset \dA_\dQ^3=\spec\dQ[a,b,c]$. The 
+integer $n$ is congruent precisely when $C_n(\dQ)\ne\varnothing$. It is natural 
+to ask whether a given integer (for example $n=157$) is congruent. The curve 
+$C_n$ is not ``nice'' in the technical sense, because it is not projective. Let 
+$E_n:y^2=x^3-n^2 x$. This is birational to $C_n$ via the map 
+$f:C_n \to E_n\setminus \{O,(0,0),(0,\pm n)\}$ defined by 
+\[
+  (a,b,c) \mapsto \left(\frac{n(a+b)}{b}, \frac{2(a+c)}{b} n^2\right) \text{.}
+\]
+This map has birational inverse 
+\[
+  (x,y) \mapsto \left(\frac{x^2-n^2}{y},\frac{2 n x}{y},\frac{x^2+n^2}{y}\right) \text{.}
+\]
+The only obvious rational points on $E_n$ are the origin, 
+$(0,0)$ and $(0,\pm n)$, which comprise $E_n(\dQ)_\text{tors} = E_n[2]$. Thus 
+$n$ is congruent if and only if $C_n(\dQ)\ne\varnothing$, which occurs if and 
+only if $\rank E_n > 0$. Assuming BSD, $n$ is a congruent number if and only if 
+$L(E_n,1) = 0$, i.e. $r_\text{an}(E_n) \geqslant 1$. If 
+$L(E_n,1) \ne 0$, then $r_\text{an} = 0$, so by Theorem \ref{thm:r_an=0}, we 
+know that $\rank E_n = 0$. In other words, it is easy to show that an integer 
+$n$ is not congruent by verifying that $L(E_n,1) \ne 0$. 
+
+In our example $n=6$, we get $(a,b,c) = (3,4,5)$, which maps to the point 
+$P=(12,36)\in E_n(\dQ)$. The point $2 P=(\frac{25}{4},\frac{35}{8})$, which 
+corresponds to the triangle with sides 
+$(\frac{7}{10},\frac{120}{7},\frac{120}{70})$. Each multiple $m\cdot P$ gives a 
+different triangle. 
+
+We define 
+\begin{align*}
+  A(n) &= \# \{(x,y,x)\in \dZ^3 : x^2+2 y^2+8 z^2 = n\} \\
+  B(n) &= \# \{(x,y,z)\in \dZ^3 : x^2 + 2 y^2 + 32 z^2 = n \} \\
+  C(n) &= \# \{(x,y,z)\in \dZ^3 : x^2+4 y^2 + 8 z^2 = n/2\} \\
+  D(n) &= \# \{(x,y,z)\in \dZ^3 : x^2 + 4 y^2 + 32 z^2 = n/2\} \text{.}
+\end{align*}
+Given these we define $a(n) = A(n)-2 B(n)$ and 
+$b(n) = C(n) - 2 D(n)$. These quantities are relatively easy to compute. 
+
+\begin{theorem}[Tunnell]
+We have 
+\[
+  L(E_n,1) = 
+    \begin{cases}
+      \displaystyle\frac{a(n)^2\cdot \Omega_n}{4\sqrt n} & \text{if $n$ is odd} \\
+      \displaystyle\frac{b(n)^2 \cdot \Omega_n}{4\sqrt n} & \text{if $n$ is even}
+    \end{cases}
+\]
+where $\Omega_n\ne 0$ is some period. 
+\end{theorem}
+\begin{proof}
+Look up source, define $\Omega_n$. 
+\end{proof}
+
+\begin{corollary}
+If BSD is true, then an integer $n$ is a congruent number if and only if 
+$L(E_n,1) = 0$, which holds if and only if $a(n)=0$ when $n$ is odd, or 
+$b(n)=0$ if $n$ is even. 
+\end{corollary}
+
+An easy example is $n=2$. One has $C(2) = 2$, $D(2) = 2$, so 
+$b(n) = -2\ne 0$, hence $n$ is not congruent. Using Theorem \ref{thm:r_an=0}, 
+we see that $n=2$ is not a congruent number (unconditionally). 
+
+We'll use Sage to do the case $n=157$. 
+
+
+%\begin{lstlisting}
+%sage: E = EllipticCurve([1,1]).
+%E.local_data(3).tamagawa_number()
+%for i in range(100)
+%    print(i)
+%\end{lstlisting}
+
+
+
+
+\subsection{Sato-Tate}
+
+Let $E$ be an elliptic curve over $\dQ$ with conductor $N$. For primes $p$ not 
+dividing $N$, recall we defined $a_p(E) = p+1-\# E(\dF_p)$, and proved the 
+Hasse bound $|a_p(E)| \leqslant 2\sqrt p$. Thus the ratio 
+$\frac{a_p(E)}{2\sqrt p}$ lies in the interval $[-1,1]$. It is natural to ask, 
+for fixed $E$, how the $\frac{a_p(E)}{2\sqrt p}$ are distributed in that 
+interval. 
+
+First suppose $E$ has complex multiplication, i.e. 
+$\End(E_{\bar\dQ})\ne \dZ$. In fact, $\End(E_{\bar\dQ})$ is an order in an 
+imaginary quadratic field $K=\dQ(\sqrt{-D})$ for $D>0$ a squarefree integer. 
+If $p\geqslant 5$ is inert in $K$ (which occurs if and only if 
+$\left(\frac{-D}{p}\right) = -1$) then $a_p(E)=0$). This occurs for half of the 
+primes. 
+
+\begin{theorem}[Hecke?]
+Fix an integral $I\subset [-1,1]$. Then 
+\[
+  \lim_{x\to \infty} \frac{\# \{p\leqslant x : p\text{ is split in $K$ and $\frac{a_p}{2\sqrt p}\in I$}\}}
+  {\# \{p\leqslant x : p\text{ is split in $K$}\}}
+  = \frac{1}{\pi} \int_I \frac{dt}{\sqrt{1-t^2}} \text{.}
+\]
+\end{theorem}
+\begin{proof}
+Find source.
+\end{proof}
+(Draw graph of $(1-t^2)^{-1/2}$. Alternatively, write 
+$\frac{a_p(E}{2\sqrt p} = \cos \theta_p$, and this says that the $\theta_p$ are 
+uniformly distributed. (Unitary groups come in -- explain this connection, also 
+the $\theta_p$ should be angles of Weil numbers.) 
+
+This is similar to $\frac 1 2$ of the trace of a random matrix in 
+\[
+  \left\{\begin{pmatrix} z & \\ & z^{-1} \end{pmatrix} : z\in \dC,|z|=1 \right\} \cup \left\{\begin{pmatrix}  & -z\\ z^{-1} & \end{pmatrix} : z\in \dC ,|z|=1\right\} \text{.}
+\]
+
+We would like an analogue for non-CM elliptic curves. 
+
+\begin{conjecture}[Sato-Tate]
+Let $E$ be a non-CM elliptic curve over $\dQ$. Then for any interval 
+$I\subset [-1,1]$, we have  
+\[
+  \lim_{x\to \infty} \frac{\#\{p\leqslant x:p\nmid N\text{ and }\frac{a_p(E)}{2\sqrt p}\in I\}}{\# \{p\leqslant x : p\nmid N\}}
+  = \frac{2}{\pi} \int_I \sqrt{1-t^2}\, dt \text{.}
+\]
+\end{conjecture}
+
+(Draw graph of $\sqrt{1-t^2}$.) 
+
+This is the same distribution as $\frac 1 2$ the trace of a random matrix in 
+$SU(2,\dC)$. 
+
+\begin{theorem}[Barnet-Lamb, Clozel, Gee, Geraghty, Harris, Sheperd-Barron, Raylor]
+The conjecture is true. Moreover, a similar result holds for $E$ over a 
+totally real field. 
+\end{theorem}
+\begin{proof}
+Site sources. 
+\end{proof}
+
+
+
+
+\subsection{Some computations}
+
+\url{math.mit.edu/~drew}, Andrew Sutherland at MIT. 
+Some diagrams of the $a_p$ for various elliiptic curves. 
+
+Stuff in higher genus (on same webpage), looking at distribution of trace of 
+Frobenius. See Katz and Sarnak's book? 
+
+Incorporate some pictures!
+
+Let $A$ be an abelian variety over $\dQ$. For $p$ good, we get the polynomial 
+$P_{A_p}(x) = \prod_{i=1}^{2 g} (x-\omega_i)$. Let 
+$\widetilde P_{A_p}(x) = \prod_i \left(x-\frac{\omega_i}{\sqrt p}\right)$; the 
+roots all have absolute value $1$. 
+
+\begin{conjecture}
+There exists a compact real Lie group $K$  in $GL(2,\dC)$ such that 
+$\widetilde P_{A_p}(x)$ are distributed like the characteristic polynomials of 
+random matrices in $K$ (wrt. the Haar measure). 
+\end{conjecture}
+
+You can try to predict the $K$ (Serre?). Also mention Lang-Trotter. 
+
+
+
+
+
+
+
+
