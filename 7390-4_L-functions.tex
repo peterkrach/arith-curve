@@ -827,43 +827,80 @@ $\rank E\leqslant s\leqslant \frac{3^s+3}{6}$, so
 
 \subsection{The congruent number problem}
 
-Fix a squarefree integer $n\geqslant 1$. We say that $n$ is a 
+Fix a squarefree integer $d\geqslant 1$. We say that $d$ is a 
 \emph{congruent number} if there is a right triangle with rational side 
-lengths, with area $n$. The requirement that $n$ is squarefree is not 
+lengths, with area $d$. The requirement that $n$ is squarefree is not 
 significant: we can always scale the triangle by a rational number to make its 
-area squarefree. From the classical triangle with sides $(3,4,5)$, we see that 
-$6$ is a congruent number. Our general equations are: 
+area squarefree. From the well-known right triangle with sides $(3,4,5)$, we 
+see that $6$ is a congruent number. Our general equations are: 
 \begin{align*}
   a^2+b^2 &= c^2 \\
-  a b/2 &= n \text{.}
+  a b/2 &= d \text{.}
 \end{align*}
-These equations describe a curve $C_n\subset \dA_\dQ^3=\spec\dQ[a,b,c]$. The 
-integer $n$ is congruent precisely when $C_n(\dQ)\ne\varnothing$. It is natural 
-to ask whether a given integer (for example $n=157$) is congruent. The curve 
-$C_n$ is not ``nice'' in the technical sense, because it is not projective. Let 
-$E_n:y^2=x^3-n^2 x$. This is birational to $C_n$ via the map 
-$f:C_n \to E_n\setminus \{O,(0,0),(0,\pm n)\}$ defined by 
+These equations describe a curve $C_d\subset \dA_\dQ^3=\spec\dQ[a,b,c]$. The 
+integer $d$ is congruent precisely when $C_d(\dQ)\ne\varnothing$. It is natural 
+to ask whether a given integer (for example $d=157$) is congruent. The curve 
+$C_d$ is not ``nice'' in the technical sense, because it is not projective. Let 
+$E_d$ be the curve $y^2=x^3-d^2 x$. This is birational to $C_d$ via the map 
+$f:C_d \xrightarrow\sim E_n\smallsetminus \{O,(0:0:1),(0:\pm d:1)\}$ defined by 
 \[
-  (a,b,c) \mapsto \left(\frac{n(a+b)}{b}, \frac{2(a+c)}{b} n^2\right) \text{.}
+  (a,b,c) \mapsto  \left( db c (a+c) : d^2((a+c)^2+b^2): b^2 c\right) \text{.}
 \]
 This map has birational inverse 
 \[
-  (x,y) \mapsto \left(\frac{x^2-n^2}{y},\frac{2 n x}{y},\frac{x^2+n^2}{y}\right) \text{.}
+  (x:y:z) \mapsto \left(\frac{x^2-n^2}{y z}, \frac{2 n x}{y}, \frac{x^2+n^2}{y z}\right) \text{.}
 \]
-The only obvious rational points on $E_n$ are the origin, 
-$(0,0)$ and $(0,\pm n)$, which comprise $E_n(\dQ)_\text{tors} = E_n[2]$. Thus 
-$n$ is congruent if and only if $C_n(\dQ)\ne\varnothing$, which occurs if and 
-only if $\rank E_n > 0$. Assuming BSD, $n$ is a congruent number if and only if 
-$L(E_n,1) = 0$, i.e. $r_\text{an}(E_n) \geqslant 1$. If 
-$L(E_n,1) \ne 0$, then $r_\text{an} = 0$, so by Theorem \ref{thm:r_an=0}, we 
-know that $\rank E_n = 0$. In other words, it is easy to show that an integer 
-$n$ is not congruent by verifying that $L(E_n,1) \ne 0$. 
 
-In our example $n=6$, we get $(a,b,c) = (3,4,5)$, which maps to the point 
-$P=(12,36)\in E_n(\dQ)$. The point $2 P=(\frac{25}{4},\frac{35}{8})$, which 
-corresponds to the triangle with sides 
-$(\frac{7}{10},\frac{120}{7},\frac{120}{70})$. Each multiple $m\cdot P$ gives a 
-different triangle. 
+\begin{sagesilent}
+a,b,c = QQ['a,b,c'].gens()
+C = lambda n: Curve([a^2+b^2-c^2,a*b/2-n])
+E = lambda n: EllipticCurve([-n^2,0])
+def f(n):
+    H = C(n).Hom(E(n))
+    return H([ n*b*c*(a+c) , n^2*((a+c)^2+b^2) , b^2*c ])
+def g(n):
+    def foo(q):
+        x,y,z = q
+        return C(n)([ (x^2-n^2)/(y*z) , 2*n*x/y , (x^2+n^2)/(y*z) ])
+    return foo
+P = f(6)([3,4,5])
+\end{sagesilent}
+
+The only obvious rational points on $E_d$ are the origin, 
+$(0:0:1)$ and $(0:\pm n:1)$, which comprise $E_d(\dQ)_\text{tors} = E_d[2]$. 
+Thus $C_d(\dQ)\ne\varnothing$ if and only if $\rank E_d > 0$. Since $d$ is 
+congruent if and only if $C_d$ has rational points, we conclude that 
+$d$ is congruent precisely when $E_d$ has positive rank. Assuming BSD, this 
+occurs if and only if $L(E_d,1) = 0$, i.e. $r_\text{an}(E_d) \geqslant 1$. If 
+$L(E_d,1) \ne 0$, which is something that can be computationally verified, 
+then $r_\text{an}(E_d) = 0$, so by Theorem \ref{thm:r_an=0}, we know that 
+$E_d$ has rank zero. In other words, it is easy to show that a given integer 
+$d$ is \emph{not} congruent, simply by checking that $L(E_d,1) \ne 0$. 
+
+The fact that $C_d$ and $E_d$ are birational gives a way of constructing many 
+different rational triangles with area $d$, using the group law on $E_d$. For 
+instance, in our example $d=6$, the triple $(a,b,c)=(3,4,5)$ maps to the point 
+$x=\sage{P}$ in $E_d(\dQ)$. One can compute $2\cdot x = \sage{2*P}$, which 
+corresponds to a triangle with sides $\sage{g(6)(2*P)}$, at least up to sign. 
+Each multiple $n\cdot x$ gives a different triangle, with rapidly increasing 
+complexity. We can use Sage to compute the first few: 
+\begin{center}
+\begin{tabular}{c|c}
+  $n$ & $(a,b,c)$ \\ \hline
+  2   & $\sage{g(6)(2*P)}$ \\
+  3   & $\sage{g(6)(3*P)}$ \\
+  4   & $\sage{g(6)(4*P)}$ \\
+  5   & $\sage{g(6)(5*P)}$ \\
+  6   & $\sage{g(6)(6*P)}$ \\
+\end{tabular}
+\end{center}
+
+It is possible to determine algorithmically whether any given $d$ is 
+congruent, but only under the assumption that BSD holds. More precisely, let 
+\begin{align*}
+  \theta_t(q) &= \sum_{n>-\infty} q^{t n^2} \\
+  g(q) &= q \prod_{n\geqslant 1} (1-q^{8 n})(1-q^{16 n}) \text{.}
+\end{align*}
 
 We define 
 \begin{align*}
