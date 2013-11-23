@@ -1006,7 +1006,7 @@ $p\geqslant 5$ is inert in $k$, then $a_p(E) = 0$. The prime $p$ is inert
 exactly when $-D$ is not a quadratic residue modulo $p$, and this happens 
 for half of the primes. 
 
-\begin{theorem}[Deuring, Hecke]
+\begin{theorem}[Deuring, Hecke]\label{thm:deuring-hecke}
 Let $E$ be an elliptic curve over $\dQ$ with complex multiplication. Then the 
 sequence $\{b_p(E)\}_p$ is equidistributed in $[-1,1]$ with respect to 
 the  measure 
@@ -1170,7 +1170,7 @@ A fantastic place to learn more about Sage is its documentation page at
 \subsection{The refined Sato-Tate conjecture}
 
 Let $E$ be an elliptic curve over $\dQ$. Recall we defined 
-$b(E) = a_p(E)/2\sqrt p$. If $E$ has CM, then the $b_p$ are 
+$b_p(E) = a_p(E)/2\sqrt p$. If $E$ has CM, then the $b_p$ are 
 uniformly distributed in $[-1,1]$ with respect to the measure 
 \[
   \frac 1 2 \delta_0 + \frac{dt}{2\pi\sqrt{1-t^2}} \text{,}
@@ -1182,24 +1182,39 @@ and if $E$ is not CM, then the $b_p$ are uniformly distributed with respect to
 This has a natural reformulation which makes generalization easy. The 
 characteristic polynomial of $\rho_{E,\ell}(\frob_p)$ is 
 $t^2-a_p t + p$. If we normalize to have roots with absolute value $1$, we get 
-$\varphi_p = t^2 - \frac{a_p}{\sqrt p} t + 1$. 
+$\varphi_p = t^2 - \frac{a_p}{\sqrt p} t + 1$. This is the characteristic 
+polynomial of a unique conjugacy class in $\operatorname{SU}(2)$. If we write 
+$X$ for the space $\operatorname{Cl}\left(\operatorname{SU}(2)\right)$ of 
+conjugacy classes in $\operatorname{SU}(2)$, then $p\mapsto \varphi_p$ can be 
+thought of as a map $\{\text{primes}\} \to X$. Embed $\operatorname{U}(1)$ in 
+$\operatorname{SU}(2)$ by the diagonal, and let $K=N(\operatorname{U}(1))$ be 
+its normalizer. The group $K$ is compact, so it has a unique normalized Haar 
+measure $\mu$. Let $\pi:K \to X$ be the canonical projection. Another way of 
+stating Theorem \ref{thm:deuring-hecke} is that $\{\varphi_p\}\subset X$ is 
+equidistributed with respect to the pushforward $\pi_\ast \mu$. 
 
-Alternatively, write 
-$\frac{a_p(E}{2\sqrt p} = \cos \theta_p$, and this says that the $\theta_p$ are 
-uniformly distributed. (Unitary groups come in -- explain this connection, also 
-the $\theta_p$ should be angles of Weil numbers.) 
-
-This is similar to $\frac 1 2$ of the trace of a random matrix in 
+To see this, note that the trace induces an isomorphism 
+\[\xymatrix{
+  \trace : \operatorname{Cl}\left(\operatorname{SU}(2)\right) \ar[r]^-\sim 
+    & [-2,2] \text{.}
+}\]
+The group $K$ has two connected components, both isomorphic to $S^1$:
 \[
+  K = 
   \left\{\begin{pmatrix} z & \\ & z^{-1} \end{pmatrix} : z\in \dC,|z|=1 \right\} \cup \left\{\begin{pmatrix}  & -z\\ z^{-1} & \end{pmatrix} : z\in \dC ,|z|=1\right\} \text{.}
 \]
+The first connected component is mapped to $[-2,2]$ via 
+$z\mapsto 2\Re (z)$, and the second is mapped via $z\mapsto 0$. It is easy to 
+check that the pushforward of the Haar measure on $K$ is exactly 
+$\frac 1 2 \delta_0 + \frac{dt}{2\pi \sqrt{1-t^2}}$. 
 
-(For non-CM elliptic curves) 
-This is the same distribution as $\frac 1 2$ the trace of a random matrix in 
-$SU(2,\dC)$. 
-
-Stuff in higher genus (on same webpage), looking at distribution of trace of 
-Frobenius. See Katz and Sarnak's book? 
+For non-CM elliptic curves, let $K=\operatorname{SU}(2)$, and write 
+$\pi:K \to X$ for the canonical projection. If $\mu$ is a normalized Haar 
+measure on $K$, then the Sato-Tate conjecture states that 
+$\{\varphi_p\}\subset X$ is uniformly distributed with respect to the measure 
+$\pi_\ast \mu$. To see this, check that 
+the pushforward by the trace of the normalized Haar measure on $K$ to $[-2,2]$ 
+is $\frac{1}{2\pi} \sqrt{4-t^2} dt$. 
 
 Let $A$ be an abelian variety over $\dQ$. For $p$ good, we get the polynomial 
 $P_{A_p}(x) = \prod_{i=1}^{2 g} (x-\omega_i)$. Let 
