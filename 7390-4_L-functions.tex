@@ -1075,6 +1075,95 @@ motivation.
 
 
 
+% on 11-21-2013
+\subsection{Some computations}
+
+Let $d=157$. We hope to show that $d$ is congruent, i.e. that is is the area 
+of a right triangle with rational side lengths. In other words, the curve 
+$C_d$ defined as the solution set to 
+\begin{align*}
+  a^2+b^2 &= c^2 \\
+  a b/2 &= d
+\end{align*}
+has a rational point. We have seen that this is equivalent to the elliptic 
+curve $E_d:y^2=x^3-d^2 x$ having positive rank. 
+
+We'll use Sage to do this. Sage can be accessed online at 
+\url{http://sagenb.com/}, or just type \texttt{sage} in the command line of a 
+computer that has Sage installed. 
+
+In Sage, the constructor 
+$\mathtt{EllipticCurve([}a_1,a_2,a_3,a_4,a_6\mathtt{])}$ returns the 
+elliptic curve 
+\[
+  y^2 + a_1 x y + a_3 y = x^3 + a_2 x^2 + a_4 x + a_6 \text{.}
+\]
+The simpler constructor 
+$\mathtt{EllipticCurve([}a_4,a_6\mathtt{])}$ returns the elliptic curve 
+$y^2 = x^3+a_4 x + a_6$. Sage will return an error if the curve you try to 
+construct is singular. Since we are interested in the curve 
+$E_{157}:y^2=x^3-157^2 x$, we define 
+\begin{sageblock}
+E = EllipticCurve([-157^2, 0])
+\end{sageblock}
+If we had wanted to define an elliptic curve over a finite field $\dF_q$, we 
+would make sure some of the coefficients were elements of $\dF_q$, as in 
+\texttt{EllipticCurve([GF(5)(1), 1])}. We can compute the conductor of 
+by \texttt{E.conductor()}; in our case $E_{157}$ has conductor 
+$\sage{factor(E.conductor())}$. Usually one can compute the rank 
+\texttt{E.rank()} and generators for the Mordell-Weil group 
+\texttt{E.gens()}. In our case, these return a warning. Sage's usual algorithm 
+was not able to determine the rank of $E_{157}$, and it asks you to do a 
+two-descent. We do this: 
+\begin{sageblock}
+E.two_descent(second_limit=13)
+\end{sageblock}
+\begin{sagesilent}
+P = E.gens()[0]
+x,y = P[0], P[1]
+pair = (abs((157^2-x^2)/y), abs(2*157*x/y))
+\end{sagesilent}
+As Sage does the $2$-descent, it outputs a bunch of text describing what it 
+does (essentially a computation of $E(\dQ)/2$ and 
+$\sha(E)[2]$). Once the $2$-descent is complete, we can compute the rank to be 
+$\sage{E.rank()}$ and a generator to be 
+\[
+  \sage{P} \text{.}
+\]
+This corresponds to a triangle with the shorter two sides being 
+\[
+  \sage{pair} \text{.}
+\]
+
+There are a number of other things that Sage can do with elliptic curves. To 
+make computations faster, let's try the elliptic curve 
+\begin{sageblock}
+E = EllipticCurve([4,6])
+\end{sageblock}
+described by the equation $\sage{E}$. This curve has rank $\sage{E.rank()}$ and 
+generator $\sage{E.gens()[0]}$. We can do computations with points on our 
+curve: 
+\begin{sageblock}
+P = E.gens()[0]
+5*P # as an element of E(Q)
+P.height() # Neron-Tate height of P
+\end{sageblock}
+A lot of analytic data can be computed: 
+\begin{sageblock}
+E.torsion_subgroup() # trivial for this curve 
+L = E.lseries().dokchitser() # the L-function of E
+L(1) # looks like zero
+L.derivative(1,2) # non-zero, so r_an<=1
+E.root_number() # sign in function equation (=-1, so r_an is odd) 
+E.regulator() 
+E.sha().an() # predicted order assuming BSD
+\end{sageblock}
+
+
+
+
+
+
 \subsection{The refined Sato-Tate conjecture}
 
 Alternatively, write 
@@ -1109,85 +1198,6 @@ You can try to predict the $K$. Serre does this in his paper \cite{se94}.
 
 % for ell. curves w/ CM, result of Hasse: look at l-adic rep, image is in Cartan...
 % stuff in one coset has trace zero...
-
-
-
-
-
-% on 11-21-2013
-\subsection{Some computations}
-
-Let $n=157$. We hope to show that $n$ is congruent, i.e. it is the area of a 
-triangle with rational side lengths $a,b,c$. In other words, the curve $C_n$ 
-defined as the solution set to 
-\begin{align*}
-  a^2+b^2 &= c^2 \\
-  a b/2 &= n
-\end{align*}
-has a rational point. 
-
-Let's use Magma to do this (just type \texttt{magma} into the shell on one of 
-the department computers). 
-
-(Magma handbook)
-
-\begin{lstlisting}
-E:=EllipticCurve([1,2,3,4,6]); 
-E; 
-E:=EllipticCurve([GF(23)!1,2,3,4,5,6]); # over a finite field F_23
-E:=EllipticCurve([4,6]); # y^2=x^3+4 x+6
-BadPrimes(E);
-Conductor(E);
-Factorization(Conductor(E)); # factorizes an integer
-MordellWeilGroup(E);
-TwoSelmerGroup(E);
-ThreeSelmerGroup(E); # takes a *long* time
-A,f:=MordellWeilGroup(E); # defs the (abst. ab. gp.) A, and a map to E(Q)
-f(A.1); # the generator as a rational point
-P:= f(A.1);
-2*P; # computes 2*P as an element of E(Q)
-7*P; # very large height
-20*P; # a monstrosity
-TorsionSubgroup(E); # is trivial in this case
-CanonicalHeight(P); # (Neron-Tate?)
-CanonicalHeight(20*P)/20^2; # is the same
-CanonicalHeight(P)-CanonicalHeight(20*P)/20^2; # a minute number
-AnalyticRank(E); # returns the rank and leading term, only heuristic
-?AnalyticRank # gives you some information
-L:=LSeries(E);
-Evaluate(L,1); # looks like zero
-RootNumber(E); # sign of functional equation (tells us r_an is odd)
-Evaluate(L,1:Derivative:=1);
-ConjecturalRegulator(E); # prod. of reg. and Sha (assuming BSD)
-Regulator(E); # is the same, so conjecturally Sha=1
-HeightPairing(P,P); # is the regulator in this case b/c rk=1
-
-E:=EllipticCurve([-157^2,0]) # cong. num. problem for n=157
-MordellWeilGroup(E); # it just returns a warning, claims rank should be 0
-RootNumber(E); # is -1, so r_an is odd, so we should have r_alg>0
-TwoSelmerGroup(E); # is (Z/2)^3
-L:=LSeries(E);
-Evaluate(L,1); # looks like zero
-Evaluate(L,1:Derivative:=1) # about 11, so r_an should be 1, so rk E should be 1
-ConjecturalRegulator(E); # around 54
-HeegnerPoint(E); # using the fact that E is modular
-\end{lstlisting}
-Doing some stuff, we get a triple $(a,b,c)$ with enormous height, giving a 
-triangle with area $157$. We could also do: 
-\begin{lstlisting}
-E:=EllipticCurve([1,GF(19)!2]) # elliptic curve over F_19
-#E; # computes number of points on E
-TraceOfFrobenius(E); 
-Points(E); # gives a list
-TorsionSubgroup(E); # gives structure, is Z/12
-2*sqrt(19); 
-\end{lstlisting}
-
-Magma can be found online at \url{http://magma.maths.usyd.edu.au/calc/}. 
-
-\textbf{(Rework all of this in Sage)}
-
-
 
 
 
