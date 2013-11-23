@@ -920,7 +920,7 @@ $y^2=x^3-x$, and let $\Omega=\Omega_E$ be its real period; one has
 \begin{theorem}[Tunnell]
 If $d\geqslant 1$ is a squarefree integer, then 
 \[
-  L(E_n,1) = 
+  L(E_d,1) = 
     \begin{cases}
       a(d)^2 \Omega d^{-1/2}/2 & \text{if $d$ is odd} \\
       b(d/2)^2 \Omega d^{-1/2} & \text{if $d$ is even} \text{.}
@@ -948,9 +948,9 @@ If we define
 Then for $d$ odd, $a(d) =0$ if and only if $A(d) = 2 B(d)$, and for $d$ even, 
 $b(d/2) = 0$ if and only if $C(d) = 2 D(d)$. These equalities are easy to 
 check via a brute search. 
-An easy example is $d=2$.  One has $C(2) = 2$, $D(2) = 2$, so 
-$b(n) = -2\ne 0$, hence $n$ is not congruent. Using Theorem \ref{thm:r_an=0}, 
-we see that $n=2$ is not a congruent number (unconditionally). 
+An easy example is $d=2$. One has $C(2) = D(2) = 2$, so $b(1)\ne 0$. Since 
+this implies $L(E_2,1)\ne 0$, we can use Theorem \ref{thm:r_an=0}, to see 
+that $n=2$ is not a congruent number (unconditionally). 
 
 
 
@@ -961,7 +961,7 @@ we see that $n=2$ is not a congruent number (unconditionally).
 Let $E$ be an elliptic curve over $\dQ$ with conductor $N$. For primes $p$ not 
 dividing $N$, recall we defined $a_p(E) = p+1-\# E(\dF_p)$, and proved the 
 Hasse bound $|a_p(E)| \leqslant 2\sqrt p$. Thus if we define 
-$\varphi_p(E) = a_p(E) p^{-1/2} /2$, the numbers $\varphi_p(E)$ lie in the 
+$\varphi_p(E) = a_p(E) /2\sqrt p$, the numbers $\varphi_p(E)$ lie in the 
 interval $[-1,1]$. It is natural to ask, for fixed $E$, how the $\varphi_p(E)$ 
 are distributed in that interval. It is useful to set up some terminology, 
 which we do following the appendix to Chapter $1$ in \cite{se68}. 
@@ -969,11 +969,11 @@ which we do following the appendix to Chapter $1$ in \cite{se68}.
 For a topological space, let $C_0(X)$ denote the Banach space of continuous 
 complex-valued functions vanishing at infinity. This is the completion of the 
 space of continuous functions with compact support. If $X$ is locally compact, 
-it is either a theorem or a definition that the dual of $C_0(X)$ is isomorphic 
-as a Banach space to the space of Borel measures on $X$. A measure $\mu$ 
-corresponds to the functional 
+it is a theorem (one could take this as a definition of Borel measures) that 
+the dual of $C_0(X)$ is isomorphic as a Banach space to the space of Borel 
+measures on $X$. A measure $\mu$ corresponds to the functional 
 \[
-  f\mapsto \mu(f) = \int_X f\, d\mu \text{.}
+  f\mapsto  \int_X f\, d\mu \text{.}
 \]
 See \cite[6.19]{ru87} for a proof. Given $x\in X$, write $\delta_x$ for the 
 point mass $\delta_x(f) = f(x)$. For discrete $S\subset \dR$, we call a 
@@ -992,7 +992,7 @@ $\omega$ induces a Borel measure via
 \[
   f\mapsto \int_X f\omega \text{.}
 \]
-We will often identify $\omega$ with the measure induces. In particular, we 
+We will often identify $\omega$ with the measure it induces. In particular, we 
 will often abuse terminology by calling a sequence equidistributed with 
 respect to $\omega$. 
 
@@ -1003,14 +1003,8 @@ multiplication, then things were worked out quite a while ago. Let
 $k=\End^\circ(E)$; this is an imaginary quadratic field (we could write 
 $k=\dQ(\sqrt{-D})$ for $D$ a positive squarefree integer). If 
 $p\geqslant 5$ is inert in $k$, then $a_p(E) = 0$. The prime $p$ is inert 
-exactly when $\left(\frac{-D}{p}\right) = -1$. This 
-
-First suppose $E$ has complex multiplication, i.e. 
-$\End(E_{\bar\dQ})\ne \dZ$. In fact, $\End(E_{\bar\dQ})$ is an order in an 
-imaginary quadratic field $K=\dQ(\sqrt{-D})$ for $D>0$ a squarefree integer. 
-If $p\geqslant 5$ is inert in $K$ (which occurs if and only if 
-$\left(\frac{-D}{p}\right) = -1$) then $a_p(E)=0$). This occurs for half of the 
-primes. 
+exactly when $-D$ is not a quadratic residue modulo $p$, and this happens 
+for half of the primes. 
 
 \begin{theorem}[Deuring, Hecke]
 Let $E$ be an elliptic curve over $\dQ$ with complex multiplication. Then the 
@@ -1106,12 +1100,12 @@ $\widetilde P_{A_p}(x) = \prod_i \left(x-\frac{\omega_i}{\sqrt p}\right)$; the
 roots all have absolute value $1$. 
 
 \begin{conjecture}
-There exists a compact real Lie group $K$  in $GL(2,\dC)$ such that 
+There exists a compact real Lie group $K$  in $GL(2g,\dC)$ such that 
 $\widetilde P_{A_p}(x)$ are distributed like the characteristic polynomials of 
 random matrices in $K$ (wrt. the Haar measure). 
 \end{conjecture}
 
-You can try to predict the $K$ (Serre?). Also mention Lang-Trotter. 
+You can try to predict the $K$. Serre does this in his paper \cite{se94}. 
 
 % for ell. curves w/ CM, result of Hasse: look at l-adic rep, image is in Cartan...
 % stuff in one coset has trace zero...
