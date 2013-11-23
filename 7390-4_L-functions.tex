@@ -961,8 +961,8 @@ that $n=2$ is not a congruent number (unconditionally).
 Let $E$ be an elliptic curve over $\dQ$ with conductor $N$. For primes $p$ not 
 dividing $N$, recall we defined $a_p(E) = p+1-\# E(\dF_p)$, and proved the 
 Hasse bound $|a_p(E)| \leqslant 2\sqrt p$. Thus if we define 
-$\varphi_p(E) = a_p(E) /2\sqrt p$, the numbers $\varphi_p(E)$ lie in the 
-interval $[-1,1]$. It is natural to ask, for fixed $E$, how the $\varphi_p(E)$ 
+$b_p(E) = a_p(E) /2\sqrt p$, the numbers $b_p(E)$ lie in the 
+interval $[-1,1]$. It is natural to ask, for fixed $E$, how the $b_p(E)$ 
 are distributed in that interval. It is useful to set up some terminology, 
 which we do following the appendix to Chapter $1$ in \cite{se68}. 
 
@@ -997,8 +997,8 @@ will often abuse terminology by calling a sequence equidistributed with
 respect to $\omega$. 
 
 Let $E$ be an elliptic curve over $\dQ$. Recall that we defined 
-$\varphi_p(E) = a_p(E) / 2\sqrt p$. The Sato-Tate conjecture predicts the 
-distribution of the $\varphi_p$ in the interval $[-1,1]$. If $E$ has complex 
+$b_p(E) = a_p(E) / 2\sqrt p$. The Sato-Tate conjecture predicts the 
+distribution of the $b_p$ in the interval $[-1,1]$. If $E$ has complex 
 multiplication, then things were worked out quite a while ago. Let 
 $k=\End^\circ(E)$; this is an imaginary quadratic field (we could write 
 $k=\dQ(\sqrt{-D})$ for $D$ a positive squarefree integer). If 
@@ -1008,7 +1008,7 @@ for half of the primes.
 
 \begin{theorem}[Deuring, Hecke]
 Let $E$ be an elliptic curve over $\dQ$ with complex multiplication. Then the 
-sequence $\{\varphi_p(E)\}_p$ is equidistributed in $[-1,1]$ with respect to 
+sequence $\{b_p(E)\}_p$ is equidistributed in $[-1,1]$ with respect to 
 the  measure 
 \[
   \frac 1 2 \delta_0 + \frac{dt}{2\pi \sqrt{1-t^2}} \text{.}
@@ -1018,7 +1018,7 @@ the  measure
 Do this using the associated $\ell$-adic representation. 
 \end{proof}
 In other words, if we restrict ourselves to primes that split in $k$, the 
-$\varphi_p(E)$ are distributed according to the following graph, corresponding 
+$b_p(E)$ are distributed according to the following graph, corresponding 
 to the curve $y^2=x^3+1$. The image was taken from Andrew Sutherland's 
 web page \url{http://math.mit.edu/~drew}, which has many more examples. 
 
@@ -1031,7 +1031,7 @@ without complex multiplication.
 
 \begin{conjecture}[Sato-Tate]
 Let $E$ be a non-CM elliptic curve over $\dQ$. Then the sequence 
-$\{\varphi_p(E)\}_p$ is equidistributed in $[-1,1]$ with respect to the 
+$\{b_p(E)\}_p$ is equidistributed in $[-1,1]$ with respect to the 
 measure 
 \[
   \frac{2}{\pi} \sqrt{1-t^2}\, dt \text{.}
@@ -1159,12 +1159,30 @@ E.regulator()
 E.sha().an() # predicted order assuming BSD
 \end{sageblock}
 
+A fantastic place to learn more about Sage is its documentation page at 
+\url{http://www.sagemath.org/doc/}. 
+
 
 
 
 
 
 \subsection{The refined Sato-Tate conjecture}
+
+Let $E$ be an elliptic curve over $\dQ$. Recall we defined 
+$b(E) = a_p(E)/2\sqrt p$. If $E$ has CM, then the $b_p$ are 
+uniformly distributed in $[-1,1]$ with respect to the measure 
+\[
+  \frac 1 2 \delta_0 + \frac{dt}{2\pi\sqrt{1-t^2}} \text{,}
+\]
+and if $E$ is not CM, then the $b_p$ are uniformly distributed with respect to 
+\[
+  \frac{2}{\pi} \sqrt{1-t^2}\, dt \text{.}
+\]
+This has a natural reformulation which makes generalization easy. The 
+characteristic polynomial of $\rho_{E,\ell}(\frob_p)$ is 
+$t^2-a_p t + p$. If we normalize to have roots with absolute value $1$, we get 
+$\varphi_p = t^2 - \frac{a_p}{\sqrt p} t + 1$. 
 
 Alternatively, write 
 $\frac{a_p(E}{2\sqrt p} = \cos \theta_p$, and this says that the $\theta_p$ are 
@@ -1198,6 +1216,40 @@ You can try to predict the $K$. Serre does this in his paper \cite{se94}.
 
 % for ell. curves w/ CM, result of Hasse: look at l-adic rep, image is in Cartan...
 % stuff in one coset has trace zero...
+
+
+
+
+
+\subsection{The Bloch-Kato conjecture}
+
+Let $E$ be an elliptic curve over $\dQ$. Recall that the (strong) Birch and 
+Swinnerton-Dyer conjecture is the formula 
+\[
+  \lim_{s \to 1} \frac{L(E,s)}{(s-1)^{\rank E}} = \frac{\Omega_E \regulator_E \# \sha(E) \prod_p c_p}{\# E(\dQ)_\text{tors}^2} \text{,}
+\]
+together with the claim that everything involved is well-defined and finite. 
+For a number field $k$, recall that the \emph{Dedekind zeta function} of $k$ 
+is the series 
+\[
+  \zeta_k(s) = \sum_{\fa\subset \fo_k} \frac{1}{(N\fa)^s} \text{,}
+\]
+where $N\fa = [\fo_k:\fa]$ for an ideal $\fa$. It is a theorem that $\zeta_k$ 
+has an analytic continuation to $\dC\smallsetminus 1$. The pole at $s=1$, and 
+we have the following analytic \emph{class number formula}. Let $r$ be the 
+order of the pole of $\zeta_k$ at $1$, and let $r_1,r_2$ be the number of 
+real (resp. complex) places of $k$. Let $h$ be the class number of $k$, $d_k$ 
+be the discriminant of $k$. Then 
+\[
+  \lim_{s \to 1} \frac{\zeta_k(s)}{(s-1)^r} = \frac{2^{r_1} (2\pi)^{r_2} h \regulator_k}{\# \mu(k) |d_k|^{1/2}} \text{.}
+\]
+
+The Birch and Swinnerton-Dyer conjecture as well as the class number formula 
+are both special cases of a very far-reaching generalization called the 
+\emph{Bloch-Kato conjecture}. 
+
+\textbf{(add brief statement of Bloch-Kato)}
+
 
 
 
