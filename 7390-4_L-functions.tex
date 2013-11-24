@@ -1189,11 +1189,17 @@ conjugacy classes in $\operatorname{SU}(2)$, then $p\mapsto \varphi_p$ can be
 thought of as a map $\{\text{primes}\} \to X$. Embed $\operatorname{U}(1)$ in 
 $\operatorname{SU}(2)$ by the diagonal, and let $K=N(\operatorname{U}(1))$ be 
 its normalizer. The group $K$ is compact, so it has a unique normalized Haar 
-measure $\mu$. Let $\pi:K \to X$ be the canonical projection. Another way of 
-stating Theorem \ref{thm:deuring-hecke} is that $\{\varphi_p\}\subset X$ is 
-equidistributed with respect to the pushforward $\pi_\ast \mu$. 
+measure $\mu$. Let $\pi:K \to X$ be the canonical projection. 
 
-To see this, note that the trace induces an isomorphism 
+\begin{theorem}
+If $E$ is an elliptic curve with complex multiplication, then the 
+set $\{\varphi_p(E)\}\subset \operatorname{Cl}(\operatorname{SU}(2))$ is 
+equidistributed with respect to the measure $\pi_\ast \mu$, where $\mu$ is the 
+normalized Haar measure on $N(\operatorname{U}(1))$. 
+\end{theorem}
+\begin{proof}
+This is a restatement of Theorem \ref{thm:deuring-hecke}. To see this, note 
+that the trace induces an isomorphism 
 \[\xymatrix{
   \trace : \operatorname{Cl}\left(\operatorname{SU}(2)\right) \ar[r]^-\sim 
     & [-2,2] \text{.}
@@ -1206,7 +1212,8 @@ The group $K$ has two connected components, both isomorphic to $S^1$:
 The first connected component is mapped to $[-2,2]$ via 
 $z\mapsto 2\Re (z)$, and the second is mapped via $z\mapsto 0$. It is easy to 
 check that the pushforward of the Haar measure on $K$ is exactly 
-$\frac 1 2 \delta_0 + \frac{dt}{2\pi \sqrt{1-t^2}}$. 
+$\frac 1 2 \delta_0 + \frac{dt}{2\pi \sqrt{4-t^2}}$. 
+\end{proof}
 
 For non-CM elliptic curves, let $K=\operatorname{SU}(2)$, and write 
 $\pi:K \to X$ for the canonical projection. If $\mu$ is a normalized Haar 
