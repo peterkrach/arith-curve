@@ -9,25 +9,43 @@
 
 
 
-For the rest of the semester, we'll talk about various results of Faltings. Let 
-$A$ be an abelian variety of dimension $g\geqslant 1$ over a field $k$. As 
-usual, $\bar k$ is the algebraic closure of $k$ and 
-$G_k=\gal(\bar k/k)$ is the absolute Galois group. Let $\ell$ be a prime 
-invertible in $k$. The groups $A[\ell^n]$ are the $\ell^n$-torsion subgroups 
-of $A(\bar k)$. As an abstract group, $A[\ell^n]\simeq (\dZ/\ell^n)^{2 g}$. We 
-have an inverse system 
+
+\subsection{Background and Tate's conjecture}
+
+The goal of this section is to describe the relationships between a web of 
+conjectures that Faltings proved in his groundbreaking paper 
+\cite{fa86}. 
+
+Let $A$ be a $d$-dimensional abelian variety over a field $k$. As usual, we 
+write $\bar k$ for the algebraic closure of $k$ and $G_k=\gal(\bar k/k)$ for 
+the absolute Galois group of $k$. Fix a prime $\ell$ invertible in $k$. The 
+groups $A[\ell^n] = \{x\in A(\bar k):\ell^n x=0\}$ are abstractly isomorphic 
+to $(\dZ/\ell^n)^{\oplus 2d}$, and carry a continuous action of $G_k$. They 
+fit into an inverse system 
 \[\xymatrix{
-  \cdots \ar[r] 
-    & A[\ell^3] \ar[r]^-{\ell} 
-    & A[\ell^2] \ar[r]^-\ell 
-    & A[\ell] \text{.}
+  A[\ell] 
+    & A[\ell^2] \ar[l]_-\ell 
+    & A[\ell^3] \ar[l]_-\ell 
+    & \cdots \ar[l]
 }\]
-The $\ell$-adic \emph{Tate module} of $A$ is the inverse limit 
+Put 
 \[
-  T_\ell A = \varprojlim_n A[\ell^n] = \left\{(x_n)_n : x_n\in A[\ell^n]\text{ and }\ell x_{n+1} = x_n\right\} \text{.}
+  T_\ell A = \varprojlim A[\ell^n] = \left\{(x_n)\in \prod A[\ell^n] : \ell x_{n+1} = x_n\right\} \text{.}
 \]
-As an abstract group, $T_\ell A\simeq \dZ_\ell^{\oplus 2g}$. We set 
-$V_\ell A = T_\ell A\otimes_\dZ \dQ$; this is a $2g$-dimensional 
+This is the \emph{$\ell$-adic Tate module of $A$}. As a $\dZ_\ell$-module, 
+$T_\ell A \simeq \dZ_\ell^{\oplus 2 d}$. What makes $T_\ell A$ interesting is 
+that it carries a continuous action of $G_k$, induced by the action of $G_k$ 
+on the $A[\ell^n]$. In other words, after choosing a basis of $T_\ell A$, we 
+have a continuous representation 
+\[
+  \rho_{A,\ell} : G_k \to \operatorname{GL}(2 d,\dZ_\ell) \text{.}
+\]
+In fact, the representation $\rho_{A,\ell}$ factors through the smaller group 
+$\operatorname{GSp}(2 n,\dZ_\ell)$. One sees this via the \emph{Weil pairing} 
+$e:T_\ell A \times T_\ell A^\vee \to \dZ_\ell(1)$. 
+
+(See \cite{ta65} for original Tate conjectures.) 
+
 $\dQ_\ell$-vector space. We should think of $V_\ell A$ as an algebraic 
 analogue of $\h_1(A,\dQ_\ell)$. The group $G_k$ acts compatibly on the 
 $A[\ell^n]$, hence it acts on $T_\ell A$. This action is continuous and 
