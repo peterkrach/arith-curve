@@ -1186,7 +1186,7 @@ characteristic polynomial of $\rho_{E,\ell}(\frob_p)$ is
 $t^2-a_p t + p$. If we normalize to have roots with absolute value $1$, we get 
 $\varphi_p = t^2 - \frac{a_p}{\sqrt p} t + 1$. This is the characteristic 
 polynomial of a unique conjugacy class in $\operatorname{SU}(2)$. If we write 
-$X$ for the space $\operatorname{Cl}\left(\operatorname{SU}(2)\right)$ of 
+$X$ for the space $\operatorname{SU}(2)^\natural$ of 
 conjugacy classes in $\operatorname{SU}(2)$, then $p\mapsto \varphi_p$ can be 
 thought of as a map $\{\text{primes}\} \to X$. Embed $\operatorname{U}(1)$ in 
 $\operatorname{SU}(2)$ by the diagonal, and let $K=N(\operatorname{U}(1))$ be 
@@ -1195,15 +1195,15 @@ measure $\mu$. Let $\pi:K \to X$ be the canonical projection.
 
 \begin{theorem}
 If $E$ is an elliptic curve with complex multiplication, then the 
-set $\{\varphi_p(E)\}\subset \operatorname{Cl}(\operatorname{SU}(2))$ is 
+set $\{\varphi_p(E)\}\subset \operatorname{SU}(2)^\natural$ is 
 equidistributed with respect to the measure $\pi_\ast \mu$, where $\mu$ is the 
 normalized Haar measure on $N(\operatorname{U}(1))$. 
 \end{theorem}
 \begin{proof}
 This is a restatement of Theorem \ref{thm:deuring-hecke}. To see this, note 
-that the trace induces an isomorphism 
+that the operation ``take trace'' induces an isomorphism 
 \[\xymatrix{
-  \trace : \operatorname{Cl}\left(\operatorname{SU}(2)\right) \ar[r]^-\sim 
+  \trace : \operatorname{SU}(2)^\natural \ar[r]^-\sim 
     & [-2,2] \text{.}
 }\]
 The group $K$ has two connected components, both isomorphic to $S^1$:
@@ -1233,10 +1233,12 @@ $p$-Weil, so if we write $P_{A_p}(t) = \prod (t-\omega_i)$, then the polynomial
 $\varphi_p(A) = \prod \left(t-\frac{\omega_i}{\sqrt p}\right)$, has roots with 
 absolute value $1$. Thus $\varphi_p(A)$ determines a conjugacy class in 
 $\operatorname{SU}(2 d,\dC)$. Set 
-$X=\operatorname{Cl}\operatorname{SU}(2 d,\dC)$ and write 
+$X=\operatorname{SU}(2 d,\dC)^\natural$ and write 
 $\pi:\operatorname{SU}(2d,\dC) \to X$ for the canonical projection. As before, 
 we can think of $\varphi=\varphi(A)$ as a map 
 $\{\text{good primes}\} \to X$. 
+
+(Mention Katz's book \cite{ka88}, esp. the last chapter.) 
 
 
 \begin{conjecture}[Serre]
