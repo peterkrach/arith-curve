@@ -264,27 +264,44 @@ $C(\mathbb{F}_p)\ne\varnothing$.
 
 
 
-Let $k$ be a commutative ring, and let $\mathsf{Aff}_k$ be the category of 
-affine schemes over $k$, that is the opposite category of the category of 
-$k$-algebras. We identify schemes over $k$ with their associated functors 
-of points via the natural embedding 
-$\mathsf{Sch}_k \hookrightarrow \operatorname{PSh}(\mathsf{Aff}_k)$. For any 
-presheaf $X$ on $\mathsf{Aff}_k$, we define the associated \emph{de Rham 
-space} of $X$ to be the presheaf 
-\[
-  X_\text{dR}(A) = X(A/\fr (A))
-\]
-where $\fr (A)$ denotes the nilradical of $A$. There is a natural morphism 
-$X_\text{dR} \to X$. 
+Let $S$ be a base scheme, and let $\mathsf{Aff}_S$ be the category of 
+affine schemes over $S$. We identify schemes over $S$ with their associated 
+functors of points via the natural embedding 
+$\mathsf{Sch}_S \hookrightarrow \operatorname{PSh}(\mathsf{Aff}_S)$. 
 
 \begin{definition}
-A scheme $X$ over $k$ is 
-\begin{enumerate}
-  \item \emph{formally unramified} if $X_\textnormal{dR}\to X$ is monic
-  \item \emph{formally smooth} if $X_\textnormal{dR} \to X$ is epic 
-  \item \emph{forally \'etale} if $X_\textnormal{dR} \to X$ is an isomorphism. 
-\end{enumerate}
+A scheme $X$ over $S$ is \emph{formally \'etale} if whenever 
+$\fa\subset A$ is a square-zero ideal in $\mathsf{Aff}_S$, the map 
+$X(A) \to X(A/\fa)$ is a bijection. 
+The scheme $X$ over $S$ is \emph{\'etale} if it is formally \'etale and 
+locally of finite presentation. 
 \end{definition}
+
+We say that a collection $\{U_i\to X\}$ of morphisms is an \emph{\'etale 
+cover} if each $U_i \to X$ is \'etale of locally finite presentation, and 
+moreover the map $\coprod U_i \to X$ is surjective. With this notion of 
+coverage, the category of \'etale schemes over $X$ forms a site 
+$\et X$, the so-called \emph{small \'etale site} of $X$. If $f:X\to Y$ is a 
+morphism of schemes, we have an induced geometric morphism 
+$f:\operatorname{Sh}(\et X) \to \operatorname{Sh}(\et Y)$, and hence a 
+derived functor $\mathsf R f_\ast:\mathsf D(\et X) \to \mathsf D(\et Y)$. 
+
+If $X$ is a scheme over a field $k$, write $f:X\to \spec(k)$ for the structure 
+morphism. If $\sF$ is an \'etale sheaf on $X$, we write 
+$\h^i(X,\sF) = \mathsf R^i f_\ast \sF$. In other words, we regard 
+$\h^i(X,\sF)$ as a $G_k$-module. This is what is usually written 
+$\h^i(X_{\bar k},\sF)$; it is equivalent by \cite[I 4.1.1]{de77}.
+
+Suppose $\ell$ is a prime number invertible in $X$. Then we write 
+$\h^i(X,\dZ_\ell) = \varprojlim \h^i(X,\dZ/\ell^n)$ and 
+$\h^i(X,\dQ_\ell) = \h^i(X,\dZ_\ell)\otimes \dQ$. By our construction these 
+are sheaves on $\et{\spec(k)}$, i.e. they are $G_k$-modules. 
+
+The \'etale site is subcanonical, so the multiplicative group $\dG_m$ and the 
+group of $n$-th roots of unity $\mu_n$ are \'etale sheaves. Put 
+$\dZ/n(i) = \mu_n^{\otimes i}$, and $\sF(i) = \sF\otimes \dZ/n(i)$ for any 
+sheaf $\sF$ killed by $n$. There are natural isomorphisms 
+$\h^\bullet(X,\sF(i)) \simeq \h^\bullet(X,\sF)(i)$. 
 
 
 
