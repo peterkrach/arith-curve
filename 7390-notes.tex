@@ -257,6 +257,44 @@ $C(\mathbb{F}_p)\ne\varnothing$.
 
 
 
+\appendix
+\section{Brief introduction to \'etale cohomology}
+
+
+
+
+
+Let $k$ be a commutative ring, and let $\mathsf{Aff}_k$ be the category of 
+affine schemes over $k$, that is the opposite category of the category of 
+$k$-algebras. We identify schemes over $k$ with their associated functors 
+of points via the natural embedding 
+$\mathsf{Sch}_k \hookrightarrow \operatorname{PSh}(\mathsf{Aff}_k)$. For any 
+presheaf $X$ on $\mathsf{Aff}_k$, we define the associated \emph{de Rham 
+space} of $X$ to be the presheaf 
+\[
+  X_\text{dR}(A) = X(A/\fr (A))
+\]
+where $\fr (A)$ denotes the nilradical of $A$. There is a natural morphism 
+$X_\text{dR} \to X$. 
+
+\begin{definition}
+A scheme $X$ over $k$ is 
+\begin{enumerate}
+  \item \emph{formally unramified} if $X_\textnormal{dR}\to X$ is monic
+  \item \emph{formally smooth} if $X_\textnormal{dR} \to X$ is epic 
+  \item \emph{forally \'etale} if $X_\textnormal{dR} \to X$ is an isomorphism. 
+\end{enumerate}
+\end{definition}
+
+
+
+
+
+
+
+
+
+
 \bibliographystyle{alpha}
 \bibliography{7390-sources}
 

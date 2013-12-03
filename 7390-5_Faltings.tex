@@ -296,6 +296,124 @@ The function $L(A,s)$ converges on some region $\{\Im s>c\}$.
 
 
 
+% notes on 12-03-2013
+
+As before, let $A$ be a $d$-dimensional abelian variety over a number field 
+$k$. Fix a prime $\ell$. As we have seen, there is a continuous representation 
+\[
+  \rho_{A,\ell} : G_k \to \operatorname{GL}(2 d,\dZ_\ell) \text{,}
+\]
+coming from the action of $G_k$ on the $\ell$-adic Tate module of $A$. Let $v$ 
+be a finite place of $k$, corresponding to a prime $\fp\subset \fo_k$. Recall 
+that $A$ has good reduction at $v$ if and only if $\rho_{A,\ell}$ is unramified 
+at $v$, i.e. $\rho_{A,\ell}(I_v)=1$, where $I_v\subset G_k$ is an inertia 
+group of $v$. Choose $\frob_v\in G_k$, such that $\frob_v$ maps to the usual 
+Frobenius under $D_v \twoheadrightarrow G_{\kappa_v}$. For $v\nmid \ell$ at 
+which $A$ has good reduction, the element 
+$\rho_{A,\ell}(\frob_v)\in \operatorname{GL}(2 d,\dZ_\ell)$ is well-defined up 
+to conjugacy. So the characteristic polynomial 
+$\det(t\cdot 1-\rho_{A,\ell}(\frob_v)$ is well-defined. Even better, this 
+polynomial, \emph{a priori} an element of $\dZ_\ell[t]$, is equal to 
+$P_{A_v}(t)$, so it is an element of $\dZ[t]$, independent of $\ell$. By the 
+\v Cebotarev density theorem, the conjugacy classes $\{\frob_v\}$ are dense 
+in $G_k$, so the map 
+$\sigma\mapsto \det(1\cdot t-\rho_{A,\ell}(\sigma))$ is determined by the 
+$P_{A_v}$. 
+
+Let $\varphi:A\to B$ be a morphism of abelian varieties. This induces a 
+$G_k$-equivariant morphism $\varphi_\ast:T_\ell A \to T_\ell B$. If $\varphi$ 
+is an isogeny, then $\varphi_\ast$ is an isomorphism after tensoring with 
+$\dQ$. In particular, if we think of $\rho_{A,\ell}$ as a 
+$\dQ_\ell$-representation, then $\rho_{A,\ell}\simeq \rho_{B,\ell}$. It follows 
+that $A$ and $B$ have the same bad primes. 
+
+In general, we have a map 
+\[
+  \hom(A,B) \to \hom_{G_k}(T_\ell A,T_\ell B)
+\]
+The following properties were conjectured by Tate and proved by Faltings. 
+\begin{enumerate}
+  \item (Semisimplicity) The representation 
+    $\rho_{A,\ell}:G_k \to \operatorname{GL}(2 d,\dQ_\ell)$ is semisimple. 
+    Equivalently, $V_\ell A = V_1 \oplus \cdots \oplus V_r$, where each 
+    $V_r$ is an irreducible $G_k$-module. 
+  \item (Tate conjecture) There is an isomorphism 
+    \[
+      \hom(A,B)\otimes\dQ_\ell \to \hom_{G_k}(V_\ell A,V_\ell B) \text{.}
+    \]
+\end{enumerate}
+
+Tate proved these conjectures over a finite field. This implies the injectivity 
+part of Honda-Tate. 
+
+\begin{theorem}[Isogeny theorem]
+Abelian varieties $A$ and $B$ over a number field $k$ are isogenous if and only 
+if $\rho_{A,\ell}$ and $\rho_{B,\ell}$ are isomorphic. 
+\end{theorem}
+\begin{proof}
+We've already shown that if $A$ and $B$ are isogenous, then 
+$\rho_{A,\ell}\simeq \rho_{B,\ell}$. The Tate conjecture gives us an 
+isomorphism 
+\[\xymatrix{
+  \hom(A,B)\otimes\dQ_\ell \ar[r]^-\sim 
+    & \hom_{G_k}(V_\ell A,V_\ell B) \text{.}
+}\]
+Assuming $\rho_{A,\ell}$ and $\rho_{B,\ell}$ are isomorphic, we can choose 
+a specific isomorphism $f:\rho_{A,\ell}\to \rho_{B,\ell}$. We know that 
+$\hom(A,B)\simeq \dZ \alpha_1\oplus \cdots \oplus \dZ \alpha_s$, so we have 
+$f=\sum m_i \alpha_i$ with the $m_i\in \dQ_\ell$. Without loss of generality, 
+we can assume $m_i\in \dZ_\ell$. Let $\varphi=\sum n_i \alpha_i$, where the 
+$n_i\in \dZ$ are ``sufficiently close'' to $m_i\in \dZ_\ell$. We have a map 
+$\varphi_\ast:V_\ell A \to V_\ell B$, which we claim is an isomorphism. 
+This follows from the fact that isomorphisms are open in 
+$\hom_{G_k}(V_\ell A,V_\ell B)$. We claim that $\varphi$ is an isogeny. 
+Let $C=(\ker\varphi)^\circ\subset A$. If $C\ne 0$, then $\varphi(C[\ell^n])=0$ 
+for all $n$, so $\varphi_\ast(V_\ell C)=0$. This cannot be, because 
+$\dim V_\ell C>0$. Thus $C=0$, so $\ker C$ is finite, so $\varphi$ is an 
+isogeny. 
+\end{proof}
+
+Choose a finite place $v$ of $k$ at which $A$ has good reduction. The 
+polynomial $P_{A_v}(t)$ is integral, monic, and has degree $2 d$. So we can 
+write 
+\[
+  P_{A_v}(t) = t^{2 d} - a_v(A) t^{2 d-1} + \cdots 
+\]
+where $a_v(A)\in \dZ$. We have $|a_v(A)|\leqslant 2 g \sqrt{N v}$ since the 
+roots of $P_{A_v}$ have absolute value $\sqrt{N v}$. 
+
+If $A=E$ is an elliptic curve over $\dQ$, then this definition of $a_v(E)$ 
+agrees with the the standard definition $a_p(E)=p+1-\# E(\dF_p)$. If 
+$C$ is a nice curve over $\dQ$ of genus $g$, then for 
+$A=\jac C$, we have $\# C(\dF_p) = p+1-a_p(A)$. 
+
+\begin{theorem}
+Let $A$ and $B$ be abelian varieties over a number field $k$. Let $S$ be a
+finite set of places of $k$, containing the infinite places, as well as the 
+bad places for $A$ and $B$. Then $A$ is isogenous to $B$ if and only if 
+$a_v(A)=a_v(B)$ for all $v\notin S$. 
+\end{theorem}
+\begin{proof}
+Fix a prime $\ell$. If $A$ and $B$ are isogenous, then 
+$\rho_{A,\ell}\simeq \rho_{B,\ell}$, so 
+$a_v(A)=\trace(\rho_{A,\ell}(\frob_v))=\trace(\rho_{B,\ell}(\frob_v))=a_v(B)$ 
+for all places $v\notin S\cup\{\ell\}$. 
+
+Now we prove the converse. We know that $\rho_{A,\ell}$ is semisimple, so its 
+character $\chi=\trace\circ \rho_{A,\ell}:G_k \to \dQ_\ell$ determines 
+$\rho_{A,\ell}$ by Brauer-Nesbitt. The function $\chi$ is determined by its 
+values $\chi(\frob_v)$ with $v\notin S$, since $\chi$ is continuous and the 
+$\frob_v$ are dense in $G_k$. But 
+$\chi(\frob_v)=\trace \rho_{A,\ell}(\frob_v) = a_v(A)$, so $\{a_v(A)\}$ 
+determines $\rho_{A,\ell}$, and hence the isogeny class of $A$. 
+\end{proof}
+
+(You could also just say all $v$ in a density-one set of places.) 
+
+
+
+
+
 
 
 
