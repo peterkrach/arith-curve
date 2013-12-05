@@ -27,6 +27,7 @@
 }
 \RequirePackage[hidelinks,pdfpagelabels,backref=page]{hyperref}
 \RequirePackage[all]{xy}
+\RequirePackage[text={5.5in,8in},centering]{geometry}
 \newcommand{\myboldfont}{\mathbb}
 
 % uses mathpazo and mathbf
@@ -110,6 +111,8 @@
   \newtheorem{example}[subsubsection]{Example}
   
 \renewcommand{\bullet}{\text{\,\begin{picture}(-1,1)(-1,-2)\circle*{2}\end{picture}\ }}
+
+\newcommand{\gl}[2]{\operatorname{GL}(#1,#2)}
 
 
 
