@@ -303,7 +303,8 @@ $p\geqslant 5$, the wild part is zero and there is an easy formula for $f_p$:
       \end{cases}
 \]
 See \cite[IV.10.2]{si94} for a proof of this. Sometimes $f_p$ is called the 
-\emph{Swan conductor} of $E[\ell]$. 
+\emph{Swan conductor} of $E[\ell]$. \textbf{(mention $\ell$-independence of 
+Swan conductor)}
 %There is an easy way to compute 
 %$f_p$ even when $p\leqslant 3$, called the \emph{Grothendieck-Ogg-Saito 
 %formula}. 
@@ -1181,7 +1182,7 @@ and if $E$ is not CM, then the $b_p$ are uniformly distributed with respect to
 \[
   \frac{2}{\pi} \sqrt{1-t^2}\, dt \text{.}
 \]
-This has a natural reformulation which makes generalization easy. The 
+This has a natural reformulation which makes generalization easier. The 
 characteristic polynomial of $\rho_{E,\ell}(\frob_p)$ is 
 $t^2-a_p t + p$. If we normalize to have roots with absolute value $1$, we get 
 $\varphi_p = t^2 - \frac{a_p}{\sqrt p} t + 1$. This is the characteristic 
@@ -1191,13 +1192,13 @@ conjugacy classes in $\operatorname{SU}(2)$, then $p\mapsto \varphi_p$ can be
 thought of as a map $\{\text{primes}\} \to X$. Embed $\operatorname{U}(1)$ in 
 $\operatorname{SU}(2)$ by the diagonal, and let $K=N(\operatorname{U}(1))$ be 
 its normalizer. The group $K$ is compact, so it has a unique normalized Haar 
-measure $\mu$. Let $\pi:K \to X$ be the canonical projection. 
+measure.
 
 \begin{theorem}
 If $E$ is an elliptic curve with complex multiplication, then the 
 set $\{\varphi_p(E)\}\subset \operatorname{SU}(2)^\natural$ is 
-equidistributed with respect to the measure $\pi_\ast \mu$, where $\mu$ is the 
-normalized Haar measure on $N(\operatorname{U}(1))$. 
+equidistributed with respect to the pushforward of the normalized Haar measure 
+on $N(\operatorname{U}(1))$. 
 \end{theorem}
 \begin{proof}
 This is a restatement of Theorem \ref{thm:deuring-hecke}. To see this, note 
@@ -1217,40 +1218,32 @@ check that the pushforward of the Haar measure on $K$ is exactly
 $\frac 1 2 \delta_0 + \frac{dt}{2\pi \sqrt{4-t^2}}$. 
 \end{proof}
 
-For non-CM elliptic curves, let $K=\operatorname{SU}(2)$, and write 
-$\pi:K \to X$ for the canonical projection. If $\mu$ is a normalized Haar 
-measure on $K$, then the Sato-Tate conjecture states that 
-$\{\varphi_p\}\subset X$ is uniformly distributed with respect to the measure 
-$\pi_\ast \mu$. To see this, check that 
-the pushforward by the trace of the normalized Haar measure on $K$ to $[-2,2]$ 
-is $\frac{1}{2\pi} \sqrt{4-t^2} dt$. 
+For non-CM elliptic curves, let $K=\operatorname{SU}(2)$. Then the Sato-Tate 
+conjecture states that $\{\varphi_p\}\subset \gl{2}{\dC}^\natural$ is 
+uniformly distributed with respect to the pushforward of the normalized Haar 
+measure on $K$. To see this, check that the pushforward by the trace of the 
+normalized Haar measure on $K$ to $[-2,2]$ is $\frac{1}{2\pi} \sqrt{4-t^2} dt$. 
 
-More generally, let $A$ be a $d$-dimenaional abelian variety over $\dQ$, and 
+More generally, let $A$ be a $d$-dimensional abelian variety over $\dQ$, and 
 let $\ell$ be a prime at which $A$ has good reduction. For any prime $p$ of 
 good reduction, we have the characteristic polynomial $P_{A_p}$ of the 
 Frobenius at $p$ acting on $T_\ell A$. The roots of this polynomial are 
 $p$-Weil, so if we write $P_{A_p}(t) = \prod (t-\omega_i)$, then the polynomial 
 $\varphi_p(A) = \prod \left(t-\frac{\omega_i}{\sqrt p}\right)$, has roots with 
-absolute value $1$. Thus $\varphi_p(A)$ determines a conjugacy class in 
-$\operatorname{SU}(2 d,\dC)$. Set 
-$X=\operatorname{SU}(2 d,\dC)^\natural$ and write 
-$\pi:\operatorname{SU}(2d,\dC) \to X$ for the canonical projection. As before, 
-we can think of $\varphi=\varphi(A)$ as a map 
-$\{\text{good primes}\} \to X$. 
-
-(Mention Katz's book \cite{ka88}, esp. the last chapter.) 
-
+absolute value $1$. Then by \cite[13.1]{ka88}, $\varphi_p(A)$ determines a 
+conjugacy class in $\operatorname{SU}(2 d,\dC)$. As before, we think of 
+$\varphi(A)$ as a map 
+$\{\text{good primes}\}\to \operatorname{GSp}(2 d,\dC)^\natural$. 
 
 \begin{conjecture}[Serre]
-There exists a compact real Lie group $K$ in $\operatorname{SU}(2g,\dC)$ such 
-that $\{\varphi_p(A)\}\subset X$ is equidistributed with respect to 
-$\pi_\ast \mu$, where $\mu$ is the normalized Haar measure on $K$.
+There exists a compact real Lie group $K$ in $\operatorname{GSp}(2d,\dC)$ such 
+that $\{\varphi_p(A)\}\subset \operatorname{GSp}(2 d,\dC)^\natural$ is 
+equidistributed with respect to the pushforward of the normalized Haar 
+measure on $K$. 
 \end{conjecture}
 
-One can try to predict the group $K$. It is possible to do this conjecturally 
-in much greater generality. The following mostly follows Serre's original 
-paper \cite{se94}, but see \cite{se12} for a more elementary and explicit 
-approach. 
+There is a conjectural prediction of the group $K$, which we will treat in the 
+next section. 
 
 
 
@@ -1258,57 +1251,112 @@ approach.
 
 \subsection{Motives and the refined Sato-Tate conjecture}
 
-Let $k$ be a field, and let $X$ be a smooth variety over $k$. Write 
+The following mostly follows Serre's original paper \cite{se94}, but see 
+\cite{se12} for a more elementary and explicit approach. 
+
+Let $k$ be a field, and let $X$ be an $n$-dimensional smooth variety over $k$. Write 
 $\chow(X) = \chow^\bullet(X)$ for the Chow ring of $X$, consisting of algebraic 
 cycles modulo rational equivalence. The intersection product makes $\chow(X)$ 
 into a commutative unital ring -- for details, see \cite[8.3]{fu98}. There is a 
-degree map $\deg:\chow^{\dim X} \to \dZ$, and we say a cycle 
+natural ``composition'' map 
+\begin{equation*}\tag{$*$}\label{eq:compose-cycles}
+  \chow(Y\times Z)\otimes \chow(X\times Y) \to \chow(X\times Z) \text{,}
+\]
+defined by 
+$g\circ f = \pi_{X\times Z, \ast}(\pi_{Y\times Z}^\ast g\cdot \pi_{X\times Y}^\ast f)$. 
+This satisfies all of the natural linearity and functoriality properties one 
+would expect \cite[16.1]{fu98}. 
+
+There is a canonical ``degree map'' $\deg:\chow^n \to \dZ$, and we say a cycle 
 $\alpha \in \chow^r(X)$ is \emph{numerically equivalent to zero} if 
-$\deg(\alpha\cdot \beta)=0$ for all $\beta\in \chow^{\dim X-r}(X)$. Write 
-$\chow_\text{num}(X)$ for the quotient of the (graded) ideal in $\chow(X)$ 
+$\deg(\alpha\cdot \beta)=0$ for all $\beta\in \chow^{n-r}(X)$. Write 
+$\chow_\text{num}(X)$ for the quotient of $\chow(X)$ by the (graded) ideal 
 generated by 
 \[
-  \{\alpha\in \chow(X) : \alpha\text{ is numerically eqivalent to zero}\} \text{.}
+  \{\alpha\in \chow(X) : \alpha\text{ is numerically equivalent to zero}\} \text{.}
 \]
 
 \begin{definition}
 Let $k$ be a field. A \emph{(pure) motive over $k$} is a triple 
-$(X,e,m)$, where $X$ is a smooth projective variety over $k$, 
+$(X,e,r)$, where $X$ is a smooth projective variety over $k$, 
 $e\in \chow_\textnormal{num}(X\times X)_\dQ$ is an idempotent, and 
-$m\in \dZ$. 
+$r\in \dZ$. 
 \end{definition}
 
 See \cite[4.1.3]{an04} for details. One defines a morphism 
-$(X,e,m) \to (Y,f,n)$ to be an element of 
+$(X,e,r) \to (Y,f,s)$ to be an element of 
 \[
-  f\cdot \chow^{\dim X - m - n}(X\times Y)_\dQ\cdot e \text{.}
+  f\cdot \chow^{\dim X - r - s}(X\times Y)_\dQ\cdot e \text{.}
 \]
+Morphisms are composed via the ``composition map'' \eqref{eq:compose-cycles}. 
+
 With this, write $\motives(k)$ for the category of (numerical) motives over 
 $k$. Let $\mathsf{SmProj}_k$ be the category of smooth projective varieties 
 over $k$, and let $h:\mathsf{SmProj}_k \to \motives(k)$ be the functor 
 $X\mapsto (X,1,0)$. The category $\motives(k)$ is obviously $\dQ$-linear, and 
-has a Tannakian structure via $h(X)\otimes h(Y) = h(X\times Y)$. Much more 
-strikingly, $\motives(k)$ is a semisimple abelian category \cite{ja92}. One 
-should think of a Weil cohomology theory as a functor 
-$\h:\motives(k) \to \mathsf{grAlg}_L$ for some field $L$. 
+has a Tannakian structure induced by $h(X)\otimes h(Y) = h(X\times Y)$. In 
+fact, $\motives(k)$ is a semisimple abelian category \cite{ja92}. One should 
+think of a Weil cohomology theory as a functor 
+$\h:\motives(k) \to \mathsf{grAlg}_L$ for some field $L$ (c.f. 
+\cite[4.2.5.1]{an04}). 
 
-\textbf{(add some details, better perspective)}
+Write $1=\h(\dA^0)$ for the trivial motive. Since every variety has a unique 
+morphism $X\to \dA^0$, there is a unique morphism $1\to M$ for every motive 
+$M$. The rational point $\infty\in \dP^1$ determines a splitting of 
+$1\to h(\dP^1)$, hence a direct sum decomposition $h(\dP^1)=1\oplus 1(-1)$, 
+where $1(-1)$ is the motive $(\dP^1,[\infty]\times \dP^1,0)$. We define 
+$1(r)=1(-1)^{\otimes(-r)}$; these are called \emph{Tate motives}. In general, 
+put $M(r) = M\otimes 1(r)$. There is a decomposition 
+$h(\dP^n) = 1\oplus \cdots \oplus 1(-n)$. If $A$ is a $d$-dimensional abelian 
+variety over $k$, then there is a unique decomposition 
+$h(A)=h^0(A)\oplus \cdots \oplus h^{2 d}(A)$ in $\motives(k)$ such that 
+$[n]$ acts as multiplication by $n^i$ on each $h^i(A)$ \cite[3.1]{ku94}. 
+What is more, there are canonical isomorphisms 
+$h^i(A)\simeq \bigwedge^i h^1(A)$, inducing an isomorphism 
+$h(A)\simeq \bigwedge^\bullet h^1(A)$ (3.3, loc. cit.). 
+
 
 Let $k$ be a number field, and choose an embedding 
 $\sigma:k \hookrightarrow\dC$. We have a Betti realization functor 
 $\h_\sigma:\motives(k) \to \mathsf{grAlg}_\dQ$, assigning to a motive 
-$M = (X,e,m)$ the vector space 
+$M = (X,e,r)$ the vector space 
 \[
-  \h_\sigma(M) = \h_\text{sing}^\bullet(X(k\xrightarrow\sigma\dC), \dQ)
+  \h_\sigma(M) = e^\ast \cdot \h_\text{sing}^\bullet(X(\dC), \dQ) \otimes \h_\text{sing}^2(\dP^1(\dC),\dQ)^{\otimes (-r)}
 \]
 Assuming Grothendieck's standard conjectures, the functor $\h_\sigma$ is a 
 \emph{fiber functor}, so $\mathsf{M}(k)$ is equivalent to the category of 
 representations of the (pro-reductive) \emph{motivic Galois group} 
 \[
-  G_\text{mot}(k) = \aut^\otimes(\h_\sigma) \text{.}
+  G_\text{mot}(k) = \aut^\otimes(\h_\sigma) = \left\{(x_M)\in \prod_{M\in\motives(k)} \operatorname{GL}(\h_\sigma M) : x_M\circ f^\ast = f^\ast\circ x_N\text{ for }f:M\to N \right\}\text{.}
 \]
-There are obvious projections from $G_\text{mot}(k)$ to the groups 
-$G_M$
+For a motive $M$, let $G_M$ be the automorphism group of the restriction of the 
+fiber functor to the largest Tannakian subcategory of $\motives(k)$ containing 
+$M$. There are obvious projections from $G_\text{mot}(k)$ to the groups $G_M$. 
+
+Let $M$ be a motive. There is a map $w:\dG_m \to G_M$, induced by the grading 
+$\h_\sigma M = \bigoplus \h_\sigma^d(M)$. The action of $a\in \dG_M$ on the 
+$d$-th piece is by $a^{-d}$. For example, if $E$ is an elliptic curve without 
+complex multiplication, then for $M=h^1(E)$, $G_M=\operatorname{GL}(2)$ and 
+$w:\dG_m \to \operatorname{GL}(2)$ is the inverse of the canonical injection. 
+
+For a motive $M$, there are $\ell$-adic realizations $\h_\ell(M)$ coming from 
+\'etale cohomology. After we fix a prime $\ell$, the representation 
+$\rho_{M,\ell}$ is unramified at all but finitely many places. For those 
+unramified places $v$, put 
+$\varphi_v(M) = w(N v^{1/2}) \rho_{M,\ell}(\frob_v)$. 
+
+Let $T=1(-1)$ be the Tate motive, and let $t:G_\text{mot}(k) \to G_T$ be the 
+canonical projection. For any motive $M$, let $G_M^1$ be the image of 
+$\ker(t)$ under the projection $G_\text{mot}(k) \to G_M$. 
+
+\begin{conjecture}[Serre]
+Let $M$ be a motive over a number field $k$. Let $K$ be a maximal compact 
+subgroup of $G_M^1$. The elements $\varphi_v(M)$ have eigenvalues in 
+$\bar\dQ$, and determine a unique conjugacy class (independent of $\ell$) 
+$\varphi_v(M) \in G_M^1(\dC)^\natural$. The set 
+$\{\varphi_v(M)\}\subset G_M^1(\dC)^\natural$ is equidistributed with respect 
+to the pushforward of the normalized Haar measure on $K$. 
+\end{conjecture}
 
 
 
@@ -1332,10 +1380,10 @@ where $N\fa = [\fo_k:\fa]$ for an ideal $\fa$. It is a theorem that $\zeta_k$
 has an analytic continuation to $\dC\smallsetminus 1$. The pole at $s=1$, and 
 we have the following analytic \emph{class number formula}. Let $r$ be the 
 order of the pole of $\zeta_k$ at $1$, and let $r_1,r_2$ be the number of 
-real (resp. complex) places of $k$. Let $h$ be the class number of $k$, $d_k$ 
+real (resp. complex) places of $k$. Let $h_k$ be the class number of $k$, $d_k$ 
 be the discriminant of $k$. Then 
 \[
-  \lim_{s \to 1} \frac{\zeta_k(s)}{(s-1)^r} = \frac{2^{r_1} (2\pi)^{r_2} h \regulator_k}{\# \mu(k) |d_k|^{1/2}} \text{.}
+  \lim_{s \to 1} \frac{\zeta_k(s)}{(s-1)^r} = \frac{2^{r_1} (2\pi)^{r_2}|d_k|^{-1/2} \regulator_k h_k}{\# \mu(k)} \text{.}
 \]
 
 The Birch and Swinnerton-Dyer conjecture as well as the class number formula 
