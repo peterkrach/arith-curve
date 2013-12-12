@@ -41,7 +41,7 @@ have a continuous representation
   \rho_{A,\ell} : G_k \to \gl{2 d}{\dZ_\ell} \text{.}
 \]
 
-The action of $G_k$ on $V_\ell = T_\ell A\otimes\dZ$ factors through 
+The action of $G_k$ on $V_\ell A = T_\ell A\otimes\dZ$ factors through 
 the smaller group $\operatorname{GSp}(2 n,\dQ_\ell)$. One sees this via the 
 \emph{Weil pairing}. Recall that $A^\vee = \picard_A^\circ$, which represents 
 the functor 
@@ -216,8 +216,6 @@ $A(\bar k)[\ell^n] = A(\overline{k_v})[\ell^n]\xrightarrow\sim A_v(\kappa_v)[\el
 These groups have (compatible) actions of $G_k$, $G_{k_v}$ and $G_{\kappa_v}$. In 
 particular, the inertia group $I_v$ acts trivially on $A(\bar k)[\ell^n]$. 
 
-\textbf{(mention Ogg-N\'eron-Shafarevich)}
-
 Summarizing: we have a well-defined action of $\frob_v$ on $A[\ell^n]$. 
 Patching, $\frob_v$ has a well-defined action on $T_\ell A$. (This action 
 matches the action of $\frob_{N v}$ on $T_\ell A_v$.) 
@@ -231,10 +229,17 @@ Let $A$ be an abelian variety over $k$ with good reduction at $v$. Then
     independent of $\ell$. 
 \end{enumerate}
 \end{theorem}
+\begin{proof}
+This is Theorem 1, paired with the corollary to Theorem 3 in \cite{st68}. 
+\end{proof}
 
 (\textbf{mention Serre's version using Haar measures})
 
-Recall the \v Cebotarev density theorem. Let $L/k$ be a finite Galois extension 
+Recall the \v Cebotarev density theorem. Let $k$ be a number field, $K/k$ a 
+(not necessarily finite) Galois extension. For $v$ unramified in $K/k$, there 
+is a well-defined conjugacy class $\frob_v\in \gal(K/k)^\natural$. 
+
+Let $L/k$ be a finite Galois extension 
 of number fields. For $v$ unramified in $L/k$, there is a well-defined 
 conjugacy class $[\frob_v]$ in $\gal(L/k)$. Take any conjugacy class $C$ in 
 $\gal(L/k)$. Then 
