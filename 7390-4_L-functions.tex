@@ -1016,15 +1016,8 @@ the  measure
 \]
 \end{theorem}
 \begin{proof}
-Let $F=\End^\circ(E)$, and let $\ell$ be a prime that splits in $\ell$ such 
-such that $E$ has good reduction at $\ell$. Note that $V_\ell E$ is naturally 
-a $F$-module, hence a $F\otimes\dQ_\ell = \dQ_\ell\times \dQ_\ell$-module. In 
-particular, the representation $\rho_{E,\ell}$ is actually a map 
-\[
-  \rho_{E,\ell}:G_\dQ \to \aut_{F\otimes\dQ_\ell}(V_\ell E) = \dQ_\ell^\times\times\dQ_\ell^\times
-\]
-
-Do this using the associated $\ell$-adic representation. 
+Do this for an arbitrary abelian variety with complex multiplication, using the 
+associated $\ell$-adic representation. 
 % for ell. curves w/ CM, result of Hasse: look at l-adic rep, image is in Cartan...
 % stuff in one coset has trace zero...
 \end{proof}
@@ -1210,15 +1203,23 @@ on $N(\operatorname{U}(1))$.
 \end{theorem}
 \begin{proof}
 This is a restatement of Theorem \ref{thm:deuring-hecke}. To see this, note 
-that the operation ``take trace'' induces an isomorphism 
+that the trace map induces an isomorphism 
 \[\xymatrix{
   \trace : \operatorname{SU}(2)^\natural \ar[r]^-\sim 
     & [-2,2] \text{.}
 }\]
-The group $K$ has two connected components, both isomorphic to $S^1$:
+The group $K=N(\operatorname{U}(1))$ has two connected components, both 
+isomorphic to $S^1$:
 \[
   K = 
-  \left\{\begin{pmatrix} z & \\ & z^{-1} \end{pmatrix} : z\in \dC,|z|=1 \right\} \cup \left\{\begin{pmatrix}  & -z\\ z^{-1} & \end{pmatrix} : z\in \dC ,|z|=1\right\} \text{.}
+  \left\{\begin{pmatrix} 
+    z & \\ 
+    & \bar z 
+  \end{pmatrix} : |z|=1 \right\} 
+  \cup \left\{\begin{pmatrix}
+         & -z\\ 
+         \bar z & 
+       \end{pmatrix} : |z|=1\right\} \text{.}
 \]
 The first connected component is mapped to $[-2,2]$ via 
 $z\mapsto 2\Re (z)$, and the second is mapped via $z\mapsto 0$. It is easy to 

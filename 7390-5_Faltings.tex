@@ -115,10 +115,11 @@ suitably general version of the Brauer-Nesbitt theorem. Fix a field $k$, and
 for an arbitrary group $G$, let $K_0(G)$ denote the Grothendieck group of 
 finite-dimensional $k$-representations of $G$. By the ``characteristic 
 polynomial'' of a representation $\rho:G \to \operatorname{GL}_k(V)$, we mean 
-the formal power series 
+the map $\chi_\rho:G\to \Lambda(k)=1+t k\llbracket t\rrbracket$ defined by 
 \[
-  \chi_\rho(g) = \frac{1}{\det(1-\rho(g)\cdot t, V)} \in \Lambda(k) = 1+t k\llbracket t\rrbracket \text{.}
+  \chi_\rho(g) = \frac{1}{\det(1-\rho(g)\cdot t, V)} \text{.}
 \]
+Alternatively, $t\frac{d}{dt} \log \chi_\rho(g) = \sum \trace(\rho(g)^n)$. 
 
 \begin{theorem}[Brauer-Nesbitt]
 If $S$ spans $k[G]$ as a $k$-vector space, then the map 
@@ -130,9 +131,9 @@ This is Theorem 5.21 of \cite{eg11}.
 \end{proof}
 
 \begin{corollary}
-If $G$ is a group and $\rho_1,\rho_2:G \to \operatorname{GL}_k(V)$ are two 
-semisimple representations with equal characteristic polynomials, then 
-$\rho_1\simeq \rho_2$. 
+If $k$ has characteristic zero and 
+$\rho_1,\rho_2:G \to \operatorname{GL}_k(V)$ are two semisimple representations 
+with identical characters, then $\rho_1\simeq \rho_2$. 
 \end{corollary}
 
 
@@ -157,8 +158,6 @@ is semisimple, so $\rho_{A,\ell}$ is determined by the characteristic
 polynomial of $\rho_{A,\ell}(\frob_q)$. For this, one needs the 
 \emph{\v Cebotarev density theorem}. 
 
-\textbf{(add details here or later)}
-
 
 
 
@@ -169,8 +168,8 @@ Fix a number field $k$, and a finite place $v$ of $k$. Let
 $\fp\subset \fo=\fo_k$ be the corresponding maximal ideal. Let $k_v$ be the 
 completion of $k$ at $v$. We choose $\bar k\subset \overline{k_v}$; this gives 
 a map $G_{k_v} \to G_k$, defined by $\sigma\mapsto \sigma|_{\bar k}$. This map 
-is only well-defined up to conjugation. In fact, this map is an injection. 
-Reduction modulo $\fp$ gives a homomorphism 
+is only well-defined up to conjugation. By Krasner's lemma, the map is an 
+injection. Reduction modulo $\fp$ gives a homomorphism 
 $G_{k_v} \to G_{\kappa_v}=\widehat\dZ$, where $\kappa_v = \fo_v/\fp$ is the 
 residue field of $\fp$. This map is surjective, so we have an exact sequence 
 (where we write $D_v$ for the image of $G_{k_v}$ in $G_k$):
@@ -179,82 +178,95 @@ residue field of $\fp$. This map is surjective, so we have an exact sequence
     & I_v \ar[r] 
     & D_v \ar[r] 
     & \widehat\dZ \ar[r] 
-    & 1
+    & 1 \text{.}
 }\]
 The group $G_{\kappa_v}$ is procyclic, with generator 
-$\frob_{N v}$ where $N v = \# \kappa_v$. Write $\frob_v$ for a lift of 
-$\frob_{N v}$ to $D_v$. The element $\frob_v\in G_k$ is only well-defined up to 
-conjugacy and multiplication by $I_v$. 
+$\frob_{N v}$, where as usual $N v = \# \kappa_v$. Write $\frob_v$ for a lift 
+of $\frob_{N v}$ to $D_v$. The element $\frob_v\in G_k$ is only well-defined up 
+to conjugacy and multiplication by $I_v$. 
 
 As before, let $A$ be an abelian variety over $k$ with good reduction at $v$. 
-In other words, there exists an abelian scheme $\cA$ over $\fo_v$ whose generic 
-fiber is $A_{k_v}$. (As in a cartesian diagram:
+Then (by definition) there exists an abelian scheme $\cA$ over $\fo_v$ whose 
+generic fiber is $A_{k_v}$. The scheme $\cA$ fits into a commutative diagram 
+with cartesian squares: 
 \[\xymatrix{
   A_v \ar[r] \ar[d] 
-    & \cA_v \ar[d] 
+    & \cA \ar[d] 
     & A_{k_v} \ar[l] \ar[d] \\
   \spec(\kappa_v) \ar[r] 
     & \spec(\fo_v) 
     & \spec(k_v) \ar[l] 
 }\]
-so that $A_v = \cA_{\kappa_v}$. In particular, $A_v$ is an abelian variety over 
-$\kappa_v$, and we have a reduction map 
+We have define $A_v=\cA_{\kappa_v}$. The property of being abelian is stable 
+under base change, so $A_v$ is an abelian variety over $\kappa_v$, and we have 
+a reduction map 
 \[
   A(k_v) = \cA(\fo_v) \to \cA(\kappa_v) = A_v(\kappa_v) \text{.}
 \]
 Extending to algebraic closures, we get a map 
 $A(\overline{k_v}) \to A_v(\overline{\kappa_v})$. This is a homomorphism with 
-pro-$p$ kernel. Let $\ell\nmid N v$. At the level of torsion, we have 
-isomorphisms 
+pro-$p$ kernel. Let $\ell\nmid v$ (i.e. $\ell$ is relatively prime to the 
+residue characteristic of $v$). At the level of torsion, we have isomorphisms 
 \[
-  A(\overline{k_v})[\ell^n] \to A_v(\overline{\kappa_v})[\ell^n]
+  A(\overline{k_v})[\ell^n] \to A_v(\overline{\kappa_v})[\ell^n] \text{.}
 \]
-(the map is injective since its kernel is pro-$p$, and it's surjective by 
-cardinality considerations: both groups have size $(\ell^n)^{2 d}$). This gives 
-us an isomorphism 
+The map is injective because its kernel is pro-$p$, and it is surjective by 
+cardinality considerations -- both groups have cardinality $(\ell^n)^{2 d}$). 
+This gives us an isomorphism 
 $A(\bar k)[\ell^n] = A(\overline{k_v})[\ell^n]\xrightarrow\sim A_v(\kappa_v)[\ell^n]$. 
 These groups have (compatible) actions of $G_k$, $G_{k_v}$ and $G_{\kappa_v}$. In 
 particular, the inertia group $I_v$ acts trivially on $A(\bar k)[\ell^n]$. 
 
-Summarizing: we have a well-defined action of $\frob_v$ on $A[\ell^n]$. 
-Patching, $\frob_v$ has a well-defined action on $T_\ell A$. (This action 
-matches the action of $\frob_{N v}$ on $T_\ell A_v$.) 
+It follows that $\frob_v$, \emph{a priori} only well-defined up to conjugacy 
+and multiplication by $I_v$, has a well-defined action on $A[\ell^n]$, and 
+hence on $T_\ell A$. That is, we have the following theorem. 
 
-\begin{theorem}
-Let $A$ be an abelian variety over $k$ with good reduction at $v$. Then 
+\begin{theorem}\label{thm:ab-var-good}
+Let $A$ be an abelian variety over $k$ with good reduction at $v$. Then for 
+$v\nmid \ell$, we have  
 \begin{enumerate}
   \item $\rho_{A,\ell}$ is unramified at $v$ (i.e. $\rho_{A,\ell}(I_v) = 1$) 
-  \item Moreover, $\rho_{A,\ell}$ is well-defined up to conjugacy and has 
-    characteristic polynomial $P_{A_v}(t)$ with integer coefficients that are 
-    independent of $\ell$. 
+  \item $\rho_{A,\ell}(\frob_v)$ is well-defined up to conjugacy and has 
+    characteristic polynomial $P_{A_v}(t)$ with integer coefficients that do 
+    not depend on $\ell$. 
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-This is Theorem 1, paired with the corollary to Theorem 3 in \cite{st68}. 
+See \ref{sec:char-frob} for a definition of $P_{A_v}(t)$. This is Theorem 1, 
+paired with the corollary to Theorem 3 in \cite{st68}. 
 \end{proof}
 
-(\textbf{mention Serre's version using Haar measures})
-
 Recall the \v Cebotarev density theorem. Let $k$ be a number field, $K/k$ a 
-(not necessarily finite) Galois extension. For $v$ unramified in $K/k$, there 
-is a well-defined conjugacy class $\frob_v\in \gal(K/k)^\natural$. 
+finite Galois extension. For $v$ unramified in $K/k$, there is a well-defined 
+conjugacy class $\frob_v\in \gal(K/k)^\natural$. \v Cebotarev's density theorem 
+is essentially the Sato-Tate conjecture for the motive 
+$h(\spec K)$, i.e. it predicts equidistribution of Frobenii, in the appropriate 
+sense. 
 
-Let $L/k$ be a finite Galois extension 
-of number fields. For $v$ unramified in $L/k$, there is a well-defined 
-conjugacy class $[\frob_v]$ in $\gal(L/k)$. Take any conjugacy class $C$ in 
-$\gal(L/k)$. Then 
+\begin{theorem}[\v Cebotarev]
+Let $K/k$ be a finite Galois extension of number fields with Galois group $G$. Then 
+$\{\frob_v\}\subset G^\natural$ is equidistributed with respect to the Haar 
+measure on $G$. 
+\end{theorem}
+\begin{proof}
+See \cite[1.2.2]{se68} for a beautiful proof using the representation theory of 
+compact groups. 
+\end{proof}
+
+Recall that the statement ``$\{\frob_v\}\subset G^\natural$ is 
+equidistributed'' means that for any conjugacy class $C\subset G$, we have 
 \[
-  \lim_{x \to \infty} \frac{\{\# v : N v \leqslant x \text{ and } [\frob_v]=C\}}{\# \{v:N v\leqslant x\}} = \frac{\# C}{\# \gal(L/k)}
+  \lim_{x \to \infty} \frac{\{\# v : N v \leqslant x \text{ and } \frob_v\in C\}}{\# \{v:N v\leqslant x\}} = \frac{\# C}{\# G}
 \]
-(In particular, each conjugacy class is the Frobenius for infinitely many 
-primes.) 
+It follows that each conjugacy class in $G$ is Frobenius for infinitely many 
+primes.  
 
-For example, if $L=\dQ(\zeta_n)$, then $\gal(L/\dQ)$ is naturally isomorphic to 
-$(\dZ/n)^\times$. For $p\nmid n$, one has $\frob_p \mapsto p\in (\dZ/n)^\times$. 
-Dirichlet's theorem says that for $a\in (\dZ/n)^\times$, there exist infinitely 
-many $p$ such that $p\equiv a\pmod n$. 
-
-(\textbf{sort all this out})
+For example, if $k=\dQ$ and $K=\dQ(\zeta_n)$, then $\gal(K/\dQ)$ is naturally 
+isomorphic to $(\dZ/n)^\times$. For $p\nmid n$, the Frobenius $\frob_p$ 
+corresponds to $p\in (\dZ/n)^\times$. Dirichlet's theorem says that for 
+$a\in (\dZ/n)^\times$, there exist infinitely many $p$ such that 
+$p\equiv a\pmod n$, i.e. the \v Cebotarev density theorem holds for cyclotomic 
+extensions. 
 
 \begin{theorem}[N\'eron-Ogg-Shafarevich]
 Let $A$ be an abelian variety over a number field $k$. Let $v$ be a place of 
@@ -262,20 +274,44 @@ $k$, and let $\ell$ be a prime with $v\nmid \ell$. Then $A$ has good reduction
 at $v$ if and only if $\rho_{A,\ell}$ is unramified at $v$. 
 \end{theorem}
 \begin{proof}
-Find Serre-Tate paper.
+This is the main theorem of \cite{st68}. 
 \end{proof}
 
-Let's define the $L$-function of a general abelian variety. For a place $v$, 
-choose a prime $\ell$ with $v\nmid \ell$. The action of 
-$\frob_v$ on $T_\ell A$ is only well-defined up to the action of 
-$I_v$. So $(T_\ell A)^{I_v}$ has a well-defined action of $\frob_v$. Set 
-\[
-  L_v(A,t) = \det\left(1-\rho_{A,\ell}(\frob_v)\cdot t,(T_\ell A)^{I_v}\right) \text{.}
-\]
-(This is the revere of $P_{A_v}(t)$ if $A$ has good reduction at $v$.) We define 
-\[
-  L(A,s) = \prod_{v\nmid \infty} L_v(A,(N v)^{-s}) \text{.}
-\]
+Let's define the $L$-function of an arbitrary abelian variety over a number 
+field $k$. For a place $v$ of $k$, choose a prime $\ell$ with $v\nmid \ell$. 
+The action of $\frob_v$ on $T_\ell A$ is only well-defined up to the action of 
+$I_v$. So $(T_\ell A)^{I_v}$ has a well-defined action of $\frob_v$. Define  
+\begin{align*}
+  L_v(A,t) &= \det\left(1-\rho_{A,\ell}(\frob_v)\cdot t,(T_\ell A)^{I_v}\right) \\
+  L(A,s) &= \prod_{v\nmid \infty} L_v\left(A,(N v)^{-s}\right)^{-1} \text{.}
+\end{align*}
+This is well-defined by the following theorem. 
+
+\begin{theorem}
+Let $A$ be an abelian variety over a number field $k$. For any finite place 
+$v$, the local factor $L_v(A,t)$ is an element of $\dZ[t]$ that does not depend 
+on $\ell$. 
+\end{theorem}
+\begin{proof}
+For $v$ a place of good reduction, this is Theorem \ref{thm:ab-var-good}. The 
+general case is a bit more subtle. Let $\cA$ be the N\'eron model for $A$ over 
+$\fo_v$, and let $A_v$ be the connected component of the identity in 
+$\cA_{\kappa_v}$. By Lemma 2 of \cite{st68}, there is a $D_v$-equivariant 
+isomorphism $(T_\ell A)^{I_v} \to T_\ell A_v$. 
+
+Chevalley's theorem (see \cite{co02} for a modern proof) gives us a linear 
+algebraic group $G\subset A_v$ such that $B=A_v/G$ is an abelian variety. In 
+other words, we have a short exact sequence 
+\[\xymatrix{
+  1 \ar[r] 
+    & G \ar[r] 
+    & A_v \ar[r] 
+    & B \ar[r] 
+    & 0 \text{.} 
+}\]
+By Tate's conjecture for finite fields, $T_\ell A_v$ is semisimple, so 
+$T_\ell A_v\simeq T_\ell B\oplus T_\ell G$ as $G_{\kappa_v}$-modules. 
+\end{proof}
 
 If $A=E$ is an elliptic curve over $\dQ$, then 
 \[
