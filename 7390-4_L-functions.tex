@@ -1242,13 +1242,12 @@ $\varphi_p(A) = \prod \left(t-\frac{\omega_i}{\sqrt p}\right)$, has roots with
 absolute value $1$. Then by \cite[13.1]{ka88}, $\varphi_p(A)$ determines a 
 conjugacy class in $\operatorname{SU}(2 d,\dC)$. As before, we think of 
 $\varphi(A)$ as a map 
-$\{\text{good primes}\}\to \operatorname{GSp}(2 d,\dC)^\natural$. 
+$\{\text{good primes}\}\to \operatorname{GL}(2 d,\dC)^\natural$. 
 
 \begin{conjecture}[Serre]
-There exists a compact real Lie group $K$ in $\operatorname{GSp}(2d,\dC)$ such 
-that $\{\varphi_p(A)\}\subset \operatorname{GSp}(2 d,\dC)^\natural$ is 
-equidistributed with respect to the pushforward of the normalized Haar 
-measure on $K$. 
+There exists a compact real Lie group $K$ in $\gl{2d}{\dC}$ such 
+that $\{\varphi_p(A)\}\subset \gl{2d}{\dC}^\natural$ is equidistributed with 
+respect to the pushforward of the normalized Haar measure on $K$. 
 \end{conjecture}
 
 There is a conjectural prediction of the group $K$, which we will treat in the 
@@ -1302,7 +1301,7 @@ Morphisms are composed via the ``composition map'' \eqref{eq:compose-cycles}.
 With this, write $\motives(k)$ for the category of (numerical) motives over 
 $k$. Let $\mathsf{SmProj}_k$ be the category of smooth projective varieties 
 over $k$, and let $h:\mathsf{SmProj}_k \to \motives(k)$ be the functor 
-$X\mapsto (X,1,0)$. The category $\motives(k)$ is obviously $\dQ$-linear, and 
+$X\mapsto (X,\Delta_X,0)$. The category $\motives(k)$ is obviously $\dQ$-linear, and 
 has a Tannakian structure induced by $h(X)\otimes h(Y) = h(X\times Y)$. In 
 fact, $\motives(k)$ is a semisimple abelian category \cite{ja92}. One should 
 think of a Weil cohomology theory as a functor 
@@ -1319,10 +1318,10 @@ put $M(r) = M\otimes 1(r)$. There is a decomposition
 $h(\dP^n) = 1\oplus \cdots \oplus 1(-n)$. If $A$ is a $d$-dimensional abelian 
 variety over $k$, then there is a unique decomposition 
 $h(A)=h^0(A)\oplus \cdots \oplus h^{2 d}(A)$ in $\motives(k)$ such that 
-$[n]$ acts as multiplication by $n^i$ on each $h^i(A)$ \cite[3.1]{ku94}. 
+$[n]$ acts as multiplication by $n^i$ on each $h^i(A)$ \cite[13.29]{gm13}. %\cite[3.1]{ku94}. 
 What is more, there are canonical isomorphisms 
 $h^i(A)\simeq \bigwedge^i h^1(A)$, inducing an isomorphism 
-$h(A)\simeq \bigwedge^\bullet h^1(A)$ (3.3, loc. cit.). 
+$h(A)\simeq \bigwedge^\bullet h^1(A)$ (13.47, loc. cit.). 
 
 
 Let $k$ be a number field, and choose an embedding 
@@ -1330,7 +1329,7 @@ $\sigma:k \hookrightarrow\dC$. We have a Betti realization functor
 $\h_\sigma:\motives(k) \to \mathsf{grAlg}_\dQ$, assigning to a motive 
 $M = (X,e,r)$ the vector space 
 \[
-  \h_\sigma(M) = e^\ast \cdot \h_\text{sing}^\bullet(X(\dC), \dQ) \otimes \h_\text{sing}^2(\dP^1(\dC),\dQ)^{\otimes (-r)}
+  \h_\sigma(M) = e^\ast \cdot \h_\text{sing}^\bullet(X(\dC), \dQ) \otimes \h^2(\dP^1)^{\otimes (-r)}
 \]
 Assuming Grothendieck's standard conjectures, the functor $\h_\sigma$ is a 
 \emph{fiber functor}, so $\mathsf{M}(k)$ is equivalent to the category of 

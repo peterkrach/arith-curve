@@ -41,29 +41,21 @@ have a continuous representation
   \rho_{A,\ell} : G_k \to \gl{2 d}{\dZ_\ell} \text{.}
 \]
 
-The action of $G_k$ on $V_\ell A = T_\ell A\otimes\dZ$ factors through 
-the smaller group $\operatorname{GSp}(2 n,\dQ_\ell)$. One sees this via the 
-\emph{Weil pairing}. Recall that $A^\vee = \picard_A^\circ$, which represents 
-the functor 
-\[
-  T \mapsto \picard^\circ(A_T)/\picard(T) \text{.}
-\]
-See Section \ref{sec:picard-scheme} for more details. The identity morphism 
-in $A^\vee(A^\vee)$ corresponds to an invertible sheaf $\sP$ on 
-$A\times A^\vee$, called the \emph{Poincar\'e bundle}. This gives a 
-biextension of $(A,A^\vee)$ by $\dG_m$ \cite[VII 2.9.5]{gr72}, and thus, by 
-\cite[VIII 2.2]{gr72}, a $G_k$-equivariant pairing 
-\[
-  e:V_\ell A \times V_\ell A^\vee \to V_\ell \dG_m = \dQ_\ell(1) \text{.}
-\]
-See \cite[IX 1.0]{gr72} for a brief summary. Choosing a polarization 
-$\lambda:A \to A^\vee$, we get an alternating nondegenerate pairing on 
-$V_\ell A$, so after a suitable change of basis, the image of 
-$\rho_{A,\ell}$ lands inside $\operatorname{GSp}(2 d,\dQ_\ell)$. We will mostly 
-just think of $\rho_{A,\ell}$ as a representation with values in 
-$\gl{2d}{\dZ_\ell}$ or $\gl{2d}{\dQ_\ell}$. It is 
-natural to ask how much $\rho_{A,\ell}$ ``knows about'' $A$, especially if $k$ 
-is a number field, or more generally, a finitely generated field. 
+The action of $G_k$ on $T_\ell A$ factors through 
+the smaller group $\operatorname{GSp}(2 n,\dZ_\ell)$ of symplectic simlitudes. 
+One sees this via the \emph{Weil pairing}. There is, for any $n$ invertible in 
+$k$, a natural perfect pairing $A[n]\times A^\vee[n] \to \mu_n$, defined at the 
+level of schemes. For a prime $\ell$ invertible in $k$, these pairings patch 
+together to give a perfect $G_k$-equivariant pairing 
+$T_\ell A \times T_\ell A^\vee \to \dZ_\ell(1)$. After a choice of polarization 
+$\lambda:A\to A^\vee$, we get an (alternating) pairing 
+$T_\ell A\times T_\ell A\to \dZ_\ell(1)$. If $\ell$ is relatively prime to the 
+degree of $\lambda$, then this pairing is perfect. In what follows, we will 
+always assume this to be the case. For a proof of these facts in a pretty 
+general setting, see \cite[11]{gm13}. 
+
+It is natural to ask how much $\rho_{A,\ell}$ ``knows about'' $A$, especially 
+if $k$ is a number field, or more generally, a finitely generated field. 
 
 Let $X$ be a nice variety over a finitely generated field $k$. For each $i$, 
 there is a canonical homomorphism 
@@ -85,7 +77,7 @@ means the following special case.
 Let $A,B$ be abelian varieties over a finitely generated field $k$. For any 
 prime $\ell$ invertible in $k$, the natural map 
 \[
-  \hom_k(A,B)\otimes\dQ_\ell \to \hom_{G_k}(V_\ell A, V_\ell B) \text{,}
+  \hom_k(A,B)\otimes\dQ_\ell \to \hom_{G_k}(V_\ell A, V_\ell B) 
 \]
 is a bijection. 
 \end{conjecture}
@@ -277,12 +269,19 @@ at $v$ if and only if $\rho_{A,\ell}$ is unramified at $v$.
 This is the main theorem of \cite{st68}. 
 \end{proof}
 
+
+
+
+
+\subsection{\texorpdfstring{$L$}{L}-function of an abelian variety}
+
 Let's define the $L$-function of an arbitrary abelian variety over a number 
 field $k$. For a place $v$ of $k$, choose a prime $\ell$ with $v\nmid \ell$. 
 The action of $\frob_v$ on $T_\ell A$ is only well-defined up to the action of 
-$I_v$. So $(T_\ell A)^{I_v}$ has a well-defined action of $\frob_v$. Define  
+$I_v$, but $(T_\ell A)_{I_v} = T_\ell A / \{\sigma x-x:x\in I_v\}$ has a 
+well-defined action of $\frob_v$. Define
 \begin{align*}
-  L_v(A,t) &= \det\left(1-\rho_{A,\ell}(\frob_v)\cdot t,(T_\ell A)^{I_v}\right) \\
+  L_v(A,t) &= \det\left(1-\rho_{A,\ell}(\frob_v)\cdot t,(T_\ell A)_{I_v}\right) \\
   L(A,s) &= \prod_{v\nmid \infty} L_v\left(A,(N v)^{-s}\right)^{-1} \text{.}
 \end{align*}
 This is well-defined by the following theorem. 
@@ -294,7 +293,16 @@ on $\ell$.
 \end{theorem}
 \begin{proof}
 For $v$ a place of good reduction, this is Theorem \ref{thm:ab-var-good}. The 
-general case is a bit more subtle. Let $\cA$ be the N\'eron model for $A$ over 
+general case is a bit more subtle. Characteristic polynomials are invariant 
+under transpose, so we can replace $(T_\ell A)_{I_v}$ with its dual 
+\[
+  \left((T_\ell A)_{I_v}\right)^\vee = \left((T_\ell A)^\vee\right)^{I_v} = (T_\ell A(-1))^{I_v} = (T_\ell A)^{I_v}(-1) \text{,}
+\]
+the second inequality coming from the Weil pairing and third coming from 
+the fact that the $\ell$-adic cyclotomic character is unramified at 
+$v\nmid \ell$. 
+
+Let $\cA$ be the N\'eron model for $A$ over 
 $\fo_v$, and let $A_v$ be the connected component of the identity in 
 $\cA_{\kappa_v}$. By Lemma 2 of \cite{st68}, there is a $D_v$-equivariant 
 isomorphism $(T_\ell A)^{I_v} \to T_\ell A_v$. 
@@ -309,11 +317,35 @@ other words, we have a short exact sequence
     & B \ar[r] 
     & 0 \text{.} 
 }\]
-By Tate's conjecture for finite fields, $T_\ell A_v$ is semisimple, so 
-$T_\ell A_v\simeq T_\ell B\oplus T_\ell G$ as $G_{\kappa_v}$-modules. 
+The group $G$ splits into a product $G=T\times U$, where $T$ is a (possibly 
+non-split) torus and $U$ is unipotent. The group $U$ will be an iterated 
+extension of copies of $\dG_a$, so $T_\ell U=0$. 
+
+Let $\widehat T=\hom_{\bar k}(T_{\bar k},\dG_{m,\bar k})$ be the group of 
+characters of $T$. This has an obvious continuous $G_k$-action, and there is a 
+$G_k$-equivariant pairing 
+\[
+  T_\ell T \otimes \widehat T \to \dZ_\ell(1) \text{,}
+\]
+given by $(x_n)_n\otimes \chi \mapsto (\chi(x_n))_n$. It is easy to see (by 
+base-change to $\bar k$) that this pairing is nondegenerate, so we have a 
+$G_k$-isomorphism $T_\ell T \simeq \widehat T^\vee \otimes \dZ_\ell(1)$. 
+We obtain 
+\[
+  \det(1-\rho_{A_v,\ell}(\frob_v)\cdot t) = \det(1-\rho_{B,\ell}(\frob_v)\cdot t,T_\ell B(-1)) \cdot \det(1-\frob_v\cdot t,\widehat T\otimes \dZ_\ell) \text{.}
+\]
+Since $T_\ell B(-1)\simeq T_\ell B^\vee$ and $G_k$ acts on 
+$\widehat T\otimes \dZ_\ell$ via its action on $\widehat T$, the characteristic 
+polynomial of Frobenius is an element of $\dZ[t]$ independent of $\ell$. 
 \end{proof}
 
-If $A=E$ is an elliptic curve over $\dQ$, then 
+Let's check that our definition of $L(A,s)$ agrees with our previous definition 
+in the case that $A=E$ is an elliptic curve over $k$. If $E$ has good reduction 
+at $v$, $(T_\ell E)_{I_v}=T_\ell E$ and there is nothing to prove. If $E$ has 
+bad reduction at $v$, then as before let $E_v$ be the connected component 
+of the special fiber of the N\'eron model at $v$. Recall that $E$ has 
+\emph{multiplicative reduction} at $v$ if $E_v$ is a torus, and \emph{additive 
+reduction} if $E_v$ is unipotent. Clearly  
 \[
   \rank_{\dZ_\ell} (T_\ell E)^{I_p}
   =
@@ -323,95 +355,100 @@ If $A=E$ is an elliptic curve over $\dQ$, then
     0 & \text{add. reduction}
   \end{cases}
 \]
-
-\textbf{(work on compatibility between this and classical definition of 
-local factors at bad places.)}
+If $E$ has split multiplicative reduction at $v$, then the local factor 
+$L_v(E,t)$ is the (reverse of) the characteristic polynomial of Frobenius 
+acting on $T_\ell \dG_m(-1) = \dZ_\ell$. On the other hand, if $E$ has 
+nonsplit multiplicative reduction at $v$, then by \cite[III,2.5]{si06}, 
+$E_v$ splits after a quadratic base-change, from which we see that 
+$\frob_v$ acts on $\widehat E_v$ as $-1$, whence the following: 
+\[
+  L_v(E,t) = 
+    \begin{cases}
+      1 & \text{additive reduction} \\
+      1-t & \text{split multiplicative reduction} \\
+      1+t & \text{nonsplit multiplicative reduction} \\
+      1 - a_p t + p t^2 & \text{good reduction} 
+    \end{cases}
+\]
 
 The function $L(A,s)$ should have an analytic continuation, functional equation, 
 it should satisfy BSD ($\ord_{s=1} L(A,s) = \rank_\dZ A(\dQ)$), and a ``fancy BSD'' 
 with a precise prediction of the coefficient in Taylor series. 
-
-The function $L(A,s)$ converges on some region $\{\Im s>c\}$. 
-
-
+By the Weil conjectures, the function $L(A,s)$ converges on some region 
+$\{\Im s>c\}$. 
 
 
 
-% notes on 12-03-2013
 
-As before, let $A$ be a $d$-dimensional abelian variety over a number field 
-$k$. Fix a prime $\ell$. As we have seen, there is a continuous representation 
-\[
-  \rho_{A,\ell} : G_k \to \gl{2 d}{\dZ_\ell} \text{,}
-\]
-coming from the action of $G_k$ on the $\ell$-adic Tate module of $A$. Let $v$ 
-be a finite place of $k$, corresponding to a prime $\fp\subset \fo_k$. Recall 
-that $A$ has good reduction at $v$ if and only if $\rho_{A,\ell}$ is unramified 
-at $v$, i.e. $\rho_{A,\ell}(I_v)=1$, where $I_v\subset G_k$ is an inertia 
-group of $v$. Choose $\frob_v\in G_k$, such that $\frob_v$ maps to the usual 
-Frobenius under $D_v \twoheadrightarrow G_{\kappa_v}$. For $v\nmid \ell$ at 
-which $A$ has good reduction, the element 
-$\rho_{A,\ell}(\frob_v)\in \gl{2 d}{\dZ_\ell}$ is well-defined up 
-to conjugacy. So the characteristic polynomial 
-$\det(t\cdot 1-\rho_{A,\ell}(\frob_v)$ is well-defined. Even better, this 
-polynomial, \emph{a priori} an element of $\dZ_\ell[t]$, is equal to 
-$P_{A_v}(t)$, so it is an element of $\dZ[t]$, independent of $\ell$. By the 
-\v Cebotarev density theorem, the conjugacy classes $\{\frob_v\}$ are dense 
-in $G_k$, so the map 
-$\sigma\mapsto \det(1\cdot t-\rho_{A,\ell}(\sigma))$ is determined by the 
-$P_{A_v}$. 
 
-Let $\varphi:A\to B$ be a morphism of abelian varieties. This induces a 
-$G_k$-equivariant morphism $\varphi_\ast:T_\ell A \to T_\ell B$. If $\varphi$ 
-is an isogeny, then $\varphi_\ast$ is an isomorphism after tensoring with 
-$\dQ$. In particular, if we think of $\rho_{A,\ell}$ as a 
-$\dQ_\ell$-representation, then $\rho_{A,\ell}\simeq \rho_{B,\ell}$. It follows 
-that $A$ and $B$ have the same bad primes. 
+\subsection{Tate conjectures and isogenies}
 
-In general, we have a map 
-\[
-  \hom(A,B) \to \hom_{G_k}(T_\ell A,T_\ell B)
-\]
-The following properties were conjectured by Tate and proved by Faltings. 
-\begin{enumerate}
-  \item (Semisimplicity) The representation 
-    $\rho_{A,\ell}:G_k \to \gl{2 d}{\dQ_\ell}$ is semisimple. 
-    Equivalently, $V_\ell A = V_1 \oplus \cdots \oplus V_r$, where each 
-    $V_r$ is an irreducible $G_k$-module. 
-  \item (Tate conjecture) There is an isomorphism 
-    \[
-      \hom(A,B)\otimes\dQ_\ell \to \hom_{G_k}(V_\ell A,V_\ell B) \text{.}
-    \]
-\end{enumerate}
+We begin with the following useful theorem.
 
-Tate proved these conjectures over a finite field. This implies the injectivity 
-part of Honda-Tate. 
-
-\begin{theorem}[Isogeny theorem]
-Abelian varieties $A$ and $B$ over a number field $k$ are isogenous if and only 
-if $\rho_{A,\ell}$ and $\rho_{B,\ell}$ are isomorphic. 
+\begin{theorem}\label{thm:trace-determines-rep}
+Let $k$ be a number field and $\rho_1,\rho_2:G_k \to \gl{n}{\dZ_\ell}$ 
+continuous semisimple representations. If 
+$\trace \rho_1(\frob_v) = \trace \rho_2(\frob_v)$ for all $v$ in a density-one 
+set of places, then $\rho_1\simeq \rho_2$. 
 \end{theorem}
 \begin{proof}
-We've already shown that if $A$ and $B$ are isogenous, then 
+By the \v Cebotarev density theorem, the set $\{\frob_v\}\subset G_k^\natural$ 
+is dense. It follows that $\trace \rho_1 = \trace \rho_2$, so the conclusion 
+follows from the Brauer-Nesbitt theorem. 
+\end{proof}
+
+We are mainly interested in the case when $\rho_1=\rho_{A,\ell}$ and 
+$\rho_2=\rho_{B,\ell}$ for $A,B$ abelian varieties over $k$. The theorem tells 
+us that if $P_{A_v} = P_{B_v}$ for almost all primes, then 
+$\rho_{A,\ell}\simeq \rho_{B,\ell}$. A morphism $f:A\to B$ of abelian varieties 
+induces a $G_k$-equivariant morphism $f_\ast:T_\ell A \to T_\ell B$. If $f$ is 
+an isogeny, then $f_\ast$ is an isomorphism after tensoring with $\dQ$. In 
+particular, if we think of $\rho_{A,\ell}$ as a $\dQ_\ell$-representation, then 
+$\rho_{A,\ell}\simeq \rho_{B,\ell}$. It follows that $A$ and $B$ have the same 
+bad primes. 
+
+The following theorem was conjectured by Tate, and proved when $k$ is a finite 
+field. 
+
+\begin{theorem}[Faltings]
+Let $k$ be a finitely generated field and $A,B$ abelian varieties over $k$. 
+Then 
+\begin{enumerate}
+  \item (Semisimplicity) The representation  $\rho_{A,\ell}$ is semisimple. 
+  \item (Tate conjecture) The natural map
+    \[
+      \hom(A,B)\otimes\dZ_\ell \to \hom_{G_k}(T_\ell A,T_\ell B)
+    \]
+    is an isomorphism. 
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+See \cite{fa86} for a proof when $k$ is a number field. 
+\end{proof}
+
+\begin{corollary}[Isogeny theorem]\label{thm:isogeny-thm}
+Abelian varieties $A$ and $B$ over a number field $k$ are isogenous if and only 
+if $\rho_{A,\ell}$ and $\rho_{B,\ell}$ are isomorphic. 
+\end{corollary}
+\begin{proof}
+We've already seen that if $A$ and $B$ are isogenous, then 
 $\rho_{A,\ell}\simeq \rho_{B,\ell}$. The Tate conjecture gives us an 
 isomorphism 
 \[\xymatrix{
-  \hom(A,B)\otimes\dQ_\ell \ar[r]^-\sim 
-    & \hom_{G_k}(V_\ell A,V_\ell B) \text{.}
+  \hom(A,B)\otimes\dZ_\ell \ar[r]^-\sim 
+    & \hom_{G_k}(T_\ell A,T_\ell B) \text{.}
 }\]
 Assuming $\rho_{A,\ell}$ and $\rho_{B,\ell}$ are isomorphic, we can choose 
-a specific isomorphism $f:\rho_{A,\ell}\to \rho_{B,\ell}$. We know that 
-$\hom(A,B)\simeq \dZ \alpha_1\oplus \cdots \oplus \dZ \alpha_s$, so we have 
-$f=\sum m_i \alpha_i$ with the $m_i\in \dQ_\ell$. Without loss of generality, 
-we can assume $m_i\in \dZ_\ell$. Let $\varphi=\sum n_i \alpha_i$, where the 
-$n_i\in \dZ$ are ``sufficiently close'' to $m_i\in \dZ_\ell$. We have a map 
-$\varphi_\ast:V_\ell A \to V_\ell B$, which we claim is an isomorphism. 
-This follows from the fact that isomorphisms are open in 
-$\hom_{G_k}(V_\ell A,V_\ell B)$. We claim that $\varphi$ is an isogeny. 
-Let $C=(\ker\varphi)^\circ\subset A$. If $C\ne 0$, then $\varphi(C[\ell^n])=0$ 
-for all $n$, so $\varphi_\ast(V_\ell C)=0$. This cannot be, because 
-$\dim V_\ell C>0$. Thus $C=0$, so $\ker C$ is finite, so $\varphi$ is an 
-isogeny. 
+a specific isomorphism $f:\rho_{A,\ell}\to \rho_{B,\ell}$. Since 
+$\hom_{G_k}(T_\ell A,T_\ell B)$ is a finite rank $\dZ_\ell$-module isomorphic 
+to $\hom(A,B)\otimes \dZ_\ell$, the space $\hom(A,B)$ is dense in 
+$\hom_{G_k}(T_\ell A,T_\ell B)$. The property ``$f:T_\ell A\to T_\ell B$ is an 
+isomorphism'' is open, so there exists $\varphi:A\to B$ such that 
+$\varphi_\ast$ is an isomorphism. We claim that $\varphi$ is an isogeny. 
+Indeed, let $C=(\ker\varphi)^\circ\subset A$. If $C\ne 0$, then 
+$\rank T_\ell C > 0$. This cannot be, because $\varphi_\ast(T_\ell C) = 0$ and 
+$\varphi_\ast$ is an isomorphism. Thus $C=0$, so $\ker \varphi$ is finite. By 
+dimension considerations, $\varphi$ is an isogeny. 
 \end{proof}
 
 Choose a finite place $v$ of $k$ at which $A$ has good reduction. The 
@@ -420,8 +457,9 @@ write
 \[
   P_{A_v}(t) = t^{2 d} - a_v(A) t^{2 d-1} + \cdots 
 \]
-where $a_v(A)\in \dZ$. We have $|a_v(A)|\leqslant 2 g \sqrt{N v}$ since the 
-roots of $P_{A_v}$ have absolute value $\sqrt{N v}$. 
+where $a_v(A)=\trace\rho_{A,\ell}(\frob_v)\in \dZ$. We have 
+$|a_v(A)|\leqslant 2 g \sqrt{N v}$, since the roots of $P_{A_v}$ have 
+absolute value $\sqrt{N v}$. 
 
 If $A=E$ is an elliptic curve over $\dQ$, then this definition of $a_v(E)$ 
 agrees with the the standard definition $a_p(E)=p+1-\# E(\dF_p)$. If 
@@ -429,83 +467,64 @@ $C$ is a nice curve over $\dQ$ of genus $g$, then for
 $A=\jac C$, we have $\# C(\dF_p) = p+1-a_p(A)$. 
 
 \begin{theorem}
-Let $A$ and $B$ be abelian varieties over a number field $k$. Let $S$ be a
-finite set of places of $k$, containing the infinite places, as well as the 
-bad places for $A$ and $B$. Then $A$ is isogenous to $B$ if and only if 
+Let $A$ and $B$ be abelian varieties over a number field $k$. Let $S$ be a 
+density-zero set of places of $k$, containing the infinite places, as well as 
+the bad places for $A$ and $B$. Then $A$ is isogenous to $B$ if and only if 
 $a_v(A)=a_v(B)$ for all $v\notin S$. 
 \end{theorem}
 \begin{proof}
 Fix a prime $\ell$. If $A$ and $B$ are isogenous, then 
 $\rho_{A,\ell}\simeq \rho_{B,\ell}$, so 
 $a_v(A)=\trace(\rho_{A,\ell}(\frob_v))=\trace(\rho_{B,\ell}(\frob_v))=a_v(B)$ 
-for all places $v\notin S\cup\{\ell\}$. 
-
-Now we prove the converse. We know that $\rho_{A,\ell}$ is semisimple, so its 
-character $\chi=\trace\circ \rho_{A,\ell}:G_k \to \dQ_\ell$ determines 
-$\rho_{A,\ell}$ by Brauer-Nesbitt. The function $\chi$ is determined by its 
-values $\chi(\frob_v)$ with $v\notin S$, since $\chi$ is continuous and the 
-$\frob_v$ are dense in $G_k$. But 
-$\chi(\frob_v)=\trace \rho_{A,\ell}(\frob_v) = a_v(A)$, so $\{a_v(A)\}$ 
-determines $\rho_{A,\ell}$, and hence the isogeny class of $A$. 
+for all places $v\notin S\cup\{\ell\}$. The converse is an immediate corollary 
+of \ref{thm:trace-determines-rep}. and the isogeny theorem 
+(\ref{thm:isogeny-thm}). 
 \end{proof}
 
-(You could also just say all $v$ in a density-one set of places.) 
+This theorem is not especially useful, because it requires checking 
+$a_v(A)=a_v(B)$ at an infinite set of places. The following lemma and its 
+corollary give us a way of capturing the isogeny class of an abelian variety 
+using a finite amount of data. 
 
 
 
 
 
-% notes on 12-05-2013
-
-Let $A$ be a $d$-dimensional abelian variety over a number field $k$. For any 
-prime $\ell$, the group $G_k=\gal(\bar k/k)$ acts on $T_\ell A$, giving a 
-representation 
-$\rho_{A,\ell}:G_k \to \aut_{\dQ_\ell}(V_\ell A) \simeq \gl{2 d}{\dQ_\ell}$. 
-For a (finite) place $v\nmid \ell$ for which $A$ has good reduction, the 
-representation $\rho_{A,\ell}$ is unramified at $v$. Moreover, the 
-characteristic polynomial $\det(t-\rho_{A,\ell}(\frob_v))$ is equal to 
-$P_{A_v}(t)\in \dZ[t]$, so it is independent of $\ell$. 
-
-Recall we proved that if $A$ and $B$ are abelian varieties over $k$, then 
-$A$ and $B$ are isogenous if and only if $\rho_{A,\ell}\simeq \rho_{B,\ell}$. 
-Taking traces, we got that $A$ and $B$ are isogenous if and only if 
-$a_v(A)=a_v(B)$ for a density-one set of places. 
+\subsection{Finiteness theorems}
 
 \begin{lemma}[Faltings]
-Take $d$-dimensional abelian varieties $A,B$ over a number field $k$, with good 
-reduction outside a finite set of places $S$. Then there is a finite set $T$ of 
-places, disjoint from $S$, and depending only on $(k,S,d)$, such that 
-$A$ and $B$ are isogenous if and only if $a_v(A)=a_v(B)$ for all $v\in T$. 
+Let $k$ be a number field, $S$ a finite set of places, and $n\geqslant 1$ an 
+integer. Then there is a finite set $T$ of places, disjoint from $S$ and 
+depending only on $(k,S,n)$, such that if 
+$\rho_1,\rho_2:G_{k,S} \to \gl{n}{\dZ_\ell}$ are continuous representations 
+with $\trace\rho_1(\frob_v) = \trace \rho_2(\frob_v)$ for all $v\in T$, then 
+$\rho_1\simeq \rho_2$. 
 \end{lemma}
 \begin{proof}
 Without loss of generality, we can assume $S$ contains all places dividing 
-$\ell$. We have a representation 
-$\rho_{A,\ell}:G_k \to \gl{2 d}{\dZ_\ell}$ and similarly for 
-$B$. Let 
-$\rho=\rho_{A,\ell}\times \rho_{B,\ell}:G_k \to \gl{2d}{\dZ_\ell}\times \gl{2d}{\dZ_\ell}$. 
-Let $R$ be the $\dZ_\ell$-subalgebra of $M_{2 d}(\dZ_\ell)\times M_{2 d}(\dZ_\ell)$ 
-generated by the image of $\rho$. Note that $R$ is a free $\dZ_\ell$-module of 
-rank at most $8 d^2$. We can consider the reduction of $\rho$ modulo $\ell$, 
-i.e. $\bar\rho:G_k \to (R/\ell)^\times$. We know that 
-$\# (R/\ell)^\times \leqslant \ell^{8 g^2}$, and that $\bar\rho$ is unramified 
-outside $S$. Recall that a theorem of Hermite says that there exists a finite 
-extension $K/k$ such that if $L/k$ is unramified outside $S$ and 
-$[L:k]\leqslant \ell^{8 d^2}$, then $L\subset K$. We can take $K$ minimal with 
-respect to this property. We have a commutative diagram: 
+$\ell$. Let $d = \ell^{2 n^2} = \# M_n(\dF_\ell)\times N_n(\dF_\ell)$. By 
+Hermite's theorem, there are only finitely many extensions of $k$ unramified 
+outside $S$ with degree $\leqslant d$. Let $K/k$ be a Galois extension 
+containing all these and let $G=\gal(K/k)$. The \v Cebotarev density theorem 
+tells us that there is a finite set $T$ (disjoint from $S$) of places of $k$ 
+such that $G^\natural = \{\frob_v:v\in T\}$. 
+
+Now let $\rho_1,\rho_2$ be as in the statement of the lemma. Set 
+$\rho=\rho_1\times\rho_2:G_{k,S} \to \gl{n}{\dZ_\ell}\times \gl{n}{\dZ_\ell}$. 
+Let $R$ be the $\dZ_\ell$-subalgebra of 
+$M_n(\dZ_\ell)\times M_n(\dZ_\ell)$ generated by the image of $\rho$. Note that 
+$R$ is a free $\dZ_\ell$-module of rank at most $2 n^2$. We can consider the 
+reduction of $\rho$ modulo $\ell$, i.e. $\bar\rho:G_k \to (R/\ell)^\times$. We 
+know that $\# (R/\ell)^\times \leqslant d$, so $\bar\rho$ factors through $G$ 
+as in the commutative diagram: 
 \[\xymatrix{
   G_k \ar[r]^-{\bar\rho} \ar@{->>}[d] 
     & (R/\ell)^\times \\
-  \gal(K/k) \ar[ur]
+  G \ar[ur]
 }\]
-The \v Cebotarev density theorem tells us that there is a finite set $T$ of 
-places (disjoint from $S$) such that all conjugacy classes of $\gal(K/k)$ are 
-all of the form $[\frob_v]$ for $v\in T$. 
-(We could have used "effective Hilbert irreducibility" or effective 
-\v Cebotarev to make this effective.) 
-We know that $\bar\rho(G_k)$ is generated by $\{\bar\rho([\frob_v]):v\in T\}$, 
-so $R/\ell$ is generated (as a group) by the images of 
-$\{\rho([\frob_v]):\in T\}$. By Nakayama's lemma, $R$ is generated, as a 
-$\dZ_\ell$-module, by $\{\rho([\frob_v]):v\in T\}$. 
+It follows that $R/\ell$ is generated (as a group) by the images of 
+$\{\rho([\frob_v]):\in T\}$. By Nakayama's lemma, $R$ is generated as a 
+$\dZ_\ell$-module by $\{\rho([\frob_v]):v\in T\}$. 
 
 Let $\varphi:R \to \dZ/\ell$ be the map $(g,h)\mapsto \trace g-\trace h$. This 
 is a homomorphism of $\dZ_\ell$-modules. Assume $a_v(A)=a_v(B)$ for all 
@@ -519,6 +538,14 @@ $\rho_{A,\ell}$ and $\rho_{B,\ell}$ are semisimple, this implies
 $\rho_{A,\ell}\simeq \rho_{B,\ell}$, and the isogeny theorem tells us that 
 $A$ and $B$ are isogenous. 
 \end{proof}
+
+\begin{corollary}
+Let $k$ be a number field, $S$ a finite set of places of $k$ and 
+$d\geqslant 1$ an integer. Then there is a finite set $T$ of places of $k$, 
+disjoint from $S$ and depending only on $(k,S,d)$, such that if $A$ and $B$ 
+are $d$-dimensional abelian varieties with good reduction outside $S$, then 
+$A$ and $B$ are isogenous if and only if $a_v(A)=a_v(B)$ for all $v\in T$. 
+\end{corollary}
 
 \begin{conjecture}[Shafarevich, for abelian varieties]
 Fix a number field $k$ and a finite set $S$ of places, and an integer 
@@ -565,12 +592,18 @@ $g$ with good reduction outside $S$.
 \begin{proof}
 Let $J$ be the jacobian of $C$. Then $J$ is an abelian variety over $k$ of 
 dimension $g$, with good reduction outside $S$. There are only finitely many 
-properties for $J$ (up to isomorphism). Recall that $C$ is determined by 
+possibilities for $J$ (up to isomorphism). Recall that $C$ is determined by 
 $(J,\theta)$. It is a theorem (of Narasim, Nori) from algebraic geometry that 
 if $A$ is an abelian variety over an algebraically closed field, then $A$ has 
 only finitely many principle polarizations up to $\aut(A)$. Thus there can be 
 only finitely many $C$ corresponding to $J$. 
 \end{proof}
+
+
+
+
+
+\subsection{Proof of the Mordell conjecture}
 
 Parshin (1968) proved that the Shafarevich conjecture proves the Mordell 
 conjecture (now Faltings' theorem). 
@@ -625,11 +658,6 @@ $x$. This contradicts the following
 If $X,Y$ are compact Riemann surfaces of genus $\geqslant 2$, then there are 
 only finitely many non-constant morphisms $X\to Y$. 
 \end{theorem}
-
-\[\xymatrix{
-  \mathsf R f_\ast \sK \overset{\mathsf L}{\boxtimes}\mathsf R g_\ast \sL \ar[r]^-\sim 
-    & \mathsf Rh_\ast (\sK\overset{\mathsf L}{\boxtimes} \sL) 
-}\]
 
 
 
