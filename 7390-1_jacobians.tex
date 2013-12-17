@@ -11,14 +11,15 @@
 
 %\subsection*{Abelian varieties over $\dC$}
 
-At first, we will work over $\dC$ and treat curves as Riemann surfaces. Since 
+At first, we will work over $\dC$ and treat curves as Riemann surfaces. By 
+\cite[I.6.12]{ha77} and \cite[5.8.7]{jo06}, 
 the category of smooth projective curves over $\dC$ is equivalent to the 
 category of compact connected Riemann surfaces, there is no loss of 
 information here. Let's start with some general definitions.
 
 \begin{definition}
 A \emph{variety} over a field $k$ is a separated scheme of finite type over 
-$\spec(k)$. We call a variety $X/k$ \emph{nice} if it is smooth, projective, 
+$\spec(k)$. We call a variety $X$ over $k$ \emph{nice} if it is smooth, projective, 
 and geometrically integral.
 \end{definition}
 
@@ -27,7 +28,7 @@ $X_{\bar k}=X\times_k \spec(\bar k)$ is integral. A \emph{curve} is a
 variety of dimension one. If we are interested in $C(k)$ for general curves, 
 it is sufficient to consider nice curves. If $X$ is a variety, we can consider 
 its functor of points $h_X:\mathsf{Alg}_k\to \mathsf{Set}$ which assigns to a 
-$k$-algebra $A$ the set $X(A)$ of ``$A$-valued points.'' This determines a 
+$k$-algebra $A$ the set $X(A)$ of ``$A$-valued points.'' This extends to a 
 functor $h_X:\mathsf{Sch}_k^\circ\to\mathsf{Set}$ which is defined by 
 $h_X(Y)=\hom_k(Y,X)$. 
 
@@ -56,14 +57,9 @@ the first singular homology group of $X$, which can be identified with
 $\pi_1(X)^\text{ab}$. We will regard elements of $\Lambda$ are equivalence 
 classes $[\gamma]$ for $\gamma\in \pi_1(X)$. 
 
-%\begin{remark}
-%The notation $\h_\bullet$, $\pi_1$\ldots will always denote the 
-%\emph{topological} homology, fundamental group\ldots. For, e.g. 
-%etale cohomology, we will write $\h_\text{et}^\bullet(C,\dQ_\ell)$, or 
-%$\h_\text{crys}^\bullet(X/\dZ_p)$ for crystalline cohomology.
-%\end{remark}
 
-It is a theorem of algebraic topology that $\Lambda\simeq\dZ^{2 g}$; we 
+It is a theorem of algebraic topology that $\Lambda\simeq\dZ^{2 g}$ for some 
+$g\geqslant 0$; we 
 will call $g$ the \emph{genus} of $X$ (and also of $C$). Let $K$ be the field 
 of meromorphic functions on $X$. That is, elements of $K$ are of the 
 form $f=g/h$ where $g$ and $h$ are holomorphic functions on $X$ and $g\ne 0$. 
@@ -72,7 +68,7 @@ $x\in X$, we can write $f$ in local coordinates as $z^n(a_0+a_1 z+\cdots)$
 where $a_0\ne 0$ and $n\in\dZ$. We call $n=\ord_x(f)$ the \emph{order 
 of vanishing} of $f$ at $x$. The \emph{degree} of $f$ is the sum 
 $\deg(f)=\sum_{x\in X}\ord_x(f)$. If $f$ is holomorphic instead of just 
-meromorphic, then $\deg(f)=0$.  
+meromorphic, then $\deg(f)\geqslant 0$, but the converse fails. 
  
 We can identify $K$ with the function field of $C$, i.e.\ the set of rational 
 maps $C\to\dA^1$. Certainly rational maps yield meromorphic functions, 
@@ -83,11 +79,10 @@ the integral closure of $\dC[x]$ in $K$, then $\spec(A)$ will be a
 smooth affine curve. Pick some embedding of $\spec(A)$ into projective space; 
 the closure of its image will be a projective curve $C'$ (possibly with 
 singularities) with function field $K$. We can resolve the singularities of 
-$C'$ to obtain a smooth projective curve $C''$ with function field $K$. 
-Clearly $C''$ and $C$ are birational -- in fact this forces them to be 
-isomorphic. Indeed, let $f:C''\to C$ be a birational map. By 
-\cite[thm 3.1]{mi-av}, $f$ and $f^{-1}$ are regular, hence $f$ is an 
-isomorphism of varieties. 
+$C'$ to obtain a smooth projective curve $C''$ with function field $K$. By 
+\cite[I.6.12]{ha77}, this induces an anti-equivalence between the category of 
+extensions $K/\dC$ of transcendence degree one and the category of nice 
+curves over $\dC$ with surjective morphisms. 
 
 One might ask whether the singular homology $\h_1(X,\dZ)$ can be 
 defined ``algebraically.'' Essentially, the answer is no -- that is, there is 
@@ -97,32 +92,32 @@ isomorphic to the dual of the algebraic de Rham cohomology
 $\h_\text{dR}^1(X/\dQ)$, and $\h_1(X,\dZ_\ell)$ is naturally 
 isomorphic to the dual of the $\ell$-adic cohomology 
 $\h_\text{et}^1(X,\dZ_\ell)$. Both of these isomorphisms are hard 
-theorems -- the first follows from work of Grothendieck \cite{gr66}, the 
-second from \cite[I 4.6.3]{de77}. 
+theorems -- the first due to Grothendieck \cite{gr66}, the 
+second originally due to Artin, and proved in \cite[I 4.6.3]{de77}. 
 
-With $C$ as before, let $V=\Omega^1(X)=\h^0(X,\Omega^1)=\h^1_\text{dR}(X)$. 
-This is a complex vector space of dimension $g$. (Here, $\h_\text{dR}^1(X,\dC)$ 
-is the analytic de Rham cohomology of $C$ -- the algebraic de Rham cohomology 
-would be written $\h_\text{dR}^1(C/\dC)$.) This gives us an algebraic 
+With $C$ as before, let $V=\Omega^1(X)=\h^0(X,\Omega^1)=\h^1_\text{dR}(X)$ be 
+the first analytic de Rham cohomology of $C$. 
+This is a complex vector space of dimension $g$, so we get a non-topological 
 definition of $g$. We can consider $\Omega^1$ as the sheaf of (algebraic) 
-differentials, and $g=\dim_\dC\h^0(X,\Omega^1)$. There is a pairing 
+differentials, and $g=\dim_\dC\h^0(X,\Omega^1)$, giving us a purely algebraic 
+definition of $g$. There is a natural pairing 
 $\h_1(X,\dZ)\otimes\h_\text{dR}^1(X)\to\dC$, defined by 
 \[
   [\gamma]\otimes \omega \mapsto \int_\gamma \omega
 \]
-This pairing is $\dC$-linear in the second component, and is in fact 
-non-degenerate. It gives us a map $\Phi:\Lambda\to V^\vee$. 
+This pairing is nondegenerate and $\dC$-linear in the second component, 
+It induces an injection $\Phi:\Lambda\hookrightarrow V^\vee$. 
 
 \begin{definition}[analytic]
 The \emph{Jacobian} of $X$ is $\jac(X)=V^\vee/\Phi(X)$. 
 \end{definition}
 
 Is is known that $\Phi(\Lambda)$ is a lattice in $V^\vee$, i.e. it is discrete 
-and $V^\vee/\Phi(\Lambda)$ is compact. There is the \emph{Abel-Jacobi map} from 
-$X$ to $\jac(X)$ defined as follows. Fix $x_0\in X$; we send $x\in X$ to 
+and $V^\vee/\Phi(\Lambda)$ is compact. There is the \emph{Abel-Jacobi map} 
+$j:X\to \jac(X)$ defined as follows. Fix $x_0\in X$; we send $x\in X$ to 
 $\omega\mapsto \int_{[x_0,x]} \omega$, where $[x_0,x]$ denotes some path from 
 $x_0$ to $x$. A different choice of $[x_0,x]$ will differ by a closed loop, 
-i.e. an element of $\h_1(X,\dZ)$. So $X\to\jac X$ is well-defined. Note 
+i.e. an element of $\h_1(X,\dZ)$. So $j:X\to\jac X$ is well-defined. Note 
 that $\jac X$ is a compact complex Lie group. 
 
 After choosing a basis for $V^\vee$, we have $\jac X\simeq \dC^g/L$, where 
@@ -154,7 +149,7 @@ sequence
     & \divisor^\circ X \ar[r]
     & \divisor X \ar[r]
     & \dZ \ar[r]
-    & 0
+    & 0 \text{.}
 }\]
 There is also a map $\operatorname{div}:K^\times\to \divisor X$, where 
 $\operatorname{div}(f) = \sum_x \ord_x(f)\cdot x$. It is a basic fact that 
@@ -164,18 +159,21 @@ $\picard^\circ X = \divisor^\circ (X)/\operatorname{div}(K^\times)$.
 
 Let $\mathscr{M}$ be the sheaf of meromorphic functions on $X$. It is a basic 
 fact that $\divisor(X)=\h^0(X,\mathscr{M}^\times/\sO^\times)$ and 
-$\picard(X)=\h^1(X,\sO^\times)$. An example where the Picard group is easily 
+$\picard(X)=\h^1(X,\sO^\times)$. Indeed, the first equality is often taken to 
+be a definition as in \cite[III.6]{ha77}, and the second is a straightforward 
+exercise in \v Cech cohomology. 
+An example where the Picard group is easily 
 determined is $\picard^\circ(\dP^1) = 0$.
 
-The Abel-Jacobi map $\mu:X\to \jac X$ extends to a map 
-$\mu:\divisor^\circ X\to \jac X$. 
+The Abel-Jacobi map $j:X\to \jac X$ extends naturally to a homomorphism  
+$j:\divisor^\circ X\to \jac X$. 
 
 \begin{theorem}[Jacobi]
-The map $\mu:\divisor^\circ X\to\jac X$ is surjective.
+The map $j:\divisor^\circ X\to\jac X$ is surjective.
 \end{theorem}
 
 \begin{theorem}[Abel]
-The kernel of $\mu:\divisor^\circ X\to \jac X$ is $\operatorname{div}(K^\times)$. 
+The kernel of $j:\divisor^\circ X\to \jac X$ is $\operatorname{div}(K^\times)$. 
 \end{theorem}
 
 It follows that $\mu$ induces an isomorphism $\mu:\picard^\circ X\to \jac X$. 
@@ -186,7 +184,7 @@ Note that in general, $\dC^g/L$ for some lattice $L$ need not be
 algebraic if $g>1$. In the future, we'll try to define $\jac C$ for a curve 
 $C$ over an any field. The variety $\jac C$ will be a nice variety, i.e. 
 smooth, projective and geometrically integral. We will use this to give an 
-algebraic definition of $\h_1(X,\dZ/n)$. 
+``algebraic definition of $\h_1(X,\dZ/n)$.'' 
 
 
 
@@ -226,8 +224,7 @@ representation. After picking a basis for $\End(\mathfrak{g})$,
 the components of $f$ are entire holomorphic functions on a compact complex 
 manifold, hence locally constant. Since $G$ is connected, $f$ is constant, i.e. 
 the adjoint representation of $G$ is trivial. But 
-$\ker(\operatorname{ad}) = Z(G)$, so $G$ is commutative. 
-%For more details, see \cite[I.1]{mu08}. 
+$\ker(\operatorname{ad}) = Z(G)$, so $G$ is commutative.
 The case $A/k$ for arbitrary $k$ of characteristic zero 
 follows from the Lefschetz principle, or one can just prove commutativity 
 directly using a ``rigidity principle'' for maps on projective varieties
@@ -241,7 +238,7 @@ directly using a ``rigidity principle'' for maps on projective varieties
 
 We'd like to describe the jacobian $J$ of a nice curve $C/k$ with 
 $C(k)\ne\varnothing$. It will be an abelian variety over $k$ of dimension 
-$g$, the genus of $C$. We had only defined the genus of a curve $C/k$ with 
+$g$, the genus of $C$. So far we've only defined the genus of a curve $C/k$ with 
 $k\subset \dC$. For an arbitrary field $k$ and a curve $C/k$, set 
 $g(C)=h^0(C_{\bar k},\Omega^1) = h^1(\sO_C)$. In general, if $\sF$ is some 
 sheaf on a scheme $X$ over $k$, we write $h^i(X,\sF)$ or $h^i(\sF)$ for 
@@ -249,32 +246,32 @@ $\dim_k \h^i(X,\sF)$.
 
 \begin{definition}[Albanese]
 Let $C/k$ be a curve with fixed $x_0\in C(k)$. The \emph{jacobian} of $C$ is 
-an abelian variety $J$ with a morphism $\mu:C\to J$ taking $x_0$ to $0$, such 
+an abelian variety $J$ with a morphism $j:C\to J$ taking $x_0$ to $0$, such 
 that for any morphism $f:C\to A$ to an abelian variety $A$ with $f(x_0)=0$, 
 thre is a unique $\tilde f:J\to A$ making the following diagram commute:
 \[\xymatrix{
-  C \ar[r]^-\mu \ar[dr]_-f 
+  C \ar[r]^-j \ar[dr]_-f 
     & J \ar@{.>}[d]^-{\tilde f} \\
   & A
 }\]
 \end{definition}
 
-Since $(J,\mu)$ is the solution of a universal problem, it is unique up to 
+Since $(J,j)$ is the solution of a universal problem, it is unique up to 
 unique isomorphism. Our definition can be made much more concise. Let 
-$\mathsf{AbVar}_k$ be the category of abelian varieties over $k$, and let 
+$\mathsf{AbV}_k$ be the category of abelian varieties over $k$, and let 
 $\mathsf{Var}_{k,\ast}$ be the category of ``nice pointed varieties'' over $k$, 
 i.e. nice varieties $X/k$ with chosen $x\in X(k)$. Forgetting the group 
 structure gives an inclusion functor 
-$\iota:\mathsf{AbVar}_k\to \mathsf{Var}_k$. Our definition of $\jac C$ can be 
-rephrased as saying that $\mu:C\to A$ induces a natural isomorphism 
+$\iota:\mathsf{AbV}_k\to \mathsf{Var}_k$. Our definition of $\jac C$ can be 
+rephrased as saying that $j:C\to A$ induces a natural isomorphism 
 \[
   \hom_{\mathsf{Var}_{k,\ast}}(C,\iota A) \simeq \hom_{\mathsf{AbVar}_k}(\jac C,A)\text{.}
 \]
 It turns out that for any nice pointed variety $X$, there is an abelian variety 
 $A=\operatorname{Alb} X$, the \emph{Albanese variety} of $X$, with a morphism 
-$\mu:X\to \operatorname{Alb} X$ that induces a same natural isomorphism (with 
-$\operatorname{Alb} X$ in place of $\jac C$). So the jacobian may be seen as 
-the left-adjoint to the forgetful functor from abelian varieties to pointed 
+$j:X\to \operatorname{Alb} X$ that induces a same natural isomorphism (with 
+$\operatorname{Alb} X$ in place of $\jac C$). So taking jacobian may be seen 
+as the left-adjoint to the forgetful functor from abelian varieties to pointed 
 varieties. For a proof that $\operatorname{Alb} X$ exists, see 
 \cite[A.11]{mo12}.
 
@@ -289,11 +286,11 @@ otherwise $f$ would have degree one, hence it would be an isomorphism. This
 cannot be the case. 
 
 If $C(k)=\varnothing$, we can still define $J=\jac C$. It will be a $k$-variety 
-with a morphism $\eta:C\times C\to J$ such that $\mu(\Delta)=0$. We require 
+with a morphism $j:C\times C\to J$ such that $j(\Delta)=0$. We require 
 that for any abelian variety $A$ over $k$ with $f:C\times C\to A$ such that 
-$f(\Delta)=0$, there is a unique lift $\tilde f:J\to A$ of $f$. The map $\eta$ 
-should be thought of $(x,y)\mapsto \mu(x)-\mu(y)$, even though the embedding 
-$\mu:C\to J$ may not be defined over $k$. 
+$f(\Delta)=0$, there is a unique lift $\tilde f:J\to A$ of $f$. The map $j$ 
+should be thought of $(x,y)\mapsto j(x)-j(y)$, even though the embedding 
+$j:C\to J$ may not be defined over $k$. 
 
 
 
@@ -356,22 +353,7 @@ more details on Weil's construction (and proofs), see \cite[III.7]{mi-av}.
 
 
 
-
-
-
-
-
-
-
 % lecture on 09-10-2013
-%\section{More abelian varieties}
-%\subsection*{Picard schemes}
-
-%Let $k$ be a field, $C/k$ a nice curve, and $J=\jac_C = J_C = \jac C$ be its 
-%jacobian. Recall that $J$ is a nice variety that is also a commutative group 
-%scheme. We had $J(T) = \picard^\circ(C\times T)/\picard(T)$ for all $k$-schemes $T$, 
-%under the assumption that $C(k)\ne \varnothing$. 
-
 Now suppose $X$ is an arbitrary scheme. Recall that 
 $\picard(X)=\h^1(X,\sO_X^\times)$; this classifies invertible sheaves on 
 $X$, where the group operation on sheaves is $\otimes$. If $X$ is integral, 
@@ -387,7 +369,7 @@ induces a long exact sequence in sheaf cohomology:
 \[
   0 \to \h^0(\sO^\times) \to \h^0(\mathscr{M}^\times) \to \divisor(X) \to \picard(X) \to \h^1(\mathscr{M}^\times) \to \cdots
 \]
-If $X$ is integral, the sheaf $\sM^\times$ is flasque, so $\h^1(\sM)=0$. 
+If $X$ is integral, the sheaf $\sM^\times$ is flasque, so $\h^1(\sM^\times)=0$. 
 It follows that 
 $\picard(X)=\divisor(X)/\h^0(\sO^\times) = \operatorname{Cl}(X)$. 
 
@@ -411,9 +393,15 @@ $n\in\dZ$; set $h_\sL(\sF) = \phi$. We call $\phi$ the
 \emph{Hilbert polynomial} of $\sF$. The Hilbert polynomial 
 $h_\sL(\sF)$ does depend on $\sL$.
 
-(\textbf{Mention other definition of $\picard_{X/S}$: 
-$\picard_{X/S}(T) = \{(\sL,i):\sL\in \picard(X_T),i:e_T^\ast \sL_T\xrightarrow\sim \sO_T\}$. 
-See Jesse Kass: ``notes on abelian schemes''})
+If $X(k)\ne \varnothing$, we can define for $x\in X(k)$ the modified Picard 
+functor 
+\[
+  \picard_{X,x}(T) = \{(\sL,i):\sL\in \picard(X_T)\text{ , }i:x_T^\ast \sL \xrightarrow\sim \sO_T\} /\sim \text{.}
+\]
+There is an obvious map $\picard(X_T) \to \picard_{X/x}(T)$ given by 
+$\sL\mapsto\sL\otimes (x\circ f)_T^\ast \sL^{-1}$, where $f:X\to \spec(k)$ 
+denotes the structure morphism. It is a good exercise to prove that this 
+induces an isomorphism $\picard_X \xrightarrow\sim \picard_{X,x}$. 
 
 Denote by 
 $\picard_X^\phi$ the functor which assigns to a scheme $T$ the subset of 
@@ -440,8 +428,8 @@ Suppose $X=A$ is already an abelian variety over $k$. Then we have
 where $t_a:A_{\bar k}\to A_{\bar k}$ is translation by $a$. See 
 \cite[I.8.4]{mi-av} for a partial proof. 
 
-
-In any case, the \emph{dual} of $A$ is defined to be $A^\vee = \picard_A^\circ$. 
+For an abelian variety $A$ over $k$, 
+the \emph{dual} of $A$ is defined to be $A^\vee = \picard_A^\circ$. 
 Each $c\in \picard(A)$ gives a map $\varphi_c:A\to A^\vee$. At the level of 
 points, it is defined as $a\mapsto t_a^* c - c$, where if $c=[\sL]$, 
 the class $t_a^*c - c\in A^\vee(\bar k) = \picard^\circ(A)$ is represented by 
@@ -476,11 +464,13 @@ Let $A$ be an abelian variety. A \emph{polarization} of $A$ is an isogeny
 of the form $\varphi_c:A\to A^\vee$ for some ample $c\in \picard(A)$.
 \end{definition}
 
+The duality theory of abelian varieties is very rich. A good place to start 
+is Chapter VII of \cite{gm13}. 
 
 
 
 
-%\section{Jacobians revisited}
+
 \subsection{Recovering a curve from its jacobian}
 
 Let $k$ be a field, $C/k$ a nice curve, and $J=\jac C$ its jacobian. What does 
@@ -491,8 +481,8 @@ curves of genus zero (over a non-algebraically closed field). There are more
 difficult examples with genus $g>0$. 
 
 Suppose we add some data. Assume $g\geqslant 2$ and $C(k)\ne\varnothing$. This 
-gives us a map $\mu:C\to J$ determined by $x\mapsto 0$ for some distinguished 
-$x\in C(k)$. Consider $\theta = \mu(C)+\cdots + \mu(C)$, where there are $g-1$ 
+gives us a map $j:C\to J$ determined by $x\mapsto 0$ for some distinguished 
+$x\in C(k)$. Consider $\theta = j(C)+\cdots + j(C)$, where there are $g-1$ 
 terms in the sum. It turns out that $\theta$ is an irreducible ample divisor of 
 $J$. Thus $\theta$ induces a polarization $\varphi_\theta:J\to J^\vee$. 
 
@@ -500,6 +490,9 @@ $J$. Thus $\theta$ induces a polarization $\varphi_\theta:J\to J^\vee$.
 If $C,C'$ are nice curves over a field $k$ with $(J,\theta)\simeq (J',\theta')$, 
 then $C\simeq C'$ over $k$. 
 \end{theorem}
+\begin{proof}
+See \cite[III.13]{mi-av} for a rather unenlightening proof. 
+\end{proof}
 
 It is known that $\varphi_\theta:J\to J^\vee$ is actually an isomorphism. We 
 call a polarization $A\to A^\vee$ \emph{principal} if it is an isomorphism. 
@@ -510,7 +503,7 @@ jacobians.
 This question has an easy partial answer if we are willing to use heavy 
 machinery. Consider the functor $\mathcal{M}_g$ which sends a scheme $S$ to the 
 set of isomorphism classes of curves of genus $g$ over $S$. The functor 
-$\mathcal{M}_g$ is unfortunately not representable (there is n 
+$\mathcal{M}_g$ is unfortunately not representable (there is no  
 \emph{fine} moduli spaces for curves), but it is nearly so (there is a 
 \emph{coarse} moduli space). That is, there is a scheme (a variety, 
 actually) $M_g$ together with a natural transformation 
