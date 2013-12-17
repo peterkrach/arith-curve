@@ -110,7 +110,9 @@
   \theoremstyle{definition} % contents are not italic
   \newtheorem{example}[subsubsection]{Example}
   
-\renewcommand{\bullet}{\text{\,\begin{picture}(-1,1)(-1,-2)\circle*{2}\end{picture}\ }}
+%\renewcommand{\bullet}{\text{\,\begin{picture}(-1,1)(-1,-2)\circle*{2}\end{picture}\ }}
+\let\oldbullet\bullet
+\renewcommand{\bullet}{\textnormal{\tiny$\oldbullet$}}
 
 \newcommand{\gl}[2]{\operatorname{GL}(#1,#2)}
 
