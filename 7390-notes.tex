@@ -27,7 +27,8 @@ in many places (sometimes significantly) as has the order in which material is
 covered. Most significantly, the tone of these notes differs drastically 
 from the perspective Zywina took in class, with the notes being much more 
 cohomological and scheme-theoretic than Zywina's more elementary (and 
-pedagogically correct) approach. Any errors in these notes are my fault. 
+pedagogically correct) approach. Any errors in these notes are entirely my 
+fault. 
 
 Many of the computations in these notes were done using Sage, an open-source 
 computer algebra package for number theorists. Nearly all of the Sage code 
@@ -41,6 +42,40 @@ Clarify definition of local factors in the $L$-function of an abelian variety.
 This should involve a clarification of the relationship between the ``geometric 
 Frobenius'' on a variety over a finite field, and the ``arithmetic Frobenius'' 
 as an element of an absolute Galois group. 
+
+
+
+
+
+\section*{Notation and conventions}
+\addcontentsline{toc}{section}{Notation and conventions}
+
+We write $\dN$, $\dZ$, $\dQ$, \ldots for the natural numbers, integers, \ldots. 
+
+A \emph{nice variety} over a field $k$ is a smooth, projective, geometrically 
+integral variety over $k$. 
+
+If $k$ is a field, $k^s$ and $\bar k$ denote its separable (resp. algebraic) 
+closure. We will write $G_k = \gal(k^s/k)$ for the \emph{absolute Galois group} 
+of $k$. 
+
+%Unless stated otherwise, all maps will be taken to be morphisms in the 
+%appropriate category. 
+
+Let $X$ be a scheme over a finite field $\dF_q$. The \emph{Frobenius of $X$} 
+is the morphism $\Phi_X:X\to X$ that is the identity on the underlying 
+topological space, and $x\mapsto x^q$ on the structure sheaf. The Frobenius in 
+$G_{\dF_q} = \gal(\overline{\dF_q}/\dF_q)$ is the \emph{arithmetic} Frobenius, 
+induced by $x\mapsto x^q$ on $\overline{\dF_q}$. We will write $\frob_q$ for 
+the arithmetic Frobenius. 
+
+If $k$ is a global field and $v$ is a finite place, $\frob_v$ denotes the 
+arithmetic Frobenius associated to $v$. We will sometimes take $\frob_v$ to be 
+a single (non-canonical) element of $G_k$, or the elements' entire conjugacy 
+class. This should not cause any confusion. 
+
+The symbol $\h^\bullet{}$ is used to denote cohomology. Unless decorated by a 
+descriptive subscript, it should be taken to mean \'etale cohomology. 
 
 
 
@@ -267,48 +302,80 @@ $C(\mathbb{F}_p)\ne\varnothing$.
 \appendix
 \section{Brief introduction to \'etale cohomology}
 
+Our definition of \'etale morphisms follows \cite[17.1]{ega4}. For more 
+detailed introductions on \'etale cohomology, see \cite{mi-ec} and \cite{de77}. 
 
 
 
 
-Let $S$ be a base scheme, and let $\mathsf{Aff}_S$ be the category of 
-affine schemes over $S$. We identify schemes over $S$ with their associated 
-functors of points via the natural embedding 
-$\mathsf{Sch}_S \hookrightarrow \operatorname{PSh}(\mathsf{Aff}_S)$. 
 
 \begin{definition}
-A scheme $X$ over $S$ is \emph{formally \'etale} if whenever 
-$\fa\subset A$ is a square-zero ideal in $\mathsf{Aff}_S$, the map 
-$X(A) \to X(A/\fa)$ is a bijection. 
-The scheme $X$ over $S$ is \emph{\'etale} if it is formally \'etale and 
-locally of finite presentation. 
+A morphism $f:X\to Y$ of schemes is \emph{formally \'etale} if whenever 
+$V$ is an affine scheme over $Y$ and $V_0\subset V$ is defined by a nilpotent 
+ideal, then for every $v_0:V_0 \to X$ over $Y$, there exists a unique 
+$v:V\to X$ making the following diagram commute. 
+\[\xymatrix{
+  V_0 \ar[r] \ar[d]_-{v_0} 
+    & V \ar[d] \ar@{.>}[dl]_-v \\
+  X \ar[r]^-f 
+    & Y
+}\]
+We say $f:X\to Y$ is \emph{\'etale} if it is formally \'etale and locally of 
+finite presentation. 
 \end{definition}
 
-We say that a collection $\{U_i\to X\}$ of morphisms is an \emph{\'etale 
-cover} if each $U_i \to X$ is \'etale of locally finite presentation, and 
-moreover the map $\coprod U_i \to X$ is surjective. With this notion of 
-coverage, the category of \'etale schemes over $X$ forms a site 
-$\et X$, the so-called \emph{small \'etale site} of $X$. If $f:X\to Y$ is a 
-morphism of schemes, we have an induced geometric morphism 
-$f:\operatorname{Sh}(\et X) \to \operatorname{Sh}(\et Y)$, and hence a 
-derived functor $\mathsf R f_\ast:\mathsf D(\et X) \to \mathsf D(\et Y)$. 
+For a scheme $X$, let $\et X$ be the category of \'etale morphisms 
+$U\to X$. Every morphism in $\et X$ is \'etale. We say that a collection 
+$\{U_i\to V\}$ of morphisms in $\et X$ is an \emph{\'etale cover} if each 
+$V_i \to X$ is \'etale, and moreover the map $\coprod U_i \to V$ is surjective. 
+With this notion of coverage, the category $\et X$ is a site, the so-called 
+\emph{small \'etale site} of $X$. Let $\sheaf(\et X)$ denote the category of 
+sheaves of abelian groups on $\et X$. The global sections functor 
+$\Gamma:\sheaf(\et X) \to \mathsf{Ab},\sF\mapsto \sF(X)$ is left-exact, so we 
+can put as usual 
+\[
+  \h_\text{\'et}^i(X,-) = \h^i(\et X,-) = \mathsf R^i \Gamma :\sheaf(\et X) \to \mathsf{Ab}
+\]
+for the $i$-th right derived functor of $\Gamma$. 
 
-If $X$ is a scheme over a field $k$, write $f:X\to \spec(k)$ for the structure 
-morphism. If $\sF$ is an \'etale sheaf on $X$, we write 
-$\h^i(X,\sF) = \mathsf R^i f_\ast \sF$. In other words, we regard 
-$\h^i(X,\sF)$ as a $G_k$-module. This is what is usually written 
-$\h^i(X_{\bar k},\sF)$; it is equivalent by \cite[I 4.1.1]{de77}.
+If $X$ is a variety over a non-algebraically closed field and $\sF$ is an 
+\'etale sheaf on $X$, then one often considers 
+$\h_\text{\'et}^i(X_{k^s},\sF)$ instead of $\h_\text{\'et}^i(X,\sF)$. The 
+former has a continuous action of $G_k=\gal(k^s/k)$. Alternatively, we can 
+let $f:X\to \spec(k)$ be the structure morphism and consider the higher 
+pushforward sheaves $\mathsf R^i f_\ast \sF$ on 
+$\et{\spec(k)}\simeq G_k\text{-}\mathsf{Mod}$. By \cite[I 4.1.1]{de77}, these 
+are naturally isomorphic if $X$ is proper. 
 
-Suppose $\ell$ is a prime number invertible in $X$. Then we write 
-$\h^i(X,\dZ_\ell) = \varprojlim \h^i(X,\dZ/\ell^n)$ and 
-$\h^i(X,\dQ_\ell) = \h^i(X,\dZ_\ell)\otimes \dQ$. By our construction these 
-are sheaves on $\et{\spec(k)}$, i.e. they are $G_k$-modules. 
+Suppose $X$ is a scheme on which $n$ is invertible. Let $\sheaf(\et X,\dZ/n)$ 
+be the category of sheaves of $\dZ/n$-modules on $\et X$. Since the \'etale 
+topology is subcanonical, the group $\mu_n$ of $n$-th roots of unity is in 
+$\sheaf(\et X,\dZ/n)$. Put $\dZ/n(i) = \mu_n^{\otimes i}$, and for any $\sF$ in 
+$sheaf(\et X,\dZ/n)$, define $\sF(i) = \sF\otimes_{\dZ/n}\dZ/n(i)$. This gives 
+functors $(i):\sheaf(\et X,\dZ/n) \to \sheaf(\et X,\dZ/n)$. If $f:X\to Y$ is a 
+morphism, then $(i)\circ f_\ast=f_\ast\circ (i)$ as functors 
+$\sheaf(\et X,\dZ/n) \to \sheaf(\et Y,\dZ/n)$. Since $(i)$ is exact, we compute  
+\[
+  \mathsf R f_\ast \circ (i) = \mathsf R f_\ast \circ \mathsf R (i) \simeq \mathsf R(f_\ast \circ(i)) = \mathsf R((i)\circ f_\ast)\simeq  \mathsf R(i)\circ \mathsf R f_\ast = (i)\circ \mathsf R f_\ast \text{,}
+\]
+as functors $\mathsf D(\et X,\dZ/n) \to \mathsf D(\et Y,\dZ/n)$. It follows 
+that for $X$ proper over a field $k$ in which $n$ is invertible, we have 
+$\h^\bullet(X_{k^s},\sF(i)) \simeq \h^\bullet(X_{k^s},\sF)(i)$ for all $i$. 
 
-The \'etale site is subcanonical, so the multiplicative group $\dG_m$ and the 
-group of $n$-th roots of unity $\mu_n$ are \'etale sheaves. Put 
-$\dZ/n(i) = \mu_n^{\otimes i}$, and $\sF(i) = \sF\otimes \dZ/n(i)$ for any 
-sheaf $\sF$ killed by $n$. There are natural isomorphisms 
-$\h^\bullet(X,\sF(i)) \simeq \h^\bullet(X,\sF)(i)$. 
+For simplicity, suppose $X$ is proper over an algebraically closed field $k$ in 
+which a prime $\ell$ is invertible. Let $\dZ/\ell^n$ denote the constant sheaf 
+associated to the group $\dZ/\ell^n$. The functoriality of \'etale cohomology 
+yields maps 
+\[
+  \h^i(\et X,\dZ/\ell) \leftarrow \h^i(\et X,\dZ/\ell^2) \leftarrow \cdots 
+\]
+and we put $\h^i(\et X,\dZ_\ell) = \varprojlim \h^i(\et X,\dZ/\ell^n)$ and 
+$\h^i(\et X,\dQ_\ell) = \h^i(\et X,\dZ_\ell)\otimes \dZ$. This definition fits 
+into the general framework of \emph{$\ell$-adic sheaves} set up in \cite{de80}. 
+
+For $X$ a variety over a finite field $\dF_q$, the assignment  
+$X\mapsto \h_\text{\'et}^\bullet(X_{\overline{\dF_q}},\dZ_\ell)$ constitutes a 
+\emph{Weil cohomology theory} in the sense of \cite[3.3]{an04}. 
 
 
 
