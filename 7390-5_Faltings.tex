@@ -293,14 +293,14 @@ on $\ell$.
 \end{theorem}
 \begin{proof}
 For $v$ a place of good reduction, this is Theorem \ref{thm:ab-var-good}. The 
-general case is a bit more subtle. Characteristic polynomials are invariant 
-under transpose, so we can replace $(T_\ell A)_{I_v}$ with its dual 
+general case is a bit more subtle. First, note that 
 \[
-  \left((T_\ell A)_{I_v}\right)^\vee = \left((T_\ell A)^\vee\right)^{I_v} = (T_\ell A(-1))^{I_v} = (T_\ell A)^{I_v}(-1) \text{,}
+  \det(1-\rho_{A,\ell}(\frob_v)\cdot t,(T_\ell A)_{I_v}) 
+    = \det(1-\rho_{A,\ell}(\frob_v^{-1}),((T_\ell A)^\vee)^{I_v}) \text{.}
 \]
-the second inequality coming from the Weil pairing and third coming from 
-the fact that the $\ell$-adic cyclotomic character is unramified at 
-$v\nmid \ell$. 
+The Weil pairing gives us an isomorphism $(T_\ell A)^\vee= T_\ell A(-1)$, 
+and because the $\ell$-adic cyclotomic character is unramified at 
+$v\nmid \ell$, we get $((T_\ell A)^\vee)^{I_v} = (T_\ell A)^{I_v}(-1)$. 
 
 Let $\cA$ be the N\'eron model for $A$ over 
 $\fo_v$, and let $A_v$ be the connected component of the identity in 
@@ -332,9 +332,9 @@ base-change to $\bar k$) that this pairing is nondegenerate, so we have a
 $G_k$-isomorphism $T_\ell T \simeq \widehat T^\vee \otimes \dZ_\ell(1)$. 
 We obtain 
 \[
-  \det(1-\rho_{A_v,\ell}(\frob_v)\cdot t) = \det(1-\rho_{B,\ell}(\frob_v)\cdot t,T_\ell B(-1)) \cdot \det(1-\frob_v\cdot t,\widehat T\otimes \dZ_\ell) \text{.}
+  \det(1-\rho_{A_v,\ell}(\frob_v)\cdot t) = \det(1-\rho_{B,\ell}(\frob_v)\cdot t,T_\ell B) \cdot \det(1-\frob_v^{-1}\cdot t,\widehat T\otimes \dZ_\ell) \text{.}
 \]
-Since $T_\ell B(-1)\simeq T_\ell B^\vee$ and $G_k$ acts on 
+Since $B$ does not depend on $\ell$ and $G_k$ acts on 
 $\widehat T\otimes \dZ_\ell$ via its action on $\widehat T$, the characteristic 
 polynomial of Frobenius is an element of $\dZ[t]$ independent of $\ell$. 
 \end{proof}
@@ -383,7 +383,8 @@ $\{\Im s>c\}$.
 
 \subsection{Tate conjectures and isogenies}
 
-We begin with the following useful theorem.
+Much of the rest of this section follows Lang's excellent survey 
+\cite{la91}. We begin with the following useful theorem.
 
 \begin{theorem}\label{thm:trace-determines-rep}
 Let $k$ be a number field and $\rho_1,\rho_2:G_k \to \gl{n}{\dZ_\ell}$ 
@@ -423,7 +424,7 @@ Then
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-See \cite{fa86} for a proof when $k$ is a number field. 
+See \cite{fa84} for a proof when $k$ has characteristic zero. 
 \end{proof}
 
 \begin{corollary}[Isogeny theorem]\label{thm:isogeny-thm}
@@ -450,6 +451,8 @@ $\rank T_\ell C > 0$. This cannot be, because $\varphi_\ast(T_\ell C) = 0$ and
 $\varphi_\ast$ is an isomorphism. Thus $C=0$, so $\ker \varphi$ is finite. By 
 dimension considerations, $\varphi$ is an isogeny. 
 \end{proof}
+By \cite[V.3.2]{fa84}, if $\rho_{A,\ell}\simeq \rho_{B,\ell}$, there actually 
+exists an isogeny $f:A\to B$ with $\ell\nmid \deg f$. 
 
 Choose a finite place $v$ of $k$ at which $A$ has good reduction. The 
 polynomial $P_{A_v}(t)$ is integral, monic, and has degree $2 d$. So we can 
@@ -464,7 +467,7 @@ absolute value $\sqrt{N v}$.
 If $A=E$ is an elliptic curve over $\dQ$, then this definition of $a_v(E)$ 
 agrees with the the standard definition $a_p(E)=p+1-\# E(\dF_p)$. If 
 $C$ is a nice curve over $\dQ$ of genus $g$, then for 
-$A=\jac C$, we have $\# C(\dF_p) = p+1-a_p(A)$. 
+$J=\jac C$, we have $\# C(\dF_p) = p+1-a_p(J)$. 
 
 \begin{theorem}
 Let $A$ and $B$ be abelian varieties over a number field $k$. Let $S$ be a 
@@ -502,7 +505,7 @@ $\rho_1\simeq \rho_2$.
 \end{lemma}
 \begin{proof}
 Without loss of generality, we can assume $S$ contains all places dividing 
-$\ell$. Let $d = \ell^{2 n^2} = \# M_n(\dF_\ell)\times N_n(\dF_\ell)$. By 
+$\ell$. Let $d = \ell^{2 n^2} = \# M_n(\dF_\ell)\times M_n(\dF_\ell)$. By 
 Hermite's theorem, there are only finitely many extensions of $k$ unramified 
 outside $S$ with degree $\leqslant d$. Let $K/k$ be a Galois extension 
 containing all these and let $G=\gal(K/k)$. The \v Cebotarev density theorem 
@@ -547,6 +550,20 @@ are $d$-dimensional abelian varieties with good reduction outside $S$, then
 $A$ and $B$ are isogenous if and only if $a_v(A)=a_v(B)$ for all $v\in T$. 
 \end{corollary}
 
+\begin{corollary}
+Let $k$ be a number field, $S$ a finite set of places of $k$ and 
+$d\geqslant 1$ an integer. Then there are only finitely many isogeny classes of 
+$d$-dimensional abelian varieties over $k$ with good reduction outside $S$. 
+\end{corollary}
+\begin{proof}
+By the previous corollary, such an isogeny class is determined by a finite set 
+$\{a_v:v\in T\}$ of integers. Since $|a_v|\leqslant \sqrt{N v}$, there are only 
+finitely many possibilities for the set $\{a_v:v\in T\}$. 
+\end{proof}
+
+In the next section, we will prove the Mordell conjecture for number fields 
+using Faltings proof of a finiteness result for abelian varieties. 
+
 \begin{conjecture}[Shafarevich, for abelian varieties]
 Fix a number field $k$ and a finite set $S$ of places, and an integer 
 $d\geqslant 1$. Then there are only finitely many isomorphism classes of 
@@ -556,18 +573,46 @@ $d$-dimensional abelian varieties over $k$ with good reduction outside $S$.
 Since isogenous abelian varieties have the same dimension and bad primes, 
 the conjecture breaks up into two pieces. 
 
-\begin{conjecture}[F1]
-Given an abelian variety over $k$, then up to isomorphism there are only 
-finitely many abelian varieties over $k$ which are isogenous to $k$. 
+\begin{conjecture}[Finiteness I]
+Let $A$ be an abelian variety over a number field $k$. Then there are only 
+finitely many isomorphism classes of abelian varieties over $k$ which are 
+isogenous to $A$. 
 \end{conjecture}
+\begin{proof}
+This is a \emph{very} brief sketch of Faltings' proof in \cite{fa86}. Let 
+$d=\dim A$, $\fo$ be the ring of integers of $k$, and $\cA$ be the N\'eron 
+model for $A$ over $\fo$. Let $s:\spec(\fo)\to\cA$ be the zero morphism. We 
+have a sheaf $\Omega^1_{\cA/\fo}$ of differentials on $\cA$, and we let 
+\[
+  \omega_{\cA/\fo} = \textstyle\bigwedge^{2 d} (s^\ast \Omega_{\cA/\fo}^1)^\vee \text{.}
+\]
+This is a projective $\fo$-module of rank one. For any infinite place $v$, 
+corresponding to $\sigma:k\hookrightarrow \dC$, we have a natural inner product 
+on $\omega_{\cA/\fo}\otimes\dC$, given by 
+\[
+  \langle \eta,\xi\rangle_v = \frac{1}{(2\pi)^d} \int_{A(\dC)} \eta \wedge \bar\xi \text{.}
+\]
+Put 
+\[
+  h(A) = \deg(\omega_{\cA/\fo}) = \log \# (\omega_{\cA/\fo} / x) - \sum_{v\mid \infty} \| x\|_v
+\]
+where $x\in \omega_{\cA/\fo}$ is an arbitrary nonzero element and for 
+$v\mid\infty$, 
+\[
+  \|x\|_v = \begin{cases} \langle x,x\rangle & \text{if $v$ is complex} \\ \sqrt{\langle x,x\rangle} & \text{if $v$ is real}\end{cases} 
+\]
+\end{proof}
 
-\begin{conjecture}[F2]
+\begin{conjecture}[Finiteness II]
 Let $d\geqslant 1$ be an integer, $k$ a number field and $S$ a finite set of 
 places of $S$. Then there are only finitely many isogeny classes of 
 $d$-dimensional abelian varieties over $k$ with good reduction outside $S$. 
 \end{conjecture}
 
-Faltings proved F1 (he used Faltings heights -- this is hard). There is 
+Faltings proved Finiteness 1 in \cite{fa86} using \emph{Faltings heights}. 
+There is an alternative approach of Masser and W\"ulsthoz \cite{mw93}. 
+
+(he used Faltings heights -- this is hard). There is 
 another approach of Masser-W\"ustholz. Zarhin proved that F1 implies the 
 Tate conjecture and semisimplicity. This, combined with semisimplicity 
 implies F2. 
