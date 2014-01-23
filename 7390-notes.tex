@@ -30,10 +30,10 @@ cohomological and scheme-theoretic than Zywina's generally elementary (and
 pedagogically correct) approach. Any errors in these notes are entirely my 
 fault. 
 
-All of the computations in these notes were done using Sage, an open-source 
-computer algebra package for number theorists. Nearly all of the Sage code 
-used is contained (using the \LaTeX{} package \texttt{sagetex}) in the source 
-code for this document, which may be found at 
+All of the computations in these notes were done using Sage (Zywina used 
+Magma), an open-source computer algebra package for number theorists. Nearly 
+all of the Sage code used is contained (using the \LaTeX{} package 
+\texttt{sagetex}) in the source code for this document, which may be found at 
 \url{https://github.com/dkmiller/7390}. 
 
 
@@ -210,12 +210,12 @@ For example, we could study how the rank of $J(\dQ)$ affects $C(\dQ)$. In the
 case that $C=E$ is an elliptic curve, $\jac(E)=E$, so studying the curve and 
 studying its jacobian is the same thing. The ``average rank of an elliptic 
 curve'' is not known, nor is there a general consensus on what is should be. 
-Some expect it the rank of a random curve to be $0$ or $1$, both with 
+Some expect the rank of a random curve to be $0$ or $1$, both with 
 probability $\frac 1 2$. Others suppose that elliptic curves over $\dQ$ have 
 rank $2$ with nonzero probability as well. It was proven recently (see 
 \cite[\S 1]{bh10}) that 
 \[
-  \limsup_{x\to\infty} \frac{1}{4 x^2} \sum_{\substack{|a|,|b|\leqslant B \\ 4 a^3+27 b^2\ne 0}} \rank(E_{a,b}) \leqslant\frac 7 6 \text{,}
+  \limsup_{B\to\infty} \frac{1}{4 B^2} \sum_{\substack{|a|,|b|\leqslant B \\ 4 a^3+27 b^2\ne 0}} \rank(E_{a,b}) \leqslant\frac 7 6 \text{,}
 \]
 where $E_{a,b}$ is the elliptic curve over $\dQ$ defined by $y^2=x^3 +a x+b$.
 
@@ -232,7 +232,7 @@ points lie in the intersection of the two components over $\dQ(i)$. In general,
 a curve over $\dQ$ will be the union of finitely many geometrically irreducible 
 components, each of which is defined over some finite extension of $\dQ$. Also, 
 the assumption that $f\in \dQ[x,y]$ is not serious. One can prove that every 
-curve $C$ over $\dQ$ embeds into $\dP^2_\dQ$, hence is birational to a plane curve. 
+curve $C$ over $\dQ$ is birational to a plane curve. 
 
 Let $C$ be a curve over $\dQ$. Then 
 $C(\dC)\smallsetminus \{\text{singular points}\}$ is a compact Riemann 

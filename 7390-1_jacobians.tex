@@ -61,14 +61,12 @@ classes $[\gamma]$ for $\gamma\in \pi_1(X)$.
 It is a theorem of algebraic topology that $\Lambda\simeq\dZ^{2 g}$ for some 
 $g\geqslant 0$; we 
 will call $g$ the \emph{genus} of $X$ (and also of $C$). Let $K$ be the field 
-of meromorphic functions on $X$. That is, elements of $K$ are of the 
-form $f=g/h$ where $g$ and $h$ are holomorphic functions on $X$ and $g\ne 0$. 
-(This forces $g\ne 0$ except on a finite subset of $X$.) At any point 
+of meromorphic functions on $X$. FOr $f\in K$, at any point 
 $x\in X$, we can write $f$ in local coordinates as $z^n(a_0+a_1 z+\cdots)$ 
 where $a_0\ne 0$ and $n\in\dZ$. We call $n=\ord_x(f)$ the \emph{order 
 of vanishing} of $f$ at $x$. The \emph{degree} of $f$ is the sum 
 $\deg(f)=\sum_{x\in X}\ord_x(f)$. If $f$ is holomorphic instead of just 
-meromorphic, then $\deg(f)\geqslant 0$, but the converse fails. 
+meromorphic, then $\deg(f)=0$ because $f$ is constant, but the converse fails. 
  
 We can identify $K$ with the function field of $C$, i.e.\ the set of rational 
 maps $C\to\dA^1$. Certainly rational maps yield meromorphic functions, 
@@ -109,7 +107,7 @@ This pairing is nondegenerate and $\dC$-linear in the second component,
 It induces an injection $\Phi:\Lambda\hookrightarrow V^\vee$. 
 
 \begin{definition}[analytic]
-The \emph{Jacobian} of $X$ is $\jac(X)=V^\vee/\Phi(X)$. 
+The \emph{Jacobian} of $X$ is $\jac(X)=V^\vee/\Phi(\Lambda)$. 
 \end{definition}
 
 Is is known that $\Phi(\Lambda)$ is a lattice in $V^\vee$, i.e. it is discrete 
@@ -182,7 +180,7 @@ $X$ of degree zero.
 
 Note that in general, $\dC^g/L$ for some lattice $L$ need not be 
 algebraic if $g>1$. In the future, we'll try to define $\jac C$ for a curve 
-$C$ over an any field. The variety $\jac C$ will be a nice variety, i.e. 
+$C$ over any field. The variety $\jac C$ will be a nice variety, i.e. 
 smooth, projective and geometrically integral. We will use this to give an 
 ``algebraic definition of $\h_1(X,\dZ/n)$.'' 
 
@@ -246,9 +244,9 @@ $\dim_k \h^i(X,\sF)$.
 
 \begin{definition}[Albanese]
 Let $C/k$ be a curve with fixed $x_0\in C(k)$. The \emph{jacobian} of $C$ is 
-an abelian variety $J$ with a morphism $j:C\to J$ taking $x_0$ to $0$, such 
+an abelian variety $J=\jac C$ with a morphism $j:C\to J$ taking $x_0$ to $0$, such 
 that for any morphism $f:C\to A$ to an abelian variety $A$ with $f(x_0)=0$, 
-thre is a unique $\tilde f:J\to A$ making the following diagram commute:
+there is a unique $\tilde f:J\to A$ making the following diagram commute:
 \[\xymatrix{
   C \ar[r]^-j \ar[dr]_-f 
     & J \ar@{.>}[d]^-{\tilde f} \\
@@ -263,13 +261,13 @@ $\mathsf{Var}_{k,\ast}$ be the category of ``nice pointed varieties'' over $k$,
 i.e. nice varieties $X/k$ with chosen $x\in X(k)$. Forgetting the group 
 structure gives an inclusion functor 
 $\iota:\mathsf{AbV}_k\to \mathsf{Var}_k$. Our definition of $\jac C$ can be 
-rephrased as saying that $j:C\to A$ induces a natural isomorphism 
+rephrased as saying that $j:C\to \jac C$ induces a natural isomorphism 
 \[
   \hom_{\mathsf{Var}_{k,\ast}}(C,\iota A) \simeq \hom_{\mathsf{AbVar}_k}(\jac C,A)\text{.}
 \]
 It turns out that for any nice pointed variety $X$, there is an abelian variety 
 $A=\operatorname{Alb} X$, the \emph{Albanese variety} of $X$, with a morphism 
-$j:X\to \operatorname{Alb} X$ that induces a same natural isomorphism (with 
+$j:X\to \operatorname{Alb} X$ that induces a similar natural isomorphism (with 
 $\operatorname{Alb} X$ in place of $\jac C$). So taking jacobian may be seen 
 as the left-adjoint to the forgetful functor from abelian varieties to pointed 
 varieties. For a proof that $\operatorname{Alb} X$ exists, see 
