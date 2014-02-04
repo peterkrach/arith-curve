@@ -319,10 +319,11 @@ $\picard(C)\to \dZ$. For $T$ an arbitrary scheme, define
 $\picard^\circ(C\times T)$ to be the subset of $\picard(C\times T)$ consisting of 
 invertible sheaves $\sL$ with $\deg(\sL_t)=0$ for all $t\in T$. That is, the 
 following sequence is exact 
-\[\xymatrix{
+\[\xymatrix@=1.5cm{
   0 \ar[r] 
-    & \picard^\circ(C\times T) \ar[r]^-{(i_t^*)}
-    & \displaystyle\prod_{t\in T} \picard^\circ (C)\text{,}
+    & \picard^\circ(C\times T) \ar[r] 
+    & \picard(C\times T) \ar[r]^-{(\deg\circ i_t^*)}
+    & \displaystyle\prod_{t\in T} \dZ
 }\]
 where $i_t:t\hookrightarrow T$ are the canonical injections. Now we define the 
 functor $\picard_C^\circ:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ that sends $T$ to 
