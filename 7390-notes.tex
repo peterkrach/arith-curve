@@ -30,8 +30,9 @@ cohomological and scheme-theoretic than Zywina's generally elementary (and
 pedagogically correct) approach. Any errors in these notes are entirely my 
 fault. 
 
-All of the computations in these notes were done using Sage (Zywina used 
-Magma), an open-source computer algebra package for number theorists. Nearly 
+The original computations for the class were done using the commercial 
+computer algebra system Magma. For these notes, everything has been reworked 
+into Sage, an open-source alternative designed for for number theorists. Nearly 
 all of the Sage code used is contained (using the \LaTeX{} package 
 \texttt{sagetex}) in the source code for this document, which may be found at 
 \url{https://github.com/dkmiller/7390}. 
@@ -231,8 +232,8 @@ which only factors over $\dQ(i)$ as $(y+i x)(y-i x)$, and we the rational
 points lie in the intersection of the two components over $\dQ(i)$. In general, 
 a curve over $\dQ$ will be the union of finitely many geometrically irreducible 
 components, each of which is defined over some finite extension of $\dQ$. Also, 
-the assumption that $f\in \dQ[x,y]$ is not serious. One can prove that every 
-curve $C$ over $\dQ$ is birational to a plane curve. 
+the assumption that $f\in \dQ[x,y]$ is not serious, as every curve is 
+birational to a plane curve. 
 
 Let $C$ be a curve over $\dQ$. Then 
 $C(\dC)\smallsetminus \{\text{singular points}\}$ is a compact Riemann 
