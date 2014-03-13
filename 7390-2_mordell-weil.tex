@@ -460,10 +460,10 @@ identify the two without comment in the future.
 
 To simplify the notation, we will often write $k$ for $\et k$, i.e. 
 $\h^\bullet(k,G) = \h^\bullet(\et k,G)$. In this context, Hilbert's 
-\emph{theorem 90} says that for $k$ a field, $\h^1(k,\dG_m) = 0$. If we write 
+\emph{Theorem 90} says that for $k$ a field, $\h^1(k,\dG_m) = 0$. If we write 
 $\mu_n = \torsion{n}{\dG_m}$, then \emph{Kummer theory} starts with the short exact 
 sequence $1\to \mu_n\to \dG_m\xrightarrow n \dG_m \to 1$ and uses Hilbert's 
-theorem 90 together with the long exact sequence in sheaf cohomology to derive 
+Theorem 90 together with the long exact sequence in sheaf cohomology to derive 
 $\h^1(k,\mu_n) = k^\times / n$. 
 
 There is an alternate description of $\h^1(k,A)$. If $G$ is an arbitrary 
@@ -493,7 +493,7 @@ $\h^1(k,G)$. There is a non-abelian version of this. If $\sG$ is an arbitrary
 sheaf of groups over $\et S$, then one can still define the notion of a 
 $\sG$-torsor. An identical theorem holds, except that one must define the 
 ``cohomology set'' $\h^1(\et S,\sG)$. For details, see \cite{sk01}. There is a 
-non-abelian version of Hilbert's theorem 90: it says that 
+non-abelian version of Hilbert's Theorem 90: it says that 
 $\h^1(k,\text{SL}_n) = \h^1(k,\text{GL}_n) = 0$ for all $n$ \cite[X.1]{se79}. 
 
 
@@ -563,7 +563,7 @@ $k$ at a place $v$. One can show that $k_v$ will either be $\dR$, $\dC$, or a
 finite extension of some $\dQ_p$. Choose $\overline{k_v}\supset k$; this gives 
 a homomorphism $G_{k_v} \to G_k$, where $\sigma\mapsto \sigma|_{\bar k}$. It 
 turns out that the map is injective (this is an easy corollary of Krasner's 
-lemma). As an example, 
+Lemma). As an example, 
 if $k=\dQ$, $k_v=\dR$, then $G_{\dR}=\{1,c\}$ where $c:\dC\to \dC$ is complex 
 conjugation. The image of $c$ in $G_\dQ$ is some element of order two. 
 
@@ -610,14 +610,15 @@ $\torsion{n}{\sha(A)}$ are finite.
 
 \begin{conjecture}[Tate-Shafarevich]
 If $A$ is an abelian variety over a number field $k$, the group 
-$\sha(A)$ is finite. 
+$\sha(A)$ is finite
 \end{conjecture}
-This is currently wide open. A positive answer would show that for $n$ sufficiently 
-large, $A(k)/n \simeq \selmer_n(A)$. In particular, this would imply that for $p$ 
-large enough, $\rank(A) = \dim_{\dF_p} \selmer_p(A)$, where as before 
+
+This conjecture is currently wide open. A positive answer would show that for $n$ 
+sufficiently 
+large, $A(k)/n \simeq \selmer_n(A)$. In particular, this would imply that for 
+$p\gg 0$, $\rank(A) = \dim_{\dF_p} \selmer_p(A)$, where as before 
 $\rank(A) = \rank_\dZ A(k)$ is the algebraic rank of 
 $A$. 
-
 The Selmer groups $\selmer_n(A)$ are effectively computable. If $\sha(A)$ were 
 always finite, then $A(k)$ would be computable. 
 
@@ -678,8 +679,8 @@ again a general theorem shows that $[k:\dQ_p]<\infty$. To summarize, local
 fields are one of the following:
 \begin{itemize}
   \item $\dR$ or $\dC$
-  \item $\kappa\lau t$ for some finite field $\kappa$
-  \item a finite extension of $\dQ_p$
+  \item $\dF_q\lau t$ for some prime power $q$
+  \item finite extension of $\dQ_p$
 \end{itemize}
 
 If $k$ is a non-archimedean local field, we write 
@@ -704,10 +705,13 @@ A \emph{place} of a global
 field $k$ is an equivalence class of embeddings $k\hookrightarrow K$, where 
 $K$ is a local field such that the image of $k$ is dense. Two such 
 embeddings are equivalent if they are (topologically) isomorphic over $k$. 
-We will use the letter $v$ to denote places of $k$, and denote a choice of 
-representative by $k_v$. If $k_v$ is non-archimedean, we call $v$ 
-\emph{finite}, otherwise it is \emph{infinite}. For the remainder, let $v$ be 
-a finite place of $k$. 
+We will use the letter $v$ to denote places of $k$. Traditionally, a place of 
+$k$ is defined to be an equivalence class of valuations -- the two definitions 
+are equivalent. Any place $v$ induce a 
+well-defined topology on $k$, and we will write $k_v$ for the completion of $k$ 
+with respect to this topology. The completion $k_v$ is local. If $k_v$ is 
+non-archimedean, we call $v$ \emph{finite}, otherwise it is \emph{infinite}. 
+For the remainder, let $v$ be a finite place of $k$. 
 
 The absolute value on $k_v$ induces one on $k$, which we will denote by 
 $|\cdot|_v$. If $v$ is non-archimedean (i.e. $k_v$ is non-archimedean) then we 
@@ -715,8 +719,8 @@ will also use $v$ to denote the valuation on $k$ induced by the canonical
 valuation on $k_v$. We will write $\fo_v$, $\fp_v$, $\kappa_v$ instead of 
 $\fo_{k_v}$\ldots. We can choose $k_v^s\supset k^s$, in which case restriction 
 induces a continuous homomorphism $G_{k_v} \to G_k$. This is injective by 
-Krasner's lemma. The image is often denoted $D_v$, and the image of 
-$I_{k_v}$ inside $D_v$ will be written $I_v$. Note that $D_v$, as a subset of 
+Krasner's Lemma. The image is often denoted $D_v$, and the image of 
+$I_{k_v}$ inside $D_v$ will be written $I_v$. Note that $D_v$, as a subgroup of 
 $G_k$, is only well defined up to conjugacy. 
 
 A useful fact about global fields is the \emph{product formula}. Given the 
@@ -736,7 +740,7 @@ Let $k$ be a number field, i.e. a finite extension of $\dQ$. Let $\fo_k$ be the
 \emph{ring of integers} of $k$, that is, $\fo_k$ is the integral closure of 
 $\dZ$ in $k$. The ring $\fo_k$ is a dedekind domain. Thus if $\fa\subset \fo_k$ 
 is a nonzero ideal, we have a factorization $\fa=\fp_1^{e_1}\dotsm \fp_r^{e_r}$ 
-where the $\fp_i\subset\fo_k$ are prime (hence maximal) ideals, and each 
+where the $\fp_i\subset\fo_k$ are nonz-zero prime (hence maximal) ideals, and each 
 $e_i\geqslant 1$. This factorization is unique up to reordering if we require 
 that the $\fp_i$ be distinct. 
 
@@ -760,7 +764,7 @@ definition of the canonical absolute value on a local field.
 
 Let $L/k$ be a finite extension, $\fp\subset \fo_k$ a prime ideal. The ideal 
 $\fp\fo_L$ factors uniquely as 
-$\fq_1^{e(\fq_1/\fp)}\dotsm\fq_r^{e(\fq_r/\fp)}$, where the $\fq_i\subset\fp_L$ 
+$\fq_1^{e(\fq_1/\fp)}\dotsm\fq_r^{e(\fq_r/\fp)}$, where the $\fq_i\subset\fo_L$ 
 are prime. For example, if $L=\dQ(i)$, then $2=-i(1+i)^2$ and $5=(1+2i)(1-2i)$. 
 One can show that 
 \begin{align*}
@@ -773,7 +777,7 @@ in $L$ if $e(\fq_i/\fp)=1$ for all $i$. It is an easy theorem that only
 finitely many primes can ramify. 
 
 Now assume $L/k$ is Galois. The action of the galois group $G=\gal(L/k)$ 
-preserves $\fo_L$, fixing $\fo_k$. This action does \emph{not} fix ideals in 
+preserves $\fo_L$, fixing $\fo_k$. This action does \emph{not} preserve ideals in 
 $\fo_L$. In fact, if $\fq_1,\dots,\fq_r$ are the primes lying above 
 $\fp\subset \fo_k$, then $G$ acts transitively on $\{\fp_1,\dots,\fp_r\}$, 
 from which we see that each $e(\fq_i/\fp)$ is the same integer, denoted 
@@ -823,7 +827,7 @@ Our exact sequence
   1 \ar[r] 
     & I_\fp \ar[r] 
     & G_{k_\fp} \ar[r] 
-    & \gal(\overline{\kappa_\fp}/\kappa_\fp) =\hat\dZ \ar[r] 
+    & \gal(\overline{\kappa_\fp}/\kappa_\fp) \simeq \hat\dZ \ar[r] 
     & 1
 }\]
 extends to a filtration of $G_{k_\fp}$ by normal closed subgroups whose 
@@ -842,15 +846,15 @@ $\bar k\hookrightarrow \overline{k_\fp}$.
 
 \subsection{Reduction of abelian varieties}
 
-Let $A$ be an abelian variety over a local field $k_\fp$. Let $\fo_\fp$ be the 
+Let $k_\fp$ be a local field. Let $\fo_\fp$ be the 
 ring of integers of $k_\fp$, i.e. $\fo_\fp=\{x\in k_\fp:|x|_\fp\leqslant 1\}$. 
 The ideal $\fp\fo_\fp$ is the unique maximal ideal of $\fo_\fp$, and it turns 
 out that $\fp\fo_\fp = \{x\in k_\fp:|x|_\fp<1\}$. In an abuse of notation, we 
 write $\fp$ for $\fp\fo_\fp$. 
 
 \begin{definition}
-We say that a variety $X/k_\fp$ has \emph{good reduction} if there is a smooth 
-proper model $\cX/\fo_\fp$ .
+We say that a variety $X$ over $k_\fp$ has \emph{good reduction} if there is a 
+smooth proper model $\cX$ of $X$ over $\fo_\fp$ .
 \end{definition}
 That is, there is a smooth proper scheme $\cX$ over $\fo_\fp$ such that the 
 following diagram is cartesian:
@@ -914,7 +918,7 @@ $A(\overline{k_\fp}) \to A_\fp(\overline{\kappa_\fp})$, that has a pro-$p$
 kernel. Choose an integer $n\geqslant 2$ with $p\nmid n$. The map 
 $\torsion{n}{A(\overline{k_\fp})} \to \torsion{n}{A_\fp(\overline{\kappa_\fp})}$ 
 is an isomorphism 
-because both groups have the same cardinality ($n^2$) and the kernel is 
+because both groups have the same cardinality ($n^{2\dim A}$) and the kernel is 
 pro-$p$. In that isomorphism both groups have a Galois action -- $G_{k_\fp}$ on 
 the left and $G_{\kappa_\fp}=\hat\dZ$ on the right. The map is compatible with 
 the Galois action, so in particular, the inertia group $I_\fp$ acts trivially 
@@ -1022,7 +1026,8 @@ This is just a rewriting of Theorem \ref{thm:hermite}.
 Let $k$ be a number field, $S$ a finite set of places of $\fo_k$. For a fixed 
 integer $N\geqslant 1$, there is a finite extension $K\subset \bar k$ such that 
 if $L\subset \bar k$ is an extension of $k$ unramified outside of $S$ with 
-$[L:k]\leqslant N$, then $L\subset K$. 
+$[L:k]\leqslant N$, then $L\subset K$. Moreover, the minimal such $K$ is Galois 
+over $k$ and unramified outside $S$. 
 \end{theorem}
 \begin{proof}
 This follows easily from \cite[B.2.14]{bg06}. 
@@ -1039,20 +1044,20 @@ Let $G$ be a small group. Then $\h^1(G,M)$ is finite for all finite
 continuous $G$-modules $M$.
 \end{theorem}
 \begin{proof}
-Since $M$ is finite, there is an open normal subgroup $H\subset G$ such that 
-$H$ acts trivially on $M$. Recall the \emph{inflation-restriction exact 
+Since $M$ is finite, there is an open normal subgroup $N\subset G$ such that 
+$N$ acts trivially on $M$. Recall the \emph{inflation-restriction exact 
 sequence} is 
 \[\xymatrix{
   0 \ar[r]
-    & \h^1(G/H,M^H) \ar[r]^-{\text{inf}} 
+    & \h^1(G/N,M^N) \ar[r]^-{\text{inf}} 
     & \h^1(G,M) \ar[r]^-{\text{res}} 
-    & \h^1(H,M) \text{,}
+    & \h^1(N,M) \text{,}
 }\]
 where the first arrow is 
-$[\varphi]\mapsto [\varphi\circ (G\twoheadrightarrow G/H)]$ on cocycles, 
-and the restriction map is $[\varphi]\mapsto [\varphi|_H]$. The group 
-$\h^1(G/H,M^H)$ is finite because both $G/H$ and $M^H=M$ are finite, and 
-$\h^1(H,M)=\hom_\text{cts}(H,M)$ is finite because $H$ is small. 
+$[\varphi]\mapsto [\varphi\circ (G\twoheadrightarrow G/N)]$ on cocycles, 
+and the restriction map is $[\varphi]\mapsto [\varphi|_N]$. The group 
+$\h^1(G/N,M^N)$ is finite because both $G/N$ and $M^N=M$ are finite, and 
+$\h^1(N,M)=\hom_\text{cts}(N,M)$ is finite because $N$ is small. 
 \end{proof}
 
 If we are willing to consider $\h^1(G,M)$ for $M$ non-abelian, then the 
@@ -1078,7 +1083,7 @@ converse is true.
 
 Let $A$ be an abelian variety over a number field $k$. Recall that we are 
 trying to show that $A(k)$ is finitely generated. We have shown that it is 
-sufficient to prove that some quotient $A(k)/n$ with $n\geqslant 2$ is finite. 
+sufficient to prove that the quotient $A(k)/n$ is finite for some $n\geqslant 2$. 
 Once we know that $A(k)$ is finitely generated, we can write 
 $A(k)=A(k)_\text{tors}\oplus \dZ\cdot x_1\oplus \cdots \oplus \dZ x_r$, where 
 each $x_i$ is of infinite order. The algebraic rank $r=\rank A$ is 
@@ -1156,31 +1161,31 @@ but it is $\h^1(G_{k,S},\torsion n A)$ that we will actually show is finite.
 \begin{theorem}
 Let $A$ be an abelian variety over a number field $k$, and let 
 $S$ be the set of places of $k$ at which $A$ has bad reduction. Then the group 
-$\h^1(G_{k,S},A[n])$ is finite.
+$\h^1(G_{k,S},\torsion n A)$ is finite.
 \end{theorem}
 \begin{proof}
 This follows immediately from the fact that $G_{k,S}$ is \emph{small}, coupled 
 with Theorem \ref{thm:small-groups}. 
 
-Explicitly, we first choose $L=k(A[n])\supset k$. Then $L/k$ 
-is unramified outside $S$ and $G_L$ acts 
-trivially on $A[n]$. Let $S'$ denote the set of places of $L$ lying above $S$. 
+Explicitly, we first choose $L=k(\torsion n A)\supset k$. Then $L/k$ 
+is unramified outside $S$ and $G_L$ acts trivially on $\torsion n A$. Let $S'$ 
+denote the set of places of $L$ lying above $S$. 
 The inflation-restriction exact sequence 
 \[\xymatrix{
   0 \ar[r] 
-    & \h^1(\gal(L/k),A[n]) \ar[r] 
-    & \h^1(G_{k,S},A[n]) \ar[r] 
-    & \h^1(G_{L,S'},A[n]) \text{,} 
+    & \h^1(\gal(L/k),\torsion n A) \ar[r] 
+    & \h^1(G_{k,S},\torsion n A) \ar[r] 
+    & \h^1(G_{L,S'},\torsion n A) \text{,} 
 }\]
-reduces the problem to showing that $\h^1(G_{L,S'},A[n]) = \hom(G_{L,S'},A[n])$ 
-is finite. So we may as well assume $k\supset A[n]$ in the first place, and 
-try to prove that 
-$\h^1(G_{k,S},A[n]) \approx \hom(G_{k,S},(\dZ/n)^{\oplus 2 d})$ is finite, 
-where $d=\dim A$. For any $f:G_{k,S} \to (\dZ/n)^{\oplus 2 d}$, the image of 
+reduces the problem to showing that 
+$\h^1(G_{L,S'},\torsion n A) = \hom(G_{L,S'},\torsion n A)$ is finite. So we 
+may as well assume $\torsion n A\supset k$ in the first place, and try to prove 
+that $\h^1(G_{k,S},\torsion n A) \simeq \hom(G_{k,S},(\dZ/n)^{\oplus 2 d})$ is 
+finite, where $d=\dim A$. For any $f:G_{k,S} \to (\dZ/n)^{\oplus 2 d}$, the image of 
 $f$ is the Galois group of an extension $L/k$ unramified outside $S$ with 
-$[L:k]\leqslant n^{2 d}$. By Hermite's theorem, there is a fixed $K/k$ such 
-that all $L\subset K$. Thus 
-$\h^1(G_{k,S},A[n])\hookrightarrow \hom(\gal(K/k),\dZ/n)^{\oplus 2 d}$, a 
+$[L:k]\leqslant n^{2 d}$. By Hermite's Theorem, there is a fixed finite Galois 
+extension $K/k$ such that all $L\subset K$. Thus 
+$\h^1(G_{k,S},\torsion n A)\hookrightarrow \hom(\gal(K/k),\dZ/n)^{\oplus 2 d}$, a 
 finite group.
 \end{proof} 
 
@@ -1190,7 +1195,7 @@ defined by the exact sequence
   0 \ar[r] 
     & \sha(A) \ar[r] 
     & \h^1(k,A) \ar[r] 
-    & \displaystyle\prod_v \h^1(k_v,A)
+    & \displaystyle\prod_v \h^1(k_v,A) .
  }\]
 Recall that a \emph{torsor} of $A$ over $k$ is a nice variety $X/k$ with a 
 simply transitive group action $A\times X\to X$ which is a morphism of 
@@ -1201,19 +1206,16 @@ defined over $k$. Two torsors are equivalent if they have compatible group
 actions (i.e. if they are $A$-equivariantly isomorphic over $k$). A torsor is 
 \emph{trivial} if it is equivalent to $A$ with the usual left action. It turns 
 out that a torsor $X$ is trivial if and only if $X(k)\ne\varnothing$. 
-
 There is a natural bijection 
 \[
-  \{\text{torsors over $A$}\}/\text{equivalence} \leftrightarrow \h^1(k,A)
+  \{\text{torsors over $A$}\}/\text{equivalence} \leftrightarrow \h^1(k,A) .
 \]
 
 \begin{example}
 Let $C/k$ be a nice curve of genus $1$. (It could be that $C$ is not elliptic, 
 for instance if $C(k)=\varnothing$.) Let $E=\jac C$; this is an elliptic curve. 
-There is a bijection $C\to \picard_C^1$ given by $x\mapsto [x]$. This induces a 
-bijection $E=\picard_C^0$. There is an action 
-$\picard_C^0\times \picard_C^1\to \picard_C^1$, induced by $(D_1,D_2)\mapsto D_1+D_2$. 
-This makes $C$ a torsor over $E$. 
+There is an isomorphism $C\to \picard_C^1$ given by $x\mapsto [x]$. The action 
+$\picard_C^0\times \picard_C^1\to \picard_C^1$, induced by $(D_1,D_2)\mapsto D_1+D_2$, makes $C$ a torsor over $E$. 
 \end{example}
 
 
@@ -1243,7 +1245,10 @@ $L/k$ with $X(L)\ne\varnothing$. Choose $x\in X(L)$, and define a cocycle
 $\varphi:G_k\to A(\bar k)$ by $\sigma\mapsto \sigma x - x$, where 
 $\sigma x- x$ is the unique point $a\in A(\bar k)$ such that $a+x=\sigma(x)$. 
 The image of $X$ in $\h^1(k,A)$ is the cocycle $\varphi$. It isn't too hard to 
-check that this map is well-defined. 
+check that this map is well-defined. We can use this bijection to give 
+$\operatorname{WC}(A)$ the structure of an abelian group -- alternatively one 
+can put $[S]=[T]+[U]$ if there is a $A$-equivariant morphism 
+$T\times U \to S$. 
 
 This tells us that there is a natural bijection between $\sha(A)$ and the set 
 of torsors $X$ of $A/k$, such that $X(k_v)\ne\varnothing$ for all places $v$ of 
@@ -1282,39 +1287,40 @@ Hasse-Minkowski theorem.
 \begin{example}[descent]
 Let $E/\dQ$ be the elliptic curve defined by $y^2=(x-e_1)(x-e_2)(x-e_3)$ where 
 the $e_i\in \dZ$ are distinct. It's easy to see that 
-$E[2]=\{0,(e_1,0),(e_2,0),(e_3,0)\}\simeq (\dZ/2)^{\oplus 2}$. We use 
-$\{(e_1,0),(e_2,0)\}$ as a $\dF_2$-basis for $E[2]$. We have 
+$\torsion 2 E=\{0,(e_1,0),(e_2,0),(e_3,0)\}\simeq (\dZ/2)^{\oplus 2}$. We use 
+$\{(e_1,0),(e_2,0)\}$ as a $\dF_2$-basis for $\torsion 2 E$. We have 
 \begin{align*}
-  \h^1(\dQ,E[2]) &= \hom(G_\dQ,E[2]) \\
+  \h^1(\dQ,\torsion 2 E) &= \hom(G_\dQ,\torsion 2 E) \\
     &= \hom(G_\dQ,\dZ/2)^{\oplus 2} \\
     &= \left(\dQ^\times/2\right)^{\oplus 2}
 \end{align*}
 Here, as always, ``$\hom$'' denotes the group of continuous homomorphisms, and 
 we write $\dQ^\times/2$ for $\dQ^\times/(\dQ^\times)^2$. The isomorphism 
-$\h^1(\dQ,E[2])\simeq (\dQ^\times/2)^{\oplus 2}$ comes from Kummer theory. 
+$\hom(G_\dQ,\dZ/2) \simeq \dQ^\times/2$ comes from Kummer Theory. 
 Given a homomorphism $\varphi:G_\dQ\to \dZ/2$, the group $\ker(\varphi)$ 
 fixes a field $k=\dQ(\sqrt d)$ with $d\in \dQ^\times$. The equivalence class of 
-$d$ in $\dQ^\times/2$ is dependent only on $\varphi$. The fact that 
-$\varphi\mapsto d$ is a bijection is the content of Kummer theory. 
+$d$ in $\dQ^\times/2$ depends only on $\varphi$. The fact that 
+$\varphi\mapsto d$ is a bijection is a restatement of the main theorem of 
+Kummer Theory. 
 
 The boundary morphism in group cohomology gives us a map 
-$\delta:E(\dQ)/2 \hookrightarrow \h^1(\dQ,E[2])$. The 
+$\delta:E(\dQ)/2 \hookrightarrow \h^1(\dQ,\torsion 2 E)$. The 
 composite of $\delta$ with the isomorphism 
-$\h^1(\dQ,E[2])\xrightarrow\sim )=(\dQ^\times/2)^{\oplus 2}$ is quite explicit 
--- we have for $x=(x_0:x_1:1)$:
+$\h^1(\dQ,\torsion 2 E)\xrightarrow\sim )=(\dQ^\times/2)^{\oplus 2}$ is quite explicit 
+-- we have for $P=(x_0:x_1:1)$:
 \[
-  \delta(x) 
+  \delta(P) 
     = \begin{cases}
         (1,1)             & \text{if $x=0$} \\
-        (x_0-e_1,x_1-e_2) & \text{if $x_0\notin \{e_2,e_3\}$} \\
+        (x_0-e_1,x_0-e_2) & \text{if $x_0\notin \{e_2,e_3\}$} \\
         \left(\frac{e_1-e_3}{e_1-e_2},e_1-e_2\right) & \text{if $x_0=e_1$} \\
         \left(e_2-e_1,\frac{e_2-e_3}{e_2-e_1}\right) & \text{if $x_0=e_2$}
       \end{cases}
 \]
 Let $S$ be the set of primes that divide $2(e_1-e_3)(e_2-e_3)(e_2-e_1)$; this 
 contains the set of primes at which $E$ has bad reduction. We know that the 
-group $\h^1(\dZ_S,E[2]) = \h^1(G_{\dQ,S},E[2])$ is finite. Even better, one can 
-show that it is $\mathcal H^{\oplus 2}$, where 
+group $\h^1(G_{\dQ,S},\torsion 2 E)$ is finite. Even better, one can show that 
+it is $\mathcal H^{\oplus 2}$, where 
 \[
   \mathcal H = \left\{b\in \dQ^\times/2 : \text{$v_p(b)\equiv 0\pmod 2$ for $p\notin S$}\right\}
 \]
@@ -1328,12 +1334,12 @@ so we could get a better bound on $\rank(E)$ if we could compute
 the image of $\selmer_2(E)$ inside of $\mathcal H^{\oplus 2}$. Recall that there 
 is a commutative diagram:
 \[\xymatrix{
-  & \h^1(\dZ_S,E[2]) \ar[r] 
+  & \h^1(G_{\dQ,S},\torsion 2 E) \ar[r] 
     & \h^1(\dQ,E) \\
   0 \ar[r] 
     & E(\dQ)/2 \ar[r] \ar@{^{(}->}[u] 
     & \selmer_2(E) \ar[r] \ar@{^{(}->}[u] 
-    & \sha(E)[2] \ar[r]
+    & \torsion{2}{\sha(E)} \ar[r]
     & 0
 }\]
 For a pair $b=(b_1,b_2)\in \mathcal H^{\oplus 2}$, we get an element of 
@@ -1361,7 +1367,7 @@ $b=(b_1,b_2)\in (\dQ^\times)^2$, the curve $X_b$ is
   b_1 z_1^2 - b_1 b_2 z_3^2&=-z_0^2 \\
 \end{align*}
 Thus $X_b(\dR)=\varnothing$ if $b_1<0$ and $b_2>0$, or if 
-$b>0$ and $b_2<0$. That tells us that 
+$b_1>0$ and $b_2<0$. That tells us that 
 $\selmer_2(E)\subset \{(b_1,b_2)\in \mathcal H^{\oplus 2}:b_1 b_2>0\}$, a group of 
 order eight with representatives $\{\pm (1,1),\pm (2,1),\pm (1,2),\pm (2,2)\}$. 
 
@@ -1370,10 +1376,10 @@ We have
   0 \ar[r] 
     & E(\dQ)/2 \ar[r]^-\delta 
     & \selmer_2(E) \ar@{^{(}->}[r] 
-    & \langle-(1,1),-(2,1),-(1,2),-(2,2)\rangle
+    & \langle-(1,1),(2,1),(1,2)\rangle
 }\]
-Since $E[2]\subset E(\dQ)$, this tells us that $E(\dQ)/2$ has order at least 
-four. We have $\delta(E[2])=\{(1,1),(-1,-2),(-1,-1),(1,2)\}$. Consider 
+Since $\torsion 2 E\subset E(\dQ)$, this tells us that $E(\dQ)/2$ has order at least 
+four. We have $\delta(\torsion 2 E)=\{(1,1),(-1,-2),(-1,-1),(1,2)\}$. Consider 
 $b=(2,1)$. Then $X_b$ is 
 \begin{align*}
   2 z_1^2 - z_2^2 &= z_0^2 \\
@@ -1382,7 +1388,7 @@ $b=(2,1)$. Then $X_b$ is
 This curve has real points, so we only need to check $X_b(\dQ_2)$. As an 
 exercise, show that $X_b(\dZ/4)=\varnothing$, which implies 
 $X_b(\dQ_2)=\varnothing$, which shows that $b\notin \selmer_2(E)$, and thus 
-$\# E(\dQ)/2=4$. Since $4=\# E[2]$, we know that $\rank(E)=0$. 
+$\# E(\dQ)/2=4$. Since $4=\#(\torsion 2 E)$, we know that $\rank(E)=0$. 
 \end{example}
 
 
@@ -1468,12 +1474,12 @@ well-defined because of the product formula. For $c\in k^\times$, we have
 which implies $H_k(c a_0:\cdots:c a_n)=H_k(a_0:\cdots:a_n)$. It turns out that 
 for each $c\in \dR$, we have  
 \[
-  \#\{a\in \dP^n(k) : H_k(a)\leqslant c\} = O\left(c^{(N+1)[k:\dQ]}\right)
+  \#\{a\in \dP^n(k) : H_k(a)\leqslant c\} = O\left(c^{(n+1)[k:\dQ]}\right)
 \]
 In particular, the set on the left is finite. 
 
 The \emph{absolute height} is a map $H:\dP^n(\bar\dQ)\to [1,\infty)$ is defined 
-by $H(a) = H_k(a)^{[k:\dQ]^{-1}}$ for any $k\subset \bar\dQ$ with $a\in k$. 
+by $H(a) = H_k(a)^{[k:\dQ]^{-1}}$ for any number field $k$ with $a\in \dP^n(k)$. 
 The sets $\{x\in \dP^n(\bar\dQ):H(a)\leqslant c\}$ can be infinite, but the 
 sets 
 \[
@@ -1488,7 +1494,7 @@ function on $X$. One way to do this is to take an embedding $\phi:X\to \dP^n$
 the composite $X(k) \xrightarrow\phi \dP^n(\bar k) \xrightarrow{h} [0,\infty)$. 
 We can rephrase this. Let $D\in \divisor(X)$ be a very ample divisor. A choice of a 
 generating set for the global sections of $\sL(D)$ gives an embedding 
-$\phi_D:X\hookrightarrow \dP^n$. We write $h_D(\bar k)\to [0,\infty)$ for the 
+$\phi_D:X\hookrightarrow \dP^n$. We write $h_D$ for the 
 composite 
 $X(\bar k) \xrightarrow{\phi_D} \dP^n(\bar k)\xrightarrow{h} [0,\infty)$. Note 
 that the notation $h_D$ is a little bit misleading, because $h_D$ actually 
@@ -1500,7 +1506,8 @@ $h_D$ as an equivalence class in $\dR^{X(\bar k)}$, then $h_D$ is well-defined.
 If $E\sim D$ is another very ample divisor, then $h_D-h_E=O(1)$, so the 
 equivalence class of $h_D$ only depends on the class of $D$ in the class group 
 of $X$. Finally, if $E,D\in \divisor(X)$ are very ample, then 
-$h_{D+E}=h_D+h_E+O(1)$. 
+$h_{D+E}=h_D+h_E+O(1)$. Sometimes we will write $h_{X,D}$ to emphasize the 
+dependence of the height on $X$. 
 
 \begin{theorem}[Weil's ``height machine'']\label{thm:weil-height}
 Let $X$ be a nice variety over a number field $k$. Then there exists a unique 
@@ -1510,13 +1517,13 @@ homomorphism $h:\picard(X)\to \dR^{X(\bar k)}/O(1)$ such that
   \item For a morphism $\phi:X\to Y$ of nice $k$-varieties, we have 
     $h_{X,\phi^\ast D} = h_{Y,D}\circ\phi + O(1)$ for all $D\in \divisor(Y)$. 
     (functoriality)
-  \item For all $D$, $h_D\geqslant O(1)$ on the complement of the base locus 
-    of $D$. (positivity)
+  \item For all effective $D$, $h_D\geqslant O(1)$ on the complement of the 
+    base locus of $D$. (positivity)
 \end{enumerate}
 \end{theorem}
 \begin{proof}
 The existence and uniqueness of $h$ follows easily from the above remarks. For 
-a proof of 2 and 3, see \cite[\S2.4]{bg06}. 
+a proof of 2 and 3, see \cite[2.3]{bg06}. 
 \end{proof}
 
 
@@ -1552,9 +1559,9 @@ $\widehat h_D:A(\bar k)\to \dR$, by
 
 % class on 10-08-2013
 Let's show that the limit defining $\widehat h_D$ exists. Our previous 
-discussion shows that $|h_D(2\cdot x)-h_D(x)|\leqslant C$ for some constant $C$ 
-depending only on $A$. We write this as $h_D(2\cdot x)=h_D(X)+O(1)$, keeping in 
-mind that this $O(1)$ only depends on $A$. Note that 
+discussion shows that $|h_D(2\cdot x)-4 h_D(x)|\leqslant C$ for some constant $C$ 
+depending only on $A$ and $D$. We write this as $h_D(2\cdot x)=4 h_D(X)+O(1)$, 
+keeping in mind that this $O(1)$ only depends on $A$ and $D$. Note that 
 \[
   \frac{h_D(2^i\cdot x)}{4^i} = \frac{h_D(2\cdot (2^{i-1}\cdot x))}{4^i} = \frac{4 h_D(2^{i-1}\cdot x)+O(1)}{4^i} = \frac{h_D(2^{i-1}\cdot x)}{4^{i-1}} + \frac{O(1)}{4^i} \text{.}
 \]
@@ -1586,14 +1593,15 @@ properties, for example
   \widehat h_c(n\cdot x) &= n^2 \widehat h_c(x) \\
   \widehat h_c(x+y)+\widehat h_c(x-y) &= 2\left(\widehat h_c(x)+\widehat h_c(y)\right)
 \end{align*}
-These are easy corollaries of the following lemma.
+The first is easy to show using properties of Weil heights, and the second is 
+an easy consequence of the following lemma.
 
 \begin{lemma}\label{lem:height-quadratic}
 Let $A$ be an abelian variety over a number field $k$, and let $c\in \picard(A)$. 
 Then the function 
 $\langle \cdot,\cdot\rangle:A(\bar k)\times A(\bar k)\to \dR$ defined by 
 \[
-  \langle x,y\rangle = \widehat h_c(x+y)-\widehat h_c(x)-\widehat h_c(y)
+  \langle x,y\rangle = \frac 1 2 \left(\widehat h_c(x+y)-\widehat h_c(x)-\widehat h_c(y)\right)
 \]
 is bilinear. 
 \end{lemma}
@@ -1633,8 +1641,8 @@ $\# S\geqslant 3$, one has
 as a map $\picard(A)\to \picard(A^S)$. 
 \end{theorem}
 \begin{proof}
-For $\# S=3$ this is just \cite[2.7]{gm13}. %\cite[III.10]{mu08}. 
-The general case follows easily by induction. 
+Notation is as in Lemma \ref{lem:height-quadratic}. For $\# S=3$ this is 
+just \cite[2.7]{gm13}. The general case follows easily by induction. 
 \end{proof}
 
 
@@ -1678,14 +1686,14 @@ abelian variety $A/k$. The function
 \[
   \langle x,y\rangle_c = \frac 1 2 \left(\widehat h_c(x+y) - \widehat h_c(x)-\widehat h_c(y)\right)
 \]
-is bilinear, and descends to $A(\bar k)/A(\bar k)_\text{tors}$. 
+is bilinear, and descends to $A(k)/A(k)_\text{tors}$. 
 We can even tensor with $\dR$ to get a bilinear form on 
 $A(k)_\dR = A(k)\otimes \dR$. The form $\langle \cdot,\cdot\rangle_c$ 
 is positive-definite on $A(k)_\dR$. Thus $A(k)_\dR$ with the pairing 
 $\langle\cdot\rangle_c$ is isomorphic to $\dR^n$ with the standard inner 
 product, where $n=\rank A$. The group $A(k)/A(k)_\text{tors}$ is a 
 lattice in $A(k)_\dR$, and we can define the \emph{regulator} of $A$ with 
-respect to $c$ to be the volume of the fundamental domain of 
+respect to $c$ to be the square of the volume of the fundamental domain of 
 $A(k)/A(k)_\text{tors}$ in $A(k)_\dR$. That is, 
 \[
   \operatorname{Reg}_c(A) = \left|\det\left(\langle x_i,x_j\rangle_c\right)_{i,j}\right|
@@ -1737,7 +1745,8 @@ $(g^{-1/2},1]$.
 
 % notes on 10-10-2013
 
-
+While the following theorem is due to Faltings, our proof is far easier than 
+the original because it rests on deep properties of height functions. 
 
 \begin{theorem}[Faltings]
 Let $C$ be a nice curve of genus $g\geqslant 2$ over a number field $k$. Then 
@@ -1778,13 +1787,9 @@ $v_1,\dots,v_n\in V$ such that $V=U_{v_1}\cup \cdots \cup U_{v_n}$. Since each
 $U_{v_i}\cap S$ is finite, the set $S$ is finite. 
 \end{proof}
 
-This proof essentially gives an effectively computable upper bound for 
+This proof gives an effectively computable upper bound for 
 $\# C(k)$. Indeed, since the dimension of $V$ can be bounded above (for 
 instance, by computing certain Selmer groups) it is possible to give an 
 effectively computable upper bound for $\# C(k)$. On the other hand, the set 
 $C(k)$ is not known to be effectively computable, because our proof does 
 \emph{not} give a bound for the heights of points in $C(k)$.
-
-
-
-

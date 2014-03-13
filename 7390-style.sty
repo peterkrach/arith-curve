@@ -24,7 +24,8 @@
   microtype,
   sagetex,
   stmaryrd,
-  tikz-cd
+  tikz-cd,
+  thmtools
 }
 \RequirePackage[pdfpagelabels,backref=page]{hyperref}
 \RequirePackage[all]{xy}
@@ -111,7 +112,7 @@
   \newtheorem{theorem}[subsubsection]{Theorem}
   \newtheorem{definition}[subsubsection]{Definition}
   \theoremstyle{definition} % contents are not italic
-  \newtheorem{example}[subsubsection]{Example}
+  \declaretheorem[sibling=subsubsection, qed={\lower-0.3ex\hbox{$\triangleright$}}]{example}
   
 %\renewcommand{\bullet}{\text{\,\begin{picture}(-1,1)(-1,-2)\circle*{2}\end{picture}\ }}
 \let\oldbullet\bullet
