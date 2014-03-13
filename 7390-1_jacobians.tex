@@ -40,8 +40,8 @@ Note that
     &= \hom_{\mathsf{Alg}_\dQ}(\dQ[x,y]/f,A) \\
     &= \hom_{\mathsf{Sch}_k}\left(\spec A,\spec(\dQ[x,y]/f)\right) \text{,}
 \end{align*}
-so this agrees with our general definition. The functor $h_X$ determines $X$ 
-up to isomorphism. (This is just the Yoneda lemma.)
+so this agrees with our general definition. By the Yoneda Lemma, the functor 
+$h_X$ determines $X$ up to isomorphism. 
 
 
 
@@ -61,7 +61,7 @@ classes $[\gamma]$ for $\gamma\in \pi_1(X)$.
 It is a theorem of algebraic topology that $\Lambda\simeq\dZ^{2 g}$ for some 
 $g\geqslant 0$; we 
 will call $g$ the \emph{genus} of $X$ (and also of $C$). Let $K$ be the field 
-of meromorphic functions on $X$. FOr $f\in K$, at any point 
+of meromorphic functions on $X$. For $f\in K$, at any point 
 $x\in X$, we can write $f$ in local coordinates as $z^n(a_0+a_1 z+\cdots)$ 
 where $a_0\ne 0$ and $n\in\dZ$. We call $n=\ord_x(f)$ the \emph{order 
 of vanishing} of $f$ at $x$. The \emph{degree} of $f$ is the sum 
@@ -174,7 +174,7 @@ The map $j:\divisor^\circ X\to\jac X$ is surjective.
 The kernel of $j:\divisor^\circ X\to \jac X$ is $\operatorname{div}(K^\times)$. 
 \end{theorem}
 
-It follows that $\mu$ induces an isomorphism $\mu:\picard^\circ X\to \jac X$. 
+It follows that $j$ induces an isomorphism $j:\picard^\circ X\xrightarrow\sim \jac X$. 
 Note that $\picard^\circ X$ parameterizes invertible sheaves (line bundles) on 
 $X$ of degree zero. 
 
@@ -277,18 +277,18 @@ In general, the map $X\to \operatorname{Alb} X$ need not be an embedding.
 For example, if $C$ is a curve of genus $0$, then $\operatorname{Alb} X=0$ by 
 \cite[I.3.9]{mi-av}. On the other hand, if the genus $g\geqslant 1$, then 
 $C\to J$ is an embedding. The map $C(\bar k)\to \picard^\circ(C_{\bar k})$ sends 
-a point $x$ to the divisor $[x]-[x_0]$, and one can check that this is 
-injective. For, principal divisors correspond to morphisms 
-$f:C\to\dP^1$. These cannot have zeros and poles of multiplicity one, 
-otherwise $f$ would have degree one, hence it would be an isomorphism. This 
-cannot be the case. 
+a point $x$ to the divisor $[x]-[x_0]$. If $[x]-[x_0] = [y]-[x_0]$ in 
+$\picard^\circ(C_{\bar k})$, then $[x]-[y] = \operatorname{div}(f)$ for some 
+rational map $f:C\to \dP^1$. If $x\ne y$, then $f$ would have a unique simple 
+zero and poll, which would imply that $f$ is birational. But this is 
+impossible, so $x\ne y$ implies $j(x)\ne j(y)$. 
 
 If $C(k)=\varnothing$, we can still define $J=\jac C$. It will be a $k$-variety 
 with a morphism $j:C\times C\to J$ such that $j(\Delta)=0$. We require 
 that for any abelian variety $A$ over $k$ with $f:C\times C\to A$ such that 
 $f(\Delta)=0$, there is a unique lift $\tilde f:J\to A$ of $f$. The map $j$ 
-should be thought of $(x,y)\mapsto j(x)-j(y)$, even though the embedding 
-$j:C\to J$ may not be defined over $k$. 
+should be thought of ``$(x,y)\mapsto j(x)-j(y)$,'' even though an embedding 
+$C\to J$ may not be defined over $k$. 
 
 
 
@@ -319,13 +319,13 @@ $\picard(C)\to \dZ$. For $T$ an arbitrary scheme, define
 $\picard^\circ(C\times T)$ to be the subset of $\picard(C\times T)$ consisting of 
 invertible sheaves $\sL$ with $\deg(\sL_t)=0$ for all $t\in T$. That is, the 
 following sequence is exact 
-\[\xymatrix@=1.5cm{
+\[\xymatrix{
   0 \ar[r] 
     & \picard^\circ(C\times T) \ar[r] 
-    & \picard(C\times T) \ar[r]^-{(\deg\circ i_t^*)}
-    & \displaystyle\prod_{t\in T} \dZ
+    & \picard(C\times T) \ar[r] 
+    & \displaystyle\prod_{t\in T} \dZ \text{,}
 }\]
-where $i_t:t\hookrightarrow T$ are the canonical injections. Now we define the 
+where the last map is $c\mapsto (\deg(c_t))_{t\in T}$. Now we define the 
 functor $\picard_C^\circ:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ that sends $T$ to 
 $\picard^\circ(C\times_k T)/\picard(T)$. 
 
@@ -339,15 +339,15 @@ See \cite[III.1.2]{mi-av}.
 In general, we might have $C(k)=\varnothing$. We will have 
 $J(L)=\picard^\circ(C_{L'})^{\gal(L'/L)}$ where $L'/L$ is any separable extension 
 with $C(L')\ne\varnothing$. 
-
-The idea behind Weil's original construction is the following. We already 
-know that $J=\jac C$ exists, and has a canonical map $\mu:C\to J$. Consider 
+Let $J=\jac C$ and $j:C\to J$ be the standard embedding. Let 
 $C^g=C\times\cdots\times C$ ($g$-fold product), and consider the map 
-$f:C^g\to J$, $f(x_1,\dotsc,x_g)=\mu(x_1)+\cdots+\mu(x_g)$. The symmetric 
+$f:C^g\to J$, $f(x_1,\dotsc,x_g)=j(x_1)+\cdots+j(x_g)$. The symmetric 
 group $S_g$ acts on $C^g$, and $f$ is $S_g$-equivariant. The quotient 
 $\operatorname{Sym}^g C = C^g/S_g$ exists, and has a map 
 $\operatorname{Sym}^g C\to J$. This is birational. Weil defined a ``rational 
-group law'' on $\operatorname{Sym}^g C$ using the Riemann-Roch theorem. For 
+group law'' on $\operatorname{Sym}^g C$ using the Riemann-Roch theorem, and 
+then showed that this induces an ``honest group law'' on a nice variety 
+birational to $\operatorname{Sym}^g C$. For 
 more details on Weil's construction (and proofs), see \cite[III.7]{mi-av}. 
 
 
@@ -370,7 +370,7 @@ induces a long exact sequence in sheaf cohomology:
 \]
 If $X$ is integral, the sheaf $\sM^\times$ is flasque, so $\h^1(\sM^\times)=0$. 
 It follows that 
-$\picard(X)=\divisor(X)/\h^0(\sO^\times) = \operatorname{Cl}(X)$. 
+$\picard(X)=\divisor(X)/\h^0(\sM^\times) = \operatorname{Cl}(X)$. 
 
 For $X/k$ an arbitrary scheme, consider the functor 
 $\picard_X:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ given by 
@@ -475,8 +475,9 @@ is Chapter VII of \cite{gm13}.
 Let $k$ be a field, $C/k$ a nice curve, and $J=\jac C$ its jacobian. What does 
 (the arithmetic of) $J$ tell us about (the arithmetic of) $C$? In particular, 
 can we recover $C$ from $J$? In general, $J$ does not determine $C$. For 
-example, if $g=g(C)=0$, then $A=0$, and there are many non-isomorphic nice 
-curves of genus zero (over a non-algebraically closed field). There are more 
+example, if $g=g(C)=0$, then $J=0$. However, there are (non-algebraically 
+closed) fields $k$ for which there are nice curves $C$ over $k$ with $g(C)=0$ 
+(hence $\jac C=0=\jac\dP^1$), but $C\not\simeq \dP_k^1$. There are more 
 difficult examples with genus $g>0$. 
 
 Suppose we add some data. Assume $g\geqslant 2$ and $C(k)\ne\varnothing$. This 
@@ -514,7 +515,7 @@ we can let $\mathcal{A}_g$ be the functor which assigns to a scheme $S$ the set
 of isomorphism classes of principally polarized abelian schemes of dimension 
 $g$ over $S$. The functor $\mathcal{A}_g$ has a coarse moduli space $A_g$. 
 
-The operation ``take jacobian'' induces a natural transformation 
+The operation ``take jacobian with its canonical polarization'' induces a natural transformation 
 $j:\mathcal{M}_g\to\mathcal{A}_g$, and Torelli's theorem can be rephrased as 
 saying that $j$ is injective. Shottky's question asks what the image of $j$ is. 
 To see that it cannot be all of $\mathcal{A}_g$, simply note that 
@@ -543,9 +544,9 @@ induced group operation on $E$ with the classical definition using chords and
 tangents. 
 
 Let $P,Q\in E(\bar k)$. If we assume $P,Q\ne O$, then we can write 
-$P=(P_0:P_1:1)$, $Q=(Q_0:Q_1:1)$. Assume $P_0\ne Q_0$. Then there is a 
-canonical rational function $\ell_{P,Q}$ with both $P$ and $Q$ as zeros. One 
-has  
+$P=(P_0:P_1:1)$, $Q=(Q_0:Q_1:1)$. Assume $P_0\ne Q_0$. Then there is an obvious 
+rational function (canonical up to scale), whose zero-set is a 
+line containing both $P$ and $Q$. Indeed, we put 
 \[
  \ell_{P,Q}(x_0:x_1:x_2) = \frac{Q_1-P_1}{Q_0-P_0} \cdot \frac{x_0}{x_2} - \frac{x_1}{x_2} + \frac{P_1 Q_0 - P_0 Q_1}{Q_0-P_0} \text{.}
 \]
