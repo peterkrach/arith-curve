@@ -342,8 +342,8 @@ finite presentation.
 
 For a scheme $X$, let $\et X$ be the category of \'etale morphisms 
 $U\to X$. Every morphism in $\et X$ is \'etale. We say that a collection 
-$\{U_i\to V\}$ of morphisms in $\et X$ is an \emph{\'etale cover} if each 
-$V_i \to X$ is \'etale, and moreover the map $\coprod U_i \to V$ is surjective. 
+$\{U_i\to V\}$ of morphisms in $\et X$ is an \emph{\'etale cover} if the 
+map $\coprod U_i \to V$ is surjective. 
 With this notion of coverage, the category $\et X$ is a site, the so-called 
 \emph{small \'etale site} of $X$. Let $\sheaf(\et X)$ denote the category of 
 sheaves of abelian groups on $\et X$. The global sections functor 
@@ -367,8 +367,8 @@ Suppose $X$ is a scheme on which $n$ is invertible. Let $\sheaf(\et X,\dZ/n)$
 be the category of sheaves of $\dZ/n$-modules on $\et X$. Since the \'etale 
 topology is subcanonical, the group $\mu_n$ of $n$-th roots of unity is in 
 $\sheaf(\et X,\dZ/n)$. Put $\dZ/n(i) = \mu_n^{\otimes i}$, and for any $\sF$ in 
-$sheaf(\et X,\dZ/n)$, define $\sF(i) = \sF\otimes_{\dZ/n}\dZ/n(i)$. This gives 
-functors $(i):\sheaf(\et X,\dZ/n) \to \sheaf(\et X,\dZ/n)$. If $f:X\to Y$ is a 
+$\sheaf(\et X,\dZ/n)$, define $\sF(i) = \sF\otimes_{\dZ/n}\dZ/n(i)$. This gives 
+functors $(-)(i):\sheaf(\et X,\dZ/n) \to \sheaf(\et X,\dZ/n)$. If $f:X\to Y$ is a 
 morphism, then $(i)\circ f_\ast=f_\ast\circ (i)$ as functors 
 $\sheaf(\et X,\dZ/n) \to \sheaf(\et Y,\dZ/n)$. Since $(i)$ is exact, we compute  
 \[
@@ -386,11 +386,11 @@ yields maps
   \h^i(\et X,\dZ/\ell) \leftarrow \h^i(\et X,\dZ/\ell^2) \leftarrow \cdots 
 \]
 and we put $\h^i(\et X,\dZ_\ell) = \varprojlim \h^i(\et X,\dZ/\ell^n)$ and 
-$\h^i(\et X,\dQ_\ell) = \h^i(\et X,\dZ_\ell)\otimes \dZ$. This definition fits 
+$\h^i(\et X,\dQ_\ell) = \h^i(\et X,\dZ_\ell)\otimes \dQ$. This definition fits 
 into the general framework of \emph{$\ell$-adic sheaves} set up in \cite{de80}. 
 
 For $X$ a variety over a finite field $\dF_q$, the assignment  
-$X\mapsto \h_\text{\'et}^\bullet(X_{\overline{\dF_q}},\dZ_\ell)$ constitutes a 
+$X\mapsto \h_\text{\'et}^\bullet(X_{\overline{\dF_q}},\dQ_\ell)$ constitutes a 
 \emph{Weil cohomology theory} in the sense of \cite[3.3]{an04}. 
 
 
