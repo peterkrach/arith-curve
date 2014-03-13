@@ -146,7 +146,8 @@ parts:
 \end{enumerate}
 We will prove 3 here, spend the next several sections on 2, and finally 
 construct a good height function in section \ref{sec:neron-tate}. For the 
-sake of space, write $A(k)/n$ instead of $A(k)/n A(k)$. 
+sake of space, write $A(k)/n$ instead of $A(k)/n A(k)$, and 
+$\torsion n A(k)$ instead of $\{x\in A(k):n\cdot x=0\}$. 
 
 \begin{lemma}
 Let $A$ be an abelian group with a function 
@@ -186,11 +187,11 @@ each $i$, we have $A=\langle B_c\rangle$.
 To prove the weak Mordell-Weil theorem, we will use group cohomology 
 extensively. For some motivation, let $A$ be an abelian variety over a field 
 $k$ of characteristic zero. 
-Let $A[n]$ be the kernel of $\cdot n : A(\bar k)\to A(\bar k)$. We can take 
-$G_k$-invariants of $A[n]$, resulting in an exact sequence: 
+Let $\torsion n A$ be the kernel of $\cdot n : A(\bar k)\to A(\bar k)$. We can take 
+$G_k$-invariants of $\torsion n A$, resulting in an exact sequence: 
 \[\xymatrix{
   0 \ar[r] 
-    & A[n]^{G_k} \ar[r] 
+    & (\torsion n A)^{G_k} \ar[r] 
     & A(k) \ar[r]^-n 
     & A(k) \text{.}
 }\]
@@ -199,10 +200,10 @@ constructing a long exact sequence
 \[
 \begin{tikzcd}
   0 \rar 
-    & A[n]^{G_k} \rar 
+    & (\torsion n A)^{G_k} \rar 
     & A(k) \rar 
     & A(k) \ar[out=355,in=175, overlay]{dll} \\
-  & \h^1(G_k,A[n]) \rar 
+  & \h^1(G_k,\torsion n A) \rar 
     & \h^1\left(G_k,A(\bar k)\right) \rar 
     & \h^1\left(G_k,A(\bar k)\right) \rar
     & \cdots
@@ -283,16 +284,16 @@ the point $\sigma(x)$ is the composite
 }\]
 
 The homomorphism $A\xrightarrow n A$ that sends $x$ to $n\cdot x$ is an 
-isogeny. Let $A[n]$ be the $n$-torsion subgroup of $A(\bar k)$, i.e. 
+isogeny. Let $\torsion n A$ be the $n$-torsion subgroup of $A(\bar k)$, i.e. 
 \[
-  A[n] = \{x\in A(\bar k) : n\cdot x = 0\}
+  \torsion n A = \{x\in A(\bar k) : n\cdot x = 0\}
 \]
 If $k$ were a field of positive characteristic $p$ and $p\mid n$, it would be 
 better to think of $A[n]$ as the scheme $A\times_A 0$ via $n:A\to A$. In any 
 case, there is an exact sequence 
 \[\xymatrix{
   0 \ar[r] 
-    & A[n] \ar[r] 
+    & \torsion n A \ar[r] 
     & A(\bar k) \ar[r]^-n 
     & A(\bar k) \ar[r] 
     & 0 \text{.}
@@ -306,7 +307,7 @@ Taking $G_k$-invariants of the above short exact sequence, we get an exact
 sequence 
 \[\xymatrix{
   0 \ar[r] 
-    & A[n]^{G_k} \ar[r] 
+    & (\torsion n A)^{G_k} \ar[r] 
     & A(k) \ar[r]^-n 
     & A(k) \text{.}
 }\]
@@ -315,7 +316,7 @@ not right-exact. For example, if $k$ is a number field, the $n$-th power map
 $(-)^n:\bar k^\times \to \bar k^\times$ is surjective, but 
 $(-)^n:(\bar k^\times)^{G_k} = k^\times \to k^\times$ is not. 
 
-We can define $\h^\bullet(G_k,A[n])$ using the formalism of derived functors. Consider the 
+We can define $\h^\bullet(G_k,\torsion n A)$ using the formalism of derived functors. Consider the 
 category $G_k\text{-}\mathsf{Mod}$ of (discrete) abelian groups with continuous 
 $G_k$-action. This is an abelian category with enough injectives. The functor 
 $\Gamma=(-)^{G_k}:G_k\text{-}\mathsf{Mod}\to \mathsf{Ab}$ is left-exact, we we 
@@ -326,8 +327,8 @@ $\h^0(G_k,M) = M^{G_k}$ for any discrete $G_k$-module $M$.
 Choose $x\in A(k)$. Then $x=n\cdot y$ for some $y\in A(\bar k)$. Take 
 $\sigma\in G_k$. Then $x=\sigma x$, so $\sigma(n\cdot y) = n\cdot \sigma(y)$. 
 Then $n\cdot (\sigma y - y) = n\cdot \sigma y - n\cdot y = 0$, so 
-$\sigma y-y\in A[n]$. Thus we have a map (\emph{not} a usually a homomorphism) 
-$\varphi:G_k\to A[n]$, $\sigma\mapsto \sigma y - y$. Take $\sigma,\tau\in G_k$. 
+$\sigma y-y\in \torsion n A$. Thus we have a map (\emph{not} usually a homomorphism) 
+$\varphi:G_k\to \torsion n A$, $\sigma\mapsto \sigma y - y$. Take $\sigma,\tau\in G_k$. 
 Then one computes 
 \begin{align*}
   \varphi(\sigma\tau) &= \sigma\tau(y) - y \\
@@ -335,23 +336,23 @@ Then one computes
     &= \sigma\varphi(\tau) + \varphi(\sigma) \text{.}
 \end{align*}
 So $\varphi$ is a homomorphism precisely when the action of $G_k$ on 
-$A[n]$ is trivial. Moreover, there is a number field $L/k$ such that 
+$\torsion n A$ is trivial. Moreover, there is a number field $L/k$ such that 
 $G_L\subset G_k$ fixes $y$. In particular, $\varphi(G_L)=0$, i.e. the map 
-$\varphi:G_k\to A[n]$ is continuous. Suppose we choose some $y'$ distinct from 
-$y$ with $x=n\cdot y'$. We could define $\varphi':G_k\to A[n]$ by 
-$\sigma\mapsto \sigma y'-y'$. Since $n(y-y')=0$, we have $y'-y\in A[n]$, hence 
-$y'=y+\alpha$ for some $\alpha\in A[n]$. We now have 
+$\varphi:G_k\to \torsion n A$ is continuous. Suppose we choose some $y'$ distinct from 
+$y$ with $x=n\cdot y'$. We could define $\varphi':G_k\to \torsion n A$ by 
+$\sigma\mapsto \sigma y'-y'$. Since $n(y-y')=0$, we have $y'-y\in \torsion n A$, hence 
+$y'=y+\alpha$ for some $\alpha\in \torsion n A$. We now have 
 \begin{align*}
   \varphi'(\sigma) &= \sigma y'-y' \\
     &= \sigma(y+\alpha) - (y+\alpha) \\
     &= \sigma y - y + \sigma\alpha-\alpha \\
     &= \varphi(\sigma) + \sigma \alpha-\alpha \text{.}
 \end{align*}
-Maps $G_k\to A[n]$ of the form $\sigma\mapsto \sigma \alpha-\alpha$ will be 
+Maps $G_k\to \torsion n A$ of the form $\sigma\mapsto \sigma \alpha-\alpha$ will be 
 called \emph{coboundaries}. 
 
 Suppose we have another point $x'\in A(k)$. Choose a $y'$ with $x'=n y'$. Then 
-$x+x'=n(y+y')$, and the point $x+x'$ gives rise to a map $G_k\to A[n]$, 
+$x+x'=n(y+y')$, and the point $x+x'$ gives rise to a map $G_k\to \torsion n A$, 
 $\sigma\mapsto \sigma(y+y')-(y+y')$; this map is just $\varphi+\varphi'$, where 
 $\varphi':\sigma\mapsto \sigma y'-y$. 
 
@@ -429,24 +430,24 @@ see \cite[I 2.4]{de77}.
 \end{example}
 
 In our case, from the long exact sequence associated to 
-$0\to A[n]\to A(\bar k) \xrightarrow n A(\bar k) \to 0$ yields a short 
+$0\to \torsion n A\to A(\bar k) \xrightarrow n A(\bar k) \to 0$ yields a short 
 exact sequence 
 \[\xymatrix{
   0 \ar[r] 
     & A(k) / n \ar[r]^-\delta
-    & \h^1\left(G_k,A[n]\right) \ar[r] 
-    & \h^1\left(G_k,A(\bar k)\right)[n] \ar[r]
+    & \h^1\left(G_k,\torsion n A\right) \ar[r] 
+    & \torsion{n}{\h^1\left(G_k,A(\bar k)\right)} \ar[r]
     & 0 \text{.}
 }\]
 We will try to prove that $A(k)/ n$ is finite by embedding it into a group 
-we know is finite. Unfortunately $\h^1(G_k, A[n])$ is infinite, so we cannot 
+we know is finite. Unfortunately $\h^1(G_k, \torsion n A)$ is infinite, so we cannot 
 just use the above exact sequence to show that $A(k)/n$ is finite. 
 
 In general, suppose $G$ is a (commutative) group scheme over $k$. For example, 
 $G$ could be the multiplicative group $\dG_m$, or an abelian variety $A$. If 
-$G$ is any commutative group scheme over $k$, we will use $G[n]$ to denote the 
+$G$ is any commutative group scheme over $k$, we will use $\torsion n G$ to denote the 
 fiber product $G\times_G 0$, where the map $G\to G$ is ``multiply by $n$.'' 
-This conflicts with our earlier convention that $A[n]=A(\bar k)[n]$, but 
+This conflicts with our earlier convention that $\torsion n A = \torsion n A(\bar k)$, but 
 no confusion should arise from this. The group $G(\bar k)$ is 
 a $G_k$-module, so we can consider the cohomology groups 
 $\h^\bullet\left(G_k, G(\bar k)\right)$. We know that these are isomorphic to 
@@ -460,7 +461,7 @@ identify the two without comment in the future.
 To simplify the notation, we will often write $k$ for $\et k$, i.e. 
 $\h^\bullet(k,G) = \h^\bullet(\et k,G)$. In this context, Hilbert's 
 \emph{theorem 90} says that for $k$ a field, $\h^1(k,\dG_m) = 0$. If we write 
-$\mu_n = \dG_m[n]$, then \emph{Kummer theory} starts with the short exact 
+$\mu_n = \torsion{n}{\dG_m}$, then \emph{Kummer theory} starts with the short exact 
 sequence $1\to \mu_n\to \dG_m\xrightarrow n \dG_m \to 1$ and uses Hilbert's 
 theorem 90 together with the long exact sequence in sheaf cohomology to derive 
 $\h^1(k,\mu_n) = k^\times / n$. 
@@ -523,35 +524,36 @@ by $f^*[\varphi] = \varphi\circ f$, where we regard $G'$ as acting on $M$ via
 $f$. 
 
 Let $k$ be a number field, $A$ be an abelian variety over $k$, and 
-$n\geqslant 2$. The short exact sequence $0\to A[n]\to A\xrightarrow n A \to 0$ 
+$n\geqslant 2$. The short exact sequence $0\to \torsion n A\to A\xrightarrow n A \to 0$ 
 of group schemes induces an exact sequence 
 \[\xymatrix{
   0 \ar[r]  
     & A(k)/n \ar[r] 
-    & \h^1\left(k,A[n]\right) \ar[r] 
-    & \h^1(k,A)[n] \ar[r] 
+    & \h^1(k,\torsion n A) \ar[r] 
+    & \torsion{n}{\h^1(k,A)} \ar[r] 
     & 0 \text{.}
 }\]
-We are trying to prove that $A(k)/n$ is finite. Since $\h^1\left(k,A[n]\right)$ 
-can be infinite, this is not immediate. 
+We are trying to prove that $A(k)/n$ is finite. Since $\h^1(k,\torsion n A)$ 
+can be infinite, this does not follow immediately from the above exact 
+sequence. 
 
 \begin{example}
 Let $K=\dQ$, and let $E$ be the elliptic curve defined by 
 $y^2=(x-a)(x-b)(x-c)$ for distinct $a,b,c\in \dQ$. Then 
-$E[2](\bar\dQ) = \{0,(a,0),(b,0),(c,0)\}$. Thus 
+$\torsion 2 E(\bar\dQ) = \{0,(a,0),(b,0),(c,0)\}$. Thus 
 \begin{align*}
-  \h^1(\dQ,E[2]) &= \hom(G_\dQ,E[2]) \\
+  \h^1(\dQ,\torsion 2 E) &= \hom(G_\dQ,\torsion 2 E) \\
     &= \hom(G_\dQ,\dZ/2\times \dZ/2) \\
     &= \hom(G_\dQ,\dZ/2) \times \hom(G_\dQ,\dZ/2)
 \end{align*}
 This is easily seen to be infinite (either using global class field theory, or 
 by noting that $\dQ$ has lots of Galois extensions of degree $2$). In fact, 
 using Kummer theory, one can show that 
-$\h^1(\dQ,E[2]) = (\dQ^\times/2)^{\oplus 2}$, which is $\dF_2$-vector space of 
+$\h^1(\dQ,\torsion 2 E) = (\dQ^\times/2)^{\oplus 2}$, which is $\dF_2$-vector space of 
 dimension $\aleph_0$. 
 \end{example}
 
-Our goal is to find a finite subgroup of $\h^1(k,A[n])$ containing $A(k)/n$. 
+Our goal is to find a finite subgroup of $\h^1(k,\torsion n A)$ containing $A(k)/n$. 
 We haven't really used the fact that $k$ is a number field yet -- everything so 
 far works for any perfect field. That changes when we start looking at 
 completions of $k$. 
@@ -566,24 +568,25 @@ if $k=\dQ$, $k_v=\dR$, then $G_{\dR}=\{1,c\}$ where $c:\dC\to \dC$ is complex
 conjugation. The image of $c$ in $G_\dQ$ is some element of order two. 
 
 The functoriality of $\h^\bullet(-,-)$ applied to the injection $G_{k_v} \to G_k$ 
-gives us a map $\h^1(k,A[n]) \to \h^1(k_v,A[n])$, where we regard $A[n]$ as a 
+gives us a map $\h^1(k,\torsion n A) \to \h^1(k_v,\torsion n A)$, where we 
+regard $\torsion n A$ as a 
 group scheme over $k_v$ by base extension. We now have a commutative diagram: 
 \[\xymatrix{
   0 \ar[r] 
     & A(k)/n \ar[r] \ar[d] 
-    & \h^1(k,A[n]) \ar[r] \ar[d]^-\beta 
-    & \h^1(k,A)[n] \ar[r] \ar[d] 
+    & \h^1(k,\torsion n A) \ar[r] \ar[d]^-\beta 
+    & \torsion{n}{\h^1(k,A)} \ar[r] \ar[d] 
     & 0 \\
   0 \ar[r] 
     & \displaystyle\prod_v A(k_v)/n \ar[r]^-\alpha 
-    & \displaystyle\prod_v \h^1(k_v,A[n]) \ar[r] 
-    & \displaystyle\prod_v \h^1(k_v,A)[n] \ar[r] 
+    & \displaystyle\prod_v \h^1(k_v,\torsion n A) \ar[r] 
+    & \displaystyle\prod_v \torsion{n}{\h^1(k_v,A)} \ar[r] 
     & 0
 }\]
 The \emph{$n$-Selmer group} of $A$ over $k$ is 
 \begin{align*}
   \selmer_n(A) = \beta^{-1}(\im \alpha) 
-    = \ker\left(\h^1(k,A[n]) \to \prod_v \h^1(k_v,A)[n]\right) \text{.}
+    = \ker\left(\h^1(k,\torsion n A) \to \prod_v \torsion{n}{\h^1(k_v,A)}\right) \text{.}
 \end{align*}
 Similarly, we define the \emph{Tate-Shafarevich group} of $A$ by the exact 
 sequence 
@@ -599,11 +602,11 @@ sequence
   0 \ar[r] 
     & A(k)/n \ar[r] 
     & \selmer_n(A) \ar[r] 
-    & \sha(A)[n] \ar[r] 
+    & \torsion{n}{\sha(A)} \ar[r] 
     & 0 \text{.}
 }\]
 We will soon prove that $\selmer_n(A)$ is finite, hence $A(k)/n$ and 
-$\sha(A)[n]$ are finite. 
+$\torsion{n}{\sha(A)}$ are finite. 
 
 \begin{conjecture}[Tate-Shafarevich]
 If $A$ is an abelian variety over a number field $k$, the group 
@@ -909,20 +912,21 @@ a $p$-adic Lie group.
 We can extend our reduction map to algebraic closures, getting a homomorphism 
 $A(\overline{k_\fp}) \to A_\fp(\overline{\kappa_\fp})$, that has a pro-$p$ 
 kernel. Choose an integer $n\geqslant 2$ with $p\nmid n$. The map 
-$A(\overline{k_\fp})[n] \to A_\fp(\overline{\kappa_\fp})[n]$ is an isomorphism 
+$\torsion{n}{A(\overline{k_\fp})} \to \torsion{n}{A_\fp(\overline{\kappa_\fp})}$ 
+is an isomorphism 
 because both groups have the same cardinality ($n^2$) and the kernel is 
 pro-$p$. In that isomorphism both groups have a Galois action -- $G_{k_\fp}$ on 
 the left and $G_{\kappa_\fp}=\hat\dZ$ on the right. The map is compatible with 
 the Galois action, so in particular, the inertia group $I_\fp$ acts trivially 
-on $A(\overline{k_\fp})[n]$. 
+on $\torsion{n}{A(\overline{k_\fp})}$. 
 
 Let $A/k_\fp$ be an abelian variety with good reduction. Recall we had a map 
-$\delta:A(k_\fp)/n A(k_\fp) \hookrightarrow \h^1(k_\fp,A[n])$ defined as 
+$\delta:A(k_\fp)/n \hookrightarrow \h^1(k_\fp,\torsion n A)$ defined as 
 follows. For $x\in A(k_\fp)$, choose $y\in A(\overline{k_\fp})$ such that 
 $n\cdot y=x$. We define the $1$-cocycle $\varphi=\delta(x)$ by 
 $\sigma\mapsto \sigma y - y$. For $\sigma\in I_\fp$, the elements 
 $\sigma y$ and $y$ have the same image in $A_\fp(\overline{\kappa_\fp})$, hence  
-$\sigma y - y\in A(\overline{k_\fp})[n]$ has trivial image modulo $\fp$. It 
+$\sigma y - y\in \torsion{n}{A(\overline{k_\fp})}$ has trivial image modulo $\fp$. It 
 follows that $\sigma y-y=0$ since it is an $n$-torsion point that is $0$ 
 modulo $\fp$. This tells us that $\varphi(\sigma) = 0$ for all 
 $\sigma\in I_\fp$, i.e. $\varphi(I_\fp) = 0$. 
@@ -935,7 +939,7 @@ $\varphi(I_\fp) = 0$ for all $\fp\subset \fo_k$ of good reduction for $A$.
 If we let $S$ be the finite set of primes for which $A$ has bad reduction, we 
 will show that the group
 \[
-  \h_S^1(k,A[n]) = \{[\varphi]\in \h^1(k,A[n]) : \varphi(I_\fp) = 0\text{ for all } \fp\notin S\}
+  \h_S^1(k,\torsion n A) = \{[\varphi]\in \h^1(k,\torsion n A) : \varphi(I_\fp) = 0\text{ for all } \fp\notin S\}
 \]
 is finite. 
 
@@ -1131,23 +1135,23 @@ is the latter with $E(\dQ)_\text{tors}=\langle (5,5)\rangle$.
 Let's get back to the weak Mordell-Weil theorem. Let $A$ be an abelian variety 
 over a number field $k$, and let $S$ be the (finite) set of primes $\fp$ for 
 which $A$ has bad reduction at $\fp$. There are natural maps 
-$\delta:A(k_\fp)/n \to\h^1(k_\fp,A[n])$, so we get a commutative diagram with 
+$\delta:A(k_\fp)/n \to\h^1(k_\fp,\torsion n A)$, so we get a commutative diagram with 
 exact rows: 
 \[\xymatrix{
   0 \ar[r] 
     & A(k)/n \ar[r]^-\delta \ar[d]
-    & \h^1(k,A[n]) \ar[d] \\
+    & \h^1(k,\torsion n A) \ar[d] \\
   0 \ar[r]
     & A(k_\fp)/n \ar[r]^-\delta 
-    & \h^1(k_\fp,A[n])
+    & \h^1(k_\fp,\torsion n A)
 }\]
 Since $A$ has good reduction outside $S$, the group $G_{k,S}$ defined in 
 \ref{sec:res-ram} acts on $A[n]$, so we can consider the cohomology group 
-$\h^1(G_{k,S},A[n])$. Moreover, the $n$-Selmer group 
-$\selmer_n(A)$ sits inside $\h^1(G_{k,S},A[n])$, so 
-$A(k)/n\hookrightarrow \selmer_n(A)\subset \h_S^1(k,A[n])$. The group 
-$\selmer_n(A)$ is a ``better approximation'' of $A(k)/n$ than $\h_S^1(k,A[n])$, 
-but it is $\h^1(G_{k,S},A[n])$ that we will actually show is finite. 
+$\h^1(G_{k,S},\torsion n A)$. Moreover, the $n$-Selmer group 
+$\selmer_n(A)$ sits inside $\h^1(G_{k,S},\torsion n A)$, so 
+$A(k)/n\hookrightarrow \selmer_n(A)\subset \h^1(G_{k,S},\torsion n A)$. The group 
+$\selmer_n(A)$ is a ``better approximation'' of $A(k)/n$ than $\h^1(G_{k,S},\torsion n A)$, 
+but it is $\h^1(G_{k,S},\torsion n A)$ that we will actually show is finite. 
 
 \begin{theorem}
 Let $A$ be an abelian variety over a number field $k$, and let 
