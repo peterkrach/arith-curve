@@ -387,6 +387,7 @@ $M$ of $x$, and let $\delta(x)(\sigma) = f^{-1}(\sigma \tilde x - \tilde x)$. On
 check that this is a cocycle, and that choosing a different $\tilde x$ changes 
 $\delta(x)(\sigma)$ by a coboundary. 
 
+\hard{
 If $G$ is a discrete group, then the cohomology $\h^\bullet(G,M)$ can be 
 interpreted as an $\operatorname{Ext}$-group. It is easy to see that the 
 category of $G$-module is equivalent to the category of $\dZ[G]$-modules, and 
@@ -412,8 +413,9 @@ consisting of $X\to S$ that are \'etale. A collection $\{f_i:U_i\to X\}$ in
 $\et S$ is a \emph{cover} if the images of the $f_i$ cover $X$. With this 
 notion of a cover, $\et S$ is a (subcanonical) site, so we can talk about 
 sheaves and cohomology on $\et S$. The main example is: 
+}
 
-\begin{example}
+\begin{example}[$\star$]
 Let $k$ be a field, and write $\et k$ for $\et{\spec(k)}$. Then the objects of 
 $\et k$ are all 
 of the form $\spec(L_1)\sqcup \cdots \sqcup \spec(L_n)\to \spec(k)$ for a 
@@ -992,6 +994,7 @@ group \emph{with restricted ramification}. In the future, if $M$ is a
 $G_k$-module for which the action of $G_k$ on $M$ is unramified away from 
 $S$, we will write $\h^1(G_{k,S},M)$ instead of $\h_S^1(G_k,M)$. 
 
+\hard{
 Just as one can interpret the 
 absolute Galois group $G_k$ as the \'etale fundamental group 
 $\pi_1(\spec k)$, the group $G_{k,S}$ can be interpreted as an \'etale 
@@ -1007,12 +1010,12 @@ of $S$ in $L$ is \'etale over $S$.
 See \cite[5.4.9]{sz09}.
 \end{proof}
 
-
 Let $S$ be a finite set of primes of $k$, and write $\fo_{k,S}=S^{-1} \fo_k$. A 
 field extension $K/k$ is unramified outside $S$ precisely when the integral 
 closure of $\fo_{k,S}$ inside $K$ is \'etale over $\fo_{k,S}$. In other words, 
 the above theorem shows that $G_{k,S} = \pi_1(\spec \fo_{o,S})$. In proving the 
 weak Mordell-Weil theorem, we will need following important finiteness result. 
+}
 
 \begin{theorem}\label{thm:hermite-fund}
 Let $S$ be a finite set of primes of a number field $k$. Then $G_{k,S}$ has 
