@@ -7,7 +7,7 @@
 \section{Curves and abelian varieties over finite fields}
 
 
-\subsection{Tate modules}
+\subsection{Motivation from complex analysis}
 
 Let's start with some motivation. Let $A$ be an abelian variety of dimension 
 $d$ over $\dC$. We have seen that $G=A(\dC)$ is a compact connected complex Lie 
@@ -64,6 +64,12 @@ a time. This is important because if $A$ is an abelian variety over a field of
 characteristic $p>0$, the groups $\torsion{p^e}{A}$ are not well behaved, so the 
 $p$-part of $\tate A=\varprojlim \torsion n A$ should be studied differently. 
 
+
+
+
+
+\subsection{Tate modules}
+
 Let $A$ be an abelian variety of dimension $d$ over an algebraically closed 
 field $k$. For the moment, we will think of $\torsion n A$ as a scheme -- namely 
 the fiber product 
@@ -112,7 +118,8 @@ compatibly on each $\torsion{\ell^n}{A}$, so we get a representation
   \rho_{A,\ell}:G_k\to \operatorname{GL}(\tate_\ell A)\simeq \gl{2 d}{\dZ_\ell} \text{.}
 \]
 The action of $\End(A)$ and $G_k$ commute, so we actually have a 
-representation $\End(A)[G_k] \to M_{2 d}(\dZ_\ell)$. 
+representation $\End(A)[G_k] \to M_{2 d}(\dZ_\ell)$. We could also write this 
+as $G_k \to \aut_{\End(A)\otimes \dZ_\ell}(\tate_\ell A)$. 
 
 \begin{theorem}[Faltings]
 Let $A,B$ be abelian varieties over a finitely generated field $k$. Then 
@@ -293,8 +300,14 @@ $A$ is isogenous to $E\times E$, then
 $\End^\circ(A)\simeq M_2\left(\End^\circ(E)\right)$. 
 \end{example}
 
+
+
+
+
+\subsection{Frobenius morphisms}
+
 We have remarked several times that there is no good ``algebraic definition'' 
-of $\h_1(X,\dQ)$ for varieties $X$ over a general field. Serre constructed an 
+of $\h_1(X,\dQ)$ for varieties $X$ over a general field. Serre gave an 
 example of a variety over $\overline\dF_p$ which shows not only that there 
 isn't a good definition, but that such an homology group cannot exist. 
 
@@ -303,7 +316,7 @@ of $p$, and $\dF_q$ the field with $q$ elements. Let $X$ be a nice variety over
 $\dF_q$. Choose an embedding $X\hookrightarrow \dP_{\dF_q}^n$. Write 
 $\Phi_X:X\to X$ for the map that on projective coordinates is 
 \[
-  (a_0:\cdots:a_N) \mapsto (a_0^q:\cdots :a_N^q) \text{.}
+  (a_0:\cdots:a_n) \mapsto (a_0^q:\cdots :a_n^q) \text{.}
 \]
 This is well-defined because $x\mapsto x^q$ is a ring homomorphism on 
 $\dF_q$-algebras. So if $X$ is the zero-set of homogeneous polynomials 
@@ -339,18 +352,20 @@ curve $y^2=x^3-x$. It is possible to give an explicit description of the
 division ring $D=\End^\circ(E)$. Fix $\alpha\in \dF_{p^2}$ such that 
 $\alpha^2=-1$. Then $\phi:E\to E$, defined by $(x,y)\mapsto (-x,\alpha y)$, is 
 a well-defined endomorphism. One has $\phi^2(x,y)=(x,-y)$, so $\phi^2=-1$ in 
-$D$. Moreover, 
+$D$. Write $\Phi$ for the base-change of the Frobenius morphism on the elliptic 
+curve $y^2=x^3-x$ over $\dF_p$ to $\overline\dR_p$. We have  
 \[
-  \Phi_E\phi(x,y) = (-x^p, \alpha^p y^p) = -(-x^p, \alpha^p y^p) = -\phi \Phi_E(x,y) \text{,}
+  \Phi \phi(x,y) = (-x^p, \alpha^p y^p) = -(-x^p, \alpha^p y^p) = -\phi \Phi(x,y) \text{,}
 \]
-so $\phi \Phi=-\Phi \phi$ in $D$. It turns out that $\Phi^2=-p$, so $D$ is the 
-standard quaternion algebra with parameters $(-1,-p)$, i.e.  
+so $\phi \Phi=-\Phi \phi$ in $D$. It turns out that $\Phi^2=-p$ (see Example 
+\ref{eg:serre}), so $D$ is the standard quaternion algebra with parameters 
+$(-1,-p)$, i.e.  
 \[
   D = \dQ\left\langle i,j,k : i^2=-1,j^2=-p,i j=k, j i=-k\right\rangle \text{.}
 \]
 \end{example}
 
-Now can show that ``$V=\h_1(E,\dQ)$'' cannot exist. If it did, we would expect 
+Now we can show that ``$V=\h_1(E,\dQ)$'' cannot exist. If it did, we would expect 
 it to be functorial in $E$, so there would be an action of $D$ on $V$. But we 
 would also want $V$ to be two-dimensional over $\dQ$. Since $D$ is 
 four-dimensional over $\dQ$, this would mean that $V$ has $D$-dimension $1/2$, 
@@ -566,8 +581,7 @@ the identity, and this comes down to the fact that the differential of
 Frobenius is zero (morally, $\frac{d}{dx}x^q=q x^{q-1}=0$). Thus 
 $P_A(1)=\# \ker(f)$. Note that $f(x)=0$ if and only if $\Phi(x)=x$, i.e. 
 $x\in A(\dF_q)$. So $P_A(1)=\#A(\dF_q)$. This has a surprising consequence: the 
-quantity $\# A(\dF_q)$ is isogeny-invariant! This fails badly over number 
-fields. 
+quantity $\# A(\dF_q)$ is isogeny-invariant! This fails over number fields. 
 
 Let's specialize to elliptic curves. Let $E$ be an elliptic curve over 
 $\dF_q$. We have $P_E(t)=t^2-a t+q$, for some integer $a=a(E)$. One calls $a$ 
@@ -585,15 +599,9 @@ We have $|a| \leqslant 2\sqrt q$, i.e.
 \end{theorem}
 \begin{proof}
 Let $n\in\dQ$, and take $P_E(n)=n^2-a n+q = \deg(n-\pi_E)\geqslant 0$. Thus 
-$t^2-a t+q\geqslant 0$ for all $t\in \dR$. Basic calculus tells us that 
-$a^2-4 q\leqslant 0$, i.e. $|a|\leqslant 2\sqrt q$. 
+$t^2-a t+q\geqslant 0$ for all $t\in \dR$. This implies $a^2-4 q\leqslant 0$, 
+hence $|a|\leqslant 2\sqrt q$. 
 \end{proof}
-
-% Some SAGE computations
-
-The following graph of $a_p(E)$ for $E:y^2=x^3+x$ shows that while for 
-``most'' primes one has $a_p(E)=0$, there are still a lot with 
-$a_p(E)=\lfloor 2\sqrt p\rfloor$. 
 
 \begin{sagesilent}
   aps = []
@@ -635,7 +643,7 @@ $|a|\leqslant 2\sqrt{q}$, there is an elliptic curve $E$ over $\dF_q$ with
 $a(E)=a$. So the Hasse bound is sharp. Moreover, we will see that $a(E)$, and 
 hence $P_E$, determines $E$ up to isogeny. 
 
-\begin{example}
+\begin{example}\label{eg:serre}
 Fix a prime $p\equiv 3\pmod 4$, and consider the elliptic curve $E$ over 
 $\dF_p$ given by the equation $y^2=x^3-x$. Recall that 
 $\End^\circ(E_{\dF_{p^2}})$ was a quaternion algebra over $\dQ$, of type 
@@ -695,12 +703,11 @@ $\omega_1 \omega_2 = q$. We know that
 so $\# E(\dF_{q^n}) = q^n+1 - (\omega_1^n+\omega_2^n)$. Recall that the 
 \emph{zeta function} of $E$ is the formal power series 
 \[
-  Z(E,t) = \exp\left(\int \sum_{n\geqslant 1} \# E(\dF_{q^n}) t^n\, \frac{dt}{t}\right) \text{.}
+  Z(E,t) = \exp\left(\sum_{n\geqslant 1} \# E(\dF_{q^n}) \frac{t^n}{n} \right) \text{.}
 \]
 We can compute:
 \begin{align*}
-  \int \sum_{n\geqslant 1} \# E(\dF_{q^n}) t^n\, \frac{dt}{t}
-    &= \sum_{n\geqslant 1} \# E(\dF_{q^n}) \frac{t^n}{n} \\
+  \sum_{n\geqslant 1} \# E(\dF_{q^n}) \frac{t^n}{n} 
     &= \sum \frac{(q t)^n}{n} + \sum \frac{t^n}{n} - \sum \frac{(\omega_1 t)^n}{n} - \sum \frac{(\omega_2 t)^n}{n} \\
     &= -\log(1-q t) - \log(1-t) + \log(1-\omega_1 t) + \log(1-\omega_2 t) \\
     &= \log\left(\frac{(1-\omega_1 t)(1-\omega_2 t)}{(1-t)(1-q t)} \right) \text{.}
@@ -829,8 +836,10 @@ Let $A$ and $B$ be abelian varieties over $\dF_q$. Then $A$ and $B$ are
 isogenous if and only if $P_A=P_B$.
 \end{theorem}
 
-We can rephrase this as: $A$ and $B$ are isogenous if and only if 
-$V_\ell A$ and $V_\ell B$ are isomorphic $G_{\dF_q}=\widehat\dZ$-modules.
+Thus, if $\vtate_\ell A$ and $\vtate_\ell B$ are isomorphic as 
+$G_{\dF_q}$-modules, $A$ and $B$ are isogenous. The converse holds under the 
+assumption that $\vtate_\ell A$ and $\vtate_\ell B$ are semisimple (which is 
+known, but not easy to prove). 
 
 Let $A$ be a simple abelian variety over $\dF_q$. Let 
 $D=\End^\circ(A)=\End_{\dF_q}(A)\otimes\dQ$; this is a division algebra over 
@@ -924,7 +933,7 @@ we have
 \]
 \end{theorem}
 If $f$ is ``well-behaved'' around each fixed point, the local degrees are all 
-one, so the theorem reduces to $\# X^f=\trace(f_\ast,\h_\bullet(X,\dQ))$. If 
+one, so the theorem reduces to $\# \{x\in X:f(x)=x\}=\trace(f_\ast,\h_\bullet(X,\dQ))$. If 
 $X$ is a Riemann surface, the alternating sum is 
 \[
   \trace(f_\ast,\h_0(X,\dQ)) - \trace(f_\ast,\h_1(X,\dQ)) + \trace(f_\ast,\h_2(X,\dQ))\text{.}
