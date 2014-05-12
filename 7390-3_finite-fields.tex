@@ -57,7 +57,7 @@ good substitute. Let $\widehat\dZ=\varprojlim \dZ/n$ be the profinite
 completion of $\dZ$. The isomorphisms $G[n]\simeq \h_1(G,\dZ/n)$ are 
 compatible, so we get an isomorphism of $\widehat\dZ$-modules 
 \[
-  \tate G := \varprojlim G[n] \xrightarrow\sim \varprojlim \h_1(G,\dZ/n) = \h_1(G,\widehat\dZ) \text{.}
+  \tate G := \varprojlim G[n] \isomorphism \varprojlim \h_1(G,\dZ/n) = \h_1(G,\widehat\dZ) \text{.}
 \]
 Since $\widehat\dZ=\prod_p \dZ_p$, we will consider $\tate G$ only one $p$-part at 
 a time. This is important because if $A$ is an abelian variety over a field of 
@@ -106,11 +106,19 @@ Let $A$ be an abelian variety. The \emph{$\ell$-adic Tate module of $A$} is
 
 The group $\tate_\ell A$ is a free $\dZ_\ell$-module of rank $2 d$. We write 
 $\vtate_\ell A$ for $\tate_\ell(A)\otimes\dQ$; this is a 
-$\dQ_\ell$-vector space of dimension $2 d$. The main idea is that 
-$\torsion{\ell^n}{A}$, $\tate_\ell(A)$ and $\vtate_\ell(A)$ are algebraic analogues of 
-$\h_1(A,\dZ/\ell^n)$, $\h_1(A,\dZ_\ell)$ and $\h_1(A,\dQ_\ell)$. 
+$\dQ_\ell$-vector space of dimension $2 d$. We have the following list of 
+analogies: 
+\begin{center}
+\begin{tabular}{c|c}
+analytic           & algebraic           \\ \hline 
+complex torus $A$  & abelian variety $A$ \\
+$\h_1(A,\dZ/n)$    & $\torsion n A$ \\
+$\h_1(A,\dZ_\ell)$ & $\tate_\ell A$ \\
+$\h_1(A,\dQ_\ell)$ & $\vtate_\ell A$ 
+\end{tabular}
+\end{center}
 
-Two things act on $T_\ell A$. The ring $\End(A)$ of endomorphisms 
+Two things act on $\tate_\ell A$. The ring $\End(A)$ of endomorphisms 
 of $A$ (as an abelian variety) defined over $k$ acts on each $\torsion{\ell^n}{A}$, and 
 hence on $\tate_\ell$ and $\vtate_\ell$. Also, the group $G_k=\gal(\bar k/k)$ acts 
 compatibly on each $\torsion{\ell^n}{A}$, so we get a representation 
@@ -172,7 +180,7 @@ of $G_k$ on $\tate A$, so that we get a canonical isomorphism
   \pi_1(A) \simeq G_k \ltimes_\rho \tate A \text{.}
 \]
 In particular, for each prime $\ell$ invertible in $k$, we have an isomorphism 
-$\pi_1(A)^{(\ell)} \simeq T_\ell A\ltimes_{\rho_{A,\ell}} G_k$, where 
+$\pi_1(A)^{(\ell)} \simeq \tate_\ell A\ltimes_{\rho_{A,\ell}} G_k$, where 
 $(-)^{(\ell)}$ denotes taking pro-$\ell$ completion. 
 }
 
@@ -270,7 +278,7 @@ embeds into the ring
 Since $\End^\circ A$ can be defined in terms of the category 
 $\mathsf{AbVar}_{k}^\mathrm{iso}$, it only depends on the isogeny class of 
 $A$. In particular, an isogeny $f:A\to B$ induces an isomorphism 
-$\End^\circ A\xrightarrow\sim \End^\circ B$. 
+$\End^\circ A\isomorphism \End^\circ B$. 
 There is an obvious inclusion $\End^\circ(A)^\times\supset\aut(A)$, and  
 $f\in \End^\circ(A)^\times$ if and only if $n f$ is an isogeny for some $n$.
 
@@ -314,7 +322,7 @@ isn't a good definition, but that such an homology group cannot exist.
 First, we need to discuss Frobenius morphisms. Let $p$ be a prime, $q$ a power 
 of $p$, and $\dF_q$ the field with $q$ elements. Let $X$ be a nice variety over 
 $\dF_q$. Choose an embedding $X\hookrightarrow \dP_{\dF_q}^n$. Write 
-$\Phi_X:X\to X$ for the map that on projective coordinates is 
+$\geomfrob_X:X\to X$ for the map that on projective coordinates is 
 \[
   (a_0:\cdots:a_n) \mapsto (a_0^q:\cdots :a_n^q) \text{.}
 \]
@@ -324,24 +332,23 @@ $f_i\in \dF_q[x_0,\dots,x_n]$ and $a\in X$, then
 \[
   f_i(a_0^q:\cdots:a_n^q) = f_i(a_0:\cdots:a_n)^q = 0
 \]
-so $\Phi_X(a)\in X$. Note that we have to raise to the $q$-th power rather 
+so $\geomfrob_X(a)\in X$. Note that we have to raise to the $q$-th power rather 
 than the $p$-th power because $x\mapsto x^p$ does not fix all elements of 
 $\dF_q$. 
 
-There is a scheme-theoretic definition of $\Phi_X$ that allows us to talk about 
-the Frobenius on arbitrary schemes over $\dF_q$. For a scheme $X/\dF_q$, let 
-$\Phi_X:X\to X$ be the the identity on the underlying topological space of $X$, 
-with $\Phi_X^\ast:\sO_X\to \sO_X$ the map $x\mapsto x^q$. If 
-$X=V(f_1,\dots,f_r)\subset \mathbb{A}_{\dF_q}^n$, then it is easy to see that 
-these definitions are equivalent, for both correspond to the usual Frobenius 
-map on $\dF_q[x_1,\dots,x_n]/(f_1,\dots,f_r)$. 
+There is a scheme-theoretic definition of $\geomfrob_X$ that allows us to talk about 
+the Frobenius on arbitrary schemes over $\dF_q$. For a scheme $X$ over $\dF_q$, let 
+$\geomfrob_X:X\to X$ be the the identity on the underlying topological space of $X$, 
+with $\geomfrob_X^\ast:\sO_X\to \sO_X$ the map $x\mapsto x^q$. If 
+$X$ is a quasi-projective variety, it is easy to see that our two different 
+definitions of $\geomfrob_X$ are equivalent. 
 
 It may seem confusing that the scheme-theoretic Frobenius is the identity on 
 points, while our coordinate-wise definition raises elements to the $q$-th 
 power. Actually, there is no contradiction. A point $x\in X$ with coordinates in 
 $\dF_{q^n}$ should be thought of as a map $x:\spec(\dF_{q^n})\to X$. Raising 
 those coordinates to the $q$-th power corresponds to composing $x$ with 
-$\Phi_X$, or, equivalently, precomposing $x$ with the automorphism 
+$\geomfrob_X$, or, equivalently, precomposing $x$ with the automorphism 
 $x\mapsto x^q$ of $\dF_{q^n}$. 
 
 
@@ -353,7 +360,7 @@ division ring $D=\End^\circ(E)$. Fix $\alpha\in \dF_{p^2}$ such that
 $\alpha^2=-1$. Then $\phi:E\to E$, defined by $(x,y)\mapsto (-x,\alpha y)$, is 
 a well-defined endomorphism. One has $\phi^2(x,y)=(x,-y)$, so $\phi^2=-1$ in 
 $D$. Write $\Phi$ for the base-change of the Frobenius morphism on the elliptic 
-curve $y^2=x^3-x$ over $\dF_p$ to $\overline\dR_p$. We have  
+curve $y^2=x^3-x$ over $\dF_p$ to $\overline{\dF_p}$. We have  
 \[
   \Phi \phi(x,y) = (-x^p, \alpha^p y^p) = -(-x^p, \alpha^p y^p) = -\phi \Phi(x,y) \text{,}
 \]
@@ -395,10 +402,10 @@ that $A[n]=\ker[n]\simeq (\dZ/n)^{\oplus 2 d}$, at least if $n\in k^\times$.
 \end{example}
 
 \begin{example}
-If $A$ is defined over a finite field $\dF_q$, let $\Phi=\Phi_A:A\to A$ be the 
-Frobenius. With some difficulty, one can show that $\Phi_A$ is purely 
-inseparable (i.e. $k(A)/\Phi^\ast k(A)$ is purely inseparable) of degree 
-$q^d$. Alternatively, $\ker(\Phi)(\bar k)=0$, so $\ker(f)$ is ``as far from 
+If $A$ is defined over a finite field $\dF_q$, let $\geomfrob=\geomfrob_A:A\to A$ 
+be the Frobenius. With some difficulty, one can show that $\geomfrob_A$ is purely 
+inseparable (i.e. $k(A)/\geomfrob^\ast k(A)$ is purely inseparable) of degree 
+$q^d$. Alternatively, $\ker(\geomfrob)(\bar k)=0$, so $\ker(f)$ is ``as far from 
 \'etale as possible.'' 
 \end{example}
 
@@ -450,7 +457,7 @@ Thus $\deg(n-\alpha)=\det(n\cdot 1-\alpha_\ast,\h_1(T,\dZ))$, so
 $P_\alpha=\det\left(t\cdot 1-\alpha_\ast,\h_1(T,\dZ)\right)$. 
 \end{example}
 
-Fix a prime $\ell\in k^\times$. Recall that we have an inverse system of 
+Fix a prime $\ell$ invertible in $k$. Recall that we have an inverse system of 
 $G_k$-modules 
 \[\xymatrix{
   A[\ell] 
@@ -459,19 +466,20 @@ $G_k$-modules
     & \ar[l] \cdots
 }\]
 where here we think of $A[\ell^n]$ as $A(\bar k)[\ell^n]$. The inverse limit is 
-$T_\ell A=\varprojlim A[\ell^n]$, and we set $V_\ell A=T_\ell A\otimes \dQ$. We 
-call $T_\ell A$ and $V_\ell A$ the \emph{$\ell$-adic Tate modules associated with 
-$A$}. We will use $V_\ell$ as an $\ell$-adic avatar for 
-$\h_1(A,\dQ_\ell)$. In fact, $T_\ell A\simeq \h^1(\et A,\dZ_\ell)^\vee$ as a 
+$\tate_\ell A=\varprojlim A[\ell^n]$, and we set 
+$\vtate_\ell A=\tate_\ell A\otimes \dQ$. We call $\tate_\ell A$ and 
+$\vtate_\ell A$ the \emph{$\ell$-adic Tate modules associated with $A$}. We 
+will use $\vtate_\ell$ as an $\ell$-adic avatar for 
+$\h_1(A,\dQ_\ell)$. In fact, $\tate_\ell A\simeq \h^1(\et A,\dZ_\ell)^\vee$ as a 
 $G_k$-module. (This is essentially a tautology. For lisse $\ell$-adic sheaves 
 $\sF$ on $A$, one has 
 $\h^\bullet(A,\sF) = \h^\bullet\left(\pi_1(A),\sF_0\right)$, where $\sF_0$ is 
 the stalk of $\sF$ at $0$. For $\sF=\dZ_\ell$, this gives 
-$\h^1(\et A,\dZ_\ell) = \hom(T A,\dZ_\ell) = (T_\ell A)^\vee$.)
+$\h^1(\et A,\dZ_\ell) = \hom(\tate A,\dZ_\ell) = (\tate_\ell A)^\vee$.)
 
 \begin{theorem}
 Let $\ell$ be a prime invertible in $k$. For any $\alpha\in \End(A)$, we have 
-$P_\alpha = \det(t\cdot 1-\alpha_\ast,T_\ell A)$. 
+$P_\alpha = \det(t\cdot 1-\alpha_\ast,\tate_\ell A)$. 
 \end{theorem}
 \begin{proof}
 This is nontrivial. See \cite[I.10.20]{mi-av}. 
@@ -483,22 +491,22 @@ For $\alpha\in \End^\circ(A)$, we have $P_\alpha(\alpha)=0$.
 \begin{proof}
 We use the fact (see \cite[I.10.15]{mi-av}) that the natural map 
 \[
-  \End(A)\otimes\dZ_\ell \to \End_{\dZ_\ell} \left(T_\ell A\right)
+  \End(A)\otimes\dZ_\ell \to \End_{\dZ_\ell} \left(\tate_\ell A\right)
 \]
-is injective. In $\End(T_\ell A)$, one has $P_\alpha(\alpha)=0$ by the 
+is injective. In $\End(\tate_\ell A)$, one has $P_\alpha(\alpha)=0$ by the 
 Cayley-Hamilton theorem. Injectivity tells us that 
 $P_\alpha(\alpha)=0$ in $\End(A)\otimes\dZ_\ell$, and since $\End(A)$ is 
 torsion-free, we see that $P_\alpha(\alpha)=0$ in $\End(A)$.
 \end{proof}
 
 From the theorem, we see that the characteristic polynomial of $\alpha$ acting 
-on $T_\ell A$ is in $\dZ[t]$, and is independent of $\ell$. This is highly 
-non-obvious. Note that $A\mapsto T_\ell A$ is a functor from abelian varieties 
+on $\tate_\ell A$ is in $\dZ[t]$, and is independent of $\ell$. This is highly 
+non-obvious. Note that $A\mapsto \tate_\ell A$ is a functor from abelian varieties 
 over $k$ to $\dZ_\ell$-representations of $G_k$. If $k$ has characteristic $p$ 
 and we want to assign a $p$-adic representation of $G_k$ to an abelian variety, 
 we have to work harder. Of course, $T_p A$ is a $\dZ_p$-module with a 
-$G_k$-action, but there examples when $\rank_{\dZ_p} T_p A < 2\dim A$. In this 
-case, instead of studying $T_p A$, (essentially the $p$-adic \'etale cohomology 
+$G_k$-action, but there examples when $\rank_{\dZ_p} \tate_p A < 2\dim A$. In this 
+case, instead of studying $\tate_p A$, (essentially the $p$-adic \'etale cohomology 
 of $A$) one should study the crystalline or rigid cohomology of $A$. If the 
 base field $k$ is perfect, these yield $W(k)$-modules with the ``correct'' 
 rank. For a brief survey of crystalline cohomology, see \cite{il94}, and for an  
@@ -508,29 +516,20 @@ introduction to rigid cohomology, see \cite{st07}.
 
 
 
-
-
-
-
-
-% 10-24-13
-\subsection{Abelian varieties over finite fields}\label{sec:ab-fin-fld}
+\subsection{Characteristic polynomial of Frobenius}\label{sec:char-frob}\label{sec:ab-fin-fld}
 
 Let $A$ be an abelian variety over $\dF_q$, where $q$ is a power of $p$. For 
 example, $A$ could be the jacobian of a smooth curve. Recall that there is a 
-distinguished endomorphism $\Phi=\Phi_A$ of $A$, called the Frobenius of $A$. 
+distinguished endomorphism $\geomfrob=\geomfrob_A$ of $A$, called the Frobenius of $A$. 
 If we embed $A$ into some projective space $\dP^n$, then in coordinates we 
-have $\Phi(x_0:\cdots:x_n) = (x_0^q:\cdots:x_n^q)$. As a morphism of schemes, 
-$\Phi$ is the identity on the underlying space of $A$, and is the $q$-th power 
+have $\geomfrob(x_0:\cdots:x_n) = (x_0^q:\cdots:x_n^q)$. As a morphism of schemes, 
+$\geomfrob$ is the identity on the underlying space of $A$, and is the $q$-th power 
 map on $\sO_A$. Let $d\geqslant 1$ be the dimension of $A$. 
 
-
-\subsection{Characteristic polynomial of Frobenius}\label{sec:char-frob}
-
-Recall that there is a polynomial $P_A=P_{\Phi_A}\in \dZ[t]$ of degree $2 d$ 
-such that $P_A(n)=\deg(n-\Phi_A)$ for all integers $n$. Also, if $\ell$ is a 
-prime not dividing $q$, $P_A$ is the characteristic polynomial of $\Phi_\ast$ 
-as a $\dZ_\ell$-linear map $\Phi_\ast:T_\ell A\to T_\ell A$. Thus we have a 
+Recall that there is a polynomial $P_A=P_{\geomfrob_A}\in \dZ[t]$ of degree $2 d$ 
+such that $P_A(n)=\deg(n-\geomfrob_A)$ for all integers $n$. Also, if $\ell$ is a 
+prime not dividing $q$, $P_A$ is the characteristic polynomial of $\geomfrob_\ast$ 
+as a $\dZ_\ell$-linear map $\geomfrob_\ast:\tate_\ell A\to \tate_\ell A$. Thus we have a 
 map $P:\mathsf{AbVar}_{\dF_q} \to \dZ[t]$. 
 
 \begin{theorem}
@@ -550,42 +549,42 @@ where $C$ is independant of $e$ if $e\gg 1$ (since $C\subset \ker(f)$, a finite
 group). At the level of Tate modules, if $f_\ast(x)=0$, then 
 $f(x_i)=0$ in $B[\ell^i]$ for all $i$, so each $x_i\in C$. But $C$ is a finite 
 group, so it contains no nonzero sequences $(x_i)$ with $\ell x_{i+1}=x_i$ for 
-all $i$. Thus $x=0$, so $f_\ast:T_\ell A\to T_\ell B$ is injective. Since 
-$T_\ell A$ and $T_\ell B$ have the same rank, the map 
-$f_\ast:V_\ell A\to V_\ell B$ is an isomorphism. (So far we have shown that 
-$V_\ell A$ is isogeny-invariant over any field.) It is easy to check that 
-$f\circ \Phi_A=\Phi_B\circ f$. It follows that 
-$f_\ast\circ (\Phi_A)_\ast = (\Phi_A)_\ast \circ f$, and from this we see that 
+all $i$. Thus $x=0$, so $f_\ast:\tate_\ell A\to \tate_\ell B$ is injective. Since 
+$\tate_\ell A$ and $\tate_\ell B$ have the same rank, the map 
+$f_\ast:\vtate_\ell A\to \vtate_\ell B$ is an isomorphism. (So far we have shown that 
+$\vtate_\ell A$ is isogeny-invariant over any field.) It is easy to check that 
+$f\circ \geomfrob_A=\geomfrob_B\circ f$. It follows that 
+$f_\ast\circ (\geomfrob_A)_\ast = (\geomfrob_A)_\ast \circ f$, and from this we see that 
 $P_A=P_B$. 
 \end{proof}
 
 Alternatively, we could note that 
-$T_\ell:\mathsf{AbVar}_k\to \mathsf{Rep}_{\dZ_\ell}(G_k)$ naturally descends to 
+$\tate_\ell:\mathsf{AbVar}_k\to \mathsf{Rep}_{\dZ_\ell}(G_k)$ naturally descends to 
 a functor 
-$V_\ell:\mathsf{AbVar}_k\otimes\dQ\to \mathsf{Rep}_{\dZ_\ell}(G_k)\otimes\dQ$. 
+$\vtate_\ell:\mathsf{AbVar}_k\otimes\dQ\to \mathsf{Rep}_{\dZ_\ell}(G_k)\otimes\dQ$. 
 Since $\mathsf{AbVar}_k\otimes\dQ=\mathsf{AbVar}_k^\text{iso}$ and 
 $\mathsf{Rep}_{\dZ_\ell}(G_k)\otimes\dQ=\mathsf{Rep}_{\dQ_\ell}(G_k)$, this 
 gives a functor 
 \[
-  V_\ell:\mathsf{AbVar}_k^\text{iso} \to \mathsf{Rep}_{\dQ_\ell}(G_k) \text{.}
+  \vtate_\ell:\mathsf{AbVar}_k^\text{iso} \to \mathsf{Rep}_{\dQ_\ell}(G_k) \text{.}
 \]
 Here and elsewhere, if $\cA$ is an additive category, we write 
 $\cA\otimes\dQ$ for the localization of $\cA$ at the class of morphisms 
 $n\cdot 1_A$, $n\in \dZ\smallsetminus 0$.
 
-It turns out that $P_A(0)=\deg(-\Phi_A)=\deg(\Phi_A)=q^g$; this can be verified 
+It turns out that $P_A(0)=\deg(-\geomfrob_A)=\deg(\geomfrob_A)=q^g$; this can be verified 
 by a direct (but messy) computation. A more interesting quantity is 
-$P_A(1)=\deg(1-\Phi)$. Let $f=1-\Phi$. We claim that $f:A\to A$ is \'etale. 
+$P_A(1)=\deg(1-\geomfrob_A)$. Let $f=1-\geomfrob_A$. We claim that $f:A\to A$ is \'etale. 
 Essentially, the map $d f:\operatorname{Lie}(A) \to \operatorname{Lie}(A)$ is 
 the identity, and this comes down to the fact that the differential of 
 Frobenius is zero (morally, $\frac{d}{dx}x^q=q x^{q-1}=0$). Thus 
-$P_A(1)=\# \ker(f)$. Note that $f(x)=0$ if and only if $\Phi(x)=x$, i.e. 
+$P_A(1)=\# \ker(f)$. Note that $f(x)=0$ if and only if $\geomfrob_A(x)=x$, i.e. 
 $x\in A(\dF_q)$. So $P_A(1)=\#A(\dF_q)$. This has a surprising consequence: the 
 quantity $\# A(\dF_q)$ is isogeny-invariant! This fails over number fields. 
 
 Let's specialize to elliptic curves. Let $E$ be an elliptic curve over 
 $\dF_q$. We have $P_E(t)=t^2-a t+q$, for some integer $a=a(E)$. One calls $a$ 
-the trace of Frobenius. Indeed, $a=\trace(\Phi_{E,\ast},T_\ell)$ for 
+the trace of Frobenius. Indeed, $a=\trace(\geomfrob_{E,\ast},\tate_\ell)$ for 
 all $\ell\ne p$. Since $\# E(\dF_p)=P_A(1)=1-a+q$, we could have defined 
 $a=1+q-\# E(\dF_q)$. Since $\# \dP^1(\dF_q)=q+1$, we can think of $a$ as an 
 arithmetically interesting ``error term'' measuring how much $E(\dF_q)$ and 
@@ -647,8 +646,8 @@ hence $P_E$, determines $E$ up to isogeny.
 Fix a prime $p\equiv 3\pmod 4$, and consider the elliptic curve $E$ over 
 $\dF_p$ given by the equation $y^2=x^3-x$. Recall that 
 $\End^\circ(E_{\dF_{p^2}})$ was a quaternion algebra over $\dQ$, of type 
-$(-1,-p)$. We used the fact that $\Phi_E^2=-p$, but didn't prove this. We 
-know that $P_E(\Phi_E)=0$, i.e. $\Phi_E^2-a \Phi_E+p$, so all we need to do 
+$(-1,-p)$. We used the fact that $\geomfrob_E^2=-p$, but didn't prove this. We 
+know that $P_E(\geomfrob_E)=0$, i.e. $\geomfrob_E^2-a \geomfrob_E+p$, so all we need to do 
 is show that $a=0$. Since $a=p+1-\# E(\dF_p)$, we just need to show that 
 $\# E(\dF_p)=p+1$. The two sets 
 \begin{align*}
@@ -676,15 +675,15 @@ We have $P_{A_{\dF_{q^n}}}(t) = \prod_{i=1}^{2 d} (x-\omega_i^n)$.
 \end{theorem}
 \begin{proof}
 Let $A'=A_{\dF_{q^n}}$, and fix a prime $\ell\nmid q$. We have equality 
-$V_\ell A = V_\ell A'$; write $V$ for this vector space. The Frobenius 
-on $A$ induces a linear map $\Phi_{A,\ast}:V\to V$ with characteristic 
-polynomial $P_A$. We have $\Phi_A^n=\Phi_{A'}^n$ as morphisms on $A'$, so 
-$\Phi_{A',\ast} = \Phi_{A,\ast}^n$, whence the result. 
+$\vtate_\ell A = \vtate_\ell A'$; write $V$ for this vector space. The Frobenius 
+on $A$ induces a linear map $\geomfrob_{A,\ast}:V\to V$ with characteristic 
+polynomial $P_A$. We have $\geomfrob_A^n=\geomfrob_{A'}^n$ as morphisms on $A'$, so 
+$\geomfrob_{A',\ast} = \geomfrob_{A,\ast}^n$, whence the result. 
 \end{proof}
 
 Let's look at the case where $E/\dF_q$ is an elliptic curve. We have 
 $P_E(t)=t^2-a t+q$, where $a=a(E)\in \dZ$ is the trace of Frobenius acting on 
-$T_\ell E$ for any $\ell\nmid q$. Recall that since $P_E(1)=\# E(\dF_q)$, we 
+$\tate_\ell E$ for any $\ell\nmid q$. Recall that since $P_E(1)=\# E(\dF_q)$, we 
 get $a=q+1-\# E(\dF_q)$. Moreover, we showed that $|a|\leqslant 2\sqrt q$. 
 Equivalently, the roots of $P_E$ have absolute value $q^{1/2}$. 
 
@@ -783,7 +782,7 @@ The map
 \[
   \{\text{isogeny classes of elliptic curves over $\dF_q$}\} \to \{a\in \dZ:|a|\leqslant 2\sqrt q\}
 \]
-given by $E\mapsto a(E)=\trace(\Phi_E,T_\ell E) = q+1-\# E(\dF_q)$ is a bijection. 
+given by $E\mapsto a(E)=\trace(\geomfrob_E,\tate_\ell E) = q+1-\# E(\dF_q)$ is a bijection. 
 \end{corollary}
 
 \begin{example}
@@ -813,10 +812,10 @@ Let $A$ and $B$ be abelian varieties over $\dF_q$. Then
 $P_{A\times B}=P_A\times P_B$. 
 \end{lemma}
 \begin{proof}
-On $A\times B$, we have $\Phi_{A\times B}=\Phi_A\times \Phi_B$. Fix 
-$\ell\nmid q$, and consider $V_\ell(A\times B)=V_\ell A\oplus V_\ell B$. On 
-$V_\ell(A\times B)$, we have 
-$\Phi_{A\times B,\ast} = \Phi_{A,\ast}\times \Phi_{B,\ast}$. So it comes down 
+On $A\times B$, we have $\geomfrob_{A\times B}=\geomfrob_A\times \geomfrob_B$. Fix 
+$\ell\nmid q$, and consider $\vtate_\ell(A\times B)=\vtate_\ell A\oplus \vtate_\ell B$. On 
+$\vtate_\ell(A\times B)$, we have 
+$\geomfrob_{A\times B,\ast} = \geomfrob_{A,\ast}\times \geomfrob_{B,\ast}$. So it comes down 
 to showing that the characteristic polynomial of $f\oplus g$ is the product of 
 the respective characteristic polynomials. But this is obvious. 
 \end{proof}
@@ -843,19 +842,19 @@ known, but not easy to prove).
 
 Let $A$ be a simple abelian variety over $\dF_q$. Let 
 $D=\End^\circ(A)=\End_{\dF_q}(A)\otimes\dQ$; this is a division algebra over 
-$\dQ$. Then the field $F=\dQ(\Phi_A)$ is contained in the 
+$\dQ$. Then the field $F=\dQ(\geomfrob_A)$ is contained in the 
 center of $D$. 
 
 \begin{theorem}
 Let $A$ be a simple abelian variety over $\dF_q$. Then 
 \begin{enumerate}
-  \item $D=\End^\circ(A)$ has center $F=\dQ(\Phi_A)$ 
+  \item $D=\End^\circ(A)$ has center $F=\dQ(\geomfrob_A)$ 
   \item $\dim_F D = e^2$, where $P_A =h^e$ with $h$ irreducible
   \item $2\dim A = e\cdot [F:\dQ]$. 
 \end{enumerate}
 \end{theorem}
 
-The division algebra $D$ can be described explicitly from $\Phi_A$. You can 
+The division algebra $D$ can be described explicitly from $\geomfrob_A$. You can 
 give local invariants that classify it over each $F_v$, where $v$ ranges over 
 the places of $F$. 
 
@@ -891,7 +890,7 @@ finite places $v_1,\dots,v_r$ and an element of $\brauer(\dR)=\dZ/2$ for each
 real place of $k$.
 
 \begin{example}
-Let $E$ be an elliptic curve over $\dF_q$ with $P_E=x^2+q$. Then $\Phi_E^2=-q$, 
+Let $E$ be an elliptic curve over $\dF_q$ with $P_E=x^2+q$. Then $\geomfrob_E^2=-q$, 
 so $F=\dQ(\Phi_E)\simeq\dQ(\sqrt{-q})$. It follows that $e=1$, so  
 $\End^\circ(E)=\dQ(\Phi_E)$. 
 \end{example}
@@ -940,9 +939,9 @@ $X$ is a Riemann surface, the alternating sum is
 \]
 
 There is an analogue of the Lefschetz fixed point theorem for \'etale 
-cohomology. Let $X$ be a nice variety over a field $k$, and let 
-$f:X\to X$ be an arbitrary morphism. Let $\ell$ be a prime invertible in $k$. 
-It is proven in \cite[IV.3.3]{de77} that one has 
+cohomology. Let $X$ be a nice variety over an algebraically closed field $k$, 
+and let $f:X\to X$ be an arbitrary morphism. Let $\ell$ be a prime invertible 
+in $k$. It is proven in \cite[IV.3.3]{de77} that one has 
 \[
   (\Gamma_f \cdot \Delta_X) = \trace(f^\ast,\h^\bullet(X,\dQ_\ell))\text{.}
 \]
@@ -963,9 +962,9 @@ alternating sum has only three terms:
 \]
 One can show that the trace on $\h^0(C,\dQ_\ell)$ is $1$, while the trace on 
 $\h^2(C,\dQ_\ell)$ is $q^n$. Let $J$ be the jacobian of $C$. Since 
-$\h^1(C,\dQ_\ell)^\vee \simeq V_\ell J$ as $G_{\dF_q}$-modules, we have 
+$\h^1(C,\dQ_\ell)^\vee \simeq \vtate_\ell J$ as $G_{\dF_q}$-modules, we have 
 \[
-  \# C(\dF_{q^n}) = q^n+1 - \trace(\Phi_\ast^n, V_\ell J) \text{.}
+  \# C(\dF_{q^n}) = q^n+1 - \trace(\Phi_\ast^n, \vtate_\ell J) \text{.}
 \]
 The following theorem is a straightforward consequence of the Lefschetz fixed 
 point theorem and Theorem \ref{thm:char-poly-power}. 
@@ -1097,7 +1096,7 @@ $Z(X,t) = \prod P_i(X,t)^{(-1)^{i+1}}$ there is no cancellation.
 Let's relate our approach to the Weil conjectures for a curve to the general 
 proof. The fact that 
 \[
-  Z(C,t) = \frac{\det(1-\Phi^\ast t,V_\ell J)}{(1-t)(1-q t)}
+  Z(C,t) = \frac{\det(1-\Phi^\ast t,\vtate_\ell J)}{(1-t)(1-q t)}
 \]
 has a general analogue. For a graded vector space $H^\bullet$ and a graded 
 endomorphism $f^\bullet:H^\bullet \to H^\bullet$, write 
