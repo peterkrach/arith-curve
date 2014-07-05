@@ -1,15 +1,9 @@
-% !TEX root = 7390-notes.tex
+% !TEX root = arith-curve.tex
 
 
 
 
 
-
-
-
-
-
-% notes on 09-12-2013
 \section{The Mordell-Weil theorem}
 
 
@@ -197,18 +191,19 @@ $G_k$-invariants of $\torsion n A$, resulting in an exact sequence:
 }\]
 We are interested in continuing this exact sequence to the right, i.e. in 
 constructing a long exact sequence 
-\[
+\begin{equation*}
 \begin{tikzcd}
-  0 \rar 
-    & (\torsion n A)^{G_k} \rar 
-    & A(k) \rar 
-    & A(k) \ar[out=355,in=175, overlay]{dll} \\
-  & \h^1(G_k,\torsion n A) \rar 
-    & \h^1\left(G_k,A(\bar k)\right) \rar 
-    & \h^1\left(G_k,A(\bar k)\right) \rar
-    & \cdots
+   0 \rar & (\torsion n A)^{G_k} \rar & A(k) \rar{n}
+             \ar[draw=none]{d}[name=X, anchor=center]{}
+    & A(k) \ar[rounded corners,
+            to path={ -- ([xshift=2ex]\tikztostart.east)
+                      |- (X.center) \tikztonodes
+                      -| ([xshift=-2ex]\tikztotarget.west)
+                      -- (\tikztotarget)}]{dll}[at end]{\delta} \\
+  & \h^1(G_k,\torsion n A) \rar & \h^1(G_k,A(\bar k)) \rar & \h^1(G_k,A(\bar k)) \rar & \cdots
 \end{tikzcd}
-\]
+\end{equation*}
+
 This fits into a general framework of derived functors, but we will mostly 
 just use the concrete definition of $\h^1(G_k,-)$ using cocycles and 
 coboundaries. 
@@ -364,24 +359,25 @@ of \emph{$1$-coboundaries} consists of continuous maps $\varphi:G\to M$ of the
 form $\sigma\mapsto \sigma\alpha-\alpha$ for some $\alpha\in M$. The 
 \emph{first cohomology of $G$ with coefficients in $M$} is 
 \[
-  \h^1(G,M) = Z^1(G,M) / B^1(G,M) \text{.}
+  \h^1(G,M) = Z^1(G,M) / B^1(G,M) .
 \]
 \end{definition}
 One can prove using a canonical projective resolution of $M$ that this agrees 
 with the derived functor definition. It is not hard to  check directly that if 
 $0\to M'\xrightarrow f M\xrightarrow g M'' \to 0$ is an exact sequence of 
 $G_k$-modules, then there is a natural exact sequence:
-\begin{center}
+\begin{equation*}
 \begin{tikzcd}
-  0 \rar 
-    & {M'}^G \rar{f}
-    & M^G \rar{g}
-    & {M''}^G \ar[out=355,in=175, overlay]{dll}{\delta} \\
-  & \h^1(G,M') \rar{f_\ast}
-    &\h^1(G,M) \rar{g_\ast} 
-    & \h^1(G,M'') \text{.}
+   0 \rar & {M'}^G \rar{f} & M^G \rar{g}
+             \ar[draw=none]{d}[name=X, anchor=center]{}
+    & {M''}^G \ar[rounded corners,
+            to path={ -- ([xshift=2ex]\tikztostart.east)
+                      |- (X.center) \tikztonodes
+                      -| ([xshift=-2ex]\tikztotarget.west)
+                      -- (\tikztotarget)}]{dll}[at end]{\delta} \\
+  & \h^1(G,M') \rar & \h^1(G,M) \rar & \h^1(G,M'') \rar & \cdots
 \end{tikzcd}
-\end{center}
+\end{equation*}
 where $\delta(x)$ is defined as follows. Choose a lift $\tilde x$ in 
 $M$ of $x$, and let $\delta(x)(\sigma) = f^{-1}(\sigma \tilde x - \tilde x)$. One can 
 check that this is a cocycle, and that choosing a different $\tilde x$ changes 
