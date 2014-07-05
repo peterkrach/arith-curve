@@ -187,7 +187,6 @@ projective and geometrically integral. We will use this to give an
 
 
 
-% lecture on 09-05-2013
 \subsection{Abelian varieties over arbitrary fields}
 
 Recall that a variety $X/k$ is \emph{nice} if it is smooth, projective, and 
@@ -243,13 +242,13 @@ $\dim_k \h^i(X,\sF)$.
 
 \begin{definition}[Albanese]
 Let $C/k$ be a curve with fixed $x_0\in C(k)$. The \emph{jacobian} of $C$ is 
-an abelian variety $J=\jac C$ with a morphism $j:C\to J$ taking $x_0$ to $0$, such 
+an abelian variety $J=\jac(C)$ with a morphism $j:C\to J$ taking $x_0$ to $0$, such 
 that for any morphism $f:C\to A$ to an abelian variety $A$ with $f(x_0)=0$, 
 there is a unique $\tilde f:J\to A$ making the following diagram commute:
 \[\xymatrix{
   C \ar[r]^-j \ar[dr]_-f 
     & J \ar@{.>}[d]^-{\tilde f} \\
-  & A
+  & A .
 }\]
 \end{definition}
 
@@ -259,21 +258,20 @@ $\mathsf{AbV}_k$ be the category of abelian varieties over $k$, and let
 $\mathsf{Var}_{k,\ast}$ be the category of ``nice pointed varieties'' over $k$, 
 i.e. nice varieties $X/k$ with chosen $x\in X(k)$. Forgetting the group 
 structure gives an inclusion functor 
-$\iota:\mathsf{AbV}_k\to \mathsf{Var}_k$. Our definition of $\jac C$ can be 
-rephrased as saying that $j:C\to \jac C$ induces a natural isomorphism 
+$\iota:\mathsf{AbV}_k\to \mathsf{Var}_{k,\ast}$. Our definition of $\jac(C)$ 
+can be rephrased as saying that $j:C\to \jac(C)$ induces a natural isomorphism 
 \[
-  \hom_{\mathsf{Var}_{k,\ast}}(C,\iota A) \simeq \hom_{\mathsf{AbVar}_k}(\jac C,A)\text{.}
+  \hom_{\mathsf{Var}_{k,\ast}}(C,\iota A) \simeq \hom_{\mathsf{AbVar}_k}(\jac C,A) .
 \]
 It turns out that for any nice pointed variety $X$, there is an abelian variety 
-$A=\operatorname{Alb} X$, the \emph{Albanese variety} of $X$, with a morphism 
-$j:X\to \operatorname{Alb} X$ that induces a similar natural isomorphism (with 
-$\operatorname{Alb} X$ in place of $\jac C$). So taking jacobian may be seen 
+$A=\albanese(X)$, the \emph{Albanese variety} of $X$, with a morphism 
+$j:X\to \albanese(X)$ that induces a similar natural isomorphism (with 
+$\albanese(X)$ in place of $\jac C$). So taking jacobian may be seen 
 as the left-adjoint to the forgetful functor from abelian varieties to pointed 
-varieties. For a proof that $\operatorname{Alb} X$ exists, see 
-\cite[A.11]{mo12}.
+varieties. For a proof that $\albanese(X)$ exists, see \cite[A.11]{mo12}.
 
-In general, the map $X\to \operatorname{Alb} X$ need not be an embedding. 
-For example, if $C$ is a curve of genus $0$, then $\operatorname{Alb} X=0$ by 
+In general, the map $X\to \albanese(X)$ need not be an embedding. 
+For example, if $C$ is a curve of genus $0$, then $\albanese(X)=0$ by 
 \cite[I.3.9]{mi-av}. On the other hand, if the genus $g\geqslant 1$, then 
 $C\to J$ is an embedding. The map $C(\bar k)\to \picard^\circ(C_{\bar k})$ sends 
 a point $x$ to the divisor $[x]-[x_0]$. If $[x]-[x_0] = [y]-[x_0]$ in 
@@ -282,7 +280,7 @@ rational map $f:C\to \dP^1$. If $x\ne y$, then $f$ would have a unique simple
 zero and poll, which would imply that $f$ is birational. But this is 
 impossible, so $x\ne y$ implies $j(x)\ne j(y)$. 
 
-If $C(k)=\varnothing$, we can still define $J=\jac C$. It will be a $k$-variety 
+If $C(k)=\varnothing$, we can still define $J=\jac(C)$. It will be a $k$-variety 
 with a morphism $j:C\times C\to J$ such that $j(\Delta)=0$. We require 
 that for any abelian variety $A$ over $k$ with $f:C\times C\to A$ such that 
 $f(\Delta)=0$, there is a unique lift $\tilde f:J\to A$ of $f$. The map $j$ 
@@ -295,7 +293,7 @@ $C\to J$ may not be defined over $k$.
 
 \subsection{Picard schemes}\label{sec:picard-scheme}
 
-Another approach to defining $J=\jac C$ involves the Picard group. Recall 
+Another approach to defining $J=\jac(C)$ involves the Picard group. Recall 
 that over $\dC$, we proved that $J(\dC)\simeq\picard^\circ(C)$. 
 One might hope that $J$ satisfies $J(L)=\picard^\circ(C_L)$ for all field 
 extensions $L/k$. This works if $C(k)\ne\varnothing$, but not otherwise. For, 
@@ -308,7 +306,7 @@ terms of its functor of points. To do this, we need to define Picard groups for
 arbitrary schemes. For any scheme $X$, the \emph{Picard group} of $X$ is 
 $\picard(X)=\h^1(X,\sO_X^\times)$. It is straightforward to show (using \v Cech 
 cohomology) that $\picard(X)$ is isomorphic to the group of isomorphism classes of 
-invertible sheaves on $X$, with group operation induced by tensor product, i.e. 
+invertible sheaves on $X$, with group operation induced by tensor product: 
 $[\sL] + [\mathscr{L'}] = [\sL\otimes \sL']$. 
 
 Let $C$ be a nice curve. If $D=\sum D_x\cdot x$ is a divisor on $C$, the 
@@ -325,51 +323,57 @@ following sequence is exact
     & \displaystyle\prod_{t\in T} \dZ \text{,}
 }\]
 where the last map is $c\mapsto (\deg(c_t))_{t\in T}$. Now we define the 
-functor $\picard_C^\circ:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ that sends $T$ to 
+functor $\picard_C^\circ:\mathsf{Sch}_k^\circ\to\mathsf{Ab}$ by sending $T$ to 
 $\picard^\circ(C\times_k T)/\picard(T)$. 
 
 \begin{theorem}
-If $C(k)\ne \varnothing$, then $\picard_C^\circ$ is represented by $J=\jac C$.
+If $C$ is a nice curve over $k$ with $C(k)\ne \varnothing$, then 
+$\picard_C^\circ$ is represented by $\jac(C)$.
 \end{theorem}
 \begin{proof}
-See \cite[III.1.2]{mi-av}.
+By \cite[A.6]{mo12}, $\picard_C^\circ$ and $\albanese(C)$ are canonically 
+dual. By \cite[8.10.22]{bg06}, jacobians of curves are self-dual, so the result 
+follows from the duality theory of abelian varieties mentioned later. 
 \end{proof}
 
 In general, we might have $C(k)=\varnothing$. We will have 
 $J(L)=\picard^\circ(C_{L'})^{\gal(L'/L)}$ where $L'/L$ is any separable extension 
-with $C(L')\ne\varnothing$. 
-Let $J=\jac C$ and $j:C\to J$ be the standard embedding. Let 
-$C^g=C\times\cdots\times C$ ($g$-fold product), and consider the map 
-$f:C^g\to J$, $f(x_1,\dotsc,x_g)=j(x_1)+\cdots+j(x_g)$. The symmetric 
+with $C(L')\ne\varnothing$. Let $J=\jac(C)$ and $j:C\to J$ be the standard 
+embedding. Let $C^g=C\times\cdots\times C$ ($g$-fold product), and consider the 
+map $f:C^g\to J$, $f(x_1,\dotsc,x_g)=j(x_1)+\cdots+j(x_g)$. The symmetric 
 group $S_g$ acts on $C^g$, and $f$ is $S_g$-equivariant. The quotient 
-$\symmetric^g C = C^g/S_g$ exists, and has a (birational) map 
-$\symmetric^g C\to J$. Weil defined a ``rational 
-group law'' on $\symmetric^g C$ using the Riemann-Roch Theorem, and 
-then showed that this induces an ``honest group law'' on a nice variety 
-birational to $\symmetric^g C$. For 
-more details on Weil's construction (and proofs), see \cite[III.7]{mi-av}. 
+$\symmetric^g(C) = C^g/S_g$ exists, and has a (birational) map 
+$\symmetric^g(C)\to J$. Weil defined a ``rational group law'' on 
+$\symmetric^g(C)$ using the Riemann-Roch Theorem, and then showed that this 
+induces an ``honest group law'' on a nice variety birational to 
+$\symmetric^g(C)$. For more details on Weil's construction (and proofs), 
+see \cite[III.7]{mi-av}. 
 
-
-
-% lecture on 09-10-2013
 Now suppose $X$ is an arbitrary scheme. Recall that 
 $\picard(X)=\h^1(X,\sO_X^\times)$; this classifies invertible sheaves on 
 $X$, where the group operation on sheaves is $\otimes$. If $X$ is integral, 
-$\picard(X)$ is isomorphic to the class group $\operatorname{Cl}(X)$ of Cartier 
-divisors (Weil divisors if $X$ is a nice curve). This is easy to prove. Recall 
-that if $\mathscr{M}$ is the sheaf of rational functions on $X$, then the 
-group of Cartier divisors is $\divisor(X) = \h^0(X,\mathscr{M}^\times/\sO^\times)$. 
+$\picard(X)$ is easy to describe via the following result. (Remember that 
+Cartier divisors on a curve are just Weil divisors.) 
+
+\begin{theorem}
+Let $X$ be an integral scheme. Then $\picard(X)$ is naturally isomorphic to the 
+class group $\class(X)$ of Cartier divisors on $X$. 
+\end{theorem}
+\begin{proof}
+Let $\sM$ be the sheaf of rational functions on $X$. By definition, the group 
+of Cartier divisors on $X$ is $\divisor(X) = \h^0(X,\sM^\times/\sO^\times)$. 
 The short exact sequence 
 \[
-  1 \to \sO^\times \to \mathscr{M}^\times\to \mathscr{M}^\times/\sO^\times \to 1
+  1 \to \sO^\times \to \sM^\times\to \sM^\times/\sO^\times \to 1 , 
 \]
 induces a long exact sequence in sheaf cohomology:
 \[
-  0 \to \h^0(\sO^\times) \to \h^0(\mathscr{M}^\times) \to \divisor(X) \to \picard(X) \to \h^1(\mathscr{M}^\times) \to \cdots
+  0 \to \h^0(\sO^\times) \to \h^0(\sM^\times) \to \divisor(X) \to \picard(X) \to \h^1(\sM^\times) \to \cdots .
 \]
 If $X$ is integral, the sheaf $\sM^\times$ is flasque, so $\h^1(\sM^\times)=0$. 
 It follows that 
-$\picard(X)=\divisor(X)/\h^0(\sM^\times) = \operatorname{Cl}(X)$. 
+$\class(X)=\divisor(X)/\h^0(\sM^\times) \isomorphism \picard(X)$. 
+\end{proof}
 
 \hard{
 For $X/k$ an arbitrary scheme, consider the functor 
