@@ -92,14 +92,14 @@ is fully faithful.
 \begin{example}
 Let $k=\dF_q$ be a finite field. Then $G_k$ is naturally isomorphic to 
 $\widehat\dZ$, the profinite completion of $\dZ$. Here $1\in \widehat\dZ$ 
-corresponds to the \emph{arithmetic Frobenius} $\frob_q\in G_{\dF_q}$, given by 
+corresponds to the \emph{arithmetic Frobenius} $\arithfrob_q\in G_{\dF_q}$, given by 
 $x\mapsto x^q$. Representations 
 $\rho:G_{\dF_q} \to \gl{n}{\dQ_\ell}$ are determined by 
-$\rho(\frob_q)$. If such a representation is semisimple, the 
+$\rho(\arithfrob_q)$. If such a representation is semisimple, the 
 \emph{Brauer-Nesbitt theorem} tells us that $\rho$ is determined by the 
-characteristic polynomial of $\rho(\frob_q)$. For an abelian variety $A$ over 
+characteristic polynomial of $\rho(\arithfrob_q)$. For an abelian variety $A$ over 
 $\dF_q$, we know that the characteristic polynomial of 
-$\rho_{A,\ell}(\frob_q)$ is $P_A(t)\in \dZ[t]$, which determines $A$ up to 
+$\rho_{A,\ell}(\arithfrob_q)$ is $P_A(t)\in \dZ[t]$, which determines $A$ up to 
 isogeny by Honda-Tate theory. 
 \end{example}
 
@@ -148,7 +148,7 @@ $\rank A$ only depends on $\rho_{A,\ell}$.
 
 If $k$ is either finite or a global field, the representation $\rho_{A,\ell}$ 
 is semisimple, so $\rho_{A,\ell}$ is determined by the characteristic 
-polynomial of $\rho_{A,\ell}(\frob_q)$. For this, one needs the 
+polynomial of $\rho_{A,\ell}(\arithfrob_q)$. For this, one needs the 
 \emph{\v Cebotarev density theorem}. 
 
 
@@ -174,8 +174,8 @@ residue field of $\fp$. This map is surjective, so we have an exact sequence
     & 1 \text{.}
 }\]
 The group $G_{\kappa_v}$ is procyclic, with generator 
-$\frob_{N v}$, where as usual $N v = \# \kappa_v$. Write $\frob_v$ for a lift 
-of $\frob_{N v}$ to $D_v$. The element $\frob_v\in G_k$ is only well-defined up 
+$\arithfrob_{N v}$, where as usual $N v = \# \kappa_v$. Write $\arithfrob_v$ for a lift 
+of $\arithfrob_{N v}$ to $D_v$. The element $\arithfrob_v\in G_k$ is only well-defined up 
 to conjugacy and multiplication by $I_v$. 
 
 As before, let $A$ be an abelian variety over $k$ with good reduction at $v$. 
@@ -210,7 +210,7 @@ $A(\bar k)[\ell^n] = A(\overline{k_v})[\ell^n]\isomorphism A_v(\kappa_v)[\ell^n]
 These groups have (compatible) actions of $G_k$, $G_{k_v}$ and $G_{\kappa_v}$. In 
 particular, the inertia group $I_v$ acts trivially on $A(\bar k)[\ell^n]$. 
 
-It follows that $\frob_v$, \emph{a priori} only well-defined up to conjugacy 
+It follows that $\arithfrob_v$, \emph{a priori} only well-defined up to conjugacy 
 and multiplication by $I_v$, has a well-defined action on $A[\ell^n]$, and 
 hence on $T_\ell A$. That is, we have the following theorem. 
 
@@ -219,7 +219,7 @@ Let $A$ be an abelian variety over $k$ with good reduction at $v$. Then for
 $v\nmid \ell$, we have  
 \begin{enumerate}
   \item $\rho_{A,\ell}$ is unramified at $v$ (i.e. $\rho_{A,\ell}(I_v) = 1$) 
-  \item $\rho_{A,\ell}(\frob_v)$ is well-defined up to conjugacy and has 
+  \item $\rho_{A,\ell}(\arithfrob_v)$ is well-defined up to conjugacy and has 
     characteristic polynomial $P_{A_v}(t)$ with integer coefficients that do 
     not depend on $\ell$. 
 \end{enumerate}
@@ -231,14 +231,14 @@ paired with the corollary to Theorem 3 in \cite{st68}.
 
 Recall the \v Cebotarev density theorem. Let $k$ be a number field, $K/k$ a 
 finite Galois extension. For $v$ unramified in $K/k$, there is a well-defined 
-conjugacy class $\frob_v\in \gal(K/k)^\natural$. \v Cebotarev's density theorem 
+conjugacy class $\arithfrob_v\in \gal(K/k)^\natural$. \v Cebotarev's density theorem 
 is essentially the Sato-Tate conjecture for the motive 
 $h(\spec K)$, i.e. it predicts equidistribution of Frobenii, in the appropriate 
 sense. 
 
 \begin{theorem}[\v Cebotarev]
 Let $K/k$ be a finite Galois extension of number fields with Galois group $G$. Then 
-$\{\frob_v\}\subset G^\natural$ is equidistributed with respect to the Haar 
+$\{\arithfrob_v\}\subset G^\natural$ is equidistributed with respect to the Haar 
 measure on $G$. 
 \end{theorem}
 \begin{proof}
@@ -246,16 +246,16 @@ See \cite[1.2.2]{se68} for a beautiful proof using the representation theory of
 compact groups. 
 \end{proof}
 
-Recall that the statement ``$\{\frob_v\}\subset G^\natural$ is 
+Recall that the statement ``$\{\arithfrob_v\}\subset G^\natural$ is 
 equidistributed'' means that for any conjugacy class $C\subset G$, we have 
 \[
-  \lim_{x \to \infty} \frac{\{\# v : N v \leqslant x \text{ and } \frob_v\in C\}}{\# \{v:N v\leqslant x\}} = \frac{\# C}{\# G}
+  \lim_{x \to \infty} \frac{\{\# v : N v \leqslant x \text{ and } \arithfrob_v\in C\}}{\# \{v:N v\leqslant x\}} = \frac{\# C}{\# G}
 \]
 It follows that each conjugacy class in $G$ is Frobenius for infinitely many 
 primes.  
 
 For example, if $k=\dQ$ and $K=\dQ(\zeta_n)$, then $\gal(K/\dQ)$ is naturally 
-isomorphic to $(\dZ/n)^\times$. For $p\nmid n$, the Frobenius $\frob_p$ 
+isomorphic to $(\dZ/n)^\times$. For $p\nmid n$, the Frobenius $\arithfrob_p$ 
 corresponds to $p\in (\dZ/n)^\times$. Dirichlet's theorem says that for 
 $a\in (\dZ/n)^\times$, there exist infinitely many $p$ such that 
 $p\equiv a\pmod n$, i.e. the \v Cebotarev density theorem holds for cyclotomic 
@@ -278,11 +278,11 @@ This is the main theorem of \cite{st68}.
 
 Let's define the $L$-function of an arbitrary abelian variety over a number 
 field $k$. For a place $v$ of $k$, choose a prime $\ell$ with $v\nmid \ell$. 
-The action of $\frob_v$ on $T_\ell A$ is only well-defined up to the action of 
+The action of $\arithfrob_v$ on $T_\ell A$ is only well-defined up to the action of 
 $I_v$, but $(T_\ell A)_{I_v} = T_\ell A / \{\sigma x-x:x\in I_v\}$ has a 
-well-defined action of $\frob_v$. Define
+well-defined action of $\arithfrob_v$. Define
 \begin{align*}
-  L_v(A,t) &= \det\left(1-\rho_{A,\ell}(\frob_v)\cdot t,(T_\ell A)_{I_v}\right) \\
+  L_v(A,t) &= \det\left(1-\rho_{A,\ell}(\arithfrob_v)\cdot t,(T_\ell A)_{I_v}\right) \\
   L(A,s) &= \prod_{v\nmid \infty} L_v\left(A,(N v)^{-s}\right)^{-1} \text{.}
 \end{align*}
 This is well-defined by the following theorem. 
@@ -296,8 +296,8 @@ on $\ell$.
 For $v$ a place of good reduction, this is Theorem \ref{thm:ab-var-good}. The 
 general case is a bit more subtle. First, note that 
 \[
-  \det(1-\rho_{A,\ell}(\frob_v)\cdot t,(T_\ell A)_{I_v}) 
-    = \det(1-\rho_{A,\ell}(\frob_v^{-1}),((T_\ell A)^\vee)^{I_v}) \text{.}
+  \det(1-\rho_{A,\ell}(\arithfrob_v)\cdot t,(T_\ell A)_{I_v}) 
+    = \det(1-\rho_{A,\ell}(\arithfrob_v^{-1}),((T_\ell A)^\vee)^{I_v}) \text{.}
 \]
 The Weil pairing gives us an isomorphism $(T_\ell A)^\vee= T_\ell A(-1)$, 
 and because the $\ell$-adic cyclotomic character is unramified at 
@@ -333,7 +333,7 @@ base-change to $\bar k$) that this pairing is nondegenerate, so we have a
 $G_k$-isomorphism $T_\ell T \simeq \widehat T^\vee \otimes \dZ_\ell(1)$. 
 We obtain 
 \[
-  \det(1-\rho_{A_v,\ell}(\frob_v)\cdot t) = \det(1-\rho_{B,\ell}(\frob_v)\cdot t,T_\ell B) \cdot \det(1-\frob_v^{-1}\cdot t,\widehat T\otimes \dZ_\ell) \text{.}
+  \det(1-\rho_{A_v,\ell}(\arithfrob_v)\cdot t) = \det(1-\rho_{B,\ell}(\arithfrob_v)\cdot t,T_\ell B) \cdot \det(1-\arithfrob_v^{-1}\cdot t,\widehat T\otimes \dZ_\ell) \text{.}
 \]
 Since $B$ does not depend on $\ell$ and $G_k$ acts on 
 $\widehat T\otimes \dZ_\ell$ via its action on $\widehat T$, the characteristic 
@@ -361,7 +361,7 @@ $L_v(E,t)$ is the (reverse of) the characteristic polynomial of Frobenius
 acting on $T_\ell \dG_m(-1) = \dZ_\ell$. On the other hand, if $E$ has 
 nonsplit multiplicative reduction at $v$, then by \cite[III,2.5]{si06}, 
 $E_v$ splits after a quadratic base-change, from which we see that 
-$\frob_v$ acts on $\widehat E_v$ as $-1$, whence the following: 
+$\arithfrob_v$ acts on $\widehat E_v$ as $-1$, whence the following: 
 \[
   L_v(E,t) = 
     \begin{cases}
@@ -390,11 +390,11 @@ Much of the rest of this section follows Lang's excellent survey
 \begin{theorem}\label{thm:trace-determines-rep}
 Let $k$ be a number field and $\rho_1,\rho_2:G_k \to \gl{n}{\dZ_\ell}$ 
 continuous semisimple representations. If 
-$\trace \rho_1(\frob_v) = \trace \rho_2(\frob_v)$ for all $v$ in a density-one 
+$\trace \rho_1(\arithfrob_v) = \trace \rho_2(\arithfrob_v)$ for all $v$ in a density-one 
 set of places, then $\rho_1\simeq \rho_2$. 
 \end{theorem}
 \begin{proof}
-By the \v Cebotarev density theorem, the set $\{\frob_v\}\subset G_k^\natural$ 
+By the \v Cebotarev density theorem, the set $\{\arithfrob_v\}\subset G_k^\natural$ 
 is dense. It follows that $\trace \rho_1 = \trace \rho_2$, so the conclusion 
 follows from the Brauer-Nesbitt theorem. 
 \end{proof}
@@ -463,7 +463,7 @@ write
 \[
   P_{A_v}(t) = t^{2 d} - a_v(A) t^{2 d-1} + \cdots 
 \]
-where $a_v(A)=\trace\rho_{A,\ell}(\frob_v)\in \dZ$. We have 
+where $a_v(A)=\trace\rho_{A,\ell}(\arithfrob_v)\in \dZ$. We have 
 $|a_v(A)|\leqslant 2 g \sqrt{N v}$, since the roots of $P_{A_v}$ have 
 absolute value $\sqrt{N v}$. 
 
@@ -481,7 +481,7 @@ $a_v(A)=a_v(B)$ for all $v\notin S$.
 \begin{proof}
 Fix a prime $\ell$. If $A$ and $B$ are isogenous, then 
 $\rho_{A,\ell}\simeq \rho_{B,\ell}$, so 
-$a_v(A)=\trace(\rho_{A,\ell}(\frob_v))=\trace(\rho_{B,\ell}(\frob_v))=a_v(B)$ 
+$a_v(A)=\trace(\rho_{A,\ell}(\arithfrob_v))=\trace(\rho_{B,\ell}(\arithfrob_v))=a_v(B)$ 
 for all places $v\notin S\cup\{\ell\}$. The converse is an immediate corollary 
 of \ref{thm:trace-determines-rep}. and the isogeny theorem 
 (\ref{thm:isogeny-thm}). 
@@ -503,7 +503,7 @@ Let $k$ be a number field, $S$ a finite set of places, and $n\geqslant 1$ an
 integer. Then there is a finite set $T$ of places, disjoint from $S$ and 
 depending only on $(k,S,n)$, such that if 
 $\rho_1,\rho_2:G_{k,S} \to \gl{n}{\dZ_\ell}$ are continuous representations 
-with $\trace\rho_1(\frob_v) = \trace \rho_2(\frob_v)$ for all $v\in T$, then 
+with $\trace\rho_1(\arithfrob_v) = \trace \rho_2(\arithfrob_v)$ for all $v\in T$, then 
 $\rho_1\simeq \rho_2$. 
 \end{lemma}
 \begin{proof}
@@ -513,7 +513,7 @@ Hermite's theorem, there are only finitely many extensions of $k$ unramified
 outside $S$ with degree $\leqslant d$. Let $K/k$ be a Galois extension 
 containing all these and let $G=\gal(K/k)$. The \v Cebotarev density theorem 
 tells us that there is a finite set $T$ (disjoint from $S$) of places of $k$ 
-such that $G^\natural = \{\frob_v:v\in T\}$. 
+such that $G^\natural = \{\arithfrob_v:v\in T\}$. 
 
 Now let $\rho_1,\rho_2$ be as in the statement of the lemma. Set 
 $\rho=\rho_1\times\rho_2:G_{k,S} \to \gl{n}{\dZ_\ell}\times \gl{n}{\dZ_\ell}$. 
@@ -529,14 +529,14 @@ as in the commutative diagram:
   G \ar[ur]
 }\]
 It follows that $R/\ell$ is generated (as a group) by the images of 
-$\{\rho([\frob_v]):\in T\}$. By Nakayama's lemma, $R$ is generated as a 
-$\dZ_\ell$-module by $\{\rho([\frob_v]):v\in T\}$. 
+$\{\rho([\arithfrob_v]):\in T\}$. By Nakayama's lemma, $R$ is generated as a 
+$\dZ_\ell$-module by $\{\rho([\arithfrob_v]):v\in T\}$. 
 
 Let $\varphi:R \to \dZ/\ell$ be the map $(g,h)\mapsto \trace g-\trace h$. This 
 is a homomorphism of $\dZ_\ell$-modules. Assume $a_v(A)=a_v(B)$ for all 
 $v\in T$. Then for $v\in T$, we have 
 \[
-  \varphi(\rho(\frob_v)) = \trace \rho_{A,\ell}(\frob_v) - \trace\rho_{B,\ell}(\frob_v) = a_v(A)-a_v(B) = 0 
+  \varphi(\rho(\arithfrob_v)) = \trace \rho_{A,\ell}(\arithfrob_v) - \trace\rho_{B,\ell}(\arithfrob_v) = a_v(A)-a_v(B) = 0 
 \]
 This implies $\varphi=0$ since $\varphi$ vanishes on a set of generators of 
 $R$. It follows that $\trace \rho_{A,\ell} = \trace\rho_{B,\ell}$. Since 

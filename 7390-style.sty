@@ -6,54 +6,7 @@
 %  \d? -> \mathbb{?} or \mathbf{?} (if pazo option is invoked)
 %  \f? -> \mathfrak{?}
 %  \s? -> \mathscr{?}
-% 
-% The only option is 'pazo' which uses the mathpazo font and mathbf instead of 
-% mathbb. 
 
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{7390-style}
-
-\RequirePackage{
-  amsmath,
-  amssymb,
-  amsthm,
-  extarrows,
-  fullpage,
-  graphicx,
-  %mathrsfs,
-  mathtools,
-  microtype,
-  sagetex,
-  stmaryrd,
-  tikz-cd,
-  thmtools
-}
-\RequirePackage[mathscr]{eucal}
-\RequirePackage[pdfpagelabels,backref=page]{hyperref}
-\RequirePackage[all]{xy}
-\RequirePackage[text={5.5in,8in},centering]{geometry}
-\newcommand{\myboldfont}{\mathbb}
-
-% uses mathpazo and mathbf
-\newif\if@loadpazo\@loadpazofalse
-\DeclareOption{pazo}{
-  \@loadpazotrue
-}
-
-% produce warning if unknown option called
-\DeclareOption*{
-  \PackageWarning{7390-notes}{Unknown option '\CurrentOption'}
-}
-
-\ProcessOptions\relax % end of options
-
-
-% use mathpazo font it option 'pazo' was called
-\if@loadpazo
-  \RequirePackage{lmodern} % takes care of font-size warnings?
-  \RequirePackage{mathpazo}
-  \renewcommand{\myboldfont}{\mathbf}
-\fi
 
 
 
@@ -78,22 +31,37 @@
   \DeclareMathOperator{\trace}{tr}
   \DeclareMathOperator{\volume}{vol}
 
-% special symbols: a new way of defining them!
-  \newcounter{char}
-  \setcounter{char}{1}
-  \loop\ifnum\value{char}<27
-    \expandafter\edef\csname c\Alph{char}\endcsname{\noexpand\mathcal{\Alph{char}}}      % mathcal
-    \expandafter\edef\csname d\Alph{char}\endcsname{\noexpand\myboldfont{\Alph{char}}}   % mathbb / mathbf
-    \expandafter\edef\csname f\Alph{char}\endcsname{\noexpand\mathfrak{\Alph{char}}}     % mathfrak
-    \expandafter\edef\csname s\Alph{char}\endcsname{\noexpand\mathscr{\Alph{char}}}      % mathscr
-    \addtocounter{char}{1}
-  \repeat
-% can't do the previous for lower-case mathfrak because \fi is already defined 
-% (otherwise, could do \alph instead of \Alph above)
-  \def\mydeff#1{\expandafter\def\csname f#1\endcsname{\mathfrak{#1}}}
-  \def\mydefallf#1{\ifx#1\mydefallf\else\mydeff#1\expandafter\mydefallf\fi}
-  \mydefallf abcdefghjklmnopqrstuvwxyz\mydefallf
-  
+
+% special symbols
+  \newcommand{\cA}{\mathcal{A}}
+  \newcommand{\cE}{\mathcal{E}}
+  \newcommand{\cM}{\mathcal{M}}
+  \newcommand{\cX}{\mathcal{X}}
+  \newcommand{\dA}{\mathbf{A}}
+  \newcommand{\dC}{\mathbf{C}}
+  \newcommand{\dF}{\mathbf{F}}
+  \newcommand{\dG}{\mathbf{G}}
+  \newcommand{\dN}{\mathbf{N}}
+  \newcommand{\dP}{\mathbf{P}}
+  \newcommand{\dQ}{\mathbf{Q}}
+  \newcommand{\dR}{\mathbf{R}}
+  \newcommand{\dT}{\mathbf{T}}
+  \newcommand{\dZ}{\mathbf{Z}}
+  \newcommand{\fa}{\mathfrak{a}}
+  \newcommand{\fb}{\mathfrak{b}}
+  \newcommand{\fg}{\mathfrak{g}}
+  \newcommand{\fh}{\mathfrak{h}}
+  \newcommand{\fo}{\mathfrak{o}}
+  \newcommand{\fp}{\mathfrak{p}}
+  \newcommand{\fq}{\mathfrak{q}}
+  \newcommand{\sF}{\mathscr{F}}
+  \newcommand{\sG}{\mathscr{G}}
+  \newcommand{\sL}{\mathscr{L}}
+  \newcommand{\sM}{\mathscr{M}}
+  \newcommand{\sO}{\mathscr{O}}
+  \newcommand{\sT}{\mathscr{T}}
+
+
 % miscellanies commands and symbols
   \newcommand{\arithfrob}{\mathrm{fr}}
   \newcommand{\geomfrob}{\mathrm{Fr}}
@@ -105,11 +73,13 @@
   \newcommand{\tate}{\mathrm{T}}
   \newcommand{\vtate}{\mathrm{V}}
   \newcommand{\hard}[1]{$\star$ #1 $\star$}
+  \newcommand{\gl}[2]{\operatorname{GL}(#1,#2)}
 % Tate-Shafarevich groups
   \DeclareFontFamily{U}{wncy}{}
   \DeclareFontShape{U}{wncy}{m}{n}{<->wncyr10}{}
   \DeclareSymbolFont{mcy}{U}{wncy}{m}{n}
   \DeclareMathSymbol{\sha}{\mathord}{mcy}{"58}  
+
 
 % theorems, definitions, ...
   \newtheorem{conjecture}[subsubsection]{Conjecture}
@@ -119,14 +89,7 @@
   \newtheorem{definition}[subsubsection]{Definition}
   \theoremstyle{definition} % contents are not italic
   \declaretheorem[sibling=subsubsection, qed={\lower-0.3ex\hbox{$\triangleright$}}]{example}
-  
-
-\let\oldbullet\bullet
-\renewcommand{\bullet}{\textnormal{\tiny$\oldbullet$}}
-
-\newcommand{\gl}[2]{\operatorname{GL}(#1,#2)}
 
 
 
-\endinput % end of style 
 
