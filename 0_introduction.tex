@@ -1,4 +1,4 @@
-% !TEX root = 7390-notes.tex
+% !TEX root = arith-curve.tex
 
 
 \section{Introduction}
@@ -32,25 +32,27 @@ all of the Sage code used is contained (using the \LaTeX{} package
 \subsection{Notation and conventions}
 
 Following Bourbaki, we write $\dN$, $\dZ$, $\dQ$\ldots for the natural 
-numbers, integers, \ldots. 
+numbers, integers, rationals\ldots. In this work, $0\notin \dN$. 
 
-A \emph{nice variety} over a field $k$ is a smooth, projective, geometrically 
-integral variety over $k$. 
+Following Poonen, a \emph{nice variety} over a field $k$ is a smooth, 
+projective, geometrically integral variety over $k$. 
 
 If $k$ is a field, $k^s$ (resp.~$\bar k$) denotes its separable 
 (resp.~algebraic) closure. We will write $G_k = \gal(k^s/k)$ for the 
 \emph{absolute Galois group} of $k$. 
 
 Let $X$ be a scheme over a finite field $\dF_q$. The \emph{Frobenius of $X$} 
-is the morphism $\geomfrob_X:X\to X$ that is the identity on the underlying 
+is the morphism $\geomfrob_X=\geomfrob_{X,q}:X\to X$ that is the identity on 
+the underlying 
 topological space, and $x\mapsto x^q$ on the structure sheaf. The Frobenius in 
 $G_{\dF_q} = \gal(\overline{\dF_q}/\dF_q)$ is the \emph{arithmetic} Frobenius, 
-induced by $x\mapsto x^q$ on $\overline{\dF_q}$. We will write $\arithfrob_q$ for 
+given by $x\mapsto x^q$ on $\overline{\dF_q}$. We will write $\arithfrob_q$ for 
 the arithmetic Frobenius. 
 
 If $v$ is a finite place of a global field $k$, then $k_v$ denotes the 
 completion of $k$ with respect to $v$. Most of our notation here is standard, 
-with the exception of $\kappa_v=\fo_v/\fp_v$ for the residue field of $v$. 
+with the possible exception of $\kappa_v=\fo_v/\fp_v$ for the residue field of 
+$v$. 
 
 If $k$ is a global field and $v$ is a finite place of $k$, $\arithfrob_v$ denotes the 
 arithmetic Frobenius associated to $v$. We will sometimes take $\arithfrob_v$ to be 
@@ -84,7 +86,7 @@ material with a star $\star$.
 
 
 Fir a non-constant polynomial $f(x,y)\in\dQ[x,y]$. Assume $f$ is 
-geometrically irreducible, that is, irreducible in the ring 
+geometrically irreducible, that is, irreducible as an element of the ring 
 $\overline{\dQ}[x,y]$. We can define the curve $C$ over $\dQ$ determined by the 
 equation $f(x,y)=0$. For now, we will think of $C$ in terms of its functor of 
 points. To any $\dQ$-algebra $A$, we set $C(A)=\{(a,b)\in A^2:f(a,b)=0\}$. 
@@ -94,12 +96,13 @@ As a scheme, $C=\spec\left(\dQ[x,y]/f\right)$. Some big questions are:
   \item Is $C(\dQ)$ finite?
   \item Can we compute $C(\dQ)$?
 \end{enumerate}
-None of these questions can be answered in full generality. 
+At the present, we have no way of answering any of these questions 
+algorithmically for general curves. 
 
 \begin{example}
-Let $f=x^2+y^2-1$, i.e. $C$ is the circle. It is well-known that 
+Let $f=x^2+y^2-1$, i.e.~$C$ is the circle. It is well-known that 
 \[
-  C(\dQ)=\left\{\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right):t\in\dQ\right\}\cup \{(-1,0)\}
+  C(\dQ)=\left\{\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right):t\in\dQ\right\}\cup \{(-1,0)\} .
 \]
 This can be proved in the usual manner by choosing the point $(-1,0)$ in $C$, 
 and then drawing lines with rational slopes through $(-1,0)$. As a Riemann 
@@ -117,7 +120,7 @@ Let $f=x^4+y^4-1$. Then it is a theorem of Fermat that
 $C(\dQ)=\{(\pm 1,0),(0,\pm 1)\}$. It is a (much harder) theorem of Wiles that if 
 $C_n$ is the curve given by $f=x^n+y^n-1$ for $n\geqslant 3$, then 
 $C_n(\dQ)=\{(\pm 1,0),(0,\pm 1)\}$. In fact, this is the celebrated 
-``Fermat's last theorem,'' proved in \cite{wi95}. 
+``Fermat's Last Theorem,'' proved in \cite{wi95}. 
 \end{example}
 
 \begin{example}[Stoll]
@@ -126,7 +129,7 @@ Consider
   C : y^2 = 82342800 x^6 &- 470135160 x^5 + 52485681 x^4 + 2396040466 x^3 \\
     &+ 567207969 x^2 - 985905640 x + 247747600 \text{.}
 \end{align*}
-This is a curve of genus 2, i.e. $C(\dC)$ is a punctured two-holed 
+This is a curve of genus 2, i.e.~$C(\dC)$ is a punctured two-holed 
 torus. It turns out that $\# C(\dQ)\geqslant 642$ \cite[\S 6]{st09}. 
 However, by a theorem of Faltings, $\# C(\dQ)$ is finite. This example exhibits 
 the largest known number of rational points of a genus two curve 
@@ -176,7 +179,7 @@ $E(\dQ)\simeq \dZ/2\times\dZ$. In particular,
 $E(\dQ)$ should be infinite. One can show (using other methods) that 
 $E(\dQ)=\langle (0,0),(x_0,y_0)\rangle$, where 
 \[
-  x_0 = \frac{37 5494 5281 2716 2193 1055 0406 9942 0927 9234 6201}{6215 9877 7687 1505 4254 6322 0780 6972 3804 4100}
+  x_0 = \frac{37 5494 5281 2716 2193 1055 0406 9942 0927 9234 6201}{6215 9877 7687 1505 4254 6322 0780 6972 3804 4100} .
 \]
 For details, see \cite{br84}. One method to construct such large solutions for 
 a rank one elliptic curve uses Heegner points. 
@@ -193,7 +196,7 @@ probability $\frac 1 2$. Others suppose that elliptic curves over $\dQ$ have
 rank $2$ with nonzero probability as well. It was proven recently (see 
 \cite[\S 1]{bh10}) that 
 \[
-  \limsup_{B\to\infty} \frac{1}{4 B^2} \sum_{\substack{|a|,|b|\leqslant B \\ 4 a^3+27 b^2\ne 0}} \rank(E_{a,b}) \leqslant\frac 7 6 \text{,}
+  \limsup_{X\to\infty} \frac{1}{4 X^2} \sum_{\substack{|a|,|b|\leqslant X \\ 4 a^3+27 b^2\ne 0}} \rank(E_{a,b}) \leqslant\frac 7 6 \text{,}
 \]
 where $E_{a,b}$ is the elliptic curve over $\dQ$ defined by $y^2=x^3 +a x+b$.
 
@@ -205,7 +208,7 @@ ranks are not known \cite{du}. The largest known rank is $19$.
 Our assumption that $f(x,y)$ is irreducible is not a serious one. For example, 
 if $f=y^2-x^2$, then we can factor $f$ as $(x+y)(x-y)$, and then treat the 
 solutions to $x+y=0$ and $x-y=0$ separately. Another example is $f=x^2+y^2$, 
-which only factors over $\dQ(i)$ as $(y+i x)(y-i x)$, and we the rational 
+which only factors over $\dQ(i)$ as $(y+i x)(y-i x)$. We know that the rational 
 points lie in the intersection of the two components over $\dQ(i)$. In general, 
 a curve over $\dQ$ will be the union of finitely many geometrically irreducible 
 components, each of which is defined over some finite extension of $\dQ$. Also, 
@@ -215,9 +218,10 @@ birational to a plane curve.
 Let $C$ be a curve over $\dQ$. Then 
 $C(\dC)\smallsetminus \{\text{singular points}\}$ is a compact Riemann 
 surface with points removed, i.e. it is a torus with $g$ handles with finitely 
-many points removed. Call this $g$ the \emph{genus} of $C$. 
+many points removed. Call this $g$ the \emph{genus} of $C$. The following result 
+was originally known as the \emph{Mordell Conjecture}. 
 
-\begin{theorem}[Faltings, conjectured by Mordell]
+\begin{theorem}[Faltings]
 If $C$ is a curve over $\dQ$ with $g\geqslant 2$, then $C(\dQ)$ 
 is finite. 
 \end{theorem}
@@ -231,7 +235,7 @@ We are interested in $\#C(\dF_{p^n})$, which is obviously computable
 for each $n$. Define the \emph{zeta function} of $C$ to be the formal power 
 series 
 \[
-  Z(C,t) = \exp\left( \sum_{n\geqslant 1} \# C(\dF_{p^n}) \frac{t^n}{n} \right) \text{.}
+  Z(C,t) = \exp\left( \sum_{n\geqslant 1} \# C(\dF_{p^n}) \frac{t^n}{n} \right) .
 \]
 
 \begin{theorem}[Weil]\label{thm:Weil-curve}
@@ -251,15 +255,15 @@ $C(\dF_{p^n})$ as $n\to\infty$. For example, we can compute
   \sum_{n>0} \# C(\dF_{p^n}) \frac{t^n}{n} 
     &= \log Z(C,t) \\
     &= -\log(1-t) - \log(1-p t) + \sum_i \log(1-\alpha_t t) \\
-    &= \sum_{n>0} \left(p^n+1-\sum_{i=1}^{2 g} \alpha_i^n\right) \frac{t^n}{n} \text{.}
+    &= \sum_{n>0} \left(p^n+1-\sum_{i=1}^{2 g} \alpha_i^n\right) \frac{t^n}{n} .
 \end{align*}
 Therefore, $\# C(\dF_{p^n}) = p^n+1-\sum_{i=1}^{2 g} \alpha_i^n$. It 
 follows easily that $|\# C(\dF_{p^n})-(p^n+1)| \leqslant 2 g p^{n/2}$. 
-This is equivalent to saying 
+This is equivalent to the bound 
 \[
   p^n-2 g p^{n/2}+1 
     \leqslant \# C(\dF_{p^n}) 
-    \leqslant p^n + 2 g p^{n/2} + 1 \text{.}
+    \leqslant p^n + 2 g p^{n/2} + 1 .
 \]
 In particular, setting $n = g = 1$, we obtain 
 $\# C(\dF_p) \geqslant (p^{1/2}-1)^2>0$, hence 

@@ -1,12 +1,3 @@
-% Package '7390-style'
-% written by Daniel Miller, fall 2013
-% 
-% This package is pretty simple. It has the following macros for special fonts:
-%  \c? -> \mathcal{?}
-%  \d? -> \mathbb{?} or \mathbf{?} (if pazo option is invoked)
-%  \f? -> \mathfrak{?}
-%  \s? -> \mathscr{?}
-
 % !TEX root = 7390-notes.tex
 
 
@@ -64,7 +55,7 @@
   \newcommand{\sT}{\mathscr{T}}
 
 
-% miscellanies commands and symbols
+% miscellaneous commands and symbols
   \newcommand{\arithfrob}{\mathrm{fr}}
   \newcommand{\geomfrob}{\mathrm{Fr}}
   \newcommand{\et}[1]{{#1}_\textnormal{\'et}} % etale site
@@ -86,15 +77,11 @@
 % theorems, definitions, ...
   \newtheorem{conjecture}[subsubsection]{Conjecture}
   \newtheorem{corollary}[subsubsection]{Corollary}
-  \newtheorem{lemma}{Lemma}
-  \newtheorem{theorem}{Theorem}
+  \newtheorem{lemma}[subsubsection]{Lemma}
+  \newtheorem{theorem}[subsubsection]{Theorem}
   \newtheorem{definition}[subsubsection]{Definition}
   \theoremstyle{definition} % contents are not italic
-%  \declaretheorem[sibling=subsubsection, qed={\lower-0.3ex\hbox{$\triangleright$}}]{example}
-  \newtheorem{example}[subsubsection]{Example}
-  
-  \numberwithin{lemma}{subsection}
-  \numberwithin{theorem}{subsection}
+  \declaretheorem[sibling=subsubsection, qed={\lower-0.3ex\hbox{$\triangleright$}}]{example}
 
 
 
