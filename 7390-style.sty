@@ -7,7 +7,7 @@
 %  \f? -> \mathfrak{?}
 %  \s? -> \mathscr{?}
 
-
+% !TEX root = 7390-notes.tex
 
 
 % operators and special functions
@@ -21,6 +21,7 @@
   \DeclareMathOperator{\image}{im}   % image of a map
   \DeclareMathOperator{\jac}{Jac} % jacobian of a curve
   \DeclareMathOperator{\motives}{\mathsf{M}}
+  \DeclareMathOperator{\neronseveri}{NS}
   \DeclareMathOperator{\ord}{ord}
   \DeclareMathOperator{\picard}{Pic}
   \DeclareMathOperator{\rank}{rk}
@@ -28,6 +29,7 @@
   \DeclareMathOperator{\selmer}{Sel}
   \DeclareMathOperator{\spec}{Spec}
   \DeclareMathOperator{\sheaf}{Sh}
+  \DeclareMathOperator{\symmetric}{Sym}
   \DeclareMathOperator{\trace}{tr}
   \DeclareMathOperator{\volume}{vol}
 
@@ -84,11 +86,15 @@
 % theorems, definitions, ...
   \newtheorem{conjecture}[subsubsection]{Conjecture}
   \newtheorem{corollary}[subsubsection]{Corollary}
-  \newtheorem{lemma}[subsubsection]{Lemma}
-  \newtheorem{theorem}[subsubsection]{Theorem}
+  \newtheorem{lemma}{Lemma}
+  \newtheorem{theorem}{Theorem}
   \newtheorem{definition}[subsubsection]{Definition}
   \theoremstyle{definition} % contents are not italic
-  \declaretheorem[sibling=subsubsection, qed={\lower-0.3ex\hbox{$\triangleright$}}]{example}
+%  \declaretheorem[sibling=subsubsection, qed={\lower-0.3ex\hbox{$\triangleright$}}]{example}
+  \newtheorem{example}[subsubsection]{Example}
+  
+  \numberwithin{lemma}{subsection}
+  \numberwithin{theorem}{subsection}
 
 
 

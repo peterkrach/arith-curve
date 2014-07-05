@@ -435,8 +435,8 @@ See chapter 12 of \cite{rs11} for a careful discussion. A cusp form
 $f\in S_2(\Gamma_0(N))$ is an \emph{eigenform} if it is an eigenfunction for 
 each $T_p$ where $p\nmid N$. 
 
-To see how Theorem \ref{thm:L-cont} follows from Theorem 
-\ref{thm:fermat-wiles}, we need to briefly introduce the Mellin transform. Recall 
+To see how \autoref{thm:L-cont} follows from \autoref{thm:fermat-wiles}, we 
+need to briefly introduce the Mellin transform. Recall 
 that for a locally 
 compact abelian group $G$, the \emph{Pontryagin dual} $\widehat G$ of $G$ is 
 the group $\hom(G,S^1)$ of one-dimensional unitary representations of $G$, with 
@@ -484,7 +484,7 @@ proof.
 
 The function $\sum a_n n^{-s}$ (coming from a modular form $f$) has an analytic 
 continuation and a functional equation by a theorem of Hecke. It follows from 
-Theorem \ref{thm:fermat-wiles} that if $E$ is an elliptic curve over $\dQ$, 
+\autoref{thm:fermat-wiles} that if $E$ is an elliptic curve over $\dQ$, 
 the function $L(E,s)$ has an analytic continuation to $\dC$ and the prescribed 
 functional equation. 
 
@@ -627,7 +627,7 @@ takes advantage of the fast convergence of the algebro-geometric mean.
 
 Next we define the \emph{regulator} $\regulator_E$ of $E$. Our minimal model 
 for $E$ induces an embedding $E\hookrightarrow \dP^2$, and we write $h$ for 
-the induced Weil height (see Section \ref{sec:heights} for a general 
+the induced Weil height (see \ref{sec:heights} for a general 
 definition). We can write any $x\in E(\dQ)$ as $(x_0,x_1,x_2)$ with the 
 $x_i\in \dZ$ and $\gcd(x_0,x_1,x_2)=1$. Explicitly, 
 \[
@@ -699,8 +699,8 @@ Let $E$ be the rational elliptic curve $\sage{E}$. Using Sage, we can predict
 the order of $\sha(E)$. First, 
 $\Omega_E\approx \sage{E.period_lattice().omega()}$. 
 Next, we compute 
-$L(E,1)\approx \sage{L(1)}\ne 0$, so $r_\text{an}(E)=0$. By Theorem 
-\ref{thm:r_an=0}, $E(\dQ)$ and $\sha(E)$ are both finite. It follows that the 
+$L(E,1)\approx \sage{L(1)}\ne 0$, so $r_\text{an}(E)=0$. By 
+\autoref{thm:r_an=0}, $E(\dQ)$ and $\sha(E)$ are both finite. It follows that the 
 regulator of $E$ is $1$. Moreover, the discriminant of $E$ is 
 $\sage{factor(E.discriminant())}$, so we only need to compute 
 $c_3 = \sage{E.local_data(3).tamagawa_number()}$ and 
@@ -874,7 +874,7 @@ congruent if and only if $C_d$ has rational points, we conclude that
 $d$ is congruent precisely when $E_d$ has positive rank. Assuming BSD, this 
 occurs if and only if $L(E_d,1) = 0$, i.e. $r_\text{an}(E_d) \geqslant 1$. If 
 $L(E_d,1) \ne 0$, which is something that can be computationally verified, 
-then $r_\text{an}(E_d) = 0$, so by Theorem \ref{thm:r_an=0}, we know that 
+then $r_\text{an}(E_d) = 0$, so by \autoref{thm:r_an=0}, we know that 
 $E_d$ has rank zero. In other words, it is easy to show that a given integer 
 $d$ is \emph{not} congruent, simply by checking that $L(E_d,1) \ne 0$. 
 
@@ -950,7 +950,7 @@ Then for $d$ odd, $a(d) =0$ if and only if $A(d) = 2 B(d)$, and for $d$ even,
 $b(d/2) = 0$ if and only if $C(d) = 2 D(d)$. These equalities are easy to 
 check via a brute search. 
 An easy example is $d=2$. One has $C(2) = D(2) = 2$, so $b(1)\ne 0$. Since 
-this implies $L(E_2,1)\ne 0$, we can use Theorem \ref{thm:r_an=0}, to see 
+this implies $L(E_2,1)\ne 0$, we can use \autoref{thm:r_an=0}, to see 
 that $n=2$ is not a congruent number (unconditionally). 
 
 
@@ -1202,7 +1202,7 @@ equidistributed with respect to the pushforward of the normalized Haar measure
 on $N(\operatorname{U}(1))$. 
 \end{theorem}
 \begin{proof}
-This is a restatement of Theorem \ref{thm:deuring-hecke}. To see this, note 
+This is a restatement of \autoref{thm:deuring-hecke}. To see this, note 
 that the trace map induces an isomorphism 
 \[\xymatrix{
   \trace : \operatorname{SU}(2)^\natural \ar[r]^-\sim 

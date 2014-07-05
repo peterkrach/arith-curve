@@ -364,8 +364,8 @@ curve $y^2=x^3-x$ over $\dF_p$ to $\overline{\dF_p}$. We have
 \[
   \Phi \phi(x,y) = (-x^p, \alpha^p y^p) = -(-x^p, \alpha^p y^p) = -\phi \Phi(x,y) \text{,}
 \]
-so $\phi \Phi=-\Phi \phi$ in $D$. It turns out that $\Phi^2=-p$ (see Example 
-\ref{eg:serre}), so $D$ is the standard quaternion algebra with parameters 
+so $\phi \Phi=-\Phi \phi$ in $D$. It turns out that $\Phi^2=-p$ (see  
+\autoref{eg:serre}), so $D$ is the standard quaternion algebra with parameters 
 $(-1,-p)$, i.e.  
 \[
   D = \dQ\left\langle i,j,k : i^2=-1,j^2=-p,i j=k, j i=-k\right\rangle \text{.}
@@ -967,7 +967,7 @@ $\h^1(C,\dQ_\ell)^\vee \simeq \vtate_\ell J$ as $G_{\dF_q}$-modules, we have
   \# C(\dF_{q^n}) = q^n+1 - \trace(\Phi_\ast^n, \vtate_\ell J) \text{.}
 \]
 The following theorem is a straightforward consequence of the Lefschetz fixed 
-point theorem and Theorem \ref{thm:char-poly-power}. 
+point theorem and \autoref{thm:char-poly-power}. 
 
 \begin{theorem}\label{thm:weil-curve}
 Let $C$ be a nice curve over $\dF_q$ of genus $g$. Let $J$ be its jacobian, and 
@@ -1061,7 +1061,7 @@ of $C$ is the formal power series
   Z(C,t) = \exp\left(\int \sum_{n\geqslant 1} \# C(\dF_{q^n}) t^n\, \frac{dt}{t}\right)
     = \exp\left( \sum_{n\geqslant 1} \# C(\dF_{q^n}) \frac{t^n}{n}\right) \text{.}
 \]
-By Theorem \ref{thm:weil-curve}, there exist $q$-Weil numbers 
+By \autoref{thm:weil-curve}, there exist $q$-Weil numbers 
 $\omega_1,\dots,\omega_{2 g}$ such that for all $n$, 
 \[
   \# C(\dF_{q^n}) = q^n+1 - (\omega_1^n + \cdots + \omega_{2 g}^n) \text{.}
@@ -1178,7 +1178,7 @@ Summing the trace formula over $n$ gives
 \[
   \sum_{n\geqslant 1} \# X(\dF_{q^n}) t^n = \sum_{n\geqslant 1} \trace({\Phi^\ast}, \h(X)) \text{.}
 \]
-We can apply Theorem \ref{thm:graded-trace} to conclude that 
+We can apply \autoref{thm:graded-trace} to conclude that 
 \[
   \sum_{n\geqslant 1} \# X(\dF_{q^n}) t^n =  t\frac{d}{dt} \log\left(\frac{1}{\det(1-\Phi^\ast t, \h(X))}\right) \text{.}
 \]

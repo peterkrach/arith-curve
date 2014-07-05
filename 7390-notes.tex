@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 
 \usepackage{
   amsmath,
@@ -7,6 +7,7 @@
   extarrows,
   fullpage,
   graphicx,
+  hyperref,
   mathrsfs,
   mathtools,
   microtype,
@@ -17,12 +18,13 @@
 }
 \usepackage{7390-style}
 \usepackage[
-  paperwidth=6.125in,
-  paperheight=9.25in,
-  textwidth=5in,
+  paperwidth=5.4in,
+  paperheight=8.675in,
+  textwidth=5.125in,
+  textheight=8in,
   centering
 ]{geometry}
-\usepackage{hyperref}
+%\usepackage{hyperref}
 \usepackage[all]{xy}
 
 \title{Arithmetic of curves}
@@ -37,13 +39,12 @@
 
 
 
-\newpage
-\include{7390-0_introduction}
-\include{7390-1_jacobians}
-%\include{7390-2_mordell-weil}
-%\include{7390-3_finite-fields}
-%\include{7390-4_L-functions}
-%\include{7390-5_Faltings}
+\input{7390-0_introduction}
+\input{7390-1_jacobians}
+\input{7390-2_mordell-weil}
+\input{7390-3_finite-fields}
+\input{7390-4_L-functions}
+\input{7390-5_Faltings}
 
 
 

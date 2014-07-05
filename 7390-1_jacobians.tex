@@ -9,7 +9,9 @@
 
 \section{Jacobians and abelian varieties}
 
-%\subsection*{Abelian varieties over $\dC$}
+
+
+
 
 At first, we will work over $\dC$ and treat curves as Riemann surfaces. By 
 \cite[I.6.12]{ha77} and \cite[5.8.7]{jo06}, 
@@ -344,11 +346,11 @@ Let $J=\jac C$ and $j:C\to J$ be the standard embedding. Let
 $C^g=C\times\cdots\times C$ ($g$-fold product), and consider the map 
 $f:C^g\to J$, $f(x_1,\dotsc,x_g)=j(x_1)+\cdots+j(x_g)$. The symmetric 
 group $S_g$ acts on $C^g$, and $f$ is $S_g$-equivariant. The quotient 
-$\operatorname{Sym}^g C = C^g/S_g$ exists, and has a map 
-$\operatorname{Sym}^g C\to J$. This is birational. Weil defined a ``rational 
-group law'' on $\operatorname{Sym}^g C$ using the Riemann-Roch theorem, and 
+$\symmetric^g C = C^g/S_g$ exists, and has a (birational) map 
+$\symmetric^g C\to J$. Weil defined a ``rational 
+group law'' on $\symmetric^g C$ using the Riemann-Roch Theorem, and 
 then showed that this induces an ``honest group law'' on a nice variety 
-birational to $\operatorname{Sym}^g C$. For 
+birational to $\symmetric^g C$. For 
 more details on Weil's construction (and proofs), see \cite[III.7]{mi-av}. 
 
 
@@ -422,8 +424,8 @@ $\dim(\picard_X) = h^1(\mathscr{O}_X)$ when $X$ is nice \cite[5.11]{kl05}.
 
 Unlike the case when $X$ is a curve, it is not always true that 
 $\picard_X(\bar k)/\picard_X^\circ(\bar k) = \dZ$. In general, we set 
-$\operatorname{NS}(X) = \picard_X(\bar k) / \picard_X^\circ(\bar k)$, and call 
-$\operatorname{NS}(X)$ the \emph{N\'eron-Severi group} of $X$. 
+$\neronseveri(X) = \picard_X(\bar k) / \picard_X^\circ(\bar k)$, and call 
+$\neronseveri(X)$ the \emph{N\'eron-Severi group} of $X$. 
 Suppose $X=A$ is already an abelian variety over $k$. Then we have 
 \[
   \picard_A^\circ(\bar k) = \left\{c\in \picard(A_{\bar k}) : t_a^* c = c\text{ for all }a\in A(\bar k)\right\} 
