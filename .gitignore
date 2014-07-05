@@ -11,6 +11,7 @@ sage-plots-for*
 *.nav
 *.out
 *.pdf
+*.sage
 *.synctex.gz
 *.toc
 

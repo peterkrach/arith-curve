@@ -1,10 +1,11 @@
-\documentclass[11pt]{article}
+\documentclass[11pt,twoside]{article}
 
 \usepackage{
   amsmath,
   amssymb,
   amsthm,
   extarrows,
+  fancyhdr,
   fullpage,
   graphicx,
   hyperref,
@@ -25,6 +26,18 @@
   centering
 ]{geometry}
 \usepackage[all]{xy}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=cyan
+}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{14pt}
+\fancyhead[CE]{Arithmetic of curves}
+\fancyhead[CO]{D.~Miller, D.~Zywina}
+\fancyhead[RE]{\thepage}
+\fancyhead[LO]{\thepage}
 
 \title{Arithmetic of curves}
 \author{Daniel Miller and David Zywina}
