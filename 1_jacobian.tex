@@ -385,17 +385,12 @@ better, if $X(k)\ne\varnothing$, then $\picard_X$ is representable
 \cite[2.5]{kl05}. We will also denote the representing scheme by $\picard_X$, and 
 we call $\picard_X$ the \emph{Picard scheme} of $X$. It is not a variety, but it 
 is a disjoint union of ind-varieties \cite[4.8]{kl05}. More precisely, choose 
-a very ample line bundle $\sL$ on $X$. If $\sF$ is any coherent 
-sheaf on $X$, write 
-$\sF(n) = \sF\otimes\sL^{\otimes n}$. Recall that the 
-\emph{Euler characteristic} of $\sF$ is 
-$\chi(\sF) = \sum (-1)^i h^i(\sF)$. By \cite[2.5.3]{gr61}, 
-there is a (unique) polynomial $\phi\in \dQ[t]$ such that 
-$\chi\left(\sF(n)\right) = \phi(n)$ for all 
-$n\in\dZ$; set $h_\sL(\sF) = \phi$. We call $\phi$ the 
-\emph{Hilbert polynomial} of $\sF$. The Hilbert polynomial 
-$h_\sL(\sF)$ does depend on $\sL$.
-
+a very ample line bundle $\sL$ on $X$. If $\sF$ is any coherent sheaf on $X$, 
+write $\sF(n) = \sF\otimes\sL^{\otimes n}$. Recall that the \emph{Euler 
+characteristic} of $\sF$ is $\chi(\sF) = \sum (-1)^i h^i(\sF)$. By 
+\cite[2.5.3]{gr61}, there is a (unique) polynomial $\phi\in \dQ[t]$ such that 
+$\chi\left(\sF(n)\right) = \phi(n)$ for all $n\in\dZ$; set $h_\sL(\sF) = \phi$. 
+We call $\phi$ the \emph{Hilbert polynomial} of $\sF$. 
 
 If $X(k)\ne \varnothing$, we can define for $x\in X(k)$ the modified Picard 
 functor 
@@ -407,19 +402,18 @@ $\sL\mapsto\sL\otimes (x\circ f)_T^\ast \sL^{-1}$, where $f:X\to \spec(k)$
 denotes the structure morphism. It is a good exercise to prove that this 
 induces an isomorphism $\picard_X \isomorphism \picard_{X,x}$. 
 
-Denote by 
-$\picard_X^\phi$ the functor which assigns to a scheme $T$ the subset of 
-$\picard_X(T)$ consisting of invertible sheaves $\sF$ on $X\times T$ with 
-$h_\sL(\sF_t) = \phi$ for all $t\in T$. By \cite[6.20]{kl05}, 
-$\picard_X^\phi$ represents a clopen subscheme of $\picard_X$, and $\picard_X$ is 
-covered by the $\picard_X^\phi$. Moreover, the $\picard_X^\phi$ are varieties. We can 
-do even better. If we let $\picard_X^d$ send $T$ to the subset of $\picard_X(T)$ 
-consisting of invertible sheaves $\sF$ with 
-$\deg h_\sL(\sF_t) = d$ for all $t\in T$, then the 
-$\picard_X^d$ form a cover of $\picard_X$ by clopen subvarieties. Just as the genus 
-of a curve is the dimension of its jacobian, there is a natural isomorphism 
-$\h^1(\mathscr{O}_X) \simeq \operatorname{Lie}(\picard_X)$, from which we deduce 
-$\dim(\picard_X) = h^1(\mathscr{O}_X)$ when $X$ is nice \cite[5.11]{kl05}.
+For $\phi\in \dQ[t]$, denote by $\picard_X^\phi$ the functor which assigns to a 
+scheme $T$ the subset of $\picard_X(T)$ consisting of invertible sheaves $\sF$ on 
+$X\times T$ with $h_\sL(\sF_t) = \phi$ for all $t\in T$. By \cite[6.20]{kl05}, 
+$\picard_X^\phi$ is a clopen subscheme of $\picard_X$, and $\picard_X$ is 
+covered by the $\picard_X^\phi$. Moreover, the $\picard_X^\phi$ are varieties. 
+We can do even better. If we let $\picard_X^d$ send $T$ to the subset of 
+$\picard_X(T)$ consisting of invertible sheaves $\sF$ with 
+$\deg h_\sL(\sF_t) = d$ for all $t\in T$, then the $\picard_X^d$ form a cover 
+of $\picard_X$ by clopen subvarieties. Just as the genus of a curve is the 
+dimension of its jacobian, there is a natural isomorphism 
+$\h^1(\sO_X) \simeq \lie(\picard_X)$, from which we deduce 
+$\dim(\picard_X) = h^1(\sO_X)$ when $X$ is nice \cite[5.11]{kl05}.
 }
 
 Unlike the case when $X$ is a curve, it is not always true that 
@@ -478,19 +472,20 @@ is Chapter VII of \cite{gm13}.
 
 \subsection{Recovering a curve from its jacobian}
 
-Let $k$ be a field, $C/k$ a nice curve, and $J=\jac C$ its jacobian. What does 
+Let $k$ be a field, $C/k$ a nice curve, and $J=\jac(C)$ its jacobian. What does 
 (the arithmetic of) $J$ tell us about (the arithmetic of) $C$? In particular, 
 can we recover $C$ from $J$? In general, $J$ does not determine $C$. For 
 example, if $g=g(C)=0$, then $J=0$. However, there are (non-algebraically 
 closed) fields $k$ for which there are nice curves $C$ over $k$ with $g(C)=0$ 
 (hence $\jac C=0=\jac\dP^1$), but $C\not\simeq \dP_k^1$. There are more 
-difficult examples with genus $g>0$. 
+difficult examples when the genus $g>0$. 
 
 Suppose we add some data. Assume $g\geqslant 2$ and $C(k)\ne\varnothing$. This 
 gives us a map $j:C\to J$ determined by $x\mapsto 0$ for some distinguished 
 $x\in C(k)$. Consider $\theta = j(C)+\cdots + j(C)$, where there are $g-1$ 
 terms in the sum. It turns out that $\theta$ is an irreducible ample divisor of 
-$J$. Thus $\theta$ induces a polarization $\varphi_\theta:J\to J^\vee$. 
+$J$, called the \emph{theta-divisor}. Thus $\theta$ induces a polarization 
+$\varphi_\theta:J\to J^\vee$. 
 
 \begin{theorem}[Torelli]
 If $C,C'$ are nice curves over a field $k$ with $(J,\theta)\simeq (J',\theta')$, 
