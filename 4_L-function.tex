@@ -1027,7 +1027,7 @@ to the curve $y^2=x^3+1$. The image was taken from Andrew Sutherland's
 web page \url{http://math.mit.edu/~drew}, which has many more examples. 
 
 \begin{center}
-  \includegraphics[scale=.3]{plots/Sato-Tate_CM.png}
+  \includegraphics[scale=.2]{plots/Sato-Tate_CM.png}
 \end{center}
 
 The Sato-Tate conjecture is an analogous prediction for elliptic curves 
@@ -1045,7 +1045,7 @@ measure
 Here is the example $y^2=x^3+x+1$, also taken from Sutherland's web page. 
 
 \begin{center}
-  \includegraphics[scale=.3]{plots/Sato-Tate_nonCM.png}
+  \includegraphics[scale=.2]{plots/Sato-Tate_nonCM.png}
 \end{center}
 
 
@@ -1079,7 +1079,6 @@ motivation.
 
 
 
-% on 11-21-2013
 \subsection{Some computations}
 
 Let $d=157$. We hope to show that $d$ is congruent, i.e. that is is the area 
@@ -1131,13 +1130,13 @@ As Sage does the $2$-descent, it outputs a bunch of text describing what it
 does (essentially a computation of $E(\dQ)/2$ and 
 $\sha(E)[2]$). Once the $2$-descent is complete, we can compute the rank to be 
 $\sage{E.rank()}$ and a generator to be 
-\[
-  \sage{P} \text{.}
-\]
+{\tiny\[
+  \sage{P} .
+\]}
 This corresponds to a triangle with the shorter two sides being 
-\[
-  \sage{pair} \text{.}
-\]
+{\small\[
+  \sage{pair} .
+\]}
 
 There are a number of other things that Sage can do with elliptic curves. To 
 make computations faster, let's try the elliptic curve 
@@ -1165,7 +1164,6 @@ E.sha().an() # predicted order assuming BSD
 
 A fantastic place to learn more about Sage is its documentation page at 
 \url{http://www.sagemath.org/doc/}. 
-
 
 
 

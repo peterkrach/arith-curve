@@ -1,4 +1,4 @@
-*.py
+arith-curve.py
 *.swp
 *.sagetex.*
 sage-plots-for*
@@ -11,7 +11,9 @@ sage-plots-for*
 *.nav
 *.out
 *.pdf
+*.pyc
 *.sage
+*.sout
 *.synctex.gz
 *.toc
 
