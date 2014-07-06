@@ -607,7 +607,7 @@ always finite, then $A(k)$ would be computable.
 
 
 
-\subsection{Crash course in algebraic number theory}
+\subsection{Crash course in algebraic number theory}\label{sec:crash-course}
 
 If $k$ is a number field, we already used (without defining it) the notion of a 
 \emph{place} of $k$. In this section, we will see that $k$ comes with a lot of 
@@ -734,7 +734,7 @@ $(\fb,\fp)=1$. This gives us an absolute value
 \[
   |a|_\fp = \begin{cases}
               0 & \text{if $a=0$} \\
-              (\# \kappa_\fp)^{-v_\fp(a)} & \text{otherwise}
+              (\# \kappa_\fp)^{-v_\fp(a)} & \text{otherwise} .
             \end{cases}
 \]
 Completing $k$ with respect to this absolute value, we get a local field 
@@ -764,7 +764,7 @@ $\fp\subset \fo_k$, then $G$ acts transitively on $\{\fp_1,\dots,\fp_r\}$,
 from which we see that each $e(\fq_i/\fp)$ is the same integer, denoted 
 $e_\fp$. Fix $\fq=\fq_1$. The \emph{decomposition group} of $\fq/\fp$ is 
 \[
-  D(\fq/\fp) = \{\sigma\in \gal(L/k) : \sigma(\fq) = \fq\}
+  D(\fq/\fp) = \{\sigma\in \gal(L/k) : \sigma(\fq) = \fq\} .
 \]
 There is a canonical homomorphism 
 $D(\fq/\fp) \to \gal(\kappa_\fq/\kappa_\fp)$ given by ``reduce $\sigma$ modulo 
@@ -782,7 +782,7 @@ consisting of automorphisms whose action is trivial modulo $\fq$. Choosing
 $\fq=\fq_i$ for some $i\ne 1$ gives a $D(\fq_i/\fp)$ that is conjugate to 
 $D(\fq/\fp)$. We will often write $D_\fp$ and $I_\fp$, keeping in mind that 
 they are only well-defined up to conjugacy. We will use the fact that 
-$\# I_\fp = e_\fp$. So $\fp$ is unramified in $L$ if and only if 
+$\# I_\fp = e_\fp$, whence $\fp$ is unramified in $L$ if and only if 
 $I_\fp = 1$. 
 
 Choosing $\fq$ lying over $\fp$, we can complete $L$ and $k$ to get an 
@@ -837,21 +837,22 @@ write $\fp$ for $\fp\fo_\fp$.
 We say that a variety $X$ over $k_\fp$ has \emph{good reduction} if there is a 
 smooth proper model $\cX$ of $X$ over $\fo_\fp$ .
 \end{definition}
-That is, there is a smooth proper scheme $\cX$ over $\fo_\fp$ such that the 
-following diagram is cartesian:
+
+In other words, we require the existence of a smooth proper scheme $\cX$ over 
+$\fo_\fp$ such that the following diagram is cartesian:
 \[\xymatrix{
   X \ar[r] \ar[d]  
     & \cX \ar[d] \\
   \spec(k_\fp) \ar[r] 
-    & \spec(\fo_k)
+    & \spec(\fo_k) .
 }\]
 We write $X_\fp$ for $\cX\times_{\spec(\fo_k)}\spec(\kappa_\fp)$, and call 
 $X_\fp$ the \emph{reduction of $X$ modulo $\fp$}. 
 
 One can show that if $A$ is an abelian variety over $k_\fp$ with good 
 reduction, then $A_\fp$ is independent of the choice of $\cA$, that $\cA$ gets 
-the structure of an abelian scheme over $\fo_k$, and that $A_\fp/\kappa_\fp$ is 
-an abelian variety. 
+the structure of an abelian scheme over $\fo_k$, and that $A_\fp$ is an abelian 
+variety over $\kappa_\fp$. 
 
 There is in fact a canonical model for $A$ over $\fo_p$, and it exists in great 
 generality. Let $S$ be a connected dedekind scheme with field of fractions $k$. 
@@ -863,14 +864,14 @@ $X\mapsto \hom_k(X_k,A)$ from smooth schemes over $S$ to $k$-varieties. It is
 clear that $\cA$ (if it exists) is unique up to unique isomorphism. 
 Fortunately, it is a theorem (see \cite[1.4.1]{blr90}) that in our setting 
 ($S$ a connected dedekind scheme and $A$ an abelian variety over $k$) N\'eron 
-models always exist. Since the functor $X\mapsto \hom_k(X_{\bar k},A)$ that 
-$\cA$ represents is naturally a group-valued functor, $\cA$ naturally has the 
-structure of a commutative group scheme \cite[1.2.6]{blr90}. 
+models always exist. Since the functor $X\mapsto \hom_k(X_k,A)$ that 
+$\cA$ represents is naturally group-valued, $\cA$ has the structure of a 
+commutative group scheme \cite[1.2.6]{blr90}. 
 
 So if $S=\spec(\fo_k)$ for a number field $k$ and $\fp\subset \fo$ is a prime, 
-we could have said that an abelian variety $A/k$ has good reduction at $\fp$ 
-if the N\'eron model $\cA$ for $\fo_\fp$ (the localization of $\fo$ at 
-$\fp$) is proper. 
+we could have said that an abelian variety $A$ over $k$ has good reduction at 
+$\fp$ if the N\'eron model $\cA$ for $\fo_\fp$ (the localization of $\fo$ at 
+$\fp$) is proper as an $\fo_\fp$-scheme. 
 
 \begin{example}
 Let $E:y^2=x^3+a x+b$, where $a,b\in \dZ$ and $\Delta=-16(4 a^3+27b^2)\ne 0$. 
@@ -879,9 +880,9 @@ by the reduction of our original equation modulo $p$.
 \end{example}
 
 There is a reduction map $A(k_\fp)\to A_\fp(\kappa_\fp)$ which is a group 
-homomorphism. This is the composite 
+homomorphism. It is given as the composite 
 \[
-  A(k_\fp)=\cA(\fo_\fp) \to \cA(\kappa_\fp) = A_\fp(\kappa_\fp)
+  A(k_\fp)=\cA(\fo_\fp) \to \cA(\kappa_\fp) = A_\fp(\kappa_\fp) .
 \]
 To see that $A(k_\fp)=\cA(\fo_\fp)$, think of $A$ as being a subset of some 
 projective space $\dP^N$. For a point
@@ -921,10 +922,10 @@ Let $A$ be an abelian variety over a number field $k$. With the above notation,
 $\varphi(I_\fp) = 0$ for all $\fp\subset \fo_k$ of good reduction for $A$. 
 \end{lemma}
 
-If we let $S$ be the finite set of primes for which $A$ has bad reduction, we 
-will show that the group
+Let $S$ be the finite set of primes for which $A$ has bad reduction; we will 
+show that the group
 \[
-  \h_S^1(k,\torsion n A) = \{[\varphi]\in \h^1(k,\torsion n A) : \varphi(I_\fp) = 0\text{ for all } \fp\notin S\}
+  \h_S^1(k,\torsion n A) = \left\{[\varphi]\in \h^1(k,\torsion n A) : \varphi(I_\fp) = 0\text{ for all } \fp\notin S\right\}
 \]
 is finite. 
 
@@ -948,7 +949,7 @@ Let $k$ be a number field, and let $S$ be a finite set of primes of $k$. We
 defined, for a $G_k$-module $M$, the ``cohomology with restricted 
 ramification'' 
 \[
-  \h_S^1(G_k,M) = \{[\varphi]\in \h^1(G,M) : \varphi(I_\fp) = 0\text{ for all }\fp\notin S\}
+  \h_S^1(G_k,M) = \left\{[\varphi]\in \h^1(G,M) : \varphi(I_\fp) = 0\text{ for all }\fp\notin S\right\} .
 \]
 It is better to interpret $\h_S^1(G_k,M)$ in terms of Galois cohomology. First 
 a clarification: $\varphi(I_\fp)=0$ actually means that $\varphi(I_\fp)=0$ for 
@@ -976,8 +977,8 @@ $S$, we will write $\h^1(G_{k,S},M)$ instead of $\h_S^1(G_k,M)$.
 \hard{
 Just as one can interpret the 
 absolute Galois group $G_k$ as the \'etale fundamental group 
-$\pi_1(\spec k)$, the group $G_{k,S}$ can be interpreted as an \'etale 
-fundamental group using the following theorem.
+$\pi_1(\spec k)$, the group $G_{k,S}$ is an \'etale fundamental group via the 
+following result.
 
 \begin{theorem}
 Let $S$ be normal connected scheme with function field $k$. Then the group 
@@ -1019,7 +1020,7 @@ Hermite's theorem has a huge generalization. Call a profinite group $G$
 \emph{small} if it has only finitely many open subgroups of any given index. 
 If $X$ is a connected scheme of finite type such that $X\to \spec(\dZ)$ has 
 dense image, then $\pi_1(X)$ is small \cite[2.8]{hh09}. This is useful because 
-of the following theorem. 
+of the following result. 
 
 \begin{theorem}\label{thm:small-groups}
 Let $G$ be a small group. Then $\h^1(G,M)$ is finite for all finite 
@@ -1071,8 +1072,8 @@ $A(k)=A(k)_\text{tors}\oplus \dZ\cdot x_1\oplus \cdots \oplus \dZ x_r$, where
 each $x_i$ is of infinite order. The algebraic rank $r=\rank A$ is 
 very difficult to compute in general, but $A(k)_\text{tors}$ is computable. 
 
-Choose a prime $\fp\subset \fo_k$ at which $A$ has good reduction (this is true 
-for all but finitely many $\fp$). We have a reduction map 
+For all but finitely many $\fp\subset \fo$, the variety $A$ has good reduction 
+at $\fp$; choose one such prime. We have a reduction map 
 $A(k_\fp)\to A_\fp(\kappa_\fp)$, which has pro-$p$ kernel. The group 
 $A(k)_\text{tors}$ is contained in $A(k_\fp)$, so we can think about its image 
 in $A_\fp(\kappa_\fp)$. Since $A(k)_\text{tors}$ is finite, the kernel of 
@@ -1081,10 +1082,12 @@ $\fp'$ of good reduction for $A$, with residue characteristic $\ell\ne p$. The
 kernel of the map 
 $A(k)_\text{tors}\to A_\fp(\kappa_\fp)\times A_{\fp'}(\kappa_{\fp'})$ is a 
 $p$-group and a $\ell$-group, hence trivial, i.e. $A(k)_\text{tors}$ is a 
-subgroup of $A_\fp(\kappa_\fp)\times A_{\fp'}(\kappa_{\fp'})$. (This gives us a 
+subgroup of $A_\fp(\kappa_\fp)\times A_{\fp'}(\kappa_{\fp'})$. Incidentally, 
+This gives us a 
 way to compute $A(k)_\text{tors}$, because $A_\fp(\kappa_\fp)$ and 
-$A_{\fp'}(\kappa_{\fp'})$ are computable. ($X(\kappa)$ for $X$ any projective 
-variety over any finite field $\kappa$ is computable, for stupid reasons.)
+$A_{\fp'}(\kappa_{\fp'})$ are computable. Indeed, the set $X(\kappa)$ for $X$ 
+any projective variety over any finite field $\kappa$ is computable for 
+trivial reasons (everything involved is finite!).
 
 \begin{example}
 Let $E$ be the elliptic curve over $\dQ$ given by $y^2=x^3+3$. This has 
@@ -1130,10 +1133,10 @@ exact rows:
     & \h^1(k,\torsion n A) \ar[d] \\
   0 \ar[r]
     & A(k_\fp)/n \ar[r]^-\delta 
-    & \h^1(k_\fp,\torsion n A)
+    & \h^1(k_\fp,\torsion n A) .
 }\]
 Since $A$ has good reduction outside $S$, the group $G_{k,S}$ defined in 
-\ref{sec:res-ram} acts on $A[n]$, so we can consider the cohomology group 
+\ref{sec:res-ram} acts on $\torsion n A$, so we can consider the cohomology group 
 $\h^1(G_{k,S},\torsion n A)$. Moreover, the $n$-Selmer group 
 $\selmer_n(A)$ sits inside $\h^1(G_{k,S},\torsion n A)$, so 
 $A(k)/n\hookrightarrow \selmer_n(A)\subset \h^1(G_{k,S},\torsion n A)$. The group 
@@ -1146,8 +1149,12 @@ $S$ be the set of places of $k$ at which $A$ has bad reduction. Then the group
 $\h^1(G_{k,S},\torsion n A)$ is finite.
 \end{theorem}
 \begin{proof}
-This follows immediately from the fact that $G_{k,S}$ is \emph{small}, coupled 
-with \autoref{thm:small-groups}. 
+This follows immediately from three facts: 
+\begin{enumerate}
+  \item $\torsion n A(k^s)$ is finite, 
+  \item $G_{k,S}$ is small, and 
+  \item \autoref{thm:small-groups}. 
+\end{enumerate}
 
 Explicitly, we first choose $L=k(\torsion n A)\supset k$. Then $L/k$ 
 is unramified outside $S$ and $G_L$ acts trivially on $\torsion n A$. Let $S'$ 
@@ -1217,18 +1224,18 @@ Tate-Shafarevich group of $A$ is
 \[
   \sha(A) = \ker\left(\h^1(k,A) \to \prod_v \h^1(k_v,A)\right) \text{.}
 \]
-The \emph{Weil-Ch\^atelet group} of $A$, written $\operatorname{WC}(A)$, is 
+The \emph{Weil-Ch\^atelet group} of $A$, written $\weilchatelet(A)$, is 
 the group of torsors over $A$ modulo equivalence. As we have seen, there is a 
-bijection $\operatorname{WC}(A) = \h^1(k,A)$. If $k$ is a number field, then 
-$\operatorname{WC}(A)$ is infinite, but if $k$ is finite then 
-$\operatorname{WC}(A)=0$. We'll define the map 
-$\operatorname{WC}(A)\to \h^1(k,A)$. Fix an $A$-torsor $X$. There exists some 
+bijection $\weilchatelet(A) = \h^1(k,A)$. If $k$ is a number field, then 
+$\weilchatelet(A)$ is infinite, but if $k$ is finite then 
+$\weilchatelet(A)=0$. We'll define the map 
+$\weilchatelet(A)\to \h^1(k,A)$. Fix an $A$-torsor $X$. There exists some 
 $L/k$ with $X(L)\ne\varnothing$. Choose $x\in X(L)$, and define a cocycle 
 $\varphi:G_k\to A(\bar k)$ by $\sigma\mapsto \sigma x - x$, where 
 $\sigma x- x$ is the unique point $a\in A(\bar k)$ such that $a+x=\sigma(x)$. 
 The image of $X$ in $\h^1(k,A)$ is the cocycle $\varphi$. It isn't too hard to 
 check that this map is well-defined. We can use this bijection to give 
-$\operatorname{WC}(A)$ the structure of an abelian group -- alternatively one 
+$\weilchatelet(A)$ the structure of an abelian group -- alternatively one 
 can put $[S]=[T]+[U]$ if there is a $A$-equivariant morphism 
 $T\times U \to S$. 
 
@@ -1274,7 +1281,7 @@ $\{(e_1,0),(e_2,0)\}$ as a $\dF_2$-basis for $\torsion 2 E$. We have
 \begin{align*}
   \h^1(\dQ,\torsion 2 E) &= \hom(G_\dQ,\torsion 2 E) \\
     &= \hom(G_\dQ,\dZ/2)^{\oplus 2} \\
-    &= \left(\dQ^\times/2\right)^{\oplus 2}
+    &= \left(\dQ^\times/2\right)^{\oplus 2} .
 \end{align*}
 Here, as always, ``$\hom$'' denotes the group of continuous homomorphisms, and 
 we write $\dQ^\times/2$ for $\dQ^\times/(\dQ^\times)^2$. The isomorphism 
@@ -1296,7 +1303,7 @@ $\h^1(\dQ,\torsion 2 E)\isomorphism )=(\dQ^\times/2)^{\oplus 2}$ is quite explic
         (1,1)             & \text{if $x=0$} \\
         (x_0-e_1,x_0-e_2) & \text{if $x_0\notin \{e_2,e_3\}$} \\
         \left(\frac{e_1-e_3}{e_1-e_2},e_1-e_2\right) & \text{if $x_0=e_1$} \\
-        \left(e_2-e_1,\frac{e_2-e_3}{e_2-e_1}\right) & \text{if $x_0=e_2$}
+        \left(e_2-e_1,\frac{e_2-e_3}{e_2-e_1}\right) & \text{if $x_0=e_2$} .
       \end{cases}
 \]
 Let $S$ be the set of primes that divide $2(e_1-e_3)(e_2-e_3)(e_2-e_1)$; this 
@@ -1304,7 +1311,7 @@ contains the set of primes at which $E$ has bad reduction. We know that the
 group $\h^1(G_{\dQ,S},\torsion 2 E)$ is finite. Even better, one can show that 
 it is $\mathcal H^{\oplus 2}$, where 
 \[
-  \mathcal H = \left\{b\in \dQ^\times/2 : \text{$v_p(b)\equiv 0\pmod 2$ for $p\notin S$}\right\}
+  \mathcal H = \left\{b\in \dQ^\times/2 : \text{$v_p(b)\equiv 0\pmod 2$ for $p\notin S$}\right\} .
 \]
 The group $\mathcal H$ is generated by $S\cup\{-1\}$. This allows us to bound 
 the rank of $E$. We know that $\dim_{\dF_2}(\mathcal H)\leqslant \# S+1$, so 
@@ -1322,7 +1329,7 @@ is a commutative diagram:
     & E(\dQ)/2 \ar[r] \ar@{^{(}->}[u] 
     & \selmer_2(E) \ar[r] \ar@{^{(}->}[u] 
     & \torsion{2}{\sha(E)} \ar[r]
-    & 0
+    & 0 .
 }\]
 For a pair $b=(b_1,b_2)\in \mathcal H^{\oplus 2}$, we get an element of 
 $\h^1(\dQ,E)$. This gives us a torsor $X_b$ of $E/\dQ$. Observe that 
@@ -1333,7 +1340,7 @@ The curve $X_b$ can be computed. We have $X_b\subset \dP_\dQ^3$, a nice curve
 of genus one defined by 
 \begin{align*}
   b_1 z_1^2 - b_2 z_2^2 &= (e_2-e_1)z_0^2 \\
-  b_1 z_1^2 - b_1 b_2 z_3^2 &= (e_3 -e_1) z_0^2
+  b_1 z_1^2 - b_1 b_2 z_3^2 &= (e_3 -e_1) z_0^2 .
 \end{align*}
 \end{example}
 
@@ -1346,7 +1353,7 @@ $\{(\pm 1,\pm 1),(\pm 2,\pm 1),(\pm 1,\pm 2),(\pm 2,\pm 2)\}$. We know that for
 $b=(b_1,b_2)\in (\dQ^\times)^2$, the curve $X_b$ is 
 \begin{align*}
   b_1 z_2^2 - b_2 z_2^2 &= z_0^2 \\
-  b_1 z_1^2 - b_1 b_2 z_3^2&=-z_0^2 \\
+  b_1 z_1^2 - b_1 b_2 z_3^2&=-z_0^2 .
 \end{align*}
 Thus $X_b(\dR)=\varnothing$ if $b_1<0$ and $b_2>0$, or if 
 $b_1>0$ and $b_2<0$. That tells us that 
@@ -1358,14 +1365,14 @@ We have
   0 \ar[r] 
     & E(\dQ)/2 \ar[r]^-\delta 
     & \selmer_2(E) \ar@{^{(}->}[r] 
-    & \langle-(1,1),(2,1),(1,2)\rangle
+    & \langle-(1,1),(2,1),(1,2)\rangle .
 }\]
 Since $\torsion 2 E\subset E(\dQ)$, this tells us that $E(\dQ)/2$ has order at least 
 four. We have $\delta(\torsion 2 E)=\{(1,1),(-1,-2),(-1,-1),(1,2)\}$. Consider 
 $b=(2,1)$. Then $X_b$ is 
 \begin{align*}
   2 z_1^2 - z_2^2 &= z_0^2 \\
-  2 z_1^2 - 2 z_3^2 &= -z_0^2
+  2 z_1^2 - 2 z_3^2 &= -z_0^2 .
 \end{align*}
 This curve has real points, so we only need to check $X_b(\dQ_2)$. As an 
 exercise, show that $X_b(\dZ/4)=\varnothing$, which implies 
@@ -1401,20 +1408,20 @@ Let's start with heights on projective space over $\dQ$. Consider a point
 $x=(x_0:\cdots:x_n)\in \dP^n(\dQ)$. After scaling by a rational number, we can 
 assume that the $x_i\in \dZ$ and $\gcd(x_0,\dots,x_n)=1$. We set 
 \[
-  H_\dQ(x) = \sup\{|x_0|,\dots,|a_n|\}
+  H_\dQ(x) = \sup\{|x_0|,\dots,|a_n|\} .
 \]
 It is easy to see that this is well defined, but it doesn't work very well over 
 a general number field. Returning to our example, we have 
-$H_\dQ(\frac 1 2:1)=2$, while $H_\dQ(\frac{100001}{200001}:1)=200001$, which is 
-much larger. 
+$H_\dQ\left(\frac 1 2:1\right)=2$, while 
+$H_\dQ\left(\frac{100001}{200001}:1\right)=200001$, which is much larger. 
 
-Now let $k$ be a number field. Each finite place $v$ of $k$ is associated with 
+Let $k$ be a number field. Each finite place $v$ of $k$ is associated with 
 a prime $\fp_v\subset \fo=\fo_k$. We set 
 \[
   \|a\|_v = |a|_{\fp_v} 
         = \begin{cases}
             \#(\fo/\fp_v)^{-v_\fp(a)} & \text{if $a\ne 0$} \\
-            0                         & \text{if $a=0$}
+            0                         & \text{if $a=0$} .
           \end{cases}
 \]
 We call $\|\cdot\|_v$ the canonical absolute value associated with $v$. If $v$ 
@@ -1422,19 +1429,21 @@ is a real place of $k$, i.e. $v$ corresponds with $i:k\hookrightarrow \dR$, we
 set $\|a\|_v = |i(a)|$. Similarly, if $v$ is a place corresponding to an 
 embedding $i:k\hookrightarrow \dC$ with dense image, we set 
 $\|a\|_v=|i(a)|^2$. Note that $\|\cdot\|_v$ is \emph{not} an absolute value 
-because it doesn't satisfy the triangle inequality. Recall the following 
+because it doesn't satisfy the triangle inequality. The following result, 
+briefly touched on in \ref{sec:crash-course}, is known as the \emph{product 
+formula}. 
 
-\begin{theorem}[product formula]
+\begin{theorem}
 Let $k$ be a global field. For $a\in k^\times$, we have 
 \[
-  \prod_v \|a\|_v = 1
+  \prod_v \|a\|_v = 1 .
 \]
 \end{theorem}
 \begin{proof}
 We'll only look at $k=\dQ$. Take $a=\pm \prod_p p^{v_p(a)}\in \dQ^\times$. We 
 have $\|a\|_p=p^{-v_p(a)}$ for each $p$, while $\|a\|_\infty = |a|$. Thus
 \[
-  \prod_v \|a\|_v = \|a\|_\infty\cdot \prod_p p^{-v_p(a)}  = \prod_p p^{v_p(a)}\cdot \prod_p p^{-v_p(a)} = 1
+  \prod_v \|a\|_v = \|a\|_\infty\cdot \prod_p p^{-v_p(a)}  = \prod_p p^{v_p(a)}\cdot \prod_p p^{-v_p(a)} = 1 .
 \]
 For general $k/\dQ$, one uses the norm map $N:k\to \dQ$ to prove the product 
 formula for $k$.
@@ -1442,7 +1451,7 @@ formula for $k$.
 
 For $k$ a general number field, we define $H_k:\dP^n(k)\to [1,\infty)$ by 
 \[
-  H_k(a_0:\cdots:a_n) = \prod_v \sup\{ \|a_0\|_v,\dots,\|a_n\|_v\}
+  H_k(a_0:\cdots:a_n) = \prod_v \sup\left\{\|a_0\|_v,\dots,\|a_n\|_v\right\} .
 \]
 If $k=\dQ$ and the $a_i\in \dZ$ with $\gcd(a_0,\dots,a_n)=1$, then 
 $\max\{|a_0|_p,\dots,|a_n|_p\}=1$. Thus 
@@ -1451,12 +1460,12 @@ well-defined because of the product formula. For $c\in k^\times$, we have
 \begin{align*}
   \prod_v \sup\{\|ca_0\|_v,\dots,\|ca_n\|_v\} 
     &= \prod_v \|c\|_v \prod_v \sup\{\|a_0\|_v,\dots,\|a_n\|_v\} \\
-    &= 1\cdot \prod_v \sup\{\|a_0\|_v,\dots,\|a_n\|_v\}
+    &= 1\cdot \prod_v \sup\{\|a_0\|_v,\dots,\|a_n\|_v\} ,
 \end{align*}
 which implies $H_k(c a_0:\cdots:c a_n)=H_k(a_0:\cdots:a_n)$. It turns out that 
 for each $c\in \dR$, we have  
 \[
-  \#\{a\in \dP^n(k) : H_k(a)\leqslant c\} = O\left(c^{(n+1)[k:\dQ]}\right)
+  \#\{a\in \dP^n(k) : H_k(a)\leqslant c\} = O\left(c^{(n+1)[k:\dQ]}\right) .
 \]
 In particular, the set on the left is finite. 
 
@@ -1495,12 +1504,11 @@ dependence of the height on $X$.
 Let $X$ be a nice variety over a number field $k$. Then there exists a unique 
 homomorphism $h:\picard(X)\to \dR^{X(\bar k)}/O(1)$ such that 
 \begin{enumerate}
-  \item If $D$ is very ample, then $h_D=h\circ \phi_D+O(1)$. (normalization)
-  \item For a morphism $\phi:X\to Y$ of nice $k$-varieties, we have 
-    $h_{X,\phi^\ast D} = h_{Y,D}\circ\phi + O(1)$ for all $D\in \divisor(Y)$. 
-    (functoriality)
-  \item For all effective $D$, $h_D\geqslant O(1)$ on the complement of the 
-    base locus of $D$. (positivity)
+  \item (Normalization). If $D$ is very ample, then $h_D=h\circ \phi_D+O(1)$. 
+  \item (Functoriality). For a morphism $\phi:X\to Y$ of nice $k$-varieties, we 
+    have $h_{X,\phi^\ast D} = h_{Y,D}\circ\phi + O(1)$ for all $D\in \divisor(Y)$. 
+  \item (Positivity). For all effective $D$, $h_D\geqslant O(1)$ on the 
+    complement of the base locus of $D$. 
 \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -1525,7 +1533,7 @@ if $D$ is symmetric, we have
   h_{A,D}\circ[n]+O(1)
     &= h_{A,[n]^\ast D} + O(1) \\
     &= h_{A,n^2 D}+O(1) \\
-    &= n^2 h_{A,D}+O(1)
+    &= n^2 h_{A,D}+O(1) .
 \end{align*}
 So for all $x\in A(\bar k)$, we have 
 $h_{A,D}(n\cdot x) = n^2 h_{A,D}(x)+O(1)$. In other words, repeated addition 
@@ -1573,7 +1581,7 @@ For $c\in \picard(A)$, the N\'eron-Tate height $\widehat h_c$ has many nice
 properties, for example 
 \begin{align*}
   \widehat h_c(n\cdot x) &= n^2 \widehat h_c(x) \\
-  \widehat h_c(x+y)+\widehat h_c(x-y) &= 2\left(\widehat h_c(x)+\widehat h_c(y)\right)
+  \widehat h_c(x+y)+\widehat h_c(x-y) &= 2\left(\widehat h_c(x)+\widehat h_c(y)\right) .
 \end{align*}
 The first is easy to show using properties of Weil heights, and the second is 
 an easy consequence of the following lemma.
@@ -1589,9 +1597,10 @@ is bilinear.
 \end{lemma}
 \begin{proof}
 We are trying to prove that for $x,y,z\in A(\bar k)$, we have 
-\[
-  \widehat h_c(x+y+z)-\widehat h_c(x+y)-\widehat h_c(z) = \left(\widehat h_c(x+z)-\widehat h_c(x)-\widehat h_c(z)\right) + \left(\widehat h_c(y+z)-\widehat h_c(y)-\widehat h_c(z)\right) \text{.}
-\]
+\begin{align*}
+  \widehat h_c(x+y+z) &-\widehat h_c(x+y)-\widehat h_c(z) \\
+    &= \left(\widehat h_c(x+z)-\widehat h_c(x)-\widehat h_c(z)\right) + \left(\widehat h_c(y+z)-\widehat h_c(y)-\widehat h_c(z)\right) \text{.}
+\end{align*}
 This is equivalent to 
 \begin{equation}\label{eq:height-quadratic}
   -\widehat h_c(x+y+z)+\widehat h_c(x+y)+\widehat h_c(x+z)+\widehat h_c(y+z)-\widehat h_c(x)-\widehat h_c(y)-\widehat h_c(z) = 0 \text{.}
@@ -1627,19 +1636,21 @@ Notation is as in \autoref{lem:height-quadratic}. For $\# S=3$ this is
 just \cite[2.7]{gm13}. The general case follows easily by induction. 
 \end{proof}
 
-
-
-If $c$ is the class of a very ample line bundle, then 
+\begin{theorem}
+Let $c$ be the class of a very ample line bundle. Then 
 $\widehat h_c\geqslant 0$ and for all $x\in A(\bar k)$, 
 $\widehat h_c(x)=0$ if and only if $x$ is torsion. 
-Indeed, if $x$ is torsion, then for some $n>1$, we have 
+\end{theorem}
+\begin{proof}
+If $x$ is torsion, then for some $n>1$, we have 
 $n^2 \widehat h_c(x)=\widehat h_c(n x)=\widehat h_c(x)$, which implies 
 $\widehat h_c(x)=0$. On the other hand, if $\widehat h_c(x)=0$, then 
 $\widehat h_c(n\cdot x)=0$ for all $n$. The set 
 $\{x,2\cdot x,3\cdot x,\dots\}$ is contained inside $A(L)$, where $L=k(x)$ is 
 the finite extension of $k$ generated by (the coordinates of) $x$. Thus 
-$\mathbb{N}\cdot x\subset \{a\in A(L):\widehat h_c(a)\leqslant 0\}$, which we 
+$\dN \cdot x\subset \{a\in A(L):\widehat h_c(a)\leqslant 0\}$, which we 
 know is a finite set. It follows that $x$ is torsion. 
+\end{proof}
 
 \begin{example}
 Let $E/\dQ$ be an elliptic curve. Then a divisor on $E$ is just a formal sum 
@@ -1696,11 +1707,11 @@ $\langle\cdot,\cdot\rangle_\theta$ is positive-semidefinite. For any
 $c\in \picard(J)$ for which $\langle\cdot,\cdot\rangle_c$ is 
 positive-semidefinite, set 
 $|x|_c=\sqrt{\langle x,x\rangle_c} = \widehat h_c(x)^{1/2}$. The following 
-theorem is very deep.
+result is very deep.
 
 \begin{theorem}[Vojta's inequality]
 Let $C$ be a nice curve of genus $g\geqslant 2$ over a number field $k$. Let 
-$J=\jac C$, and let $\theta$ be the theta-divisor on $J$. Then there are 
+$J=\jac(C)$, and let $\theta$ be the theta-divisor on $J$. Then there are 
 effectively computable constants $\lambda,\lambda'$ depending only on $C$ and 
 a chosen $x_0\in C(\bar k)$ such that for $x,y\in C\hookrightarrow J$, if 
 $|x|_\theta\geqslant \lambda$ and 
@@ -1719,13 +1730,6 @@ $(g^{-1/2},1]$.
 
 
 
-
-
-
-
-
-
-% notes on 10-10-2013
 
 While the following theorem is due to Faltings, our proof is far easier than 
 the original because it rests on deep properties of height functions. 
