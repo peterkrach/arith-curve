@@ -15,16 +15,16 @@ group. Moreover, $G$ is a \emph{torus}, i.e. is of the form $V/\Lambda$ for
 some complex vector space $V$ and lattice $\Lambda\subset V$. We can realize 
 $G$ as a torus quite explicitly. 
 
-Let $\fg=T_0 G$ be the Lie algebra of $G$. Since $G$ is commutative, the 
-exponential map $\exp:\fg\to G$ is a group homomorphism, and so its image is 
-open (since the map $\fg\to T_0 G$ is surjective). Since $G$ is connected, 
-the image of $\exp:\fg\to G$ is all of $G$, and so we have an exact sequence 
+Let $\fg=\lie(G)$ be the Lie algebra of $G$. Since $G$ is commutative, the 
+exponential map $\exp:\fg\to G$ is a group homomorphism with open image. Since 
+$G$ is connected, the image of $\exp:\fg\to G$ is all of $G$, and so we have an 
+exact sequence 
 \[\xymatrix{
   0 \ar[r] 
     & \Lambda \ar[r] 
     & \fg \ar[r]^-{\exp} 
     & G \ar[r] 
-    & 0
+    & 0 .
 }\]
 There is a natural isomorphism $\Lambda\simeq \h_1(G,\dZ)$. Indeed, we can 
 identify $\fg$ with the set of one-parameter subgroups of $G$, and such a 
@@ -40,7 +40,7 @@ of the exponential map.
 For any $\phi\in \End(G)$, we have an induced map $\phi_\ast$ on 
 $\h_1(G,\dZ)$. Tensoring with $\dQ$, we this gives a representation 
 \[
-  \End(G) \to \End_\dQ{\h_1(G,\dQ)} \simeq M_{2 d}(\dQ)
+  \End(G) \to \End_\dQ{\h_1(G,\dQ)} \simeq \mat_{2 d}(\dQ) .
 \]
 This lets us take the characteristic polynomial $P_\phi\in \dQ[t]$ of $\phi$ 
 for any $\phi\in \End(G)$. In fact, the degree $2 d$ polynomial 
@@ -54,10 +54,10 @@ In light of this, we will think of $\torsion n G$ as a kind of algebraic avatar
 for $\h_1(G,\dZ/n)$. 
 Unfortunately, there is no algebraic analogue of $\h_1(G,\dZ)$, but there is a 
 good substitute. Let $\widehat\dZ=\varprojlim \dZ/n$ be the profinite 
-completion of $\dZ$. The isomorphisms $G[n]\simeq \h_1(G,\dZ/n)$ are 
+completion of $\dZ$. The isomorphisms $\torsion n G\simeq \h_1(G,\dZ/n)$ are 
 compatible, so we get an isomorphism of $\widehat\dZ$-modules 
 \[
-  \tate G := \varprojlim G[n] \isomorphism \varprojlim \h_1(G,\dZ/n) = \h_1(G,\widehat\dZ) \text{.}
+  \tate G := \varprojlim \torsion n G \isomorphism \varprojlim \h_1(G,\dZ/n) = \h_1(G,\widehat\dZ) .
 \]
 Since $\widehat\dZ=\prod_p \dZ_p$, we will consider $\tate G$ only one $p$-part at 
 a time. This is important because if $A$ is an abelian variety over a field of 
@@ -77,30 +77,32 @@ the fiber product
   \torsion n A \ar[r] \ar[d] 
     & 0 \ar[d] \\
   A \ar[r]^-n 
-    & A 
+    & A .
 }\]
 If $n$ is invertible in $k$, then we will have 
 $\torsion n A\simeq (\dZ/n)^{\oplus 2 d}$. However, if $n=p$ and $k$ has 
 characteristic $p$, then for some $r\leqslant d$, 
 there will be an isomorphism of group schemes 
 \[
-   \torsion p A\simeq (\dZ/p)^r\times \alpha_p^{2(d-r)}\times \mu_p^r \text{.}
+   \torsion p A\simeq (\dZ/p)^r\times \boldsymbol\alpha_p^{2(d-r)}\times \boldsymbol\mu_p^r .
 \]
-Here $\alpha_p(R)=\{r\in R:r^p=0\}$ and $\mu_p(R)=\{r\in R:r^p=1\}$ for any 
+Here $\boldsymbol\alpha_p(R)=\{r\in R:r^p=0\}$ and 
+$\boldsymbol\mu_p(R)=\{r\in R:r^p=1\}$ for any 
 $\dF_p$-algebra $R$. One might hope that $\torsion{p^e}{A}$ can be described just as 
-easily for $e>1$, but this is not the case. The group schemes $\torsion{p^e}{A}$ can exhibit 
+easily for $e>1$, but this is not the case. The group schemes $\torsion{p^e}{A}$ 
+exhibit 
 very complicated behavior as $e\to \infty$. Indeed, their ``formal inductive 
-limit'' $\torsion{p^\infty}{A}$, called the Barsotti-Tate group of $A$, carries 
-quite a lot of information about $A$. 
+limit'' $\torsion{p^\infty}{A}$, called the \emph{Barsotti-Tate group} of $A$, 
+carries quite a lot of information about $A$. 
 
 For the rest of this section, fix a prime $\ell$ that is invertible in $k$. 
 The groups $\torsion{\ell^n}{A}$ come with natural surjections 
 $\torsion{\ell^{n+1}}{A}\to \torsion{\ell^n}{A}$ given by $x\mapsto \ell \cdot x$. 
 
-\begin{definition}
+\begin{definition}\label{def:tate-module}
 Let $A$ be an abelian variety. The \emph{$\ell$-adic Tate module of $A$} is 
 \[
-  \tate_\ell A = \varprojlim \torsion{\ell^n}{A} = \{(a_1,a_2,\dots) : a_n\in \torsion{\ell^n}{A},\ell x_{n+1}=x_n\}
+  \tate_\ell A = \varprojlim \torsion{\ell^n}{A} = \{(a_1,a_2,\dots) : a_n\in \torsion{\ell^n}{A}\text{ and }\ell x_{n+1}=x_n\} .
 \]
 \end{definition}
 
@@ -123,10 +125,10 @@ of $A$ (as an abelian variety) defined over $k$ acts on each $\torsion{\ell^n}{A
 hence on $\tate_\ell$ and $\vtate_\ell$. Also, the group $G_k=\gal(\bar k/k)$ acts 
 compatibly on each $\torsion{\ell^n}{A}$, so we get a representation 
 \[
-  \rho_{A,\ell}:G_k\to \operatorname{GL}(\tate_\ell A)\simeq \gl{2 d}{\dZ_\ell} \text{.}
+  \rho_{A,\ell}:G_k\to \operatorname{GL}(\tate_\ell A)\simeq \gl{2 d}{\dZ_\ell} .
 \]
 The action of $\End(A)$ and $G_k$ commute, so we actually have a 
-representation $\End(A)[G_k] \to M_{2 d}(\dZ_\ell)$. We could also write this 
+representation $\End(A)[G_k] \to \mat_{2 d}(\dZ_\ell)$. We could also write this 
 as $G_k \to \aut_{\End(A)\otimes \dZ_\ell}(\tate_\ell A)$. 
 
 \begin{theorem}[Faltings]
@@ -170,14 +172,14 @@ proof. The standard exact sequence for fundamental groups:
     & \pi_1(A_{\bar k}) \ar[r] 
     & \pi_1(A) \ar[r] 
     & G_k \ar[r] 
-    & 1
+    & 1 ,
 }\]
 together with a section $G_k \to \pi_1(A)$ coming from $0\in A(k)$, 
 induces a representation 
 $\rho:G_k\to \aut\left(\pi_1(A_{\bar k})\right)$. This is exactly the action 
 of $G_k$ on $\tate A$, so that we get a canonical isomorphism 
 \[
-  \pi_1(A) \simeq G_k \ltimes_\rho \tate A \text{.}
+  \pi_1(A) \simeq G_k \ltimes_\rho \tate A .
 \]
 In particular, for each prime $\ell$ invertible in $k$, we have an isomorphism 
 $\pi_1(A)^{(\ell)} \simeq \tate_\ell A\ltimes_{\rho_{A,\ell}} G_k$, where 
@@ -187,14 +189,15 @@ $(-)^{(\ell)}$ denotes taking pro-$\ell$ completion.
 It is possible to define the $\ell$-adic representation 
 $\rho_A:G_k\to \gl{2d}{\dZ_\ell}$ without introducing Tate 
 modules. This is the way that things were done ``pre-Tate.'' 
-Let $A[\ell^\infty] = \bigcup_{n\geqslant 1} A[\ell^n]$. As an 
-abelian group, $A[\ell^\infty]\simeq (\dQ/\dZ)[\ell^\infty]$, which we denote 
+Let $\torsion{\ell^\infty}{A} = \bigcup_{n\geqslant 1} \torsion{\ell^n}{A}$. As an 
+abelian group, $\torsion{\ell^\infty}{A}\simeq \torsion{\ell^\infty}{(\dQ/\dZ)}$, 
+which we denote 
 by $\dZ(\ell^\infty)$ (such groups are called quasi-cyclic). It is easy to 
 show that $\End \dZ(\ell^\infty)\simeq \dZ_\ell$ as topological 
 rings, where $\End \dZ(\ell^\infty)$ is given the subset topology in 
 $\prod_{\dZ(\ell^\infty)} \dZ(\ell^\infty)$ and $\dZ(\ell^\infty)$ has the 
 discrete topology. Thus 
-$\aut A[\ell^\infty]\simeq \gl{2 d}{\dZ_\ell}$. The induced 
+$\aut \torsion{\ell^\infty}{A}\simeq \gl{2 d}{\dZ_\ell}$. The induced 
 homomorphism $G_k \to \gl{2 d}{\dZ_\ell}$ is continuous, and 
 (after a change of basis) is the same as $\rho_{A,\ell}$. 
 
@@ -249,7 +252,7 @@ formal factorizations
 \[\xymatrix{
   A 
     & C \ar[l]_-\phi \ar[r]^-f 
-    & B
+    & B .
 }\]
 where $\phi$ is an isogeny. From \cite[5.12]{gm13}, %\cite[V.18]{mu08}
 there exists an integer $n$ 
@@ -269,11 +272,11 @@ form $A\xrightarrow n A$. Thus
 
 Write $\End(A)=\hom_{\mathsf{AbVar}_k}(A,A)$ for ring of endomorphisms of $A$ 
 as an abelian variety over $k$. If $n\circ f=0$ for some $f:A\to A$, then the 
-image of $f$ is contained in the (discrete) subvariety $A[n]\subset A$. Since 
+image of $f$ is contained in the (discrete) subvariety $\torsion n A\subset A$. Since 
 $f(A)$ is irreducible, we have $f=0$. Thus $\End A$ is torsion-free, so it 
 embeds into the ring
 \[
-  \End^\circ A = \End_{\mathsf{AbVar}_k^\mathrm{iso}}(A) = \End(A)\otimes\dQ \text{.}
+  \End^\circ A = \End_{\mathsf{AbVar}_k^\mathrm{iso}}(A) = \End(A)\otimes\dQ .
 \]
 Since $\End^\circ A$ can be defined in terms of the category 
 $\mathsf{AbVar}_{k}^\mathrm{iso}$, it only depends on the isogeny class of 
@@ -293,7 +296,7 @@ $B_i$ are simple and pairwise non-isogenous over $k$. A standard argument
 (which works in any semisimple abelian category) shows that the rings 
 $D_i=\End^\circ(B_i)$ are division algebras, and moreover 
 \[
-  \End^\circ(A) \simeq \prod_{i=1}^r M_{e_i}\left(D_i\right) \text{.}
+  \End^\circ(A) \simeq \prod_{i=1}^r M_{e_i}\left(D_i\right) .
 \]
 Thus the ring $\End^\circ(A)$ is semisimple, so we know that both the $e_i$ and 
 the $D_i$ are uniquely determined by $A$. It follows that the decomposition 
@@ -305,7 +308,7 @@ curves. If $A$ is simple, then $\End^\circ(A)$ is a division algebra. If $A$
 is isogenous to $E\times E'$ where $E$ and $E'$ are not isogenous, then 
 $\End^\circ(A)\simeq \End^\circ(E)\times \End^\circ(E')$. On the other hand, if 
 $A$ is isogenous to $E\times E$, then 
-$\End^\circ(A)\simeq M_2\left(\End^\circ(E)\right)$. 
+$\End^\circ(A)\simeq \mat_2\left(\End^\circ(E)\right)$. 
 \end{example}
 
 
@@ -322,15 +325,15 @@ isn't a good definition, but that such an homology group cannot exist.
 First, we need to discuss Frobenius morphisms. Let $p$ be a prime, $q$ a power 
 of $p$, and $\dF_q$ the field with $q$ elements. Let $X$ be a nice variety over 
 $\dF_q$. Choose an embedding $X\hookrightarrow \dP_{\dF_q}^n$. Write 
-$\geomfrob_X:X\to X$ for the map that on projective coordinates is 
+$\geomfrob_X=\geomfrob_{X,q}:X\to X$ for the map that on projective coordinates is 
 \[
-  (a_0:\cdots:a_n) \mapsto (a_0^q:\cdots :a_n^q) \text{.}
+  (a_0:\cdots:a_n) \mapsto (a_0^q:\cdots :a_n^q) .
 \]
 This is well-defined because $x\mapsto x^q$ is a ring homomorphism on 
 $\dF_q$-algebras. So if $X$ is the zero-set of homogeneous polynomials 
 $f_i\in \dF_q[x_0,\dots,x_n]$ and $a\in X$, then 
 \[
-  f_i(a_0^q:\cdots:a_n^q) = f_i(a_0:\cdots:a_n)^q = 0
+  f_i(a_0^q:\cdots:a_n^q) = f_i(a_0:\cdots:a_n)^q = 0 ,
 \]
 so $\geomfrob_X(a)\in X$. Note that we have to raise to the $q$-th power rather 
 than the $p$-th power because $x\mapsto x^p$ does not fix all elements of 
@@ -362,13 +365,13 @@ a well-defined endomorphism. One has $\phi^2(x,y)=(x,-y)$, so $\phi^2=-1$ in
 $D$. Write $\Phi$ for the base-change of the Frobenius morphism on the elliptic 
 curve $y^2=x^3-x$ over $\dF_p$ to $\overline{\dF_p}$. We have  
 \[
-  \Phi \phi(x,y) = (-x^p, \alpha^p y^p) = -(-x^p, \alpha^p y^p) = -\phi \Phi(x,y) \text{,}
+  \Phi \phi(x,y) = (-x^p, \alpha^p y^p) = -(-x^p, \alpha^p y^p) = -\phi \Phi(x,y) ,
 \]
 so $\phi \Phi=-\Phi \phi$ in $D$. It turns out that $\Phi^2=-p$ (see  
 \autoref{eg:serre}), so $D$ is the standard quaternion algebra with parameters 
 $(-1,-p)$, i.e.  
 \[
-  D = \dQ\left\langle i,j,k : i^2=-1,j^2=-p,i j=k, j i=-k\right\rangle \text{.}
+  D = \dQ\left\langle i,j,k : i^2=-1,j^2=-p,i j=k, j i=-k\right\rangle .
 \]
 \end{example}
 
@@ -377,15 +380,13 @@ it to be functorial in $E$, so there would be an action of $D$ on $V$. But we
 would also want $V$ to be two-dimensional over $\dQ$. Since $D$ is 
 four-dimensional over $\dQ$, this would mean that $V$ has $D$-dimension $1/2$, 
 which is nonsense. Alternatively, we would have an (injective) ring 
-homomorphism $D\to \End(V)\simeq M_2(\dQ)$. Since both rings have the same 
-dimension, this would yield $D\simeq M_2(\dQ)$. But $M_2(\dQ)$ has 
+homomorphism $D\to \End(V)\simeq \mat_2(\dQ)$. Since both rings have the same 
+dimension, this would yield $D\simeq \mat_2(\dQ)$. But $\mat_2(\dQ)$ has 
 zero-divisors and $D$ does not, so this cannot be the case. 
 
 
 
 
-
-% notes on 10-22-2013
 
 Let $A$ and $B$ be abelian varieties over a field $k$. If $f:A\to B$ is an 
 isogeny, the \emph{degree} of $f$ is $[k(A):k(B)]$ via the embedding 
@@ -398,7 +399,8 @@ equal to $\# \ker (f)(\bar k)$.
 \begin{example}
 Let $n\ne 0$, and consider the isogeny $[n]:A\to A$ that is multiplication by 
 $n$. One can show that $\deg[n]=n^{2 d}$, where $d=\dim A$. To see this,  note 
-that $A[n]=\ker[n]\simeq (\dZ/n)^{\oplus 2 d}$, at least if $n\in k^\times$. 
+that $\torsion n A = \ker[n]\simeq (\dZ/n)^{\oplus 2 d}$, at least if 
+$n\in k^\times$. 
 \end{example}
 
 \begin{example}
@@ -427,7 +429,7 @@ By this we mean the following. Choose a $\dQ$-basis $e_1,\dots,e_r$ of
 $\End^\circ(A)$. The theorem claims that there is a homogeneous polynomial 
 $f\in \dQ[x_1,\dots,x_r]$ of degree $2 d$ such that 
 \[
-  \deg\left(c_1 e_1 + \cdots + c_r e_r\right) = f(c_1,\dots,c_r) \text{.}
+  \deg\left(c_1 e_1 + \cdots + c_r e_r\right) = f(c_1,\dots,c_r) .
 \]
 It follows that for any $\alpha\in \End(A)$, there exists a unique polynomial 
 $P_\alpha\in \dQ[x]$, called the \emph{characteristic polynomial} of $\alpha$, 
@@ -438,12 +440,12 @@ coefficients.
 \begin{example}
 Let $k$ be an imaginary quadratic field, $\fo=\fo_k$, and let 
 $E=\dC/\fo$. One has $\End(E)=\fo$ and $\End^\circ(E)=k$. It turns out that the 
-degree map $\deg:k\to \dQ$ is the classical norm map $N_{k/\dQ}$.
+degree map $\deg:k\to \dQ$ is the classical norm map $\norm_{k/\dQ}$.
 More generally, let $T$ be a complex torus, written $\dC^d/\Lambda$. Let 
 $\alpha$ be an endomorphism of $T$. We can lift $\alpha$ to a linear map 
 $\widetilde\alpha:\dC^d\to \dC^d$. One has 
 \[
-  \End(A) = \{\phi\in \End_\dC(\dC^d) : \phi(\Lambda)\subset \Lambda\} \text{.}
+  \End(A) = \{\phi\in \End_\dC(\dC^d) : \phi(\Lambda)\subset \Lambda\} .
 \]
 Note that $\Lambda=\h^1(T,\dZ)$. It is straightforward to check that 
 \[
@@ -451,31 +453,28 @@ Note that $\Lambda=\h^1(T,\dZ)$. It is straightforward to check that
     = \#\ker(\alpha) 
     = \# (\Lambda/\widetilde\alpha\Lambda) 
     = \det(\widetilde\alpha,\h_1(T,\dZ)) 
-    = \det\left(\alpha_\ast,\h_1(T,\dZ)\right) \text{.}
+    = \det\left(\alpha_\ast,\h_1(T,\dZ)\right) .
 \]
-Thus $\deg(n-\alpha)=\det(n\cdot 1-\alpha_\ast,\h_1(T,\dZ))$, so 
-$P_\alpha=\det\left(t\cdot 1-\alpha_\ast,\h_1(T,\dZ)\right)$. 
+Since $\deg(n-\alpha)=\det(n\cdot 1-\alpha_\ast,\h_1(T,\dZ))$ for all $n$, we 
+conclude that$P_\alpha=\det\left(t\cdot 1-\alpha_\ast,\h_1(T,\dZ)\right)$. 
 \end{example}
 
-Fix a prime $\ell$ invertible in $k$. Recall that we have an inverse system of 
-$G_k$-modules 
-\[\xymatrix{
-  A[\ell] 
-    & \ar[l]_-\ell A[\ell^2]
-    & \ar[l]_-\ell A[\ell^3] 
-    & \ar[l] \cdots
-}\]
-where here we think of $A[\ell^n]$ as $A(\bar k)[\ell^n]$. The inverse limit is 
-$\tate_\ell A=\varprojlim A[\ell^n]$, and we set 
-$\vtate_\ell A=\tate_\ell A\otimes \dQ$. We call $\tate_\ell A$ and 
-$\vtate_\ell A$ the \emph{$\ell$-adic Tate modules associated with $A$}. We 
-will use $\vtate_\ell$ as an $\ell$-adic avatar for 
-$\h_1(A,\dQ_\ell)$. In fact, $\tate_\ell A\simeq \h^1(\et A,\dZ_\ell)^\vee$ as a 
-$G_k$-module. (This is essentially a tautology. For lisse $\ell$-adic sheaves 
-$\sF$ on $A$, one has 
+Recall the Tate module $\tate_\ell A$ as in \autoref{def:tate-module}. To make 
+our analogy between $\tate_\ell A$ and $\h_1(A,\dA_\ell)$ precise, we have the 
+following theorem: 
+
+\begin{theorem}
+There is a natural isomorphism $\tate_\ell A = \h^1(\et A,\dZ_\ell)^\vee$. 
+\end{theorem}
+\begin{proof}
+This is essentially a tautology. By \cite[II.2.4]{de77}, for lisse $\ell$-adic 
+sheaves 
+$\sF$ on $A$ one has 
 $\h^\bullet(A,\sF) = \h^\bullet\left(\pi_1(A),\sF_0\right)$, where $\sF_0$ is 
-the stalk of $\sF$ at $0$. For $\sF=\dZ_\ell$, this gives 
-$\h^1(\et A,\dZ_\ell) = \hom(\tate A,\dZ_\ell) = (\tate_\ell A)^\vee$.)
+the stalk of $\sF$ at $0$. By \cite[10.37]{gm13}, we know that 
+$\pi_1(A)=\tate(A)$. For $\sF=\dZ_\ell$, this gives 
+$\h^1(\et A,\dZ_\ell) = \hom(\tate A,\dZ_\ell) = (\tate_\ell A)^\vee$.
+\end{proof}
 
 \begin{theorem}
 Let $\ell$ be a prime invertible in $k$. For any $\alpha\in \End(A)$, we have 
@@ -489,11 +488,11 @@ This is nontrivial. See \cite[I.10.20]{mi-av}.
 For $\alpha\in \End^\circ(A)$, we have $P_\alpha(\alpha)=0$. 
 \end{corollary}
 \begin{proof}
-We use the fact (see \cite[I.10.15]{mi-av}) that the natural map 
+We use the fact \cite[I.10.15]{mi-av} that the natural map 
 \[
   \End(A)\otimes\dZ_\ell \to \End_{\dZ_\ell} \left(\tate_\ell A\right)
 \]
-is injective. In $\End(\tate_\ell A)$, one has $P_\alpha(\alpha)=0$ by the 
+is injective. In $\End(\tate_\ell A)$, we have $P_\alpha(\alpha)=0$ by the 
 Cayley-Hamilton theorem. Injectivity tells us that 
 $P_\alpha(\alpha)=0$ in $\End(A)\otimes\dZ_\ell$, and since $\End(A)$ is 
 torsion-free, we see that $P_\alpha(\alpha)=0$ in $\End(A)$.
@@ -504,7 +503,7 @@ on $\tate_\ell A$ is in $\dZ[t]$, and is independent of $\ell$. This is highly
 non-obvious. Note that $A\mapsto \tate_\ell A$ is a functor from abelian varieties 
 over $k$ to $\dZ_\ell$-representations of $G_k$. If $k$ has characteristic $p$ 
 and we want to assign a $p$-adic representation of $G_k$ to an abelian variety, 
-we have to work harder. Of course, $T_p A$ is a $\dZ_p$-module with a 
+we have to work harder. Of course, $\tate_p A$ is a $\dZ_p$-module with a 
 $G_k$-action, but there examples when $\rank_{\dZ_p} \tate_p A < 2\dim A$. In this 
 case, instead of studying $\tate_p A$, (essentially the $p$-adic \'etale cohomology 
 of $A$) one should study the crystalline or rigid cohomology of $A$. If the 
@@ -541,13 +540,13 @@ Let $f:A\to B$ be an isogeny. For each $e$, we have an exact sequence
 \[\xymatrix{
   0 \ar[r] 
     & C \ar[r] 
-    & A[\ell^e] \ar[r]^-f 
-    & A[\ell^e] \ar[r]
-    & 0\text{,}
+    & \torsion{\ell^e}{A} \ar[r]^-f 
+    & \torsion{\ell^e}{A} \ar[r]
+    & 0 ,
 }\]
-where $C$ is independant of $e$ if $e\gg 1$ (since $C\subset \ker(f)$, a finite 
+where $C$ is independent of $e$ if $e\gg 1$ (since $C\subset \ker(f)$, a finite 
 group). At the level of Tate modules, if $f_\ast(x)=0$, then 
-$f(x_i)=0$ in $B[\ell^i]$ for all $i$, so each $x_i\in C$. But $C$ is a finite 
+$f(x_i)=0$ in $\torsion{\ell^i}{B}$ for all $i$, so each $x_i\in C$. But $C$ is a finite 
 group, so it contains no nonzero sequences $(x_i)$ with $\ell x_{i+1}=x_i$ for 
 all $i$. Thus $x=0$, so $f_\ast:\tate_\ell A\to \tate_\ell B$ is injective. Since 
 $\tate_\ell A$ and $\tate_\ell B$ have the same rank, the map 
@@ -572,7 +571,7 @@ Here and elsewhere, if $\cA$ is an additive category, we write
 $\cA\otimes\dQ$ for the localization of $\cA$ at the class of morphisms 
 $n\cdot 1_A$, $n\in \dZ\smallsetminus 0$.
 
-It turns out that $P_A(0)=\deg(-\geomfrob_A)=\deg(\geomfrob_A)=q^g$; this can be verified 
+It turns out that $P_A(0)=\deg(-\geomfrob_A)=\deg(\geomfrob_A)=q^d$; this can be verified 
 by a direct (but messy) computation. A more interesting quantity is 
 $P_A(1)=\deg(1-\geomfrob_A)$. Let $f=1-\geomfrob_A$. We claim that $f:A\to A$ is \'etale. 
 Essentially, the map $d f:\operatorname{Lie}(A) \to \operatorname{Lie}(A)$ is 
@@ -584,7 +583,7 @@ quantity $\# A(\dF_q)$ is isogeny-invariant! This fails over number fields.
 
 Let's specialize to elliptic curves. Let $E$ be an elliptic curve over 
 $\dF_q$. We have $P_E(t)=t^2-a t+q$, for some integer $a=a(E)$. One calls $a$ 
-the trace of Frobenius. Indeed, $a=\trace(\geomfrob_{E,\ast},\tate_\ell)$ for 
+the trace of Frobenius. Indeed, $a=\trace(\geomfrob_{E,\ast},\tate_\ell A)$ for 
 all $\ell\ne p$. Since $\# E(\dF_p)=P_A(1)=1-a+q$, we could have defined 
 $a=1+q-\# E(\dF_q)$. Since $\# \dP^1(\dF_q)=q+1$, we can think of $a$ as an 
 arithmetically interesting ``error term'' measuring how much $E(\dF_q)$ and 
@@ -593,7 +592,7 @@ $\dP^1(\dF_q)$ differ.
 \begin{theorem}[Hasse bound]
 We have $|a| \leqslant 2\sqrt q$, i.e. 
 \[
-  | \# E(\dF_q) - (q+1)| \leqslant 2\sqrt q \text{.}
+  | \# E(\dF_q) - (q+1)| \leqslant 2\sqrt q .
 \]
 \end{theorem}
 \begin{proof}
@@ -627,12 +626,12 @@ roots of $P_E$ have absolute value $\sqrt q$. Indeed, one computes
   \left|\frac{a\pm \sqrt{a^2-4 q}}{2}\right| 
     = \left|\frac{a\pm \sqrt{4 q-a^2} i}{2}\right| 
     = \sqrt{\frac{a^2}{4} + \frac{4 q-a^2}{4}}
-    = \sqrt q \text{.}
+    = \sqrt q .
 \]
-If $6$ is a unit in $\dF_q$, then we can write $E$ as $y^2=x^3+a x+b$. It 
-follows that 
+If $\dF_q$ has characteristic $\geqslant 5$, we can write $E$ as 
+$y^2=x^3+a x+b$. It follows that 
 \[
-  \# E(\dF_q) = q+1 + \sum_{x\in \dF_q} \left(\frac{x^3+a x+b}{q}\right) \text{,}
+  \# E(\dF_q) = q+1 + \sum_{x\in \dF_q} \left(\frac{x^3+a x+b}{q}\right) ,
 \]
 where $\big(\frac{c}{q}\big)=0$ if $c=0$, $1$ if $c$ is a square in $\dF_q$, 
 and $-1$ otherwise. 
